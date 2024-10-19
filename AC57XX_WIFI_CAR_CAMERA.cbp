@@ -1,0 +1,1058 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="AC57XX_WIFI_CAR_CAMERA" />
+		<Option compiler="pi32v2_r3_lto_compiler" />
+		<Build>
+			<Target title="Release">
+				<Option output="cpu/dv17/tools/sdk.elf" prefix_auto="0" extension_auto="0" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="pi32v2_r3_lto_compiler" />
+				<Compiler>
+					<Add option="-flto" />
+					<Add option="-w" />
+					<Add option="-g" />
+					<Add option="-Wuninitialized" />
+					<Add option="-Wno-invalid-noreturn" />
+					<Add option="-fno-common" />
+					<Add option="-integrated-as" />
+					<Add option="-Oz" />
+					<Add option="-fallow-pointer-null" />
+					<Add option="-fprefer-gnu-section" />
+					<Add option="-Wno-shift-negative-value" />
+					<Add option="-mllvm -pi32v2-large-program=true" />
+					<Add option="-fms-extensions" />
+					<Add option="-fno-unwind-tables" />
+					<Add option="-ffunction-sections" />
+					<Add option="-fdata-sections" />
+					<Add option="-fmessage-length=0" />
+					<Add option="-U__STRICT_ANSI__" />
+					<Add option="-DSUPPORT_MS_EXTENSIONS" />
+					<Add option="-DCONFIG_CPU_DV17" />
+					<Add option="-DCONFIG_RELEASE_ENABLE" />
+					<Add option="-DCONFIG_FREE_RTOS_ENABLE" />
+					<Add option="-DCONFIG_USE_RTOS" />
+					<Add option="-DCONFIG_EQ_SUPPORT_ASYNC" />
+					<Add option="-DCONFIG_NET_ENABLE=1" />
+					<Add option="-DCONFIG_WIFI_ENABLE" />
+					<Add option="-D_POSIX_SOURCE" />
+					<Add option="-D__BANK_ECDH_ENTRY=" />
+					<Add option="-D__BANK_ECDH=" />
+					<Add option="-D__BANK_ENC=" />
+					<Add option="-D__BANK_ENC_ENTRY=" />
+					<Add option="-D__BANK_LMP_MASTER_ENTRY=" />
+					<Add option="-D__BANK_LMP_MASTER=" />
+					<Add option="-D__BANK_LMP_SLAVE=" />
+					<Add option="-D__BANK_LMP_SLAVE_ENTRY=" />
+					<Add option="-D__BANK_A2DP=" />
+					<Add option="-D__BANK_A2DP_ENTRY=" />
+					<Add option="-D__BANK_AVCTP=" />
+					<Add option="-D__BANK_AVCTP_ENTRY=" />
+					<Add option="-D__BANK_BT_HID=" />
+					<Add option="-D__BANK_BT_HID_ENTRY=" />
+					<Add option="-D__BANK_RFCOMM=" />
+					<Add option="-D__BANK_RFCOMM_ENTRY=" />
+					<Add option="-D__BANK_SDP=" />
+					<Add option="-D__BANK_SDP_ENTRY=" />
+					<Add option="-DFS_VERSION=0x020001" />
+					<Add option="-DFATFS_VERSION=0x020101" />
+					<Add option="-DSDFILE_VERSION=0x020000" />
+					<Add option="-DDEVFS_VERSION=0x020000" />
+					<Add option="-DRAMFS_VERSION=0x010000" />
+					<Add option="-DAUDIO_SERVER_VERSION=0x020000" />
+					<Add option="-DSERVER_CORE_VERSION=0x020000" />
+					<Add option="-DUI_SERVER_VERSION=0x020002" />
+					<Add option="-DUSB_SERVER_VERSION=0x030200" />
+					<Add option="-DVIDEO_DEC_SERVER_VERSION=0x020001" />
+					<Add option="-DVIDEO_REC_SERVER_VERSION=0x020102" />
+					<Add option="-DVIDEO_UNPKG_SERVER_VERSION=0x020000" />
+					<Add option="-DVIDEO_ENGINE_SERVER_VERSION=0x020001" />
+					<Add option="-DVIDEO_PKG_SERVER_VERSION=0x020000" />
+					<Add option="-DCPU_VERSION=0x030200" />
+					<Add option="-DDEV_ISP_VERSION=0x030000" />
+					<Add option="-DDEV_AUDIO_VERSION=0x020000" />
+					<Add option="-DDEV_VIDEO_ENGINE_VERSION=0x020000" />
+					<Add option="-DDEV_SD0_VERSION=0x020000" />
+					<Add option="-DDEV_SD1_VERSION=0x020000" />
+					<Add option="-DDEV_SD2_VERSION=0x020000" />
+					<Add option="-DDEV_USB_VERSION=0x040000" />
+					<Add option="-DDEV_VIDEO_VERSION=0x020100" />
+					<Add option="-DMALLOC_VERSION=0x020000" />
+					<Add option="-DRTOS_VERSION=0x020000" />
+					<Add option="-DSYS_VERSION=0x020001" />
+					<Add option="-DUPGRADE_VERSION=0x030100" />
+					<Add option="-DUPGRADE_SERVER_VERSION=0x010000" />
+					<Add option="-DEVENT_HANDLER_NUM_CONFIG=2" />
+					<Add option="-DEVENT_TOUCH_ENABLE_CONFIG=0" />
+					<Add option="-DEVENT_POOL_SIZE_CONFIG=256" />
+					<Add option="-DCONFIG_EVENT_KEY_MAP_ENABLE=0" />
+					<Add option="-DTIMER_POOL_NUM_CONFIG=15" />
+					<Add option="-DAPP_ASYNC_POOL_NUM_CONFIG=0" />
+					<Add option="-DUSE_SDFILE_NEW=1" />
+					<Add option="-DSDFILE_STORAGE=0" />
+					<Add option="-DVFS_FILE_POOL_NUM_CONFIG=8" />
+					<Add option="-DVFS_ENABLE=1" />
+					<Add option="-DCONFIG_CHRDEV" />
+					<Add option="-DCONFIG_VFS" />
+					<Add option="-DVM_MAX_SIZE_CONFIG=16*1024" />
+					<Add option="-DVM_ITEM_MAX_NUM=256" />
+					<Add option="-DCONFIG_TWS_ENABLE" />
+					<Add option="-DCONFIG_EARPHONE_CASE_ENABLE" />
+					<Add option="-DAUDIO_REC_LITE" />
+					<Add option="-DAUDIO_DEC_LITE" />
+					<Add option="-DAUDIO_REC_POOL_NUM=1" />
+					<Add option="-DAUDIO_DEC_POOL_NUM=3" />
+					<Add option="-DCONFIG_BTCTRLER_TASK_DEL_ENABLE" />
+					<Add option="-DCONFIG_LMP_CONN_SUSPEND_ENABLE" />
+					<Add option="-DCONFIG_LMP_REFRESH_ENCRYPTION_KEY_ENABLE" />
+					<Add option="-DCONFIG_UPDATA_ENABLE" />
+					<Add option="-DCONFIG_OTA_UPDATA_ENABLE" />
+					<Add option="-DCONFIG_ITEM_FORMAT_VM" />
+					<Add option="-DCONFIG_ASR_ENABLE" />
+					<Add option="-DCONFIG_DMS_MALLOC" />
+					<Add option="-DCONFIG_THREAD_ENABLE" />
+					<Add option="-DCONFIG_SBC_CODEC_HW" />
+					<Add option="-DCONFIG_MSBC_CODEC_HW" />
+					<Add option="-DCONFIG_AEC_M=256" />
+					<Add option="-DCONFIG_AUDIO_ONCHIP" />
+					<Add option="-D__GCC_PI32V2__" />
+					<Add option="-DCONFIG_NEW_ECC_ENABLE" />
+					<Add option="-D_XOPEN_SOURCE=700" />
+					<Add option="-D_LIBCPP_HAS_NO_THREADS" />
+					<Add option="-D_LIBCPP_NO_EXCEPTIONS" />
+					<Add option="-D_GNU_SOURCE" />
+					<Add option="-D_LIBCPP_HAS_NO_ALIGNED_ALLOCATION" />
+					<Add option="-D__ELF__" />
+					<Add option="-DTF_LITE_DISABLE_X86_NEON" />
+					<Add option="-DTF_LITE_STATIC_MEMORY" />
+					<Add directory="include_lib" />
+					<Add directory="include_lib/system" />
+					<Add directory="include_lib/system/cpu/dv17" />
+					<Add directory="include_lib/system/generic" />
+					<Add directory="include_lib/system/device" />
+					<Add directory="include_lib/system/fs" />
+					<Add directory="include_lib/update" />
+					<Add directory="include_lib/common" />
+					<Add directory="include_lib/server" />
+					<Add directory="include_lib/ui" />
+					<Add directory="include_lib/ui/res" />
+					<Add directory="apps/common/rf_fcc_tool/includes" />
+					<Add directory="lib/net/device/wireless/WIFI_todo" />
+					<Add directory="apps/wifi_car_camera/include" />
+					<Add directory="include_lib/utils" />
+					<Add directory="include_lib/utils/ui" />
+					<Add directory="include_lib/driver/device" />
+					<Add directory="include_lib/driver/device/video" />
+					<Add directory="apps" />
+					<Add directory="apps/wifi_car_camera" />
+					<Add directory="apps/common/net" />
+					<Add directory="include_lib/net" />
+					<Add directory="include_lib/net/server" />
+					<Add directory="include_lib/device/cpu/dv17" />
+					<Add directory="apps/common/user_tools/include" />
+					<Add directory="include_lib/net/wifi_module" />
+					<Add directory="include_lib/net/hostapdandwpa_supplicant" />
+					<Add directory="include_lib/net/device" />
+					<Add directory="include_lib/net/lwip/port" />
+					<Add directory="include_lib/net/lwip/app" />
+					<Add directory="include_lib/net/lwip/src/include" />
+					<Add directory="apps/wifi_car_camera/wifi" />
+					<Add directory="apps/wifi_car_camera/wifi/include" />
+					<Add directory="apps/wifi_car_camera/wifi/wifi_car_camera/include" />
+					<Add directory="apps/common/product_test_tool/includes" />
+					<Add directory="lib/include/usb/usb_core" />
+					<Add directory="apps/common/user_tools/includes" />
+					<Add directory="apps/demos/includes" />
+				</Compiler>
+				<Linker>
+					<Add option="-flto" />
+					<Add option="--plugin-opt=-pi32v2-always-use-itblock=false" />
+					<Add option="--plugin-opt=-enable-ipra=true" />
+					<Add option="--plugin-opt=-pi32v2-merge-max-offset=4096" />
+					<Add option="--plugin-opt=-pi32v2-enable-simd=true" />
+					<Add option="--plugin-opt=mcpu=r3" />
+					<Add option="--plugin-opt=-enable-movable-region=true" />
+					<Add option="--plugin-opt=-movable-region-section-prefix=movable.slot." />
+					<Add option="--plugin-opt=-global-merge-on-const" />
+					<Add option="--plugin-opt=-inline-threshold=10" />
+					<Add option="--plugin-opt=-inline-normal-into-special-section=true" />
+					<Add option="--plugin-opt=-dont-used-symbol-list=malloc,free,sprintf,printf,puts,putchar" />
+					<Add option="--plugin-opt=save-temps" />
+					<Add option="--sort-common" />
+					<Add option="--dont-complain-call-overflow" />
+					<Add option="--plugin-opt=-used-symbol-file=cpu/dv17/sdk_used_list.used" />
+					<Add option="--plugin-opt=-pi32v2-large-program=true" />
+					<Add option="--start-group" />
+					<Add option="include_lib/liba/dv17/librtos.a" />
+					<Add option="include_lib/liba/dv17/libsdx.a" />
+					<Add option="include_lib/liba/dv17/libres.a" />
+					<Add option="include_lib/liba/dv17/libusb.a" />
+					<Add option="include_lib/liba/dv17/libfs.a" />
+					<Add option="include_lib/liba/dv17/libupgrade.a" />
+					<Add option="include_lib/liba/dv17/libfont.a" />
+					<Add option="include_lib/liba/dv17/libserver_core.a" />
+					<Add option="include_lib/liba/dv17/libui_server.a" />
+					<Add option="include_lib/liba/dv17/libvideo_engine_server.a" />
+					<Add option="include_lib/liba/dv17/libusb_server.a" />
+					<Add option="include_lib/liba/dv17/libvideo_dec_server.a" />
+					<Add option="include_lib/liba/dv17/libvideo_rec_server.a" />
+					<Add option="include_lib/liba/dv17/libaudio_server.a" />
+					<Add option="include_lib/liba/dv17/libvm.a" />
+					<Add option="include_lib/liba/dv17/libsys.a" />
+					<Add option="include_lib/liba/dv17/libdlmalloc.a" />
+					<Add option="include_lib/liba/dv17/libh264.a" />
+					<Add option="include_lib/liba/dv17/libjpeg.a" />
+					<Add option="--whole-archive" />
+					<Add option="include_lib/liba/dv17/libvideo_framework.a" />
+					<Add option="include_lib/liba/dv17/libdev.a" />
+					<Add option="include_lib/liba/dv17/libui.a" />
+					<Add option="include_lib/liba/dv17/libcpu.a" />
+					<Add option="include_lib/liba/dv17/libisp.a" />
+					<Add option="--no-whole-archive" />
+					<Add option="include_lib/liba/dv17/liblog.a" />
+					<Add option="include_lib/liba/dv17/cpr.a" />
+					<Add option="include_lib/liba/dv17/rs_ecc.a" />
+					<Add option="include_lib/liba/dv17/aac_enc_lib.a" />
+					<Add option="include_lib/liba/dv17/dv17_aac_dec_lib.a" />
+					<Add option="include_lib/liba/dv17/lib_usb_syn.a" />
+					<Add option="include_lib/liba/dv17/libhsm.a" />
+					<Add option="include_lib/liba/dv17/libwifi_dev.a" />
+					<Add option="include_lib/liba/dv17/libmbedtls.a" />
+					<Add option="include_lib/liba/dv17/liblwip.a" />
+					<Add option="include_lib/liba/dv17/libjson.a" />
+					<Add option="include_lib/liba/dv17/libftpcli.a" />
+					<Add option="include_lib/liba/dv17/libnet_server.a" />
+					<Add option="include_lib/liba/dv17/libhttp_server.a" />
+					<Add option="include_lib/liba/dv17/libhttp_cli.a" />
+					<Add option="include_lib/liba/dv17/libiperf.a" />
+					<Add option="include_lib/liba/dv17/libcommon.a" />
+					<Add option="include_lib/liba/dv17/librtsp.a" />
+					<Add option="include_lib/liba/dv17/libftpd.a" />
+					<Add option="include_lib/liba/dv17/libsdio_card.a" />
+					<Add option="include_lib/liba/dv17/librtl8189f.a" />
+					<Add option="include_lib/liba/dv17/libhostapd_wpa.a" />
+					<Add option="--end-group" />
+					<Add option="-Tcpu/dv17/sdk.ld" />
+					<Add option="-M=cpu/dv17/tools/sdk.map" />
+					<Add library="C:/JL/pi32/pi32v2-lib/r3/libm.a" />
+					<Add library="include_lib/liba/dv17/secret.a" />
+				</Linker>
+				<ExtraCommands>
+					<Add before="$compiler $options $includes -D__LD__ -E -P cpu\dv17\sdk_used_list.c -o cpu\dv17\sdk_used_list.used" />
+					<Add before="$compiler $options $includes -D__LD__ -E -P cpu\dv17\sdk_ld.c -o cpu\dv17\sdk.ld" />
+					<Add before="$compiler $options $includes -D__LD__ -E -P cpu\dv17\tools\download.c -o cpu\dv17\tools\download.bat" />
+					<Add before="tools\utils\fixbat.exe cpu\dv17\tools\download.bat" />
+					<Add before="$compiler $options $includes -D__LD__ -E -P cpu\dv17\tools\isd_config.c -o cpu\dv17\tools\isd_config.cfg" />
+					<Add after="cpu\dv17\tools\download.bat sdk" />
+					<Mode after="always" />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<Unit filename="apps/common/chip_test/audio_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/common/product_test_tool/communication.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/common/product_test_tool/devices_control.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/common/product_test_tool/includes/product_main.h" />
+		<Unit filename="apps/common/product_test_tool/product_main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/common/product_test_tool/product_port.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/common/rf_fcc_tool/communication.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/common/rf_fcc_tool/includes/communication.h" />
+		<Unit filename="apps/common/rf_fcc_tool/includes/datatype.h" />
+		<Unit filename="apps/common/rf_fcc_tool/includes/rf_fcc_main.h" />
+		<Unit filename="apps/common/rf_fcc_tool/includes/wifi_moudle.h" />
+		<Unit filename="apps/common/rf_fcc_tool/rf_fcc_main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/common/rf_fcc_tool/wifi_moudle.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/common/user_tools/auto_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/common/user_tools/upgrade.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/common/user_tools/usb_cam_h264.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/common/user_tools/user_isp_cfg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/common/user_tools/user_scr_cfg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/common/user_tools/user_scr_draw.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/common/user_tools/user_scr_tool.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/cpp_run_init.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/cxx_runtime.cpp">
+			<Option compiler="pi32v2_r3_lto_compiler" use="1" buildCommand="$compiler $options -std=c++11 -fno-exceptions -fno-rtti $includes -c $file -o $object" />
+		</Unit>
+		<Unit filename="apps/debug.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/demos/aac_dec_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/demos/aac_enc_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/demos/aecfix_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/demos/mpu_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/demos/play_usb_mic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/demos/play_usb_speaker.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/demos/softosd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/demos/test_audio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/demos/usb_host_user.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/flash_write_protect.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/fontinit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/uart2sd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/uvc_53x_upgrade.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/version.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/app_database.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/app_main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/backlight.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/device_mount.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/gsensor/da380.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/gsensor/gSensor_manage.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/gsensor/gma301.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/gsensor/msa300.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/gsensor/stk8312.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/include/GT911.h" />
+		<Unit filename="apps/wifi_car_camera/include/action.h" />
+		<Unit filename="apps/wifi_car_camera/include/ani_style.h" />
+		<Unit filename="apps/wifi_car_camera/include/app_config.h" />
+		<Unit filename="apps/wifi_car_camera/include/app_database.h" />
+		<Unit filename="apps/wifi_car_camera/include/board.h" />
+		<Unit filename="apps/wifi_car_camera/include/ch9.h" />
+		<Unit filename="apps/wifi_car_camera/include/cpu_config.h" />
+		<Unit filename="apps/wifi_car_camera/include/da380.h" />
+		<Unit filename="apps/wifi_car_camera/include/gSensor_manage.h" />
+		<Unit filename="apps/wifi_car_camera/include/gma301.h" />
+		<Unit filename="apps/wifi_car_camera/include/key_voice.h" />
+		<Unit filename="apps/wifi_car_camera/include/menu_parm_api.h" />
+		<Unit filename="apps/wifi_car_camera/include/msa300.h" />
+		<Unit filename="apps/wifi_car_camera/include/stk8312.h" />
+		<Unit filename="apps/wifi_car_camera/include/storage_device.h" />
+		<Unit filename="apps/wifi_car_camera/include/style.h" />
+		<Unit filename="apps/wifi_car_camera/include/style_jl02.h" />
+		<Unit filename="apps/wifi_car_camera/include/style_ly.h" />
+		<Unit filename="apps/wifi_car_camera/include/touch_panel_manager.h" />
+		<Unit filename="apps/wifi_car_camera/include/ui_ctr_def.h" />
+		<Unit filename="apps/wifi_car_camera/include/upgrade_style.h" />
+		<Unit filename="apps/wifi_car_camera/include/usb_cam_h264.h" />
+		<Unit filename="apps/wifi_car_camera/include/usb_types.h" />
+		<Unit filename="apps/wifi_car_camera/include/user_isp_cfg.h" />
+		<Unit filename="apps/wifi_car_camera/include/user_scr_tool.h" />
+		<Unit filename="apps/wifi_car_camera/include/video_dec.h" />
+		<Unit filename="apps/wifi_car_camera/include/video_photo.h" />
+		<Unit filename="apps/wifi_car_camera/include/video_rec.h" />
+		<Unit filename="apps/wifi_car_camera/include/video_system.h" />
+		<Unit filename="apps/wifi_car_camera/include/vrec_icon_osd.h" />
+		<Unit filename="apps/wifi_car_camera/include/vrec_osd.h" />
+		<Unit filename="apps/wifi_car_camera/key_voice.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/parking_detect.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/touch_panel/GT911.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/touch_panel/GT911_B.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/touch_panel/touch_panel_manager.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/ui/style_JL02/ui_action_dec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/ui/style_JL02/ui_action_main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/ui/style_JL02/ui_action_photo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/ui/style_JL02/ui_action_rec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/ui/style_JL02/ui_action_sys.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/ui/style_JL02/ui_action_usb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/ui/style_LY/ui_action_dec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/ui/style_LY/ui_action_photo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/ui/style_LY/ui_action_rec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/ui/style_LY/ui_action_sys.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/ui/style_LY/ui_action_upd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/ui/style_LY/ui_action_usb.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/ui/ui_action_animation.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/usb_app.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/usb_app_cfg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/video_audio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/video_dec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/video_dec_cfg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/video_photo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/video_photo_cfg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/video_rec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/video_rec_cfg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/video_system.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/video_system_cfg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi-tools/RTL_PHY_REG_PG.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi-tools/WL_AP_CONF.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi-tools/WL_EFUSE.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi-tools/WL_STA_CONF.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi-tools/ap_config.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi-tools/iperf_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi-tools/rtw_cache.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi-tools/uaputl_conf.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi-tools/voiceprint_cfg.h" />
+		<Unit filename="apps/wifi_car_camera/wifi/wifi-tools/wf_uart_protocal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi-tools/wf_uart_protocal.h" />
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/ctp_cmd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/ftpd_vfs_reg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/get_image_data.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/include/dev_desc.h" />
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/include/eg_http_server.h" />
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/include/get_image_data.h" />
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/include/net_config.h" />
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/include/net_scr_api.h" />
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/include/net_video_rec.h" />
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/include/network_upgrade.h" />
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/include/packet.h" />
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/include/stream_core.h" />
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/include/strm_video_rec.h" />
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/include/video_bitrate_ctrl.h" />
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/include/video_fps_ctrl.h" />
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/lte_app_task.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/media_file_list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/net_video_rec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/network_mssdp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/network_upgrade.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/packet.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/rt_talk_net.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/rt_talk_voice.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/simple_mov_unpkg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/spec_uart_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/stream/stream_core.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/stream/video_rt_rtsp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/stream/video_rt_tcp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/stream/video_rt_udp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/strm_video_rec.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/video_playback.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/video_preview.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="apps/wifi_car_camera/wifi/wifi_car_camera/wifi_app_task.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="camera/F37_mipi/F37_mipi.h" />
+		<Unit filename="camera/F37_mipi/F37_mipi_ae.h" />
+		<Unit filename="camera/F37_mipi/F37_mipi_awb.h" />
+		<Unit filename="camera/F37_mipi/F37_mipi_iq.h" />
+		<Unit filename="camera/av10/av10.h" />
+		<Unit filename="camera/bg0806_mipi/bg0806_mipi.h" />
+		<Unit filename="camera/bg0806_mipi/bg0806_mipi_ae.h" />
+		<Unit filename="camera/bg0806_mipi/bg0806_mipi_awb.h" />
+		<Unit filename="camera/bg0806_mipi/bg0806_mipi_iq.h" />
+		<Unit filename="camera/f23_mipi/f23_mipi.h" />
+		<Unit filename="camera/f23_mipi/f23_mipi_ae.h" />
+		<Unit filename="camera/f23_mipi/f23_mipi_awb.h" />
+		<Unit filename="camera/f23_mipi/f23_mipi_iq.h" />
+		<Unit filename="camera/gc1004/gc1004.h" />
+		<Unit filename="camera/gc1004/gc1004_ae.h" />
+		<Unit filename="camera/gc1004/gc1004_awb.h" />
+		<Unit filename="camera/gc1004/gc1004_iq.h" />
+		<Unit filename="camera/gc1034/gc1034.h" />
+		<Unit filename="camera/gc1034/gc1034_ae.h" />
+		<Unit filename="camera/gc1034/gc1034_awb.h" />
+		<Unit filename="camera/gc1034/gc1034_iq.h" />
+		<Unit filename="camera/gc2043_dvp/gc2043.h" />
+		<Unit filename="camera/gc2043_dvp/gc2043_ae.h" />
+		<Unit filename="camera/gc2043_dvp/gc2043_awb.h" />
+		<Unit filename="camera/gc2043_dvp/gc2043_iq.h" />
+		<Unit filename="camera/gc2053_mipi/gc2053_mipi.h" />
+		<Unit filename="camera/gc2053_mipi/gc2053_mipi_ae.h" />
+		<Unit filename="camera/gc2053_mipi/gc2053_mipi_awb.h" />
+		<Unit filename="camera/gc2053_mipi/gc2053_mipi_iq.h" />
+		<Unit filename="camera/gm7150/gm7150.h" />
+		<Unit filename="camera/h42/h42.h" />
+		<Unit filename="camera/h42/h42_ae.h" />
+		<Unit filename="camera/h42/h42_awb.h" />
+		<Unit filename="camera/h42/h42_iq.h" />
+		<Unit filename="camera/pr1000/pr1000.h" />
+		<Unit filename="camera/pr2000/pr2000k.h" />
+		<Unit filename="camera/sc1243_dvp/sc1243.h" />
+		<Unit filename="camera/sc1243_dvp/sc1243_ae.h" />
+		<Unit filename="camera/sc1243_dvp/sc1243_awb.h" />
+		<Unit filename="camera/sc1243_dvp/sc1243_iq.h" />
+		<Unit filename="camera/sc2313_dvp/sc2313.h" />
+		<Unit filename="camera/sc2313_dvp/sc2313_ae.h" />
+		<Unit filename="camera/sc2313_dvp/sc2313_awb.h" />
+		<Unit filename="camera/sc2313_dvp/sc2313_iq.h" />
+		<Unit filename="camera/sc2313_mipi/sc2313_mipi.h" />
+		<Unit filename="camera/sc2313_mipi/sc2313_mipi_ae.h" />
+		<Unit filename="camera/sc2313_mipi/sc2313_mipi_awb.h" />
+		<Unit filename="camera/sc2313_mipi/sc2313_mipi_iq.h" />
+		<Unit filename="camera/spec_gc2053_mipi/gc2053_mipi.h" />
+		<Unit filename="camera/spec_gc2053_mipi/gc2053_mipi_ae.h" />
+		<Unit filename="camera/spec_gc2053_mipi/gc2053_mipi_awb.h" />
+		<Unit filename="camera/spec_gc2053_mipi/gc2053_mipi_iq.h" />
+		<Unit filename="camera/tp2850/tp2850.h" />
+		<Unit filename="camera/tp2865/tp2865.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="camera/tp2865/tp2865.h" />
+		<Unit filename="camera/tp9930/tp9930.h" />
+		<Unit filename="cpu/dv17/adc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/adkey.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/adkey1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/board/board_dev_wifi_5701_20241108.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/debug.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_480x272.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_480x272_18bits.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_480x272_8bits.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_HX8369A_MCU.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_HX8369A_SPI_RGB.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_HX9225_MCU.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_ILI8960.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_ILI9806.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_LQ026B3UX01.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_LX50FWB4001_V2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_LYWS030GQ.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_ST7789S.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_T15P00.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_avout.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_avout_hd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_ssd1963.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_vga.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/dvp_lcd_driver/lcd_virtual.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/iokey.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/ldo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/lvds_lcd_driver/lvds_1024x600.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/lvds_lcd_driver/lvds_1280x800.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/lvds_lcd_driver/lvds_1920x480.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/1280x800_RP.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/1280x800_RP_ch.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/dsi_dcs_1lane_16bit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/dsi_dcs_1lane_24bit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/dsi_vdo_2lane_1280x480_EK79030.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/dsi_vdo_2lane_24bit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/dsi_vdo_2lane_bs_t40_l4.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/dsi_vdo_2lane_st7701s.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/dsi_vdo_4lane_1080p.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/dsi_vdo_4lane_1280x480_EK79030.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/dsi_vdo_4lane_720p.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/dsi_vdo_4lane_720p_rm68200ga1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/lcd_mipi_4lane_s8500l0.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/mipi_lcd_1280x400_wt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/mipi_lcd_1280x480.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/mipi_lcd_1280x480_ICN9706.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/mipi_lcd_1280x720_RM68200GA1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/mipi_lcd_1600x400_wt1098802g01.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/mipi_lcd_1600x400_wt1098802g01_1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/mipi_lcd_1920x380_OTA7290B.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/mipi_lcd_driver/mipi_lcd_1920x480_OTA7290B.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/power_inf.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/setup.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/static_memory_alloc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cpu/dv17/uart_key.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="include_lib/common/common.h" />
+		<Unit filename="include_lib/json_c/arraylist.h" />
+		<Unit filename="include_lib/json_c/json.h" />
+		<Unit filename="include_lib/json_c/json_c_version.h" />
+		<Unit filename="include_lib/json_c/json_config.h" />
+		<Unit filename="include_lib/json_c/json_debug.h" />
+		<Unit filename="include_lib/json_c/json_inttypes.h" />
+		<Unit filename="include_lib/json_c/json_object.h" />
+		<Unit filename="include_lib/json_c/json_object_iterator.h" />
+		<Unit filename="include_lib/json_c/json_pointer.h" />
+		<Unit filename="include_lib/json_c/json_tokener.h" />
+		<Unit filename="include_lib/json_c/json_util.h" />
+		<Unit filename="include_lib/json_c/linkhash.h" />
+		<Unit filename="include_lib/json_c/printbuf.h" />
+		<Unit filename="include_lib/net/HSM/hsm.h" />
+		<Unit filename="include_lib/net/device/eth/eth_phy.h" />
+		<Unit filename="include_lib/net/device/eth/ethmac.h" />
+		<Unit filename="include_lib/net/device/eth/mdio_bus.h" />
+		<Unit filename="include_lib/net/device/wifi_dev.h" />
+		<Unit filename="include_lib/net/ftpserver/stupid-ftpd.h" />
+		<Unit filename="include_lib/net/hostapdandwpa_supplicant/wpa_supplicant_event.h" />
+		<Unit filename="include_lib/net/http/http_server.h" />
+		<Unit filename="include_lib/net/lwip/app/cdp/cdp.h" />
+		<Unit filename="include_lib/net/lwip/app/ctp/ctp.h" />
+		<Unit filename="include_lib/net/lwip/app/mssdp/mssdp.h" />
+		<Unit filename="include_lib/net/lwip/app/sock_api/sock_api.h" />
+		<Unit filename="include_lib/net/lwip/port/arch/cc.h" />
+		<Unit filename="include_lib/net/lwip/port/arch/cpu.h" />
+		<Unit filename="include_lib/net/lwip/port/lwip.h" />
+		<Unit filename="include_lib/net/lwip/port/lwipopts.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/_errno.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/arch.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/debug.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/def.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/err.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/inet.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/ip4_addr.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/ip6_addr.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/ip_addr.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/mem.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/memp.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/netdb.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/netif.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/opt.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/pbuf.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/priv/mem_priv.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/priv/memp_priv.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/priv/memp_std.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/prot/ethernet.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/prot/ieee.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/sockets.h" />
+		<Unit filename="include_lib/net/lwip/src/include/lwip/stats.h" />
+		<Unit filename="include_lib/net/server/ctp_server.h" />
+		<Unit filename="include_lib/net/server/net2video.h" />
+		<Unit filename="include_lib/net/server/net_server.h" />
+		<Unit filename="include_lib/net/server/network_mssdp.h" />
+		<Unit filename="include_lib/net/server/rt_stream_pkg.h" />
+		<Unit filename="include_lib/net/server/simple_avi_unpkg.h" />
+		<Unit filename="include_lib/net/server/simple_mov_unpkg.h" />
+		<Unit filename="include_lib/net/server/video_rt_tcp.h" />
+		<Unit filename="include_lib/net/server/wifi_connect.h" />
+		<Unit filename="include_lib/net/streaming_media_server/fenice_config.h" />
+		<Unit filename="include_lib/net/streaming_media_server/fenice_port.h" />
+		<Unit filename="include_lib/net/wifi_module/wifi_ext.h" />
+		<Unit filename="include_lib/net/wifi_module/wifi_module_event.h" />
+		<Unit filename="include_lib/server/audio_server.h" />
+		<Unit filename="include_lib/server/server_core.h" />
+		<Unit filename="include_lib/server/ui_server.h" />
+		<Unit filename="include_lib/server/upgrade_server.h" />
+		<Unit filename="include_lib/server/usb_server.h" />
+		<Unit filename="include_lib/server/video_dec_server.h" />
+		<Unit filename="include_lib/server/video_engine_server.h" />
+		<Unit filename="include_lib/server/video_server.h" />
+		<Unit filename="include_lib/server/vpkg_server.h" />
+		<Unit filename="include_lib/system/app_core.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/adc.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/adkey.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/audio.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/avo_cfg.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/bus_device.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/cache.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/clock.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/cpu.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/crc16.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/csfr.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/dac.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/debug.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/device_drive.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/dma.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/dsi.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/dsi_packet.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/dv17.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/gpio.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/h264_en.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/hwi.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/iic.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/iis.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/image_enc.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/imb.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/imc.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/imc_driver.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/imd.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/imd_common.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/imr.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/includes.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/irq.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/isp_alg.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/isp_dev.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/jpeg_codec.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/ladc.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/lcd_config.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/ldo.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/lock.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/lvds.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/mpu.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/pap.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/plnk.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/port_waked_up.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/power_inf.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/pwm.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/rtc.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/screen_tool.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/sdmmc.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/spi.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/spiflash.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/startup.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/sysinfo.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/timer.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/uart.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/usb_inc.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/uvc_device.h" />
+		<Unit filename="include_lib/system/cpu/dv17/asm/video_engine.h" />
+		<Unit filename="include_lib/system/database.h" />
+		<Unit filename="include_lib/system/device/adkey.h" />
+		<Unit filename="include_lib/system/device/audio_dev.h" />
+		<Unit filename="include_lib/system/device/av10_spi.h" />
+		<Unit filename="include_lib/system/device/camera.h" />
+		<Unit filename="include_lib/system/device/card.h" />
+		<Unit filename="include_lib/system/device/device.h" />
+		<Unit filename="include_lib/system/device/iic.h" />
+		<Unit filename="include_lib/system/device/includes.h" />
+		<Unit filename="include_lib/system/device/ioctl_cmds.h" />
+		<Unit filename="include_lib/system/device/iokey.h" />
+		<Unit filename="include_lib/system/device/isp.h" />
+		<Unit filename="include_lib/system/device/key_driver.h" />
+		<Unit filename="include_lib/system/device/lcd_driver.h" />
+		<Unit filename="include_lib/system/device/sdio_host.h" />
+		<Unit filename="include_lib/system/device/sdio_host_init.h" />
+		<Unit filename="include_lib/system/device/sdmmc.h" />
+		<Unit filename="include_lib/system/device/spiflash.h" />
+		<Unit filename="include_lib/system/device/uart.h" />
+		<Unit filename="include_lib/system/device/usb.h" />
+		<Unit filename="include_lib/system/device/usb_cam_dev.h" />
+		<Unit filename="include_lib/system/device/usb_scsi_upgrade.h" />
+		<Unit filename="include_lib/system/device/video.h" />
+		<Unit filename="include_lib/system/device/video/fb.h" />
+		<Unit filename="include_lib/system/device/video/video_ioctl.h" />
+		<Unit filename="include_lib/system/device/videobuf.h" />
+		<Unit filename="include_lib/system/device/vm.h" />
+		<Unit filename="include_lib/system/device/vm_api.h" />
+		<Unit filename="include_lib/system/drc/limiter_api.h" />
+		<Unit filename="include_lib/system/event.h" />
+		<Unit filename="include_lib/system/fs/fs.h" />
+		<Unit filename="include_lib/system/generic/ascii.h" />
+		<Unit filename="include_lib/system/generic/atomic.h" />
+		<Unit filename="include_lib/system/generic/circular_buf.h" />
+		<Unit filename="include_lib/system/generic/cpu.h" />
+		<Unit filename="include_lib/system/generic/errno-base.h" />
+		<Unit filename="include_lib/system/generic/gpio.h" />
+		<Unit filename="include_lib/system/generic/includes.h" />
+		<Unit filename="include_lib/system/generic/index.h" />
+		<Unit filename="include_lib/system/generic/ioctl.h" />
+		<Unit filename="include_lib/system/generic/irq.h" />
+		<Unit filename="include_lib/system/generic/jiffies.h" />
+		<Unit filename="include_lib/system/generic/lbuf.h" />
+		<Unit filename="include_lib/system/generic/list.h" />
+		<Unit filename="include_lib/system/generic/log.h" />
+		<Unit filename="include_lib/system/generic/printf.h" />
+		<Unit filename="include_lib/system/generic/rect.h" />
+		<Unit filename="include_lib/system/generic/typedef.h" />
+		<Unit filename="include_lib/system/generic/version.h" />
+		<Unit filename="include_lib/system/includes.h" />
+		<Unit filename="include_lib/system/init.h" />
+		<Unit filename="include_lib/system/malloc.h" />
+		<Unit filename="include_lib/system/os/FreeRTOS/FreeRTOS.h" />
+		<Unit filename="include_lib/system/os/FreeRTOS/FreeRTOSConfig.h" />
+		<Unit filename="include_lib/system/os/FreeRTOS/deprecated_definitions.h" />
+		<Unit filename="include_lib/system/os/FreeRTOS/list.h" />
+		<Unit filename="include_lib/system/os/FreeRTOS/mpu_wrappers.h" />
+		<Unit filename="include_lib/system/os/FreeRTOS/pi32v2/portmacro.h" />
+		<Unit filename="include_lib/system/os/FreeRTOS/portable.h" />
+		<Unit filename="include_lib/system/os/FreeRTOS/projdefs.h" />
+		<Unit filename="include_lib/system/os/FreeRTOS/queue.h" />
+		<Unit filename="include_lib/system/os/FreeRTOS/semphr.h" />
+		<Unit filename="include_lib/system/os/FreeRTOS/task.h" />
+		<Unit filename="include_lib/system/os/os_api.h" />
+		<Unit filename="include_lib/system/os/os_compat.h" />
+		<Unit filename="include_lib/system/os/os_cpu.h" />
+		<Unit filename="include_lib/system/os/os_error.h" />
+		<Unit filename="include_lib/system/os/os_type.h" />
+		<Unit filename="include_lib/system/pkg_recover.h" />
+		<Unit filename="include_lib/system/power_manage.h" />
+		<Unit filename="include_lib/system/spinlock.h" />
+		<Unit filename="include_lib/system/sys_time.h" />
+		<Unit filename="include_lib/system/task.h" />
+		<Unit filename="include_lib/system/timer.h" />
+		<Unit filename="include_lib/system/wait.h" />
+		<Unit filename="include_lib/ui/font/font_all.h" />
+		<Unit filename="include_lib/ui/font/font_sdfs.h" />
+		<Unit filename="include_lib/ui/font/language_list.h" />
+		<Unit filename="include_lib/ui/includes.h" />
+		<Unit filename="include_lib/ui/res/font_ascii.h" />
+		<Unit filename="include_lib/ui/res/res.h" />
+		<Unit filename="include_lib/ui/res/res_ver.h" />
+		<Unit filename="include_lib/ui/res/resfile.h" />
+		<Unit filename="include_lib/ui/ui/control.h" />
+		<Unit filename="include_lib/ui/ui/layer.h" />
+		<Unit filename="include_lib/ui/ui/layout.h" />
+		<Unit filename="include_lib/ui/ui/p.h" />
+		<Unit filename="include_lib/ui/ui/ui.h" />
+		<Unit filename="include_lib/ui/ui/ui_battery.h" />
+		<Unit filename="include_lib/ui/ui/ui_browser.h" />
+		<Unit filename="include_lib/ui/ui/ui_button.h" />
+		<Unit filename="include_lib/ui/ui/ui_camera.h" />
+		<Unit filename="include_lib/ui/ui/ui_core.h" />
+		<Unit filename="include_lib/ui/ui/ui_grid.h" />
+		<Unit filename="include_lib/ui/ui/ui_pic.h" />
+		<Unit filename="include_lib/ui/ui/ui_slider.h" />
+		<Unit filename="include_lib/ui/ui/ui_text.h" />
+		<Unit filename="include_lib/ui/ui/ui_time.h" />
+		<Unit filename="include_lib/ui/ui/window.h" />
+		<Unit filename="include_lib/upgrade/upgrade_detect.h" />
+		<Unit filename="lib/net/device/wireless/WIFI_todo/rtl_mp.h" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

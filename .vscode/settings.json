@@ -1,0 +1,33 @@
+{
+    "files.associations": {
+        "lcd_driver.h": "c",
+        "lcd_config.h": "c",
+        "app_config.h": "c",
+        "vm_api.h": "c",
+        "pwm.h": "c",
+        "app_database.h": "c",
+        "includes.h": "c",
+        "*.ld": "c",
+        "video_system.h": "c",
+        "eth_phy.h": "c",
+        "rect.h": "c",
+        "rtc.h": "c",
+        "timer.h": "c",
+        "event.h": "c",
+        "database.h": "c",
+        "os_api.h": "c",
+        "power_inf.h": "c",
+        "power_manage.h": "c",
+        "spinlock.h": "c",
+        "ascii.h": "c",
+        "device.h": "c",
+        "get_image_data.h": "c",
+        "style.h": "c",
+        "debug.h": "c",
+        "style_jl02.h": "c",
+        "action.h": "c",
+        "ui_server.h": "c",
+        "net_config.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}

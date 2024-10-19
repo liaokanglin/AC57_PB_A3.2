@@ -1,0 +1,615 @@
+
+# make 编译并下载
+# make VERBOSE=1 显示编译详细过程
+# make clean 清除编译临时文件
+#
+# 注意： Linux 下编译方式：
+#     1. 从 http://pkgman.jieliapp.com/doc/all 处找到下载链接
+#     2. 下载后，解压到 /opt/jieli 目录下，保证
+#       /opt/jieli/common/bin/clang 存在（注意目录层次）
+#     3. 确认 ulimit -n 的结果足够大（建议大于8096），否则链接可能会因为打开文件太多而失败
+#       可以通过 ulimit -n 8096 来设置一个较大的值
+#
+
+# 工具路径设置
+ifeq ($(OS), Windows_NT)
+# Windows 下工具链位置
+TOOL_DIR := C:/JL/pi32/bin
+CC    := clang.exe
+CXX   := clang.exe
+LD    := pi32v2-lto-wrapper.exe
+AR    := llvm-ar.exe
+MKDIR := mkdir_win -p
+RM    := rm -rf
+
+SYS_LIB_DIR := C:/JL/pi32/pi32v2-lib/r3
+SYS_INC_DIR := C:/JL/pi32/pi32v2-include
+EXT_CFLAGS  := # Windows 下不需要 -D__SHELL__
+export PATH:=$(TOOL_DIR);$(PATH)
+
+## 后处理脚本
+FIXBAT          := tools\utils\fixbat.exe # 用于处理 utf8->gbk 编码问题
+POST_SCRIPT     := cpu\dv17\tools\download.bat
+RUN_POST_SCRIPT := $(POST_SCRIPT)
+else
+# Linux 下工具链位置
+TOOL_DIR := /opt/jieli/pi32v2/bin
+CC    := clang
+CXX   := clang
+LD    := lto-wrapper
+AR    := lto-ar
+MKDIR := mkdir -p
+RM    := rm -rf
+export OBJDUMP := $(TOOL_DIR)/objdump
+export OBJCOPY := $(TOOL_DIR)/objcopy
+export OBJSIZEDUMP := $(TOOL_DIR)/objsizedump
+
+SYS_LIB_DIR := $(TOOL_DIR)/../lib/r3
+SYS_INC_DIR := $(TOOL_DIR)/../include
+EXT_CFLAGS  := -D__SHELL__ # Linux 下需要这个保证正确处理 download.c
+export PATH:=$(TOOL_DIR):$(PATH)
+
+## 后处理脚本
+FIXBAT          := touch # Linux下不需要处理 bat 编码问题
+POST_SCRIPT     := cpu/dv17/tools/download.sh
+RUN_POST_SCRIPT := bash $(POST_SCRIPT)
+endif
+
+CC  := $(TOOL_DIR)/$(CC)
+CXX := $(TOOL_DIR)/$(CXX)
+LD  := $(TOOL_DIR)/$(LD)
+AR  := $(TOOL_DIR)/$(AR)
+# 输出文件设置
+OUT_ELF   := cpu/dv17/tools/sdk.elf
+OBJ_FILE  := $(OUT_ELF).objs.txt
+# 编译路径设置
+BUILD_DIR := ac57xx_car_camera_objs
+
+# 编译参数设置
+CFLAGS := \
+	-target pi32v2 \
+	-mcpu=r3 \
+	-integrated-as \
+	-flto \
+	-Wuninitialized \
+	-Wno-invalid-noreturn \
+	-fno-common \
+	-integrated-as \
+	-Oz \
+	-flto \
+	-fallow-pointer-null \
+	-fprefer-gnu-section \
+	-Wno-shift-negative-value \
+	-mllvm -pi32v2-large-program=true \
+	-fms-extensions \
+	-g \
+	-w \
+	-fno-unwind-tables \
+	-ffunction-sections \
+	-fdata-sections \
+	-fmessage-length=0 \
+	-U__STRICT_ANSI__ \
+
+
+# C++额外的编译参数
+CXXFLAGS := \
+	-std=c++11 \
+	-fno-exceptions \
+	-fno-rtti \
+
+
+# 宏定义
+DEFINES := \
+	-DSUPPORT_MS_EXTENSIONS \
+	-DCONFIG_CPU_DV17 \
+	-DCONFIG_RELEASE_ENABLE \
+	-DCONFIG_FREE_RTOS_ENABLE \
+	-DCONFIG_USE_RTOS \
+	-DCONFIG_EQ_SUPPORT_ASYNC \
+	-D__BANK_ECDH_ENTRY= \
+	-D__BANK_ECDH= \
+	-D__BANK_ENC= \
+	-D__BANK_ENC_ENTRY= \
+	-D__BANK_LMP_MASTER_ENTRY= \
+	-D__BANK_LMP_MASTER= \
+	-D__BANK_LMP_SLAVE= \
+	-D__BANK_LMP_SLAVE_ENTRY= \
+	-D__BANK_A2DP= \
+	-D__BANK_A2DP_ENTRY= \
+	-D__BANK_AVCTP= \
+	-D__BANK_AVCTP_ENTRY= \
+	-D__BANK_BT_HID= \
+	-D__BANK_BT_HID_ENTRY= \
+	-D__BANK_RFCOMM= \
+	-D__BANK_RFCOMM_ENTRY= \
+	-D__BANK_SDP= \
+	-D__BANK_SDP_ENTRY= \
+	-DFS_VERSION=0x020001 \
+	-DFATFS_VERSION=0x020101 \
+	-DSDFILE_VERSION=0x020000 \
+	-DDEVFS_VERSION=0x020000 \
+	-DRAMFS_VERSION=0x010000 \
+	-DAUDIO_SERVER_VERSION=0x020000 \
+	-DSERVER_CORE_VERSION=0x020000 \
+	-DUI_SERVER_VERSION=0x020002 \
+	-DUSB_SERVER_VERSION=0x030200 \
+	-DVIDEO_DEC_SERVER_VERSION=0x020001 \
+	-DVIDEO_REC_SERVER_VERSION=0x020102 \
+	-DVIDEO_UNPKG_SERVER_VERSION=0x020000 \
+	-DVIDEO_ENGINE_SERVER_VERSION=0x020001 \
+	-DVIDEO_PKG_SERVER_VERSION=0x020000 \
+	-DCPU_VERSION=0x030200 \
+	-DDEV_ISP_VERSION=0x030000 \
+	-DDEV_AUDIO_VERSION=0x020000 \
+	-DDEV_VIDEO_ENGINE_VERSION=0x020000 \
+	-DDEV_SD0_VERSION=0x020000 \
+	-DDEV_SD1_VERSION=0x020000 \
+	-DDEV_SD2_VERSION=0x020000 \
+	-DDEV_USB_VERSION=0x040000 \
+	-DDEV_VIDEO_VERSION=0x020100 \
+	-DMALLOC_VERSION=0x020000 \
+	-DRTOS_VERSION=0x020000 \
+	-DSYS_VERSION=0x020001 \
+	-DUPGRADE_VERSION=0x030100 \
+	-DUPGRADE_SERVER_VERSION=0x010000 \
+	-DEVENT_HANDLER_NUM_CONFIG=2 \
+	-DEVENT_TOUCH_ENABLE_CONFIG=0 \
+	-DEVENT_POOL_SIZE_CONFIG=256 \
+	-DCONFIG_EVENT_KEY_MAP_ENABLE=0 \
+	-DTIMER_POOL_NUM_CONFIG=15 \
+	-DAPP_ASYNC_POOL_NUM_CONFIG=0 \
+	-DUSE_SDFILE_NEW=1 \
+	-DSDFILE_STORAGE=0 \
+	-DVFS_FILE_POOL_NUM_CONFIG=8 \
+	-DVFS_ENABLE=1 \
+	-DCONFIG_CHRDEV \
+	-DCONFIG_VFS \
+	-DVM_MAX_SIZE_CONFIG=16*1024 \
+	-DVM_ITEM_MAX_NUM=256 \
+	-DCONFIG_TWS_ENABLE \
+	-DCONFIG_EARPHONE_CASE_ENABLE \
+	-DAUDIO_REC_LITE \
+	-DAUDIO_DEC_LITE \
+	-DAUDIO_REC_POOL_NUM=1 \
+	-DAUDIO_DEC_POOL_NUM=3 \
+	-DCONFIG_BTCTRLER_TASK_DEL_ENABLE \
+	-DCONFIG_LMP_CONN_SUSPEND_ENABLE \
+	-DCONFIG_LMP_REFRESH_ENCRYPTION_KEY_ENABLE \
+	-DCONFIG_UPDATA_ENABLE \
+	-DCONFIG_OTA_UPDATA_ENABLE \
+	-DCONFIG_ITEM_FORMAT_VM \
+	-DCONFIG_ASR_ENABLE \
+	-DCONFIG_DMS_MALLOC \
+	-DCONFIG_THREAD_ENABLE \
+	-DCONFIG_SBC_CODEC_HW \
+	-DCONFIG_MSBC_CODEC_HW \
+	-DCONFIG_AEC_M=256 \
+	-DCONFIG_AUDIO_ONCHIP \
+	-D__GCC_PI32V2__ \
+	-DCONFIG_NEW_ECC_ENABLE \
+	-D_XOPEN_SOURCE=700 \
+	-D_LIBCPP_HAS_NO_THREADS \
+	-D_LIBCPP_NO_EXCEPTIONS \
+	-D_GNU_SOURCE \
+	-D_LIBCPP_HAS_NO_ALIGNED_ALLOCATION \
+	-D__ELF__ \
+	-DTF_LITE_DISABLE_X86_NEON \
+	-DTF_LITE_STATIC_MEMORY \
+
+
+DEFINES += $(EXT_CFLAGS) # 额外的一些定义
+
+# 头文件搜索路径
+INCLUDES := \
+	-Iinclude_lib \
+	-Iinclude_lib/system \
+	-Iinclude_lib/system/cpu/dv17 \
+	-Iinclude_lib/system/generic \
+	-Iinclude_lib/system/device \
+	-Iinclude_lib/system/fs \
+	-Iinclude_lib/update \
+	-Iinclude_lib/common \
+	-Iinclude_lib/server \
+	-Iinclude_lib/ui \
+	-Iinclude_lib/ui/res \
+	-Iapps/car_camera/include \
+	-Iinclude_lib/utils \
+	-Iinclude_lib/utils/ui \
+	-Iinclude_lib/driver/device \
+	-Iinclude_lib/driver/device/video \
+	-Iapps \
+	-Iapps/car_camera \
+	-Iapps/common/user_tools/include \
+	-Iinclude_lib/net \
+	-Iinclude_lib/net/server \
+	-Iinclude_lib/device/cpu/dv17 \
+	-Iapps/common/product_test_tool/includes \
+	-Ilib/include/usb/usb_core \
+	-Iapps/common/user_tools/includes \
+	-Iapps/demos/includes \
+	-I$(SYS_INC_DIR) \
+
+
+# 需要编译的 .c 文件
+c_SRC_FILES := \
+	apps/car_camera/app_database.c \
+	apps/car_camera/app_main.c \
+	apps/car_camera/backlight.c \
+	apps/car_camera/device_mount.c \
+	apps/car_camera/gsensor/da380.c \
+	apps/car_camera/gsensor/gSensor_manage.c \
+	apps/car_camera/gsensor/gma301.c \
+	apps/car_camera/gsensor/msa300.c \
+	apps/car_camera/gsensor/stk8312.c \
+	apps/car_camera/jpg2avi.c \
+	apps/car_camera/key_voice.c \
+	apps/car_camera/parking_detect.c \
+	apps/car_camera/touch_panel/GT911.c \
+	apps/car_camera/touch_panel/GT911_B.c \
+	apps/car_camera/touch_panel/touch_panel_manager.c \
+	apps/car_camera/ui/style_JL02/ui_action_dec.c \
+	apps/car_camera/ui/style_JL02/ui_action_main.c \
+	apps/car_camera/ui/style_JL02/ui_action_photo.c \
+	apps/car_camera/ui/style_JL02/ui_action_rec.c \
+	apps/car_camera/ui/style_JL02/ui_action_sys.c \
+	apps/car_camera/ui/style_JL02/ui_action_usb.c \
+	apps/car_camera/ui/style_LY/ui_action_dec.c \
+	apps/car_camera/ui/style_LY/ui_action_photo.c \
+	apps/car_camera/ui/style_LY/ui_action_rec.c \
+	apps/car_camera/ui/style_LY/ui_action_sys.c \
+	apps/car_camera/ui/style_LY/ui_action_upd.c \
+	apps/car_camera/ui/style_LY/ui_action_usb.c \
+	apps/car_camera/ui/ui_action_animation.c \
+	apps/car_camera/usb_app.c \
+	apps/car_camera/usb_app_cfg.c \
+	apps/car_camera/video_audio.c \
+	apps/car_camera/video_dec.c \
+	apps/car_camera/video_dec_cfg.c \
+	apps/car_camera/video_photo.c \
+	apps/car_camera/video_photo_cfg.c \
+	apps/car_camera/video_rec.c \
+	apps/car_camera/video_rec_cfg.c \
+	apps/car_camera/video_system.c \
+	apps/car_camera/video_system_cfg.c \
+	apps/common/chip_test/audio_test.c \
+	apps/common/product_test_tool/communication.c \
+	apps/common/product_test_tool/devices_control.c \
+	apps/common/product_test_tool/product_main.c \
+	apps/common/product_test_tool/product_port.c \
+	apps/common/user_tools/auto_test.c \
+	apps/common/user_tools/upgrade.c \
+	apps/common/user_tools/usb_cam_h264.c \
+	apps/common/user_tools/user_isp_cfg.c \
+	apps/common/user_tools/user_scr_cfg.c \
+	apps/common/user_tools/user_scr_draw.c \
+	apps/common/user_tools/user_scr_tool.c \
+	apps/cpp_run_init.c \
+	apps/debug.c \
+	apps/demos/aac_dec_test.c \
+	apps/demos/aac_enc_test.c \
+	apps/demos/aecfix_test.c \
+	apps/demos/mpu_test.c \
+	apps/demos/play_usb_mic.c \
+	apps/demos/play_usb_speaker.c \
+	apps/demos/softosd.c \
+	apps/demos/test_audio.c \
+	apps/demos/usb_host_user.c \
+	apps/flash_write_protect.c \
+	apps/fontinit.c \
+	apps/uart2sd.c \
+	apps/uvc_53x_upgrade.c \
+	apps/version.c \
+	camera/F37_mipi/F37_mipi.c \
+	camera/F37_mipi/F37_mipi_ae.c \
+	camera/F37_mipi/F37_mipi_awb.c \
+	camera/F37_mipi/F37_mipi_iq.c \
+	camera/av10/av10.c \
+	camera/av10/av10_spi.c \
+	camera/bg0806_mipi/bg0806_mipi.c \
+	camera/bg0806_mipi/bg0806_mipi_ae.c \
+	camera/bg0806_mipi/bg0806_mipi_awb.c \
+	camera/bg0806_mipi/bg0806_mipi_iq.c \
+	camera/f23_mipi/f23_mipi.c \
+	camera/f23_mipi/f23_mipi_ae.c \
+	camera/f23_mipi/f23_mipi_awb.c \
+	camera/f23_mipi/f23_mipi_iq.c \
+	camera/gc1004/gc1004.c \
+	camera/gc1004/gc1004_ae.c \
+	camera/gc1004/gc1004_awb.c \
+	camera/gc1004/gc1004_iq.c \
+	camera/gc1034/gc1034.c \
+	camera/gc1034/gc1034_ae.c \
+	camera/gc1034/gc1034_awb.c \
+	camera/gc1034/gc1034_iq.c \
+	camera/gc2043_dvp/gc2043.c \
+	camera/gc2043_dvp/gc2043_ae.c \
+	camera/gc2043_dvp/gc2043_awb.c \
+	camera/gc2043_dvp/gc2043_iq.c \
+	camera/gc2053_mipi/gc2053_mipi.c \
+	camera/gc2053_mipi/gc2053_mipi_ae.c \
+	camera/gc2053_mipi/gc2053_mipi_awb.c \
+	camera/gc2053_mipi/gc2053_mipi_iq.c \
+	camera/gm7150/gm7150.c \
+	camera/h42/h42.c \
+	camera/h42/h42_ae.c \
+	camera/h42/h42_awb.c \
+	camera/h42/h42_iq.c \
+	camera/pr1000/pr1000.c \
+	camera/pr2000/pr2000k.c \
+	camera/sc1243_dvp/sc1243.c \
+	camera/sc1243_dvp/sc1243_ae.c \
+	camera/sc1243_dvp/sc1243_awb.c \
+	camera/sc1243_dvp/sc1243_iq.c \
+	camera/sc2313_dvp/sc2313.c \
+	camera/sc2313_dvp/sc2313_ae.c \
+	camera/sc2313_dvp/sc2313_awb.c \
+	camera/sc2313_dvp/sc2313_iq.c \
+	camera/sc2313_mipi/sc2313_mipi.c \
+	camera/sc2313_mipi/sc2313_mipi_ae.c \
+	camera/sc2313_mipi/sc2313_mipi_awb.c \
+	camera/sc2313_mipi/sc2313_mipi_iq.c \
+	camera/spec_gc2053_mipi/gc2053_mipi.c \
+	camera/spec_gc2053_mipi/gc2053_mipi_ae.c \
+	camera/spec_gc2053_mipi/gc2053_mipi_awb.c \
+	camera/spec_gc2053_mipi/gc2053_mipi_iq.c \
+	camera/tp2850/tp2850.c \
+	camera/tp9930/tp9930.c \
+	cpu/dv17/adc.c \
+	cpu/dv17/adkey.c \
+	cpu/dv17/board/board_dev_5701C_20191024.c \
+	cpu/dv17/board/board_dev_5701_20190809.c \
+	cpu/dv17/board/board_dev_5701_20190809_uvc_slave.c \
+	cpu/dv17/board/board_dev_5715A_20230210.c \
+	cpu/dv17/board/board_dev_5715_20230214_uvc_slave.c \
+	cpu/dv17/board/board_dev_wifi_5713_20210317.c \
+	cpu/dv17/debug.c \
+	cpu/dv17/dvp_lcd_driver/lcd_480x272.c \
+	cpu/dv17/dvp_lcd_driver/lcd_480x272_18bits.c \
+	cpu/dv17/dvp_lcd_driver/lcd_480x272_8bits.c \
+	cpu/dv17/dvp_lcd_driver/lcd_HX8369A_MCU.c \
+	cpu/dv17/dvp_lcd_driver/lcd_HX8369A_SPI_RGB.c \
+	cpu/dv17/dvp_lcd_driver/lcd_HX9225_MCU.c \
+	cpu/dv17/dvp_lcd_driver/lcd_ILI8960.c \
+	cpu/dv17/dvp_lcd_driver/lcd_ILI9806.c \
+	cpu/dv17/dvp_lcd_driver/lcd_LQ026B3UX01.c \
+	cpu/dv17/dvp_lcd_driver/lcd_LX50FWB4001_V2.c \
+	cpu/dv17/dvp_lcd_driver/lcd_LYWS030GQ.c \
+	cpu/dv17/dvp_lcd_driver/lcd_ST7789S.c \
+	cpu/dv17/dvp_lcd_driver/lcd_T15P00.c \
+	cpu/dv17/dvp_lcd_driver/lcd_avout.c \
+	cpu/dv17/dvp_lcd_driver/lcd_avout_hd.c \
+	cpu/dv17/dvp_lcd_driver/lcd_ssd1963.c \
+	cpu/dv17/dvp_lcd_driver/lcd_vga.c \
+	cpu/dv17/dvp_lcd_driver/lcd_virtual.c \
+	cpu/dv17/iokey.c \
+	cpu/dv17/ldo.c \
+	cpu/dv17/lvds_lcd_driver/lvds_1024x600.c \
+	cpu/dv17/lvds_lcd_driver/lvds_1280x800.c \
+	cpu/dv17/lvds_lcd_driver/lvds_1920x480.c \
+	cpu/dv17/mipi_lcd_driver/dsi_dcs_1lane_16bit.c \
+	cpu/dv17/mipi_lcd_driver/dsi_dcs_1lane_24bit.c \
+	cpu/dv17/mipi_lcd_driver/dsi_vdo_2lane_1280x480_EK79030.c \
+	cpu/dv17/mipi_lcd_driver/dsi_vdo_2lane_24bit.c \
+	cpu/dv17/mipi_lcd_driver/dsi_vdo_2lane_bs_t40_l4.c \
+	cpu/dv17/mipi_lcd_driver/dsi_vdo_2lane_st7701s.c \
+	cpu/dv17/mipi_lcd_driver/dsi_vdo_4lane_1080p.c \
+	cpu/dv17/mipi_lcd_driver/dsi_vdo_4lane_1280x480_EK79030.c \
+	cpu/dv17/mipi_lcd_driver/dsi_vdo_4lane_720p.c \
+	cpu/dv17/mipi_lcd_driver/dsi_vdo_4lane_720p_rm68200ga1.c \
+	cpu/dv17/mipi_lcd_driver/lcd_mipi_4lane_s8500l0.c \
+	cpu/dv17/mipi_lcd_driver/mipi_lcd_1280x400_wt.c \
+	cpu/dv17/mipi_lcd_driver/mipi_lcd_1280x480.c \
+	cpu/dv17/mipi_lcd_driver/mipi_lcd_1280x480_ICN9706.c \
+	cpu/dv17/mipi_lcd_driver/mipi_lcd_1280x720_RM68200GA1.c \
+	cpu/dv17/mipi_lcd_driver/mipi_lcd_1600x400_wt1098802g01.c \
+	cpu/dv17/mipi_lcd_driver/mipi_lcd_1600x400_wt1098802g01_1.c \
+	cpu/dv17/mipi_lcd_driver/mipi_lcd_1920x380_OTA7290B.c \
+	cpu/dv17/mipi_lcd_driver/mipi_lcd_1920x480_OTA7290B.c \
+	cpu/dv17/power_inf.c \
+	cpu/dv17/setup.c \
+	cpu/dv17/static_memory_alloc.c \
+	cpu/dv17/uart_key.c \
+
+
+# 需要编译的 .S 文件
+S_SRC_FILES :=
+
+
+# 需要编译的 .s 文件
+s_SRC_FILES :=
+
+
+# 需要编译的 .cpp 文件
+cpp_SRC_FILES := \
+	apps/cxx_runtime.cpp \
+
+
+# 需要编译的 .cc 文件
+cc_SRC_FILES :=
+
+
+# 需要编译的 .cxx 文件
+cxx_SRC_FILES :=
+
+
+# 链接参数
+LFLAGS := \
+	--plugin-opt=-pi32v2-always-use-itblock=false \
+	--plugin-opt=-enable-ipra=true \
+	--plugin-opt=-pi32v2-merge-max-offset=4096 \
+	--plugin-opt=-pi32v2-enable-simd=true \
+	--plugin-opt=mcpu=r3 \
+	--plugin-opt=-enable-movable-region=true \
+	--plugin-opt=-movable-region-section-prefix=movable.slot. \
+	--plugin-opt=-global-merge-on-const \
+	--plugin-opt=-inline-threshold=10 \
+	--plugin-opt=-inline-normal-into-special-section=true \
+	--plugin-opt=-dont-used-symbol-list=malloc,free,sprintf,printf,puts,putchar \
+	--plugin-opt=save-temps \
+	--sort-common \
+	--dont-complain-call-overflow \
+	--plugin-opt=-used-symbol-file=cpu/dv17/sdk_used_list.used \
+	--plugin-opt=-pi32v2-large-program=true \
+	--start-group \
+	include_lib/liba/dv17/libcommon.a \
+	include_lib/liba/dv17/librtos.a \
+	include_lib/liba/dv17/libsdx.a \
+	include_lib/liba/dv17/libres.a \
+	include_lib/liba/dv17/libusb.a \
+	include_lib/liba/dv17/libfs.a \
+	include_lib/liba/dv17/libupgrade.a \
+	include_lib/liba/dv17/libfont.a \
+	include_lib/liba/dv17/libserver_core.a \
+	include_lib/liba/dv17/libui_server.a \
+	include_lib/liba/dv17/libvideo_engine_server.a \
+	include_lib/liba/dv17/libusb_server.a \
+	include_lib/liba/dv17/libvideo_dec_server.a \
+	include_lib/liba/dv17/libvideo_rec_server.a \
+	include_lib/liba/dv17/libaudio_server.a \
+	include_lib/liba/dv17/libvm.a \
+	include_lib/liba/dv17/libtensorflow-microlite.a \
+	include_lib/liba/dv17/libsys.a \
+	include_lib/liba/dv17/liblog.a \
+	include_lib/liba/dv17/libdlmalloc.a \
+	include_lib/liba/dv17/libjpeg.a \
+	include_lib/liba/dv17/libh264.a \
+	--whole-archive \
+	include_lib/liba/dv17/libvideo_framework.a \
+	include_lib/liba/dv17/libdev.a \
+	include_lib/liba/dv17/libui.a \
+	include_lib/liba/dv17/libcpu.a \
+	include_lib/liba/dv17/libisp.a \
+	include_lib/liba/dv17/lib_usb_syn.a \
+	--no-whole-archive \
+	include_lib/liba/dv17/libjson.a \
+	include_lib/liba/dv17/cpr.a \
+	include_lib/liba/dv17/rs_ecc.a \
+	include_lib/liba/dv17/aac_enc_lib.a \
+	include_lib/liba/dv17/libFFT_pi32v2_OnChip.a \
+	include_lib/liba/dv17/libAptFilt_fix_pi32v2_OnChip.a \
+	include_lib/liba/dv17/libEchoSuppress_pi32v2_OnChip.a \
+	include_lib/liba/dv17/lib_dns.a \
+	include_lib/liba/dv17/libjlsp.a \
+	include_lib/liba/dv17/dv17_aac_dec_lib.a \
+	--end-group \
+	-Tcpu/dv17/sdk.ld \
+	-M=cpu/dv17/tools/sdk.map \
+	--plugin-opt=mcpu=r3 \
+	--plugin-opt=-mattr=+fprev1 \
+
+
+LIBPATHS := \
+	-L$(SYS_LIB_DIR) \
+
+
+LIBS := \
+	$(SYS_LIB_DIR)/libm.a \
+	$(SYS_LIB_DIR)/libc.a \
+	$(SYS_LIB_DIR)/libm.a \
+	$(SYS_LIB_DIR)/libcompiler-rt.a \
+
+
+
+c_OBJS    := $(c_SRC_FILES:%.c=%.c.o)
+S_OBJS    := $(S_SRC_FILES:%.S=%.S.o)
+s_OBJS    := $(s_SRC_FILES:%.s=%.s.o)
+cpp_OBJS  := $(cpp_SRC_FILES:%.cpp=%.cpp.o)
+cxx_OBJS  := $(cxx_SRC_FILES:%.cxx=%.cxx.o)
+cc_OBJS   := $(cc_SRC_FILES:%.cc=%.cc.o)
+
+OBJS      := $(c_OBJS) $(S_OBJS) $(s_OBJS) $(cpp_OBJS) $(cxx_OBJS) $(cc_OBJS)
+DEP_FILES := $(OBJS:%.o=%.d)
+
+
+OBJS      := $(addprefix $(BUILD_DIR)/, $(OBJS))
+DEP_FILES := $(addprefix $(BUILD_DIR)/, $(DEP_FILES))
+
+
+VERBOSE ?= 0
+ifeq ($(VERBOSE), 1)
+QUITE :=
+else
+QUITE := @
+endif
+
+# 一些旧的 make 不支持 file 函数，需要 make 的时候指定 LINK_AT=0 make
+LINK_AT ?= 1
+
+# 表示下面的不是一个文件的名字，无论是否存在 all, clean, pre_build 这样的文件
+# 还是要执行命令
+# see: https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html
+.PHONY: all clean pre_build
+
+# 不要使用 make 预设置的规则
+# see: https://www.gnu.org/software/make/manual/html_node/Suffix-Rules.html
+.SUFFIXES:
+
+all: pre_build $(OUT_ELF)
+	$(info +POST-BUILD)
+	$(QUITE) $(RUN_POST_SCRIPT) sdk
+
+pre_build:
+	$(info +PRE-BUILD)
+	$(QUITE) $(CC) $(CFLAGS) $(DEFINES) $(INCLUDES) -D__LD__ -E -P cpu/dv17/sdk_used_list.c -o cpu/dv17/sdk_used_list.used
+	$(QUITE) $(CC) $(CFLAGS) $(DEFINES) $(INCLUDES) -D__LD__ -E -P cpu/dv17/sdk_ld.c -o cpu/dv17/sdk.ld
+	$(QUITE) $(CC) $(CFLAGS) $(DEFINES) $(INCLUDES) -D__LD__ -E -P cpu/dv17/tools/download.c -o $(POST_SCRIPT)
+	$(QUITE) $(FIXBAT) $(POST_SCRIPT)
+	$(QUITE) $(CC) $(CFLAGS) $(DEFINES) $(INCLUDES) -D__LD__ -E -P cpu/dv17/tools/isd_config.c -o cpu/dv17/tools/isd_config.cfg
+
+clean:
+	$(QUITE) $(RM) $(OUT_ELF)
+	$(QUITE) $(RM) $(BUILD_DIR)
+
+
+
+ifeq ($(LINK_AT), 1)
+$(OUT_ELF): $(OBJS)
+	$(info +LINK $@)
+	$(shell $(MKDIR) $(@D))
+	$(file >$(OBJ_FILE), $(OBJS))
+	$(QUITE) $(LD) -o $(OUT_ELF) @$(OBJ_FILE) $(LFLAGS) $(LIBPATHS) $(LIBS)
+else
+$(OUT_ELF): $(OBJS)
+	$(info +LINK $@)
+	$(shell $(MKDIR) $(@D))
+	$(QUITE) $(LD) -o $(OUT_ELF) $(OBJS) $(LFLAGS) $(LIBPATHS) $(LIBS)
+endif
+
+
+$(BUILD_DIR)/%.c.o : %.c
+	$(info +CC $<)
+	$(QUITE) $(MKDIR) $(@D)
+	$(QUITE) $(CC) $(CFLAGS) $(DEFINES) $(INCLUDES) -MM -MT $@ $< -o $(@:.o=.d)
+	$(QUITE) $(CC) $(CFLAGS) $(DEFINES) $(INCLUDES) -c $< -o $@
+
+$(BUILD_DIR)/%.S.o : %.S
+	$(info +AS $<)
+	$(QUITE) $(MKDIR) $(@D)
+	$(QUITE) $(CC) $(CFLAGS) $(DEFINES) $(INCLUDES) -MM -MT $@ $< -o $(@:.o=.d)
+	$(QUITE) $(CC) $(CFLAGS) $(DEFINES) $(INCLUDES) -c $< -o $@
+
+$(BUILD_DIR)/%.s.o : %.s
+	$(info +AS $<)
+	$(QUITE) $(MKDIR) $(@D)
+	$(QUITE) $(CC) $(CFLAGS) $(DEFINES) $(INCLUDES) -MM -MT $@ $< -o $(@:.o=.d)
+	$(QUITE) $(CC) $(CFLAGS) $(DEFINES) $(INCLUDES) -c $< -o $@
+
+$(BUILD_DIR)/%.cpp.o : %.cpp
+	$(info +CXX $<)
+	$(QUITE) $(MKDIR) $(@D)
+	$(QUITE) $(CXX) $(CXXFLAGS) $(CFLAGS) $(DEFINES) $(INCLUDES) -MM -MT $@ $< -o $(@:.o=.d)
+	$(QUITE) $(CXX) $(CXXFLAGS) $(CFLAGS) $(DEFINES) $(INCLUDES) -c $< -o $@
+
+$(BUILD_DIR)/%.cxx.o : %.cxx
+	$(info +CXX $<)
+	$(QUITE) $(MKDIR) $(@D)
+	$(QUITE) $(CXX) $(CXXFLAGS) $(CFLAGS) $(DEFINES) $(INCLUDES) -MM -MT $@ $< -o $(@:.o=.d)
+	$(QUITE) $(CXX) $(CXXFLAGS) $(CFLAGS) $(DEFINES) $(INCLUDES) -c $< -o $@
+
+$(BUILD_DIR)/%.cc.o : %.cc
+	$(info +CXX $<)
+	$(QUITE) $(MKDIR) $(@D)
+	$(QUITE) $(CXX) $(CXXFLAGS) $(CFLAGS) $(DEFINES) $(INCLUDES) -MM -MT $@ $< -o $(@:.o=.d)
+	$(QUITE) $(CXX) $(CXXFLAGS) $(CFLAGS) $(DEFINES) $(INCLUDES) -c $< -o $@
+
+-include $(DEP_FILES)

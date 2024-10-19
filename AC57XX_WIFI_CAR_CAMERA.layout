@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<FileVersion major="1" minor="0" />
+	<ActiveTarget name="Release" />
+	<File name="apps\common\chip_test\audio_test.c" open="1" top="0" tabpos="35" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="39" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\ui\style_JL02\ui_action_main.c" open="1" top="0" tabpos="27" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="15670" topLine="451" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\include\cpu_config.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="479" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\common\user_tools\user_scr_draw.c" open="1" top="0" tabpos="33" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="14364" topLine="418" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\wifi\wifi_car_camera\wifi_app_task.c" open="1" top="0" tabpos="29" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="198" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\app_main.c" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="30032" topLine="985" />
+		</Cursor>
+	</File>
+	<File name="cpu\dv17\setup.c" open="1" top="0" tabpos="42" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7141" topLine="262" />
+		</Cursor>
+	</File>
+	<File name="cpu\dv17\adkey.c" open="1" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1265" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\include\style_jl02.h" open="1" top="0" tabpos="30" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6641" topLine="175" />
+		</Cursor>
+	</File>
+	<File name="apps\common\rf_fcc_tool\communication.c" open="1" top="0" tabpos="40" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="cpu\dv17\board\board_dev_wifi_5701_20241108.c" open="1" top="0" tabpos="32" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="25076" topLine="852" />
+		</Cursor>
+	</File>
+	<File name="apps\common\product_test_tool\devices_control.c" open="1" top="0" tabpos="37" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="cpu\dv17\mipi_lcd_driver\1280x800_RP.c" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="16684" topLine="733" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\touch_panel\GT911.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\ui\style_JL02\ui_action_photo.c" open="1" top="0" tabpos="28" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="51127" topLine="1641" />
+		</Cursor>
+	</File>
+	<File name="cpu\dv17\uart_key.c" open="1" top="0" tabpos="24" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="916" topLine="27" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\wifi\wifi_car_camera\net_video_rec.c" open="1" top="1" tabpos="43" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="57820" topLine="1962" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\cpu\dv17\asm\adc.h" open="1" top="0" tabpos="23" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="180" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\common\user_tools\upgrade.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7413" topLine="303" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\backlight.c" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="13337" topLine="331" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\video_system_cfg.c" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2561" topLine="37" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\device\key_driver.h" open="1" top="0" tabpos="22" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="153" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="cpu\dv17\power_inf.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="19613" topLine="462" />
+		</Cursor>
+	</File>
+	<File name="apps\common\product_test_tool\product_main.c" open="1" top="0" tabpos="38" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="318" />
+		</Cursor>
+	</File>
+	<File name="cpu\dv17\adc.c" open="1" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3534" topLine="46" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\ui\style_JL02\ui_action_dec.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="27464" topLine="883" />
+		</Cursor>
+	</File>
+	<File name="apps\common\product_test_tool\product_port.c" open="1" top="0" tabpos="39" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\cpu\dv17\asm\adkey.h" open="1" top="0" tabpos="26" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="473" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\video_rec.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="5" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="155862" topLine="4994" />
+		</Cursor>
+	</File>
+	<File name="apps\common\product_test_tool\communication.c" open="1" top="0" tabpos="36" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="54" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\include\app_config.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1888" topLine="28" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\ui\style_JL02\ui_action_usb.c" open="1" top="0" tabpos="34" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5915" topLine="136" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\wifi\wifi_car_camera\strm_video_rec.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7227" topLine="230" />
+		</Cursor>
+	</File>
+	<File name="apps\common\user_tools\auto_test.c" open="1" top="0" tabpos="25" split="0" active="1" splitpos="0" zoom_1="8" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3201" topLine="201" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\app_database.c" open="1" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="490" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\ui\style_JL02\ui_action_rec.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="82075" topLine="2430" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\generic\typedef.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2618" topLine="65" />
+		</Cursor>
+	</File>
+	<File name="camera\tp2865\tp2865.c" open="1" top="0" tabpos="31" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="19073" topLine="899" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\ui\style_JL02\ui_action_sys.c" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="61979" topLine="1923" />
+		</Cursor>
+	</File>
+	<File name="include_lib\system\device\sdio_host_init.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="687" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="apps\flash_write_protect.c" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1213" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\video_dec.c" open="1" top="0" tabpos="41" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="16996" topLine="604" />
+		</Cursor>
+	</File>
+	<File name="apps\wifi_car_camera\include\video_rec.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1158" topLine="1" />
+		</Cursor>
+	</File>
+</CodeBlocks_layout_file>
