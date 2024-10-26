@@ -241,16 +241,16 @@ static int wkup_reason_check(char *reason, int max_len)
     }
 
     // 检查系统复位原因是否为LVD复位（低电压检测复位）
-    if (system_reset_reason_check() == 3) {
-        // 如果是LVD复位并且没有充电器在线，则关机
-        if (!__this->charger_online()) {
-            log_v("need charge after LVD reset\n");  // 输出提示需要充电的日志
-            rtc_pin_reset_ctrl(0);  // 关闭RTC引脚复位控制
-            // usb_wakeup_enable();    // 启用USB唤醒
-            sys_poweroff(0);        // 系统关机
-            while (1);              // 进入死循环，防止系统继续运行
-        }
-    }
+    // if (system_reset_reason_check() == 3) {
+    //     // 如果是LVD复位并且没有充电器在线，则关机
+    //     if (!__this->charger_online()) {
+    //         log_v("need charge after LVD reset\n");  // 输出提示需要充电的日志
+    //         rtc_pin_reset_ctrl(0);  // 关闭RTC引脚复位控制
+    //         usb_wakeup_enable();    // 启用USB唤醒
+    //         sys_poweroff(0);        // 系统关机
+    //         while (1);              // 进入死循环，防止系统继续运行
+    //     }
+    // }
 
     // 检测电源键是否被按下
     for (int i = 0; i < 5; i++) {
@@ -299,32 +299,32 @@ static int wkup_reason_check(char *reason, int max_len)
             strncpy(reason, PWR_WKUP_ALARM, len);  // 复制唤醒原因到 reason
         }
         //检查是否是异常复位唤醒
-        else if (tmp & ABNORMAL_RESET) {
-            log_v("abnormal wakeup\n");  // 输出异常复位日志
-            len = max_len > strlen(PWR_WKUP_ABNORMAL) ? strlen(PWR_WKUP_ABNORMAL) : max_len - 1;
-            strncpy(reason, PWR_WKUP_ABNORMAL, len);  // 复制唤醒原因到 reason
+        // else if (tmp & ABNORMAL_RESET) {
+        //     log_v("abnormal wakeup\n");  // 输出异常复位日志
+        //     len = max_len > strlen(PWR_WKUP_ABNORMAL) ? strlen(PWR_WKUP_ABNORMAL) : max_len - 1;
+        //     strncpy(reason, PWR_WKUP_ABNORMAL, len);  // 复制唤醒原因到 reason
 
-            // 如果没有充电器在线，则关机
-            if (!__this->charger_online()) {
-                rtc_pin_reset_ctrl(0);  // 关闭RTC引脚复位控制
-                usb_wakeup_enable();    // 启用USB唤醒
-                sys_poweroff(0);        // 系统关机
-            }
-        }
+        //     如果没有充电器在线，则关机
+        //     if (!__this->charger_online()) {
+        //         rtc_pin_reset_ctrl(0);  // 关闭RTC引脚复位控制
+        //         usb_wakeup_enable();    // 启用USB唤醒
+        //         sys_poweroff(0);        // 系统关机
+        //     }
+        // }
         //检查是否是电池首次接入唤醒
-        else
-        if (tmp & BAT_POWER_FIRST) {
-            log_i("\n\n\nfirst power on\n\n\n");  // 输出首次上电日志
-            len = max_len > strlen(PWR_WKUP_PWR_ON) ? strlen(PWR_WKUP_PWR_ON) : max_len - 1;
-            strncpy(reason, PWR_WKUP_PWR_ON, len);  // 复制唤醒原因到 reason
+        // else
+        // if (tmp & BAT_POWER_FIRST) {
+        //     log_i("\n\n\nfirst power on\n\n\n");  // 输出首次上电日志
+        //     len = max_len > strlen(PWR_WKUP_PWR_ON) ? strlen(PWR_WKUP_PWR_ON) : max_len - 1;
+        //     strncpy(reason, PWR_WKUP_PWR_ON, len);  // 复制唤醒原因到 reason
 
-            // 如果没有充电器在线，则关机
-            if (!__this->charger_online()) {
-                rtc_pin_reset_ctrl(0);  // 关闭RTC引脚复位控制
-                usb_wakeup_enable();    // 启用USB唤醒
-                sys_poweroff(0);        // 系统关机
-            }
-        }
+        //     // 如果没有充电器在线，则关机
+        //     if (!__this->charger_online()) {
+        //         rtc_pin_reset_ctrl(0);  // 关闭RTC引脚复位控制
+        //         usb_wakeup_enable();    // 启用USB唤醒
+        //         sys_poweroff(0);        // 系统关机
+        //     }
+        // }
     }
 
     //日志记录
@@ -339,8 +339,8 @@ static int wkup_reason_check(char *reason, int max_len)
 static void ldoin_updata();   // 声明一个更新函数 ldoin_updata()，具体实现如下。
 
 REGISTER_ADC_SCAN(ldoin_scan)  // 注册一个 ADC 扫描对象 ldoin_scan，使用宏 REGISTER_ADC_SCAN 初始化。
-// .channel = AD_CH13_RTC_2_ADC,  // 设置 ADC 扫描对象的通道为 AD_CH13_RTC_2_ADC。
-.channel = AD_CH09_PH12,  // 设置 ADC 扫描对象的通道为 AD_CH13_RTC_2_ADC。
+.channel = AD_CH13_RTC_2_ADC,  // 设置 ADC 扫描对象的通道为 AD_CH13_RTC_2_ADC。
+// .channel = AD_CH09_PH12,  // 设置 ADC 扫描对象的通道为 AD_CH13_RTC_2_ADC。
 .value = 0,                    // 初始化通道的 ADC 值为 0。
 .updata = ldoin_updata,        // 设置该通道数据更新时的回调函数为 ldoin_updata。
 };
@@ -371,27 +371,29 @@ static void ldo_vbg_updata() {   // 定义 ldo_vbg_updata 函数，该函数在�
     spin_lock(&lock);            // 获取自旋锁，保证在多线程环境下操作 ldo_vbg_sum 和 ldo_vbg_cnt 的原子性。
     ldo_vbg_sum += ldo_vbg_scan.value;  // 将新的采样值加到 ldo_vbg_sum 中。
     ldo_vbg_cnt++;               // 累加采样次数。
+    // printf("ldo_vbg_sum=%d ldo_vbg_cnt=%d\n",ldo_vbg_sum,ldo_vbg_cnt);
     spin_unlock(&lock);          // 释放自旋锁。
 }
 
 
-// static void battery_update();  // 声明电池更新函数
+static void battery_update();  // 声明电池更新函数
 
-// REGISTER_ADC_SCAN(battery_scan)  // 注册一个 ADC 扫描对象 battery_scan
-// .channel = AD_CH09_PH12,       // 设置 ADC 扫描对象的通道为 AD_CHXX_BATTERY（请根据具体通道替换）
-// .value = 0,                       // 初始化通道的 ADC 值为 0。
-// .updata = battery_update,         // 设置该通道数据更新时的回调函数为 battery_update。
-// };
+REGISTER_ADC_SCAN(battery_scan)  // 注册一个 ADC 扫描对象 battery_scan
+.channel = AD_CH09_PH12,       // 设置 ADC 扫描对象的通道为 AD_CHXX_BATTERY（请根据具体通道替换）
+.value = 0,                       // 初始化通道的 ADC 值为 0。
+.updata = battery_update,         // 设置该通道数据更新时的回调函数为 battery_update。
+};
 
-// static int battery_sum = 0;       // 全局变量，累加 battery_scan 的 ADC 采样值。
-// static int battery_cnt = 0;       // 全局变量，记录 battery_scan 的采样次数。
+static int battery_sum = 0;       // 全局变量，累加 battery_scan 的 ADC 采样值。
+static int battery_cnt = 0;       // 全局变量，记录 battery_scan 的采样次数。
 
-// static void battery_update() {     // 定义 battery_update 函数
-//     spin_lock(&lock);              // 获取自旋锁，保证在多线程环境下操作 battery_sum 和 battery_cnt 的原子性。
-//     battery_sum += battery_scan.value;  // 将新的采样值加到 battery_sum 中。
-//     battery_cnt++;                 // 累加采样次数。
-//     spin_unlock(&lock);            // 释放自旋锁。
-// }
+static void battery_update() {     // 定义 battery_update 函数
+    spin_lock(&lock);              // 获取自旋锁，保证在多线程环境下操作 battery_sum 和 battery_cnt 的原子性。
+    battery_sum += battery_scan.value;  // 将新的采样值加到 battery_sum 中。
+    battery_cnt++;                 // 累加采样次数。
+    // printf("battery_sum=%d battery_cnt=%d\n",battery_sum,battery_cnt);
+    spin_unlock(&lock);            // 释放自旋锁。
+}
 
 
 /// @brief ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -454,22 +456,24 @@ static int adc_scan_init()
 
 static void adc_scan_process(void)
 {
+    
     ADCSEL(AD_CH15_LDO_VBG);    // 选择通道AD_CH15_LDO_VBG进行采样
     // ADCSEL(AD_CH09_PH12);    // 选择通道AD_CH15_LDO_VBG进行采样
     KITSTART();                 // 启动ADC采样
     while (!ADC_PND());          // 等待ADC采样完成
     ldo_vbg_scan.value = GPADC_RES; // 获取ADC结果并存储在ldo_vbg_scan.value中
 
-    // ADCSEL(AD_CH13_RTC_2_ADC);  // 选择通道AD_CH13_RTC_2_ADC进行采样
-    ADCSEL(AD_CH09_PH12);  // 选择通道AD_CH13_RTC_2_ADC进行采样
+    ADCSEL(AD_CH13_RTC_2_ADC);  // 选择通道AD_CH13_RTC_2_ADC进行采样
+    // ADCSEL(AD_CH09_PH12);  // 选择通道AD_CH13_RTC_2_ADC进行采样
     KITSTART();                 // 启动ADC采样
     while (!ADC_PND());          // 等待ADC采样完成
     ldoin_scan.value = GPADC_RES; // 获取ADC结果并存储在ldoin_scan.value中
 
-    // ADCSEL(AD_CH09_PH12);       // 选择通道AD_CHXX_BATTERY进行采样
-    // KITSTART();                    // 启动ADC采样
-    // while (!ADC_PND());            // 等待ADC采样完成
-    // battery_scan.value = GPADC_RES; // 获取ADC结果并存储在battery_scan.value中
+    ADCSEL(AD_CH09_PH12);       // 选择通道AD_CHXX_BATTERY进行采样
+    KITSTART();                    // 启动ADC采样
+    while (!ADC_PND());            // 等待ADC采样完成
+    battery_scan.value = GPADC_RES; // 获取ADC结果并存储在battery_scan.value中
+    // printf("ldo_vbg_scan.value = %d, ldoin_scan.value = %d, battery_scan.value = %d\n", ldo_vbg_scan.value, ldoin_scan.value, battery_scan.value);
 }
 
 
@@ -486,43 +490,46 @@ static int get_battery_voltage()
         adc_scan_process();
         refer_val = ldo_vbg_scan.value;  // 获取参考电压ADC值
         in_val = ldoin_scan.value;       // 获取输入电压ADC值
-       // battery_cnt_1 = battery_scan.value;  // 获取电池电压ADC值
+        battery_cnt_1 = battery_scan.value;  // 获取电池电压ADC值
     } else {
         // 启用自旋锁，防止多线程竞争资源
         spin_lock(&lock);
+        //  battery_cnt_1 = battery_scan.value;  // 获取电池电压ADC值
         // 如果参考电压和输入电压采样计数器非零，计算平均值
-        if (ldo_vbg_cnt && ldoin_cnt) {
+        if (ldo_vbg_cnt && ldoin_cnt && battery_cnt) {
             refer_val = ldo_vbg_sum / ldo_vbg_cnt;  // 计算参考电压的平均值
             in_val = ldoin_sum / ldoin_cnt;         // 计算输入电压的平均值
+            battery_cnt_1 = battery_sum / battery_cnt;            // 计算电池电压的平均值
             // 重置计数器和累加值
             ldo_vbg_sum = 0;
             ldo_vbg_cnt = 0;
             ldoin_sum = 0;
             ldoin_cnt = 0;
+            battery_sum = 0;
+            battery_cnt = 0;
         }
         spin_unlock(&lock);  // 释放自旋锁
     }
 
     // 如果参考电压有效，开始计算电池电压
-    if (refer_val) {
+    // if (refer_val) {
 #if ENABLE_SAMPLE_VAL
         // 如果启用采样值校准，使用vbg_volt值进行计算
-        const u16 vbg_volt = 129;  // 带隙电压校准值（需要通过测量校准）
-        val = in_val * vbg_volt / refer_val * 3;  // 计算电池电压，乘以3因硬件电路原因
+        // const u16 vbg_volt = 129;  // 带隙电压校准值（需要通过测量校准）
+        // val = in_val * vbg_volt / refer_val * 3;  // 计算电池电压，乘以3因硬件电路原因
 #else
         // 使用默认的参考电压常量进行计算
-        val = (in_val * 3 * LDO_REFERENCE_VOL + 0x181 * 2) / refer_val;
+        // val = (in_val * 3 * LDO_REFERENCE_VOL + 0x181 * 2) / refer_val;
 #endif
-    }
-
+    // }
+        val = battery_cnt_1;
      /*输出调试信息：显示输入电压、参考电压和计算出的电池电压 */
-     printf("%d : %d : %d \n", in_val, refer_val, val); 
+    //  printf("%d : %d : %d \n", in_val, refer_val, val); 
     //  printf("%d ", battery_cnt_1); 
-     printf("0x%x\n", val); 
+    //  printf("0x%x\n", val); 
 
     return val;  // 返回计算得到的电池电压值
 }
-
 
 /*static int ad_filter(void)
 {

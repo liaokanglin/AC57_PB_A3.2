@@ -6,11 +6,11 @@
 #include "app_config.h"
 
 enum VIDEO_DISP_STA {
-    DISP_DOUBLE_HALF,
-    DISP_1080AHD_FULL,
-    DISP_720AHD_FULL,
-    DISP_UVC_FULL,
-    DISP_INITIAL_STATE,
+    DISP_DOUBLE_HALF,     // 双画面显示模式，可能是左右或上下分屏
+    DISP_1080AHD_FULL,    // 1080P AHD（高清模拟信号）全屏显示
+    DISP_720AHD_FULL,     // 720P AHD（高清模拟信号）全屏显示
+    DISP_UVC_FULL,        // UVC（USB视频类设备）全屏显示
+    DISP_INITIAL_STATE,   // 初始状态，可能是默认的空闲状态
 };
 
 enum VIDEO_REC_STA {

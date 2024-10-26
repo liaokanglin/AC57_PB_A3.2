@@ -248,23 +248,23 @@ void close_wdt()
  *lev: 6--->2.8v
  *lev: 7--->2.9v
  */
-// void lvd_cfg(u8 lev)
-// {
-//     LVD_CON = 0;//先关闭,再配置
+void lvd_cfg(u8 lev)
+{
+    LVD_CON = 0;//先关闭,再配置
 
-//     LVD_CON |= (0x7 & (lev));//lev
-//     /* LVD_CON &= ~BIT(7);//0:force reset at onece   1:force reset delay after 40us */
-//     LVD_CON |= BIT(7);//0:force reset at onece   1:force reset delay after 40us
-//     delay(10);
-//     LVD_CON &= ~BIT(6);//force reset system
-//     delay(10);
-//     LVD_CON &= ~BIT(5);//ldo_in
-//     delay(10);
-//     LVD_CON |= BIT(4);//AEN
-//     delay(100);
-//     LVD_CON |= BIT(3);//AOE
-//     delay(10);
-// }
+    LVD_CON |= (0x7 & (lev));//lev
+    /* LVD_CON &= ~BIT(7);//0:force reset at onece   1:force reset delay after 40us */
+    LVD_CON |= BIT(7);//0:force reset at onece   1:force reset delay after 40us
+    delay(10);
+    LVD_CON &= ~BIT(6);//force reset system
+    delay(10);
+    LVD_CON &= ~BIT(5);//ldo_in
+    delay(10);
+    LVD_CON |= BIT(4);//AEN
+    delay(100);
+    LVD_CON |= BIT(3);//AOE
+    delay(10);
+}
 
 
 u32 sdfile_init(u32 cmd_zone_addr, u32 *head_addr, int num);
@@ -319,8 +319,8 @@ void setup_arch()
      */
     /* dvdd_ctrl(DVDD_0904); */
     /* ddrvdd_ctrl(DDRVDD_1596_2300, 0, 0); *///ddrvdd uboot用于控制ddr的供电使能，此处不可操作
-    // lvd_cfg(6);
-    // lvd_cfg(6);
+    lvd_cfg(6);
+    // lvd_cfg(0);
     request_irq(1, 7, exception_irq_handler, 0);
 
 

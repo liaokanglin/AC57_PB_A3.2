@@ -12,41 +12,44 @@
 #define VIDEO_SERVER_NET_ERR       0x04
 
 
+// 定义视频状态的枚举类型，用于管理视频录制过程中各种状态的标识
 enum video_state {
-    VIDEO_STATE_START,
-    VIDEO_STATE_PAUSE,
-    VIDEO_STATE_RESUME,
-    VIDEO_STATE_STOP,
-    VIDEO_STATE_SAVE_FILE,
-    VIDEO_STATE_SET_OSD,
-    VIDEO_STATE_SET_VOICE,
-    VIDEO_STATE_GET_INFO,
-    VIDEO_STATE_PKG_LEN,
-    VIDEO_STATE_PKG_MUTE,
-    VIDEO_STATE_SET_OSD_STR,
-    VIDEO_STATE_CFG,
-    VIDEO_STATE_CFG_ROI,
-    VIDEO_STATE_GET_PKG_TIME,
-    VIDEO_STATE_SET_NEXT_IFRAME,
-    VIDEO_STATE_STOP_COUNT_DOWN,
-    VIDEO_STATE_SET_DR,
-    VIDEO_STATE_CAP_IFRAME,
-    VIDEO_STATE_RESET_BITS_RATE,
-    VIDEO_STATE_PKG_PAUSE_RUN,
-    VIDEO_STATE_V4_PAUSE_RUN,
-    VIDEO_STATE_SET_ENC_CROP,
-    VIDEO_STATE_SET_DIS_CROP,
-    VIDEO_STATE_SET_AUDIO_CALLBACK,
-    VIDEO_STATE_SET_DIS_PAUSE,
+    VIDEO_STATE_START,             // 开始视频录制
+    VIDEO_STATE_PAUSE,             // 暂停视频录制
+    VIDEO_STATE_RESUME,            // 恢复视频录制
+    VIDEO_STATE_STOP,              // 停止视频录制
+    VIDEO_STATE_SAVE_FILE,         // 保存录制文件
+    VIDEO_STATE_SET_OSD,           // 设置 OSD（屏幕显示叠加）
+    VIDEO_STATE_SET_VOICE,         // 设置音频相关参数
+    VIDEO_STATE_GET_INFO,          // 获取视频录制信息
+    VIDEO_STATE_PKG_LEN,           // 设置打包长度
+    VIDEO_STATE_PKG_MUTE,          // 设置打包时音频静音
+    VIDEO_STATE_SET_OSD_STR,       // 设置 OSD 显示的字符串
+    VIDEO_STATE_CFG,               // 配置视频参数
+    VIDEO_STATE_CFG_ROI,           // 配置感兴趣区域（ROI）
+    VIDEO_STATE_GET_PKG_TIME,      // 获取打包的时间戳
+    VIDEO_STATE_SET_NEXT_IFRAME,   // 设置下一个 I 帧
+    VIDEO_STATE_STOP_COUNT_DOWN,   // 停止录制倒计时
+    VIDEO_STATE_SET_DR,            // 设置动态范围（DR）
+    VIDEO_STATE_CAP_IFRAME,        // 捕捉 I 帧
+    VIDEO_STATE_RESET_BITS_RATE,   // 重置比特率
+    VIDEO_STATE_PKG_PAUSE_RUN,     // 打包暂停运行状态
+    VIDEO_STATE_V4_PAUSE_RUN,      // 第四代视频暂停运行状态
+    VIDEO_STATE_SET_ENC_CROP,      // 设置编码裁剪
+    VIDEO_STATE_SET_DIS_CROP,      // 设置显示裁剪
+    VIDEO_STATE_SET_AUDIO_CALLBACK,// 设置音频回调
+    VIDEO_STATE_SET_DIS_PAUSE,     // 设置显示暂停
 };
 
+// 定义视频录制格式的枚举类型，用于指定录制视频的文件格式
 enum video_rec_format {
-    VIDEO_FMT_AVI,
-    VIDEO_FMT_MOV,
-    VIDEO_FMT_YUYV,
-    VIDEO_FMT_NV12,
-    VIDEO_FMT_TS,
+    VIDEO_FMT_AVI,   // AVI 格式（Audio Video Interleave），一种常见的多媒体文件格式，支持多种编码。
+    VIDEO_FMT_MOV,   // MOV 格式，苹果公司开发的多媒体容器格式，常用于 QuickTime 视频。
+    VIDEO_FMT_YUYV,  // YUYV 格式，一种视频像素格式，通常用于视频捕捉和处理。
+    VIDEO_FMT_NV12,  // NV12 格式，一种常见的YUV像素格式，广泛用于视频编码和解码。
+    VIDEO_FMT_TS,    // TS 格式（Transport Stream），通常用于 MPEG 视频流，常见于广播和流媒体。
 };
+
 
 
 struct out_inf {

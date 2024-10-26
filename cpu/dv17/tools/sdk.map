@@ -381,7 +381,7 @@ include_lib/liba/dv17/libsys.a(app_core.c.o)
 include_lib/liba/dv17/libsys.a(event.c.o)
                               obj/Release/apps/wifi_car_camera/app_main.o (symbol from plugin) (sys_event_notify)
 include_lib/liba/dv17/libsys.a(init.c.o)
-                              obj/Release/apps/wifi_car_camera/key_voice.o (symbol from plugin) (jiffies)
+                              obj/Release/apps/wifi_car_camera/app_main.o (symbol from plugin) (jiffies)
 include_lib/liba/dv17/libsys.a(task.c.o)
                               os_api.c.o (symbol from plugin) (get_task_priority)
 include_lib/liba/dv17/libsys.a(timer.c.o)
@@ -395,7 +395,7 @@ include_lib/liba/dv17/libsys.a(database.c.o)
 include_lib/liba/dv17/libsys.a(power_manage.c.o)
                               obj/Release/apps/wifi_car_camera/app_main.o (symbol from plugin) (sys_power_poweroff)
 include_lib/liba/dv17/libsys.a(pkg_recover.c.o)
-                              obj/Release/apps/wifi_car_camera/video_dec.o (symbol from plugin) (pkg_rcv_open)
+                              obj/Release/apps/wifi_car_camera/app_main.o (symbol from plugin) (pkg_rcv_open)
 include_lib/liba/dv17/libsys.a(circular_buf.c.o)
                               obj/Release/apps/wifi_car_camera/wifi/wifi_car_camera/rt_talk_net.o (symbol from plugin) (cbuf_read)
 include_lib/liba/dv17/libsys.a(lbuf.c.o)
@@ -1913,7 +1913,7 @@ C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strsep.o)
 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strspn.o)
                               driver_wext.c.o (symbol from plugin) (strspn)
 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strstr.o)
-                              obj/Release/apps/wifi_car_camera/wifi/wifi-tools/WL_AP_CONF.o (symbol from plugin) (strstr)
+                              obj/Release/apps/wifi_car_camera/app_main.o (symbol from plugin) (strstr)
 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strtok.o)
                               parse_url.c.o (symbol from plugin) (strtok)
 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strtok_r.o)
@@ -3197,7 +3197,7 @@ LOAD include_lib/liba/dv17/libhostapd_wpa.a
 END GROUP
                 0x04000000                . = ORIGIN (sdram_mem)
 
-.rom_code       0x04000000   0x1e4ffc
+.rom_code       0x04000000   0x1e4fcc
                 0x04000000                _text_rodata_begin = .
                 [!provide]                PROVIDE (text_rodata_begin, .)
  *startup.S.o(.text)
@@ -3212,284 +3212,284 @@ END GROUP
  *boot_main.o(.text*)
  *boot_main.o(.rodata*)
  *(.text*)
- .text          0x040000e4   0x15d6a4 cpu\dv17\tools\sdk.elf.o
+ .text          0x040000e4   0x15d69e cpu\dv17\tools\sdk.elf.o
                 0x04001fd0                puts
-                0x04041cb4                exception_analyze
-                0x0404209e                cpu1_main
-                0x04042674                OS_ClrPending
-                0x040706d0                main
-                0x040a2804                cpu3_main
- .text          0x0415d788        0x0 include_lib/liba/dv17/librtos.a(version.z.o)
- .text          0x0415d788       0x54 include_lib/liba/dv17/librtos.a(port_asm.S.o)
-                0x0415d788                vSoftwareInterruptISR
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libsdx.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libres.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libusb.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libfs.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libupgrade.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libfont.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libserver_core.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libui_server.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libvideo_engine_server.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libusb_server.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libvideo_dec_server.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libvideo_rec_server.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libaudio_server.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libvm.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libsys.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libdlmalloc.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libh264.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libjpeg.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libvideo_framework.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libdev.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libui.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libcpu.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/libisp.a(version.z.o)
- .text          0x0415d7dc        0x0 include_lib/liba/dv17/liblog.a(version.z.o)
- .text          0x0415d7dc       0xa8 include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
-                0x0415d87c                get_aac_enc_ops
- .text          0x0415d884      0x160 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
-                0x0415d884                voAACEncInit
- .text          0x0415d9e4      0x1ae include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
-                0x0415d9e4                AacEncOpen
-                0x0415da94                AacEncEncode
- .text          0x0415db92       0x76 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
-                0x0415db92                CreateBitBuffer
-                0x0415dbac                GetBitsAvail
-                0x0415dbb2                WriteBits
- .text          0x0415dc08      0x5ca include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
-                0x0415de30                WriteBitstream
- .text          0x0415e1d2       0x92 include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
-                0x0415e1f6                InitElementInfo
-                0x0415e21a                InitElementBits
- .text          0x0415e264      0x77a include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
-                0x0415e264                psyMainInit
-                0x0415e2de                psyMain
- .text          0x0415e9de      0x420 include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
-                0x0415e9de                QCInit
-                0x0415ea36                QCMain
-                0x0415ecba                updateBitres
-                0x0415ecee                FinalizeBitConsumption
-                0x0415edb6                AdjustBitrate
- .text          0x0415edfe      0x466 include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
-                0x0415edfe                pow34
-                0x0415ee7a                QuantizeSpectrum
-                0x0415f0ec                calcSfbDist
- .text          0x0415f264      0x4a2 include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
-                0x0415f264                formfac_sqrt
-                0x0415f29c                CalcFormFactor
-                0x0415f3cc                EstimateScaleFactors
- .text          0x0415f706       0x64 include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
-                0x0415f706                SpreadingMax
- .text          0x0415f76a       0x6c include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
-                0x0415f76a                countStaticBitdemand
- .text          0x0415f7d6      0x986 include_lib/liba/dv17/aac_enc_lib.a(transform.o)
-                0x0415fad8                Mdct_Long
-                0x0415fcd2                Mdct_Short
-                0x0415fde8                Transform_Real
- .text          0x0416015c        0x0 include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
- .text          0x0416015c     0x14c2 include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
-                0x0416015c                bits2pe
-                0x0416016a                AdjThrInit
-                0x041602f0                AdjustThresholds
-                0x04161618                AdjThrUpdate
- .text          0x0416161e      0x1ae include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
-                0x0416161e                CalcBandEnergy
-                0x041616ae                CalcBandEnergyMS
- .text          0x041617cc      0x15c include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
-                0x041617cc                aace_shl
-                0x0416181c                aace_shr
-                0x0416183c                aace_L_shl
-                0x04161844                aace_L_shr
-                0x04161862                aace_shr_r
-                0x041618e4                aace_L_shr_r
-                0x04161922                aace_cls
- .text          0x04161928      0xcac include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
-                0x04161928                bitCount
-                0x0416194c                codeValues
-                0x04161ec4                bitCountScalefactorDelta
-                0x04161ed0                codeScalefactorDelta
- .text          0x041625d4      0x348 include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
-                0x041625d4                InitBlockSwitching
-                0x04162638                CalcWindowEnergy
-                0x041626c8                BlockSwitching
-                0x04162870                SyncBlockSwitching
- .text          0x0416291c      0x54e include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
-                0x041629b6                dynBitCount
- .text          0x04162e6a      0x3ce include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
-                0x04162e6a                groupShortData
- .text          0x04163238      0x126 include_lib/liba/dv17/aac_enc_lib.a(interface.o)
-                0x04163238                BuildInterface
- .text          0x0416335e      0x202 include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
-                0x0416335e                prepareSfbPe
-                0x041633e6                calcSfbPe
- .text          0x04163560      0x1d4 include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
-                0x04163560                MsStereoProcessing
- .text          0x04163734      0x2ec include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
-                0x04163734                aacem_L_Extract
-                0x0416377e                aacem_L_Comp
-                0x041637a6                aacem_Mpy_32
-                0x04163820                aacem_aacem_Mpy_32_16
-                0x0416386a                aacem_Div_32
-                0x04163878                aacem_iLog4
-                0x041638c0                aacem_rsqrt
-                0x041639f6                aacem_pow2_xy
- .text          0x04163a20       0xaa include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
-                0x04163a20                InitPreEchoControl
-                0x04163a36                PreEchoControl
- .text          0x04163aca      0x5d6 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
-                0x04163aca                GetSRIndex
-                0x04163ed4                InitPsyConfigurationLong
-                0x04163fc0                InitPsyConfigurationShort
- .text          0x041640a0        0x0 include_lib/liba/dv17/libhsm.a(version.z.o)
- .text          0x041640a0        0x0 include_lib/liba/dv17/libwifi_dev.a(version.z.o)
- .text          0x041640a0        0x0 include_lib/liba/dv17/libmbedtls.a(version.z.o)
- .text          0x041640a0        0x0 include_lib/liba/dv17/liblwip.a(version.z.o)
- .text          0x041640a0        0x0 include_lib/liba/dv17/libjson.a(version.z.o)
- .text          0x041640a0        0x0 include_lib/liba/dv17/libftpcli.a(version.z.o)
- .text          0x041640a0        0x0 include_lib/liba/dv17/libnet_server.a(version.z.o)
- .text          0x041640a0        0x0 include_lib/liba/dv17/libhttp_server.a(version.z.o)
- .text          0x041640a0        0x0 include_lib/liba/dv17/libhttp_cli.a(version.z.o)
- .text          0x041640a0        0x0 include_lib/liba/dv17/libiperf.a(version.z.o)
- .text          0x041640a0        0x0 include_lib/liba/dv17/libcommon.a(version.z.o)
- .text          0x041640a0        0x0 include_lib/liba/dv17/librtsp.a(version.z.o)
- .text          0x041640a0        0x0 include_lib/liba/dv17/libftpd.a(version.z.o)
- .text          0x041640a0        0x0 include_lib/liba/dv17/libsdio_card.a(version.z.o)
- .text          0x041640a0        0x0 include_lib/liba/dv17/librtl8189f.a(version.z.o)
- .text          0x041640a0        0x0 include_lib/liba/dv17/libhostapd_wpa.a(version.z.o)
- .text          0x041640a0       0x62 C:\JL\pi32\pi32v2-lib\r3\libm.a(lib_a-s_fpclassify.o)
-                0x041640a0                __fpclassifyd
- .text          0x04164102       0x8e C:\JL\pi32\pi32v2-lib\r3\libm.a(lib_a-s_modf.o)
-                0x04164102                modf
- .text          0x04164190       0xa2 C:\JL\pi32\pi32v2-lib\r3\libm.a(lib_a-s_round.o)
-                0x04164190                round
- .text          0x04164232       0x10 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-atoi.o)
-                0x04164232                atoi
-                0x0416423a                _atoi_r
- .text          0x04164242       0x10 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-atol.o)
-                0x04164242                atol
-                0x0416424a                _atol_r
- .text          0x04164252       0x40 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-bsearch.o)
-                0x04164252                bsearch
- .text          0x04164292        0x0 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-ctype_.o)
- .text          0x04164292        0x0 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-impure.o)
- .text          0x04164292       0x1a C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-isblank.o)
-                0x04164292                isblank
- .text          0x041642ac       0x24 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-isprint.o)
-                0x041642ac                isgraph
-                0x041642be                isprint
- .text          0x041642d0       0x12 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-isspace.o)
-                0x041642d0                isspace
- .text          0x041642e2       0x38 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-memcmp.o)
-                0x041642e2                memcmp
- .text          0x0416431a       0xc2 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-memcpy.o)
-                0x0416431a                memcpy
-                0x0416431a                memmove
- .text          0x041643dc       0x28 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-memmem.o)
-                0x041643dc                memmem
- .text          0x04164404       0x2c C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-memset.o)
-                0x04164404                memset
- .text          0x04164430      0x2ae C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-qsort.o)
-                0x0416449a                qsort
- .text          0x041646de       0x3e C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strcasecmp.o)
-                0x041646de                strcasecmp
- .text          0x0416471c       0x18 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strcat.o)
-                0x0416471c                strcat
- .text          0x04164734       0x14 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strchr.o)
-                0x04164734                strchr
- .text          0x04164748       0xa0 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strcmp.o)
-                0x04164748                strcmp
- .text          0x041647e8       0x6e C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strcpy.o)
-                0x041647e8                strcpy
- .text          0x04164856       0x24 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strcspn.o)
-                0x04164856                strcspn
- .text          0x0416487a       0x28 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strlcpy.o)
-                0x0416487a                strlcpy
- .text          0x041648a2        0xc C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strlen.o)
-                0x041648a2                strlen
- .text          0x041648ae       0x46 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strncasecmp.o)
-                0x041648ae                strncasecmp
- .text          0x041648f4       0x26 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strncat.o)
-                0x041648f4                strncat
- .text          0x0416491a       0x1a C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strncmp.o)
-                0x0416491a                strncmp
- .text          0x04164934       0x26 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strncpy.o)
-                0x04164934                strncpy
- .text          0x0416495a       0x14 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strnlen.o)
-                0x0416495a                strnlen
- .text          0x0416496e       0x36 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strpbrk.o)
-                0x0416496e                strpbrk
- .text          0x041649a4       0x24 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strrchr.o)
-                0x041649a4                strrchr
- .text          0x041649c8        0xa C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strsep.o)
-                0x041649c8                strsep
- .text          0x041649d2       0x24 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strspn.o)
-                0x041649d2                strspn
- .text          0x041649f6       0x2a C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strstr.o)
-                0x041649f6                strstr
- .text          0x04164a20       0x10 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strtok.o)
-                0x04164a20                strtok
- .text          0x04164a30       0x54 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strtok_r.o)
-                0x04164a30                __strtok_r
-                0x04164a80                strtok_r
- .text          0x04164a84       0x1a C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strtoll.o)
-                0x04164a84                strtoll
- .text          0x04164a9e      0x15c C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strtoll_r.o)
-                0x04164a9e                _strtoll_r
- .text          0x04164bfa      0x108 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strtol.o)
-                0x04164bfa                _strtol_r
-                0x04164cea                strtol
- .text          0x04164d02       0x1e C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-tolower.o)
-                0x04164d02                tolower
- .text          0x04164d20      0x314 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(adddf3.o)
-                0x04164d60                __adddf3
- .text          0x04165034        0x6 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(subdf3.o)
-                0x04165034                __subdf3
- .text          0x0416503a       0x10 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(udivdi3.o)
-                0x0416503a                __udivdi3
- .text          0x0416504a      0x226 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(udivmoddi4.o)
-                0x0416504a                __udivmoddi4
- .text          0x04165270       0x14 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(umoddi3.o)
-                0x04165270                __umoddi3
- .text          0x04165284       0x18 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-memchr.o)
-                0x04165284                memchr
- .text          0x0416529c      0x1a0 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(comparedf2.o)
-                0x0416529c                __ledf2
-                0x0416529c                __cmpdf2
-                0x0416534c                __gedf2
-                0x041653f4                __unorddf2
-                0x04165434                __eqdf2
-                0x04165436                __ltdf2
-                0x04165438                __nedf2
-                0x0416543a                __gtdf2
- .text          0x0416543c      0x346 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(divdf3.o)
-                0x04165472                __divdf3
- .text          0x04165782       0x5a C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(divdi3.o)
-                0x04165782                __divdi3
- .text          0x041657dc       0x7a C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(extendsfdf2.o)
-                0x041657dc                __extendsfdf2
- .text          0x04165856       0x2c C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(fixdfdi.o)
-                0x04165856                __fixdfdi
- .text          0x04165882       0x54 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(fixdfsi.o)
-                0x04165882                __fixdfsi
- .text          0x041658d6       0x4a C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(fixunsdfdi.o)
-                0x041658d6                __fixunsdfdi
- .text          0x04165920       0x3c C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(fixunsdfsi.o)
-                0x04165920                __fixunsdfsi
- .text          0x0416595c       0x32 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(floatdidf.o)
-                0x0416595c                __floatdidf
- .text          0x0416598e       0x4c C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(floatsidf.o)
-                0x0416598e                __floatsidf
- .text          0x041659da       0x28 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(floatundidf.o)
-                0x041659da                __floatundidf
- .text          0x04165a02       0x34 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(floatunsidf.o)
-                0x04165a02                __floatunsidf
- .text          0x04165a36      0x2fa C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(muldf3.o)
-                0x04165a6c                __muldf3
- .text          0x04165d30      0x142 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(truncdfsf2.o)
-                0x04165d30                __truncdfsf2
+                0x040417e6                exception_analyze
+                0x04041bd0                cpu1_main
+                0x040421a6                OS_ClrPending
+                0x040704d8                main
+                0x040a2668                cpu3_main
+ .text          0x0415d782        0x0 include_lib/liba/dv17/librtos.a(version.z.o)
+ .text          0x0415d782       0x54 include_lib/liba/dv17/librtos.a(port_asm.S.o)
+                0x0415d782                vSoftwareInterruptISR
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libsdx.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libres.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libusb.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libfs.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libupgrade.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libfont.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libserver_core.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libui_server.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libvideo_engine_server.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libusb_server.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libvideo_dec_server.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libvideo_rec_server.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libaudio_server.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libvm.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libsys.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libdlmalloc.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libh264.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libjpeg.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libvideo_framework.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libdev.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libui.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libcpu.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/libisp.a(version.z.o)
+ .text          0x0415d7d6        0x0 include_lib/liba/dv17/liblog.a(version.z.o)
+ .text          0x0415d7d6       0xa8 include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
+                0x0415d876                get_aac_enc_ops
+ .text          0x0415d87e      0x160 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
+                0x0415d87e                voAACEncInit
+ .text          0x0415d9de      0x1ae include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
+                0x0415d9de                AacEncOpen
+                0x0415da8e                AacEncEncode
+ .text          0x0415db8c       0x76 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
+                0x0415db8c                CreateBitBuffer
+                0x0415dba6                GetBitsAvail
+                0x0415dbac                WriteBits
+ .text          0x0415dc02      0x5ca include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
+                0x0415de2a                WriteBitstream
+ .text          0x0415e1cc       0x92 include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
+                0x0415e1f0                InitElementInfo
+                0x0415e214                InitElementBits
+ .text          0x0415e25e      0x77a include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
+                0x0415e25e                psyMainInit
+                0x0415e2d8                psyMain
+ .text          0x0415e9d8      0x420 include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
+                0x0415e9d8                QCInit
+                0x0415ea30                QCMain
+                0x0415ecb4                updateBitres
+                0x0415ece8                FinalizeBitConsumption
+                0x0415edb0                AdjustBitrate
+ .text          0x0415edf8      0x466 include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
+                0x0415edf8                pow34
+                0x0415ee74                QuantizeSpectrum
+                0x0415f0e6                calcSfbDist
+ .text          0x0415f25e      0x4a2 include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
+                0x0415f25e                formfac_sqrt
+                0x0415f296                CalcFormFactor
+                0x0415f3c6                EstimateScaleFactors
+ .text          0x0415f700       0x64 include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
+                0x0415f700                SpreadingMax
+ .text          0x0415f764       0x6c include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
+                0x0415f764                countStaticBitdemand
+ .text          0x0415f7d0      0x986 include_lib/liba/dv17/aac_enc_lib.a(transform.o)
+                0x0415fad2                Mdct_Long
+                0x0415fccc                Mdct_Short
+                0x0415fde2                Transform_Real
+ .text          0x04160156        0x0 include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
+ .text          0x04160156     0x14c2 include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
+                0x04160156                bits2pe
+                0x04160164                AdjThrInit
+                0x041602ea                AdjustThresholds
+                0x04161612                AdjThrUpdate
+ .text          0x04161618      0x1ae include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
+                0x04161618                CalcBandEnergy
+                0x041616a8                CalcBandEnergyMS
+ .text          0x041617c6      0x15c include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
+                0x041617c6                aace_shl
+                0x04161816                aace_shr
+                0x04161836                aace_L_shl
+                0x0416183e                aace_L_shr
+                0x0416185c                aace_shr_r
+                0x041618de                aace_L_shr_r
+                0x0416191c                aace_cls
+ .text          0x04161922      0xcac include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
+                0x04161922                bitCount
+                0x04161946                codeValues
+                0x04161ebe                bitCountScalefactorDelta
+                0x04161eca                codeScalefactorDelta
+ .text          0x041625ce      0x348 include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
+                0x041625ce                InitBlockSwitching
+                0x04162632                CalcWindowEnergy
+                0x041626c2                BlockSwitching
+                0x0416286a                SyncBlockSwitching
+ .text          0x04162916      0x54e include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
+                0x041629b0                dynBitCount
+ .text          0x04162e64      0x3ce include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
+                0x04162e64                groupShortData
+ .text          0x04163232      0x126 include_lib/liba/dv17/aac_enc_lib.a(interface.o)
+                0x04163232                BuildInterface
+ .text          0x04163358      0x202 include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
+                0x04163358                prepareSfbPe
+                0x041633e0                calcSfbPe
+ .text          0x0416355a      0x1d4 include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
+                0x0416355a                MsStereoProcessing
+ .text          0x0416372e      0x2ec include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
+                0x0416372e                aacem_L_Extract
+                0x04163778                aacem_L_Comp
+                0x041637a0                aacem_Mpy_32
+                0x0416381a                aacem_aacem_Mpy_32_16
+                0x04163864                aacem_Div_32
+                0x04163872                aacem_iLog4
+                0x041638ba                aacem_rsqrt
+                0x041639f0                aacem_pow2_xy
+ .text          0x04163a1a       0xaa include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
+                0x04163a1a                InitPreEchoControl
+                0x04163a30                PreEchoControl
+ .text          0x04163ac4      0x5d6 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
+                0x04163ac4                GetSRIndex
+                0x04163ece                InitPsyConfigurationLong
+                0x04163fba                InitPsyConfigurationShort
+ .text          0x0416409a        0x0 include_lib/liba/dv17/libhsm.a(version.z.o)
+ .text          0x0416409a        0x0 include_lib/liba/dv17/libwifi_dev.a(version.z.o)
+ .text          0x0416409a        0x0 include_lib/liba/dv17/libmbedtls.a(version.z.o)
+ .text          0x0416409a        0x0 include_lib/liba/dv17/liblwip.a(version.z.o)
+ .text          0x0416409a        0x0 include_lib/liba/dv17/libjson.a(version.z.o)
+ .text          0x0416409a        0x0 include_lib/liba/dv17/libftpcli.a(version.z.o)
+ .text          0x0416409a        0x0 include_lib/liba/dv17/libnet_server.a(version.z.o)
+ .text          0x0416409a        0x0 include_lib/liba/dv17/libhttp_server.a(version.z.o)
+ .text          0x0416409a        0x0 include_lib/liba/dv17/libhttp_cli.a(version.z.o)
+ .text          0x0416409a        0x0 include_lib/liba/dv17/libiperf.a(version.z.o)
+ .text          0x0416409a        0x0 include_lib/liba/dv17/libcommon.a(version.z.o)
+ .text          0x0416409a        0x0 include_lib/liba/dv17/librtsp.a(version.z.o)
+ .text          0x0416409a        0x0 include_lib/liba/dv17/libftpd.a(version.z.o)
+ .text          0x0416409a        0x0 include_lib/liba/dv17/libsdio_card.a(version.z.o)
+ .text          0x0416409a        0x0 include_lib/liba/dv17/librtl8189f.a(version.z.o)
+ .text          0x0416409a        0x0 include_lib/liba/dv17/libhostapd_wpa.a(version.z.o)
+ .text          0x0416409a       0x62 C:\JL\pi32\pi32v2-lib\r3\libm.a(lib_a-s_fpclassify.o)
+                0x0416409a                __fpclassifyd
+ .text          0x041640fc       0x8e C:\JL\pi32\pi32v2-lib\r3\libm.a(lib_a-s_modf.o)
+                0x041640fc                modf
+ .text          0x0416418a       0xa2 C:\JL\pi32\pi32v2-lib\r3\libm.a(lib_a-s_round.o)
+                0x0416418a                round
+ .text          0x0416422c       0x10 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-atoi.o)
+                0x0416422c                atoi
+                0x04164234                _atoi_r
+ .text          0x0416423c       0x10 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-atol.o)
+                0x0416423c                atol
+                0x04164244                _atol_r
+ .text          0x0416424c       0x40 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-bsearch.o)
+                0x0416424c                bsearch
+ .text          0x0416428c        0x0 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-ctype_.o)
+ .text          0x0416428c        0x0 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-impure.o)
+ .text          0x0416428c       0x1a C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-isblank.o)
+                0x0416428c                isblank
+ .text          0x041642a6       0x24 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-isprint.o)
+                0x041642a6                isgraph
+                0x041642b8                isprint
+ .text          0x041642ca       0x12 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-isspace.o)
+                0x041642ca                isspace
+ .text          0x041642dc       0x38 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-memcmp.o)
+                0x041642dc                memcmp
+ .text          0x04164314       0xc2 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-memcpy.o)
+                0x04164314                memcpy
+                0x04164314                memmove
+ .text          0x041643d6       0x28 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-memmem.o)
+                0x041643d6                memmem
+ .text          0x041643fe       0x2c C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-memset.o)
+                0x041643fe                memset
+ .text          0x0416442a      0x2ae C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-qsort.o)
+                0x04164494                qsort
+ .text          0x041646d8       0x3e C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strcasecmp.o)
+                0x041646d8                strcasecmp
+ .text          0x04164716       0x18 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strcat.o)
+                0x04164716                strcat
+ .text          0x0416472e       0x14 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strchr.o)
+                0x0416472e                strchr
+ .text          0x04164742       0xa0 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strcmp.o)
+                0x04164742                strcmp
+ .text          0x041647e2       0x6e C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strcpy.o)
+                0x041647e2                strcpy
+ .text          0x04164850       0x24 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strcspn.o)
+                0x04164850                strcspn
+ .text          0x04164874       0x28 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strlcpy.o)
+                0x04164874                strlcpy
+ .text          0x0416489c        0xc C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strlen.o)
+                0x0416489c                strlen
+ .text          0x041648a8       0x46 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strncasecmp.o)
+                0x041648a8                strncasecmp
+ .text          0x041648ee       0x26 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strncat.o)
+                0x041648ee                strncat
+ .text          0x04164914       0x1a C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strncmp.o)
+                0x04164914                strncmp
+ .text          0x0416492e       0x26 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strncpy.o)
+                0x0416492e                strncpy
+ .text          0x04164954       0x14 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strnlen.o)
+                0x04164954                strnlen
+ .text          0x04164968       0x36 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strpbrk.o)
+                0x04164968                strpbrk
+ .text          0x0416499e       0x24 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strrchr.o)
+                0x0416499e                strrchr
+ .text          0x041649c2        0xa C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strsep.o)
+                0x041649c2                strsep
+ .text          0x041649cc       0x24 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strspn.o)
+                0x041649cc                strspn
+ .text          0x041649f0       0x2a C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strstr.o)
+                0x041649f0                strstr
+ .text          0x04164a1a       0x10 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strtok.o)
+                0x04164a1a                strtok
+ .text          0x04164a2a       0x54 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strtok_r.o)
+                0x04164a2a                __strtok_r
+                0x04164a7a                strtok_r
+ .text          0x04164a7e       0x1a C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strtoll.o)
+                0x04164a7e                strtoll
+ .text          0x04164a98      0x15c C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strtoll_r.o)
+                0x04164a98                _strtoll_r
+ .text          0x04164bf4      0x108 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-strtol.o)
+                0x04164bf4                _strtol_r
+                0x04164ce4                strtol
+ .text          0x04164cfc       0x1e C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-tolower.o)
+                0x04164cfc                tolower
+ .text          0x04164d1a      0x314 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(adddf3.o)
+                0x04164d5a                __adddf3
+ .text          0x0416502e        0x6 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(subdf3.o)
+                0x0416502e                __subdf3
+ .text          0x04165034       0x10 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(udivdi3.o)
+                0x04165034                __udivdi3
+ .text          0x04165044      0x226 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(udivmoddi4.o)
+                0x04165044                __udivmoddi4
+ .text          0x0416526a       0x14 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(umoddi3.o)
+                0x0416526a                __umoddi3
+ .text          0x0416527e       0x18 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-memchr.o)
+                0x0416527e                memchr
+ .text          0x04165296      0x1a0 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(comparedf2.o)
+                0x04165296                __ledf2
+                0x04165296                __cmpdf2
+                0x04165346                __gedf2
+                0x041653ee                __unorddf2
+                0x0416542e                __eqdf2
+                0x04165430                __ltdf2
+                0x04165432                __nedf2
+                0x04165434                __gtdf2
+ .text          0x04165436      0x346 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(divdf3.o)
+                0x0416546c                __divdf3
+ .text          0x0416577c       0x5a C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(divdi3.o)
+                0x0416577c                __divdi3
+ .text          0x041657d6       0x7a C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(extendsfdf2.o)
+                0x041657d6                __extendsfdf2
+ .text          0x04165850       0x2c C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(fixdfdi.o)
+                0x04165850                __fixdfdi
+ .text          0x0416587c       0x54 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(fixdfsi.o)
+                0x0416587c                __fixdfsi
+ .text          0x041658d0       0x4a C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(fixunsdfdi.o)
+                0x041658d0                __fixunsdfdi
+ .text          0x0416591a       0x3c C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(fixunsdfsi.o)
+                0x0416591a                __fixunsdfsi
+ .text          0x04165956       0x32 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(floatdidf.o)
+                0x04165956                __floatdidf
+ .text          0x04165988       0x4c C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(floatsidf.o)
+                0x04165988                __floatsidf
+ .text          0x041659d4       0x28 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(floatundidf.o)
+                0x041659d4                __floatundidf
+ .text          0x041659fc       0x34 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(floatunsidf.o)
+                0x041659fc                __floatunsidf
+ .text          0x04165a30      0x2fa C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(muldf3.o)
+                0x04165a66                __muldf3
+ .text          0x04165d2a      0x142 C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a(truncdfsf2.o)
+                0x04165d2a                __truncdfsf2
                 0x04165e80                . = ALIGN (0x20)
- *fill*         0x04165e72        0xe 
+ *fill*         0x04165e6c       0x14 
                 0x04165e80                _ctors_begin = .
                 0x04165e80                PROVIDE (ctors_begin, .)
  *(.ctors*)
@@ -3498,751 +3498,751 @@ END GROUP
                 0x04165e80                . = ALIGN (0x20)
  *(.rodata*)
  .rodata.str1.1
-                0x04165e80     0x5df0 cpu\dv17\tools\sdk.elf.o
-                               0x5f35 (size before relaxing)
- *fill*         0x0416bc70       0x10 
- .rodata        0x0416bc80    0x6fb2c cpu\dv17\tools\sdk.elf.o
-                0x0419a8cc                pcm_enc_ops
-                0x0419a8f8                aac_enc_sub_ops
- *fill*         0x041db7ac        0x4 
+                0x04165e80     0x5dd6 cpu\dv17\tools\sdk.elf.o
+                               0x5f22 (size before relaxing)
+ *fill*         0x0416bc56       0x2a 
+ .rodata        0x0416bc80    0x6fabc cpu\dv17\tools\sdk.elf.o
+                0x0419a88c                pcm_enc_ops
+                0x0419a8b8                aac_enc_sub_ops
+ *fill*         0x041db73c        0x4 
  .rodata.str1.16
-                0x041db7b0     0x3250 cpu\dv17\tools\sdk.elf.o
-                               0x3242 (size before relaxing)
- .rodata.cst32  0x041dea00       0xa0 cpu\dv17\tools\sdk.elf.o
+                0x041db740     0x3290 cpu\dv17\tools\sdk.elf.o
+                               0x3282 (size before relaxing)
+ .rodata.cst32  0x041de9d0       0xa0 cpu\dv17\tools\sdk.elf.o
  .rodata.str4.4
-                0x041deaa0      0x278 cpu\dv17\tools\sdk.elf.o
- .rodata.cst4   0x041ded18        0x8 cpu\dv17\tools\sdk.elf.o
- .rodata.cst16  0x041ded20       0x90 cpu\dv17\tools\sdk.elf.o
+                0x041dea70      0x278 cpu\dv17\tools\sdk.elf.o
+ .rodata.cst4   0x041dece8        0x8 cpu\dv17\tools\sdk.elf.o
+ .rodata.cst16  0x041decf0       0x90 cpu\dv17\tools\sdk.elf.o
  .rodata.str4.16
-                0x041dedb0       0x40 cpu\dv17\tools\sdk.elf.o
+                0x041ded80       0x40 cpu\dv17\tools\sdk.elf.o
                                  0x34 (size before relaxing)
- .rodata.cst8   0x041dedf0        0x8 cpu\dv17\tools\sdk.elf.o
- .rodata        0x041dedf8        0xc include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
-                0x041dedf8                aac_enc_opst
- *fill*         0x041dee04        0xc 
+ .rodata.cst8   0x041dedc0        0x8 cpu\dv17\tools\sdk.elf.o
+ .rodata        0x041dedc8        0xc include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
+                0x041dedc8                aac_enc_opst
+ *fill*         0x041dedd4        0xc 
  .rodata.str1.16
-                0x041dee10       0x33 include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
- *fill*         0x041dee43        0x1 
- .rodata.cst8   0x041dee44        0x8 include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
- .rodata        0x041dee4c     0x5a3a include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
-                0x041dee4c                cossintab
-                0x041e004c                twidTab512
-                0x041e100c                twidTab64
-                0x041e11ec                ShortWindowSine
-                0x041e12ec                LongWindowKBD
-                0x041e1aec                formfac_sqrttable
-                0x041e1c6c                mTab_3_4
-                0x041e246c                mTab_4_3
-                0x041e2c6c                invSBF
-                0x041e2ccc                pow2tominusNover16
-                0x041e2cee                sideInfoTabLong
-                0x041e2d56                sideInfoTabShort
-                0x041e2d78                specExpMantTableComb_enc
-                0x041e2e58                specExpTableComb_enc
-                0x041e2e90                quantBorders
-                0x041e2eb0                quantRecon
-                0x041e2ec8                sampRateTab
-                0x041e2ef8                rates
-                0x041e2f18                BandwithCoefTab
-                0x041e3098                sfBandTotalShort
-                0x041e30a4                sfBandTotalLong
-                0x041e30b0                sfBandTabShortOffset
-                0x041e30e0                sfBandTabShort
-                0x041e3178                sfBandTabLongOffset
-                0x041e31a8                sfBandTabLong
-                0x041e3432                huff_ltab1_2
-                0x041e34d4                huff_ltab3_4
-                0x041e3576                huff_ltab5_6
-                0x041e3618                huff_ltab7_8
-                0x041e3698                huff_ltab9_10
-                0x041e37ea                huff_ltab11
-                0x041e3a2c                huff_ltabscf
-                0x041e3b1e                huff_ctab1
-                0x041e3bc0                huff_ctab2
-                0x041e3c62                huff_ctab3
-                0x041e3d04                huff_ctab4
-                0x041e3da6                huff_ctab5
-                0x041e3e48                huff_ctab6
-                0x041e3eea                huff_ctab7
-                0x041e3f6a                huff_ctab8
-                0x041e3fea                huff_ctab9
-                0x041e413c                huff_ctab10
-                0x041e428e                huff_ctab11
-                0x041e44d0                huff_ctabscf
-                0x041e46b4                m_log2_table
-                0x041e4734                tnsCoeff3
-                0x041e4754                tnsCoeff3Borders
-                0x041e4774                tnsCoeff4
-                0x041e47b4                tnsCoeff4Borders
-                0x041e47f4                bitrevTab
- *fill*         0x041e4886        0x2 
- .rodata        0x041e4888       0x44 include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
- .rodata        0x041e48cc       0x48 include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
-                0x041e48cc                hiPassCoeff
- .rodata.cst32  0x041e4914       0x20 include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
- .rodata        0x041e4934       0x10 include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
- .rodata        0x041e4944      0x400 include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
- .rodata        0x041e4d44       0x32 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
- .rodata        0x041e4d76      0x281 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-ctype_.o)
-                0x041e4ef6                _ctype_
- *fill*         0x041e4ff7        0x1 
- .rodata        0x041e4ff8        0x4 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-impure.o)
-                0x041e4ff8                _global_impure_ptr
+                0x041dede0       0x33 include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
+ *fill*         0x041dee13        0x1 
+ .rodata.cst8   0x041dee14        0x8 include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
+ .rodata        0x041dee1c     0x5a3a include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
+                0x041dee1c                cossintab
+                0x041e001c                twidTab512
+                0x041e0fdc                twidTab64
+                0x041e11bc                ShortWindowSine
+                0x041e12bc                LongWindowKBD
+                0x041e1abc                formfac_sqrttable
+                0x041e1c3c                mTab_3_4
+                0x041e243c                mTab_4_3
+                0x041e2c3c                invSBF
+                0x041e2c9c                pow2tominusNover16
+                0x041e2cbe                sideInfoTabLong
+                0x041e2d26                sideInfoTabShort
+                0x041e2d48                specExpMantTableComb_enc
+                0x041e2e28                specExpTableComb_enc
+                0x041e2e60                quantBorders
+                0x041e2e80                quantRecon
+                0x041e2e98                sampRateTab
+                0x041e2ec8                rates
+                0x041e2ee8                BandwithCoefTab
+                0x041e3068                sfBandTotalShort
+                0x041e3074                sfBandTotalLong
+                0x041e3080                sfBandTabShortOffset
+                0x041e30b0                sfBandTabShort
+                0x041e3148                sfBandTabLongOffset
+                0x041e3178                sfBandTabLong
+                0x041e3402                huff_ltab1_2
+                0x041e34a4                huff_ltab3_4
+                0x041e3546                huff_ltab5_6
+                0x041e35e8                huff_ltab7_8
+                0x041e3668                huff_ltab9_10
+                0x041e37ba                huff_ltab11
+                0x041e39fc                huff_ltabscf
+                0x041e3aee                huff_ctab1
+                0x041e3b90                huff_ctab2
+                0x041e3c32                huff_ctab3
+                0x041e3cd4                huff_ctab4
+                0x041e3d76                huff_ctab5
+                0x041e3e18                huff_ctab6
+                0x041e3eba                huff_ctab7
+                0x041e3f3a                huff_ctab8
+                0x041e3fba                huff_ctab9
+                0x041e410c                huff_ctab10
+                0x041e425e                huff_ctab11
+                0x041e44a0                huff_ctabscf
+                0x041e4684                m_log2_table
+                0x041e4704                tnsCoeff3
+                0x041e4724                tnsCoeff3Borders
+                0x041e4744                tnsCoeff4
+                0x041e4784                tnsCoeff4Borders
+                0x041e47c4                bitrevTab
+ *fill*         0x041e4856        0x2 
+ .rodata        0x041e4858       0x44 include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
+ .rodata        0x041e489c       0x48 include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
+                0x041e489c                hiPassCoeff
+ .rodata.cst32  0x041e48e4       0x20 include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
+ .rodata        0x041e4904       0x10 include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
+ .rodata        0x041e4914      0x400 include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
+ .rodata        0x041e4d14       0x32 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
+ .rodata        0x041e4d46      0x281 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-ctype_.o)
+                0x041e4ec6                _ctype_
+ *fill*         0x041e4fc7        0x1 
+ .rodata        0x041e4fc8        0x4 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-impure.o)
+                0x041e4fc8                _global_impure_ptr
  .rodata.str1.1
-                0x041e4ffc        0x0 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-impure.o)
+                0x041e4fcc        0x0 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-impure.o)
                                   0x2 (size before relaxing)
  *(.jlsp_code)
-                0x041e4ffc                . = ALIGN (0x4)
-                0x041e4ffc                _text_rodata_end = .
+                0x041e4fcc                . = ALIGN (0x4)
+                0x041e4fcc                _text_rodata_end = .
                 [!provide]                PROVIDE (text_rodata_end, .)
                 0x00000000                PROVIDE (ctors_count, (_ctors_end - _ctors_begin))
 
-.data           0x041e4ffc    0x4447c
+.data           0x041e4fcc    0x4023c
  *(.stack)
- .stack         0x041e4ffc    0x20000 include_lib/liba/dv17/libcpu.a(startup.S.o)
-                0x041e8ffc                _stack_cpu0
-                0x041f0ffc                _stack_cpu1
-                0x041f4ffc                _stack1_cpu1
-                0x041f8ffc                _stack_cpu2
-                0x041fcffc                _stack1_cpu2
-                0x04200ffc                _stack_cpu3
-                0x04204ffc                _stack1_cpu3
-                0x04205000                . = ALIGN (0x20)
- *fill*         0x04204ffc        0x4 
+ .stack         0x041e4fcc    0x20000 include_lib/liba/dv17/libcpu.a(startup.S.o)
+                0x041e8fcc                _stack_cpu0
+                0x041f0fcc                _stack_cpu1
+                0x041f4fcc                _stack1_cpu1
+                0x041f8fcc                _stack_cpu2
+                0x041fcfcc                _stack1_cpu2
+                0x04200fcc                _stack_cpu3
+                0x04204fcc                _stack1_cpu3
+                0x04204fe0                . = ALIGN (0x20)
+ *fill*         0x04204fcc       0x14 
  *(.data)
- .data          0x04205000    0x2126c cpu\dv17\tools\sdk.elf.o
- .data          0x0422626c        0x4 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-ctype_.o)
-                0x0422626c                __ctype_ptr__
- .data          0x04226270      0x41c C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-impure.o)
-                0x04226270                _impure_ptr
-                0x0422668c                . = ALIGN (0x4)
-                0x0422668c                vfs_ops_begin = .
+ *fill*         0x04204fe0       0x20 
+ .data          0x04205000    0x1cfe8 cpu\dv17\tools\sdk.elf.o
+ .data          0x04221fe8        0x4 C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-ctype_.o)
+                0x04221fe8                __ctype_ptr__
+ .data          0x04221fec      0x41c C:\JL\pi32\pi32v2-lib\r3\libc.a(lib_a-impure.o)
+                0x04221fec                _impure_ptr
+                0x04222408                . = ALIGN (0x4)
+                0x04222408                vfs_ops_begin = .
  *(.vfs_operations)
  .vfs_operations
-                0x0422668c      0x1f4 cpu\dv17\tools\sdk.elf.o
-                0x0422668c                sdfile_vfs_ops
-                0x042266f0                devfs_vfs_ops
-                0x04226754                fat_vfs_ops
-                0x042267b8                ramfs_vfs_ops
-                0x0422681c                fatfs_ops
-                0x04226880                vfs_ops_end = .
-                0x04226880                _lcd_device_begin = .
+                0x04222408      0x1f4 cpu\dv17\tools\sdk.elf.o
+                0x04222408                sdfile_vfs_ops
+                0x0422246c                devfs_vfs_ops
+                0x042224d0                fat_vfs_ops
+                0x04222534                ramfs_vfs_ops
+                0x04222598                fatfs_ops
+                0x042225fc                vfs_ops_end = .
+                0x042225fc                _lcd_device_begin = .
                 [!provide]                PROVIDE (lcd_device_begin, .)
  *(.lcd_device)
- .lcd_device    0x04226880      0x3d8 cpu\dv17\tools\sdk.elf.o
-                0x04226c58                _lcd_device_end = .
+ .lcd_device    0x042225fc      0x3d8 cpu\dv17\tools\sdk.elf.o
+                0x042229d4                _lcd_device_end = .
                 [!provide]                PROVIDE (lcd_device_end, .)
-                0x04226c58                _lcd_device_drive_begin = .
-                0x04226c58                PROVIDE (lcd_device_drive_begin, .)
+                0x042229d4                _lcd_device_drive_begin = .
+                0x042229d4                PROVIDE (lcd_device_drive_begin, .)
  *(.lcd_device_drive)
  .lcd_device_drive
-                0x04226c58       0x38 cpu\dv17\tools\sdk.elf.o
-                0x04226c90                _lcd_device_drive_end = .
-                0x04226c90                PROVIDE (lcd_device_drive_end, .)
-                0x04226c90                _gsensor_dev_begin = .
+                0x042229d4       0x38 cpu\dv17\tools\sdk.elf.o
+                0x04222a0c                _lcd_device_drive_end = .
+                0x04222a0c                PROVIDE (lcd_device_drive_end, .)
+                0x04222a0c                _gsensor_dev_begin = .
                 [!provide]                PROVIDE (gsensor_dev_begin, .)
  *(.gsensor_dev)
-                0x04226c90                _gsensor_dev_end = .
+                0x04222a0c                _gsensor_dev_end = .
                 [!provide]                PROVIDE (gsensor_dev_end, .)
-                0x04226c90                _touch_panel_dev_begin = .
-                0x04226c90                PROVIDE (touch_panel_dev_begin, .)
+                0x04222a0c                _touch_panel_dev_begin = .
+                0x04222a0c                PROVIDE (touch_panel_dev_begin, .)
  *(.touch_panel_dev)
  .touch_panel_dev
-                0x04226c90       0x18 cpu\dv17\tools\sdk.elf.o
-                0x04226ca8                _touch_panel_dev_end = .
-                0x04226ca8                PROVIDE (touch_panel_dev_end, .)
-                0x04226ca8                _isp_scr_begin = .
-                0x04226ca8                PROVIDE (isp_scr_begin, .)
+                0x04222a0c       0x18 cpu\dv17\tools\sdk.elf.o
+                0x04222a24                _touch_panel_dev_end = .
+                0x04222a24                PROVIDE (touch_panel_dev_end, .)
+                0x04222a24                _isp_scr_begin = .
+                0x04222a24                PROVIDE (isp_scr_begin, .)
  *(.isp_scr_work)
- .isp_scr_work  0x04226ca8       0x20 cpu\dv17\tools\sdk.elf.o
-                0x04226cc8                _isp_scr_end = .
-                0x04226cc8                PROVIDE (isp_scr_end, .)
-                0x04226cc8                _power_dev_begin = .
+ .isp_scr_work  0x04222a24       0x20 cpu\dv17\tools\sdk.elf.o
+                0x04222a44                _isp_scr_end = .
+                0x04222a44                PROVIDE (isp_scr_end, .)
+                0x04222a44                _power_dev_begin = .
                 [!provide]                PROVIDE (power_dev_begin, .)
  *(.power_dev)
-                0x04226cc8                _power_dev_end = .
+                0x04222a44                _power_dev_end = .
                 [!provide]                PROVIDE (power_dev_end, .)
-                0x04226cc8                _eth_phy_device_begin = .
+                0x04222a44                _eth_phy_device_begin = .
                 [!provide]                PROVIDE (eth_phy_device_begin, .)
  *(.eth_phy_device)
-                0x04226cc8                _eth_phy_device_end = .
+                0x04222a44                _eth_phy_device_end = .
                 [!provide]                PROVIDE (eth_phy_device_end, .)
-                0x04226cc8                _ui_style_begin = .
-                0x04226cc8                PROVIDE (ui_style_begin, .)
+                0x04222a44                _ui_style_begin = .
+                0x04222a44                PROVIDE (ui_style_begin, .)
  *(.ui_style)
- .ui_style      0x04226cc8       0x24 cpu\dv17\tools\sdk.elf.o
-                0x04226cec                _ui_style_end = .
-                0x04226cec                PROVIDE (ui_style_end, .)
-                0x04226cec                _elm_event_handler_begin_UPGRADE = .
-                0x04226cec                PROVIDE (elm_event_handler_begin_UPGRADE, .)
+ .ui_style      0x04222a44       0x24 cpu\dv17\tools\sdk.elf.o
+                0x04222a68                _ui_style_end = .
+                0x04222a68                PROVIDE (ui_style_end, .)
+                0x04222a68                _elm_event_handler_begin_UPGRADE = .
+                0x04222a68                PROVIDE (elm_event_handler_begin_UPGRADE, .)
  *(.elm_event_handler_UPGRADE)
-                0x04226cec                _elm_event_handler_end_UPGRADE = .
-                0x04226cec                PROVIDE (elm_event_handler_end_UPGRADE, .)
-                0x04226cec                _elm_event_handler_begin_JL02 = .
-                0x04226cec                PROVIDE (elm_event_handler_begin_JL02, .)
+                0x04222a68                _elm_event_handler_end_UPGRADE = .
+                0x04222a68                PROVIDE (elm_event_handler_end_UPGRADE, .)
+                0x04222a68                _elm_event_handler_begin_JL02 = .
+                0x04222a68                PROVIDE (elm_event_handler_begin_JL02, .)
  *(.elm_event_handler_JL02)
  .elm_event_handler_JL02
-                0x04226cec     0x1200 cpu\dv17\tools\sdk.elf.o
-                0x04227eec                _elm_event_handler_end_JL02 = .
-                0x04227eec                PROVIDE (elm_event_handler_end_JL02, .)
-                0x04227eec                _elm_event_handler_begin_ANI = .
-                0x04227eec                PROVIDE (elm_event_handler_begin_ANI, .)
+                0x04222a68     0x1200 cpu\dv17\tools\sdk.elf.o
+                0x04223c68                _elm_event_handler_end_JL02 = .
+                0x04223c68                PROVIDE (elm_event_handler_end_JL02, .)
+                0x04223c68                _elm_event_handler_begin_ANI = .
+                0x04223c68                PROVIDE (elm_event_handler_begin_ANI, .)
  *(.elm_event_handler_ANI)
  .elm_event_handler_ANI
-                0x04227eec       0x40 cpu\dv17\tools\sdk.elf.o
-                0x04227f2c                _elm_event_handler_end_ANI = .
-                0x04227f2c                PROVIDE (elm_event_handler_end_ANI, .)
-                0x04227f2c                _elm_event_handler_begin_LY = .
+                0x04223c68       0x40 cpu\dv17\tools\sdk.elf.o
+                0x04223ca8                _elm_event_handler_end_ANI = .
+                0x04223ca8                PROVIDE (elm_event_handler_end_ANI, .)
+                0x04223ca8                _elm_event_handler_begin_LY = .
                 [!provide]                PROVIDE (elm_event_handler_begin_LY, .)
  *(.elm_event_handler_LY)
-                0x04227f2c                _elm_event_handler_end_LY = .
+                0x04223ca8                _elm_event_handler_end_LY = .
                 [!provide]                PROVIDE (elm_event_handler_end_LY, .)
-                0x04227f2c                _control_event_handler_begin = .
+                0x04223ca8                _control_event_handler_begin = .
                 [!provide]                PROVIDE (control_event_handler_begin, .)
  *(.control_event_handler)
-                0x04227f2c                _control_event_handler_end = .
+                0x04223ca8                _control_event_handler_end = .
                 [!provide]                PROVIDE (control_event_handler_end, .)
-                0x04227f2c                _control_ops_begin = .
-                0x04227f2c                PROVIDE (control_ops_begin, .)
+                0x04223ca8                _control_ops_begin = .
+                0x04223ca8                PROVIDE (control_ops_begin, .)
  *(.control_ops)
- .control_ops   0x04227f2c       0x78 cpu\dv17\tools\sdk.elf.o
-                0x04227fa4                _control_ops_end = .
-                0x04227fa4                PROVIDE (control_ops_end, .)
-                0x04227fa4                _vg_event_handler_begin = .
+ .control_ops   0x04223ca8       0x78 cpu\dv17\tools\sdk.elf.o
+                0x04223d20                _control_ops_end = .
+                0x04223d20                PROVIDE (control_ops_end, .)
+                0x04223d20                _vg_event_handler_begin = .
                 [!provide]                PROVIDE (vg_event_handler_begin, .)
  *(.vg_event_handler)
-                0x04227fa4                _vg_event_handler_end = .
+                0x04223d20                _vg_event_handler_end = .
                 [!provide]                PROVIDE (vg_event_handler_end, .)
-                0x04227fa4                _on_show_map_begin = .
+                0x04223d20                _on_show_map_begin = .
                 [!provide]                PROVIDE (on_show_map_begin, .)
  *(.on_show_map)
-                0x04227fa4                _on_show_map_end = .
+                0x04223d20                _on_show_map_end = .
                 [!provide]                PROVIDE (on_show_map_end, .)
-                0x04227fa4                _on_click_map_begin = .
+                0x04223d20                _on_click_map_begin = .
                 [!provide]                PROVIDE (on_click_map_begin, .)
  *(.on_click_map)
-                0x04227fa4                _on_click_map_end = .
+                0x04223d20                _on_click_map_end = .
                 [!provide]                PROVIDE (on_click_map_end, .)
-                0x04227fa4                _on_touch_map_begin = .
+                0x04223d20                _on_touch_map_begin = .
                 [!provide]                PROVIDE (on_touch_map_begin, .)
  *(.on_touch_map)
-                0x04227fa4                _on_touch_map_end = .
+                0x04223d20                _on_touch_map_end = .
                 [!provide]                PROVIDE (on_touch_map_end, .)
-                0x04227fa4                _on_change_map_begin = .
+                0x04223d20                _on_change_map_begin = .
                 [!provide]                PROVIDE (on_change_map_begin, .)
  *(.on_change_map)
-                0x04227fa4                _on_change_map_end = .
+                0x04223d20                _on_change_map_end = .
                 [!provide]                PROVIDE (on_change_map_end, .)
-                0x04227fa4                _on_key_map_begin = .
+                0x04223d20                _on_key_map_begin = .
                 [!provide]                PROVIDE (on_key_map_begin, .)
  *(.on_key_map)
-                0x04227fa4                _on_key_map_end = .
+                0x04223d20                _on_key_map_end = .
                 [!provide]                PROVIDE (on_key_map_end, .)
-                0x04227fa4                _img_loader_begin = .
+                0x04223d20                _img_loader_begin = .
                 [!provide]                PROVIDE (img_loader_begin, .)
  *(.img_loader)
-                0x04227fa4                _img_loader_end = .
+                0x04223d20                _img_loader_end = .
                 [!provide]                PROVIDE (img_loader_end, .)
-                0x04227fa4                _battery_notify_begin = .
+                0x04223d20                _battery_notify_begin = .
                 [!provide]                PROVIDE (battery_notify_begin, .)
  *(.battery_notify)
-                0x04227fa4                _battery_notify_end = .
+                0x04223d20                _battery_notify_end = .
                 [!provide]                PROVIDE (battery_notify_end, .)
-                0x04227fa4                _lib_version_begin = .
+                0x04223d20                _lib_version_begin = .
                 [!provide]                PROVIDE (lib_version_begin, .)
  *(.lib_version)
- .lib_version   0x04227fa4       0x2c cpu\dv17\tools\sdk.elf.o
-                0x04227fa4                __version_sdfile
-                0x04227fa8                __version_upgrade_server
-                0x04227fac                __version_server_core
-                0x04227fb0                __version_ui_server
-                0x04227fb4                __version_video_engine_server
-                0x04227fb8                __version_usb_server
-                0x04227fbc                __version_video_dec_server
-                0x04227fc0                __version_vunpkg_server
-                0x04227fc4                __version_video_server
-                0x04227fc8                __version_vpkg_server
-                0x04227fcc                __version_audio_server
-                0x04227fd0                _lib_version_end = .
+ .lib_version   0x04223d20       0x2c cpu\dv17\tools\sdk.elf.o
+                0x04223d20                __version_sdfile
+                0x04223d24                __version_upgrade_server
+                0x04223d28                __version_server_core
+                0x04223d2c                __version_ui_server
+                0x04223d30                __version_video_engine_server
+                0x04223d34                __version_usb_server
+                0x04223d38                __version_video_dec_server
+                0x04223d3c                __version_vunpkg_server
+                0x04223d40                __version_video_server
+                0x04223d44                __version_vpkg_server
+                0x04223d48                __version_audio_server
+                0x04223d4c                _lib_version_end = .
                 [!provide]                PROVIDE (lib_version_end, .)
-                0x04227fd0                _sys_version_begin = .
-                0x04227fd0                PROVIDE (sys_version_begin, .)
+                0x04223d4c                _sys_version_begin = .
+                0x04223d4c                PROVIDE (sys_version_begin, .)
  *(.sys.version)
- .sys.version   0x04227fd0       0x1f include_lib/liba/dv17/librtos.a(version.z.o)
-                0x04227fd0                lib_rtos_version
- .sys.version   0x04227fef       0x1e include_lib/liba/dv17/libsdx.a(version.z.o)
-                0x04227fef                lib_sdx_version
- .sys.version   0x0422800d       0x1e include_lib/liba/dv17/libres.a(version.z.o)
-                0x0422800d                lib_res_version
- .sys.version   0x0422802b       0x1e include_lib/liba/dv17/libusb.a(version.z.o)
-                0x0422802b                lib_usb_version
- .sys.version   0x04228049       0x1d include_lib/liba/dv17/libfs.a(version.z.o)
-                0x04228049                lib_fs_version
- .sys.version   0x04228066       0x26 include_lib/liba/dv17/libupgrade.a(version.z.o)
-                0x04228066                lib_sys_upgrade_version
- .sys.version   0x0422808c       0x1f include_lib/liba/dv17/libfont.a(version.z.o)
-                0x0422808c                lib_font_version
- .sys.version   0x042280ab       0x26 include_lib/liba/dv17/libserver_core.a(version.z.o)
-                0x042280ab                lib_server_core_version
- .sys.version   0x042280d1       0x24 include_lib/liba/dv17/libui_server.a(version.z.o)
-                0x042280d1                lib_ui_server_version
- .sys.version   0x042280f5       0x2e include_lib/liba/dv17/libvideo_engine_server.a(version.z.o)
-                0x042280f5                lib_video_engine_server_version
- .sys.version   0x04228123       0x25 include_lib/liba/dv17/libusb_server.a(version.z.o)
-                0x04228123                lib_usb_server_version
- .sys.version   0x04228148       0x2b include_lib/liba/dv17/libvideo_dec_server.a(version.z.o)
-                0x04228148                lib_video_dec_server_version
- .sys.version   0x04228173       0x2b include_lib/liba/dv17/libvideo_rec_server.a(version.z.o)
-                0x04228173                lib_video_rec_server_version
- .sys.version   0x0422819e       0x27 include_lib/liba/dv17/libaudio_server.a(version.z.o)
-                0x0422819e                lib_audio_server_version
- .sys.version   0x042281c5       0x1d include_lib/liba/dv17/libvm.a(version.z.o)
-                0x042281c5                lib_vm_version
- .sys.version   0x042281e2       0x1e include_lib/liba/dv17/libsys.a(version.z.o)
-                0x042281e2                lib_sys_version
- .sys.version   0x04228200       0x23 include_lib/liba/dv17/libdlmalloc.a(version.z.o)
-                0x04228200                lib_dlmalloc_version
- .sys.version   0x04228223       0x1e include_lib/liba/dv17/libh264.a(version.z.o)
-                0x04228223                lib_h264_version
- .sys.version   0x04228241       0x1f include_lib/liba/dv17/libjpeg.a(version.z.o)
-                0x04228241                lib_jpeg_version
- .sys.version   0x04228260       0x2a include_lib/liba/dv17/libvideo_framework.a(version.z.o)
-                0x04228260                lib_video_framework_version
- .sys.version   0x0422828a       0x1e include_lib/liba/dv17/libdev.a(version.z.o)
-                0x0422828a                lib_dev_version
- .sys.version   0x042282a8       0x1d include_lib/liba/dv17/libui.a(version.z.o)
-                0x042282a8                lib_ui_version
- .sys.version   0x042282c5       0x1e include_lib/liba/dv17/libcpu.a(version.z.o)
-                0x042282c5                lib_cpu_version
- .sys.version   0x042282e3       0x1e include_lib/liba/dv17/libisp.a(version.z.o)
-                0x042282e3                lib_isp_version
- .sys.version   0x04228301       0x1e include_lib/liba/dv17/liblog.a(version.z.o)
-                0x04228301                lib_log_version
- .sys.version   0x0422831f       0x1e include_lib/liba/dv17/libhsm.a(version.z.o)
-                0x0422831f                lib_hsm_version
- .sys.version   0x0422833d       0x23 include_lib/liba/dv17/libwifi_dev.a(version.z.o)
-                0x0422833d                lib_wifi_dev_version
- .sys.version   0x04228360       0x22 include_lib/liba/dv17/libmbedtls.a(version.z.o)
-                0x04228360                lib_mbedtls_version
- .sys.version   0x04228382       0x1f include_lib/liba/dv17/liblwip.a(version.z.o)
-                0x04228382                lib_lwip_version
- .sys.version   0x042283a1       0x1f include_lib/liba/dv17/libjson.a(version.z.o)
-                0x042283a1                lib_json_version
- .sys.version   0x042283c0       0x21 include_lib/liba/dv17/libftpcli.a(version.z.o)
-                0x042283c0                lib_ftpcli_version
- .sys.version   0x042283e1       0x25 include_lib/liba/dv17/libnet_server.a(version.z.o)
-                0x042283e1                lib_net_server_version
- .sys.version   0x04228406       0x26 include_lib/liba/dv17/libhttp_server.a(version.z.o)
-                0x04228406                lib_http_server_version
- .sys.version   0x0422842c       0x22 include_lib/liba/dv17/libhttp_cli.a(version.z.o)
-                0x0422842c                lib_httpcli_version
- .sys.version   0x0422844e       0x20 include_lib/liba/dv17/libiperf.a(version.z.o)
-                0x0422844e                lib_iperf_version
- .sys.version   0x0422846e       0x21 include_lib/liba/dv17/libcommon.a(version.z.o)
-                0x0422846e                lib_common_version
- .sys.version   0x0422848f       0x1f include_lib/liba/dv17/librtsp.a(version.z.o)
-                0x0422848f                lib_rtsp_version
- .sys.version   0x042284ae       0x1f include_lib/liba/dv17/libftpd.a(version.z.o)
-                0x042284ae                lib_ftpd_version
- .sys.version   0x042284cd       0x24 include_lib/liba/dv17/libsdio_card.a(version.z.o)
-                0x042284cd                lib_sdio_card_version
- .sys.version   0x042284f1       0x23 include_lib/liba/dv17/librtl8189f.a(version.z.o)
-                0x042284f1                lib_rtl8189f_version
- .sys.version   0x04228514       0x25 include_lib/liba/dv17/libhostapd_wpa.a(version.z.o)
-                0x04228514                lib_hostap_wap_version
-                0x04228539                _sys_version_end = .
-                0x04228539                PROVIDE (sys_version_end, .)
-                0x0422853c                . = ALIGN (0x4)
- *fill*         0x04228539        0x3 
-                0x0422853c                _initcall_begin = .
-                0x0422853c                PROVIDE (initcall_begin, .)
+ .sys.version   0x04223d4c       0x1f include_lib/liba/dv17/librtos.a(version.z.o)
+                0x04223d4c                lib_rtos_version
+ .sys.version   0x04223d6b       0x1e include_lib/liba/dv17/libsdx.a(version.z.o)
+                0x04223d6b                lib_sdx_version
+ .sys.version   0x04223d89       0x1e include_lib/liba/dv17/libres.a(version.z.o)
+                0x04223d89                lib_res_version
+ .sys.version   0x04223da7       0x1e include_lib/liba/dv17/libusb.a(version.z.o)
+                0x04223da7                lib_usb_version
+ .sys.version   0x04223dc5       0x1d include_lib/liba/dv17/libfs.a(version.z.o)
+                0x04223dc5                lib_fs_version
+ .sys.version   0x04223de2       0x26 include_lib/liba/dv17/libupgrade.a(version.z.o)
+                0x04223de2                lib_sys_upgrade_version
+ .sys.version   0x04223e08       0x1f include_lib/liba/dv17/libfont.a(version.z.o)
+                0x04223e08                lib_font_version
+ .sys.version   0x04223e27       0x26 include_lib/liba/dv17/libserver_core.a(version.z.o)
+                0x04223e27                lib_server_core_version
+ .sys.version   0x04223e4d       0x24 include_lib/liba/dv17/libui_server.a(version.z.o)
+                0x04223e4d                lib_ui_server_version
+ .sys.version   0x04223e71       0x2e include_lib/liba/dv17/libvideo_engine_server.a(version.z.o)
+                0x04223e71                lib_video_engine_server_version
+ .sys.version   0x04223e9f       0x25 include_lib/liba/dv17/libusb_server.a(version.z.o)
+                0x04223e9f                lib_usb_server_version
+ .sys.version   0x04223ec4       0x2b include_lib/liba/dv17/libvideo_dec_server.a(version.z.o)
+                0x04223ec4                lib_video_dec_server_version
+ .sys.version   0x04223eef       0x2b include_lib/liba/dv17/libvideo_rec_server.a(version.z.o)
+                0x04223eef                lib_video_rec_server_version
+ .sys.version   0x04223f1a       0x27 include_lib/liba/dv17/libaudio_server.a(version.z.o)
+                0x04223f1a                lib_audio_server_version
+ .sys.version   0x04223f41       0x1d include_lib/liba/dv17/libvm.a(version.z.o)
+                0x04223f41                lib_vm_version
+ .sys.version   0x04223f5e       0x1e include_lib/liba/dv17/libsys.a(version.z.o)
+                0x04223f5e                lib_sys_version
+ .sys.version   0x04223f7c       0x23 include_lib/liba/dv17/libdlmalloc.a(version.z.o)
+                0x04223f7c                lib_dlmalloc_version
+ .sys.version   0x04223f9f       0x1e include_lib/liba/dv17/libh264.a(version.z.o)
+                0x04223f9f                lib_h264_version
+ .sys.version   0x04223fbd       0x1f include_lib/liba/dv17/libjpeg.a(version.z.o)
+                0x04223fbd                lib_jpeg_version
+ .sys.version   0x04223fdc       0x2a include_lib/liba/dv17/libvideo_framework.a(version.z.o)
+                0x04223fdc                lib_video_framework_version
+ .sys.version   0x04224006       0x1e include_lib/liba/dv17/libdev.a(version.z.o)
+                0x04224006                lib_dev_version
+ .sys.version   0x04224024       0x1d include_lib/liba/dv17/libui.a(version.z.o)
+                0x04224024                lib_ui_version
+ .sys.version   0x04224041       0x1e include_lib/liba/dv17/libcpu.a(version.z.o)
+                0x04224041                lib_cpu_version
+ .sys.version   0x0422405f       0x1e include_lib/liba/dv17/libisp.a(version.z.o)
+                0x0422405f                lib_isp_version
+ .sys.version   0x0422407d       0x1e include_lib/liba/dv17/liblog.a(version.z.o)
+                0x0422407d                lib_log_version
+ .sys.version   0x0422409b       0x1e include_lib/liba/dv17/libhsm.a(version.z.o)
+                0x0422409b                lib_hsm_version
+ .sys.version   0x042240b9       0x23 include_lib/liba/dv17/libwifi_dev.a(version.z.o)
+                0x042240b9                lib_wifi_dev_version
+ .sys.version   0x042240dc       0x22 include_lib/liba/dv17/libmbedtls.a(version.z.o)
+                0x042240dc                lib_mbedtls_version
+ .sys.version   0x042240fe       0x1f include_lib/liba/dv17/liblwip.a(version.z.o)
+                0x042240fe                lib_lwip_version
+ .sys.version   0x0422411d       0x1f include_lib/liba/dv17/libjson.a(version.z.o)
+                0x0422411d                lib_json_version
+ .sys.version   0x0422413c       0x21 include_lib/liba/dv17/libftpcli.a(version.z.o)
+                0x0422413c                lib_ftpcli_version
+ .sys.version   0x0422415d       0x25 include_lib/liba/dv17/libnet_server.a(version.z.o)
+                0x0422415d                lib_net_server_version
+ .sys.version   0x04224182       0x26 include_lib/liba/dv17/libhttp_server.a(version.z.o)
+                0x04224182                lib_http_server_version
+ .sys.version   0x042241a8       0x22 include_lib/liba/dv17/libhttp_cli.a(version.z.o)
+                0x042241a8                lib_httpcli_version
+ .sys.version   0x042241ca       0x20 include_lib/liba/dv17/libiperf.a(version.z.o)
+                0x042241ca                lib_iperf_version
+ .sys.version   0x042241ea       0x21 include_lib/liba/dv17/libcommon.a(version.z.o)
+                0x042241ea                lib_common_version
+ .sys.version   0x0422420b       0x1f include_lib/liba/dv17/librtsp.a(version.z.o)
+                0x0422420b                lib_rtsp_version
+ .sys.version   0x0422422a       0x1f include_lib/liba/dv17/libftpd.a(version.z.o)
+                0x0422422a                lib_ftpd_version
+ .sys.version   0x04224249       0x24 include_lib/liba/dv17/libsdio_card.a(version.z.o)
+                0x04224249                lib_sdio_card_version
+ .sys.version   0x0422426d       0x23 include_lib/liba/dv17/librtl8189f.a(version.z.o)
+                0x0422426d                lib_rtl8189f_version
+ .sys.version   0x04224290       0x25 include_lib/liba/dv17/libhostapd_wpa.a(version.z.o)
+                0x04224290                lib_hostap_wap_version
+                0x042242b5                _sys_version_end = .
+                0x042242b5                PROVIDE (sys_version_end, .)
+                0x042242b8                . = ALIGN (0x4)
+ *fill*         0x042242b5        0x3 
+                0x042242b8                _initcall_begin = .
+                0x042242b8                PROVIDE (initcall_begin, .)
  *(.initcall)
- .initcall      0x0422853c       0x20 cpu\dv17\tools\sdk.elf.o
-                0x0422853c                __initcall_app_config_init
-                0x04228540                __initcall_touch_panel_startup
-                0x04228544                __initcall_net_video_server_init
-                0x04228548                __initcall_video_engine_server_init
-                0x0422854c                __initcall_usb_server_init
-                0x04228550                __initcall_video_server_init
-                0x04228554                __initcall_vpkg_server_init
-                0x04228558                __initcall_log_time_init
-                0x0422855c                _initcall_end = .
-                0x0422855c                PROVIDE (initcall_end, .)
-                0x0422855c                _early_initcall_begin = .
-                0x0422855c                PROVIDE (early_initcall_begin, .)
+ .initcall      0x042242b8       0x20 cpu\dv17\tools\sdk.elf.o
+                0x042242b8                __initcall_app_config_init
+                0x042242bc                __initcall_touch_panel_startup
+                0x042242c0                __initcall_net_video_server_init
+                0x042242c4                __initcall_video_engine_server_init
+                0x042242c8                __initcall_usb_server_init
+                0x042242cc                __initcall_video_server_init
+                0x042242d0                __initcall_vpkg_server_init
+                0x042242d4                __initcall_log_time_init
+                0x042242d8                _initcall_end = .
+                0x042242d8                PROVIDE (initcall_end, .)
+                0x042242d8                _early_initcall_begin = .
+                0x042242d8                PROVIDE (early_initcall_begin, .)
  *(.early.initcall)
  .early.initcall
-                0x0422855c       0x30 cpu\dv17\tools\sdk.elf.o
-                0x0422855c                __initcall_app_version_check
-                0x04228560                __initcall___sd_mutex_init
-                0x04228564                __initcall___mutex_init
-                0x04228568                __initcall_sys_event_init
-                0x0422856c                __initcall_wait_completion_init
-                0x04228570                __initcall___crc16_mutex_init
-                0x04228574                __initcall_dma_copy_init
-                0x04228578                __initcall_port_wakeup_init
-                0x0422857c                __initcall_timer1_init
-                0x04228580                __initcall___sfc_spi0_mutex_init
-                0x04228584                __initcall_lvds_analog_uninit
-                0x04228588                __initcall_timer_cap_init
-                0x0422858c                _early_initcall_end = .
-                0x0422858c                PROVIDE (early_initcall_end, .)
-                0x0422858c                _late_initcall_begin = .
-                0x0422858c                PROVIDE (late_initcall_begin, .)
+                0x042242d8       0x30 cpu\dv17\tools\sdk.elf.o
+                0x042242d8                __initcall_app_version_check
+                0x042242dc                __initcall___sd_mutex_init
+                0x042242e0                __initcall___mutex_init
+                0x042242e4                __initcall_sys_event_init
+                0x042242e8                __initcall_wait_completion_init
+                0x042242ec                __initcall___crc16_mutex_init
+                0x042242f0                __initcall_dma_copy_init
+                0x042242f4                __initcall_port_wakeup_init
+                0x042242f8                __initcall_timer1_init
+                0x042242fc                __initcall___sfc_spi0_mutex_init
+                0x04224300                __initcall_lvds_analog_uninit
+                0x04224304                __initcall_timer_cap_init
+                0x04224308                _early_initcall_end = .
+                0x04224308                PROVIDE (early_initcall_end, .)
+                0x04224308                _late_initcall_begin = .
+                0x04224308                PROVIDE (late_initcall_begin, .)
  *(.late.initcall)
  .late.initcall
-                0x0422858c       0x24 cpu\dv17\tools\sdk.elf.o
-                0x0422858c                __initcall_aec_dns_init
-                0x04228590                __initcall_vflist_mutex_init
-                0x04228594                __initcall_strm_video_rec_init
-                0x04228598                __initcall_wireless_net_init
-                0x0422859c                __initcall_usb0_init
-                0x042285a0                __initcall_usb1_init
-                0x042285a4                __initcall_init_application
-                0x042285a8                __initcall_sys_timer_init
-                0x042285ac                __initcall_fenice_sem_init
-                0x042285b0                _late_initcall_end = .
-                0x042285b0                PROVIDE (late_initcall_end, .)
-                0x042285b0                _platform_initcall_begin = .
-                0x042285b0                PROVIDE (platform_initcall_begin, .)
+                0x04224308       0x24 cpu\dv17\tools\sdk.elf.o
+                0x04224308                __initcall_aec_dns_init
+                0x0422430c                __initcall_vflist_mutex_init
+                0x04224310                __initcall_strm_video_rec_init
+                0x04224314                __initcall_wireless_net_init
+                0x04224318                __initcall_usb0_init
+                0x0422431c                __initcall_usb1_init
+                0x04224320                __initcall_init_application
+                0x04224324                __initcall_sys_timer_init
+                0x04224328                __initcall_fenice_sem_init
+                0x0422432c                _late_initcall_end = .
+                0x0422432c                PROVIDE (late_initcall_end, .)
+                0x0422432c                _platform_initcall_begin = .
+                0x0422432c                PROVIDE (platform_initcall_begin, .)
  *(.platform.initcall)
  .platform.initcall
-                0x042285b0        0x8 cpu\dv17\tools\sdk.elf.o
-                0x042285b0                __initcall_adc_scan_init
-                0x042285b4                __initcall_register_fbinfo
-                0x042285b8                _platform_initcall_end = .
-                0x042285b8                PROVIDE (platform_initcall_end, .)
-                0x042285b8                _module_initcall_begin = .
-                0x042285b8                PROVIDE (module_initcall_begin, .)
+                0x0422432c        0x8 cpu\dv17\tools\sdk.elf.o
+                0x0422432c                __initcall_adc_scan_init
+                0x04224330                __initcall_register_fbinfo
+                0x04224334                _platform_initcall_end = .
+                0x04224334                PROVIDE (platform_initcall_end, .)
+                0x04224334                _module_initcall_begin = .
+                0x04224334                PROVIDE (module_initcall_begin, .)
  *(.module.initcall)
  .module.initcall
-                0x042285b8        0x4 cpu\dv17\tools\sdk.elf.o
-                0x042285b8                __initcall_thread_fork_init
-                0x042285bc                _module_initcall_end = .
-                0x042285bc                PROVIDE (module_initcall_end, .)
-                0x042285bc                _sys_event_handler_begin = .
-                0x042285bc                PROVIDE (sys_event_handler_begin, .)
+                0x04224334        0x4 cpu\dv17\tools\sdk.elf.o
+                0x04224334                __initcall_thread_fork_init
+                0x04224338                _module_initcall_end = .
+                0x04224338                PROVIDE (module_initcall_end, .)
+                0x04224338                _sys_event_handler_begin = .
+                0x04224338                PROVIDE (sys_event_handler_begin, .)
  *(.sys_event.4.handler)
  .sys_event.4.handler
-                0x042285bc       0x10 cpu\dv17\tools\sdk.elf.o
-                0x042285bc                __event_handler_backlight_charge_event_handler
-                0x042285c4                __event_handler_backlight_event_handler
+                0x04224338       0x10 cpu\dv17\tools\sdk.elf.o
+                0x04224338                __event_handler_backlight_charge_event_handler
+                0x04224340                __event_handler_backlight_event_handler
  *(.sys_event.3.handler)
  .sys_event.3.handler
-                0x042285cc        0x8 cpu\dv17\tools\sdk.elf.o
-                0x042285cc                __event_handler_key_event_handler
+                0x04224348        0x8 cpu\dv17\tools\sdk.elf.o
+                0x04224348                __event_handler_key_event_handler
  *(.sys_event.2.handler)
  *(.sys_event.1.handler)
  *(.sys_event.0.handler)
  .sys_event.0.handler
-                0x042285d4       0x20 cpu\dv17\tools\sdk.elf.o
-                0x042285d4                __event_handler_device_event_handler
-                0x042285dc                __event_handler_msg_device_event_handler
-                0x042285e4                __event_handler_sys_power_event_handler
-                0x042285ec                __event_handler_uvc_device_event_handler
-                0x042285f4                _sys_event_handler_end = .
-                0x042285f4                PROVIDE (sys_event_handler_end, .)
-                0x042285f4                _syscfg_arg_begin = .
+                0x04224350       0x20 cpu\dv17\tools\sdk.elf.o
+                0x04224350                __event_handler_device_event_handler
+                0x04224358                __event_handler_msg_device_event_handler
+                0x04224360                __event_handler_sys_power_event_handler
+                0x04224368                __event_handler_uvc_device_event_handler
+                0x04224370                _sys_event_handler_end = .
+                0x04224370                PROVIDE (sys_event_handler_end, .)
+                0x04224370                _syscfg_arg_begin = .
                 [!provide]                PROVIDE (syscfg_arg_begin, .)
  *(.syscfg.arg)
-                0x042285f4                _syscfg_arg_end = .
+                0x04224370                _syscfg_arg_end = .
                 [!provide]                PROVIDE (syscfg_arg_end, .)
-                0x042285f4                _syscfg_handler_begin = .
+                0x04224370                _syscfg_handler_begin = .
                 [!provide]                PROVIDE (syscfg_handler_begin, .)
  *(.syscfg.handler)
-                0x042285f4                _syscfg_handler_end = .
+                0x04224370                _syscfg_handler_end = .
                 [!provide]                PROVIDE (syscfg_handler_end, .)
-                0x042285f4                _server_info_begin = .
-                0x042285f4                PROVIDE (server_info_begin, .)
+                0x04224370                _server_info_begin = .
+                0x04224370                PROVIDE (server_info_begin, .)
  *(.server_info)
- .server_info   0x042285f4       0xb0 cpu\dv17\tools\sdk.elf.o
-                0x042285f4                upgrade_server_info
-                0x04228604                ui_server_info
-                0x04228614                video_engine_server_info
-                0x04228624                usb_server_info
-                0x04228634                video_dec_server_info
-                0x04228644                video_preview_server_info
-                0x04228654                vunpkg_server_info
-                0x04228664                video_server_info
-                0x04228674                vpkg_server_info
-                0x04228684                audio_server_info
-                0x04228694                ctp_server_info
-                0x042286a4                _server_info_end = .
-                0x042286a4                PROVIDE (server_info_end, .)
-                0x042286a4                _app_begin = .
-                0x042286a4                PROVIDE (app_begin, .)
+ .server_info   0x04224370       0xb0 cpu\dv17\tools\sdk.elf.o
+                0x04224370                upgrade_server_info
+                0x04224380                ui_server_info
+                0x04224390                video_engine_server_info
+                0x042243a0                usb_server_info
+                0x042243b0                video_dec_server_info
+                0x042243c0                video_preview_server_info
+                0x042243d0                vunpkg_server_info
+                0x042243e0                video_server_info
+                0x042243f0                vpkg_server_info
+                0x04224400                audio_server_info
+                0x04224410                ctp_server_info
+                0x04224420                _server_info_end = .
+                0x04224420                PROVIDE (server_info_end, .)
+                0x04224420                _app_begin = .
+                0x04224420                PROVIDE (app_begin, .)
  *(.app)
- .app           0x042286a4      0x100 cpu\dv17\tools\sdk.elf.o
-                0x042287a4                _app_end = .
-                0x042287a4                PROVIDE (app_end, .)
-                0x042287a4                _bus_device_begin = .
+ .app           0x04224420      0x100 cpu\dv17\tools\sdk.elf.o
+                0x04224520                _app_end = .
+                0x04224520                PROVIDE (app_end, .)
+                0x04224520                _bus_device_begin = .
                 [!provide]                PROVIDE (bus_device_begin, .)
  *(.bus_device)
- .bus_device    0x042287a4        0x8 cpu\dv17\tools\sdk.elf.o
-                0x042287a4                buf_dev_imb
-                0x042287ac                _bus_device_end = .
+ .bus_device    0x04224520        0x8 cpu\dv17\tools\sdk.elf.o
+                0x04224520                buf_dev_imb
+                0x04224528                _bus_device_end = .
                 [!provide]                PROVIDE (bus_device_end, .)
-                0x042287ac                _sys_power_hal_ops_begin = .
-                0x042287ac                PROVIDE (sys_power_hal_ops_begin, .)
+                0x04224528                _sys_power_hal_ops_begin = .
+                0x04224528                PROVIDE (sys_power_hal_ops_begin, .)
  *(.sys_power_hal_ops)
  .sys_power_hal_ops
-                0x042287ac       0x20 cpu\dv17\tools\sdk.elf.o
-                0x042287cc                _sys_power_hal_ops_end = .
+                0x04224528       0x20 cpu\dv17\tools\sdk.elf.o
+                0x04224548                _sys_power_hal_ops_end = .
                 [!provide]                PROVIDE (sys_power_hal_ops_end, .)
-                0x042287e0                . = ALIGN (0x20)
- *fill*         0x042287cc       0x14 
-                0x042287e0                _camera_dev_begin = .
-                0x042287e0                PROVIDE (camera_dev_begin, .)
+                0x04224560                . = ALIGN (0x20)
+ *fill*         0x04224548       0x18 
+                0x04224560                _camera_dev_begin = .
+                0x04224560                PROVIDE (camera_dev_begin, .)
  *(.camera_dev)
- .camera_dev    0x042287e0       0x98 cpu\dv17\tools\sdk.elf.o
-                0x04228878                _camera_dev_end = .
-                0x04228878                PROVIDE (camera_dev_end, .)
-                0x04228878                _adc_scan_begin = .
-                0x04228878                PROVIDE (adc_scan_begin, .)
+ .camera_dev    0x04224560       0x98 cpu\dv17\tools\sdk.elf.o
+                0x042245f8                _camera_dev_end = .
+                0x042245f8                PROVIDE (camera_dev_end, .)
+                0x042245f8                _adc_scan_begin = .
+                0x042245f8                PROVIDE (adc_scan_begin, .)
  *(.adc_scan)
- .adc_scan      0x04228878       0x20 cpu\dv17\tools\sdk.elf.o
-                0x04228898                _adc_scan_end = .
-                0x04228898                PROVIDE (adc_scan_end, .)
-                0x04228898                _spi_device_begin = .
+ .adc_scan      0x042245f8       0x28 cpu\dv17\tools\sdk.elf.o
+                0x04224620                _adc_scan_end = .
+                0x04224620                PROVIDE (adc_scan_end, .)
+                0x04224620                _spi_device_begin = .
                 [!provide]                PROVIDE (spi_device_begin, .)
  *(.spi_device)
-                0x04228898                _spi_device_end = .
+                0x04224620                _spi_device_end = .
                 [!provide]                PROVIDE (spi_device_end, .)
-                0x042288a0                . = ALIGN (0x20)
- *fill*         0x04228898        0x8 
-                0x042288a0                _device_node_begin = .
-                0x042288a0                PROVIDE (device_node_begin, .)
+                0x04224620                . = ALIGN (0x20)
+                0x04224620                _device_node_begin = .
+                0x04224620                PROVIDE (device_node_begin, .)
  *(.device)
- .device        0x042288a0      0x168 cpu\dv17\tools\sdk.elf.o
-                0x042288a0                device_table
-                0x042289fc                virtual_audio_dev
-                0x04228a08                _device_node_end = .
-                0x04228a08                PROVIDE (device_node_end, .)
-                0x04228a08                _video_subdev_begin = .
+ .device        0x04224620      0x168 cpu\dv17\tools\sdk.elf.o
+                0x04224620                device_table
+                0x0422477c                virtual_audio_dev
+                0x04224788                _device_node_end = .
+                0x04224788                PROVIDE (device_node_end, .)
+                0x04224788                _video_subdev_begin = .
                 [!provide]                PROVIDE (video_subdev_begin, .)
  *(.video_subdev.0)
  .video_subdev.0
-                0x04228a08       0x28 cpu\dv17\tools\sdk.elf.o
-                0x04228a08                djpeg_subdev
-                0x04228a1c                camera_subdev
+                0x04224788       0x28 cpu\dv17\tools\sdk.elf.o
+                0x04224788                djpeg_subdev
+                0x0422479c                camera_subdev
  *(.video_subdev.1)
  .video_subdev.1
-                0x04228a30       0x14 cpu\dv17\tools\sdk.elf.o
-                0x04228a30                fb_video_device
+                0x042247b0       0x14 cpu\dv17\tools\sdk.elf.o
+                0x042247b0                fb_video_device
  *(.video_subdev.2)
  *(.video_subdev.3)
  .video_subdev.3
-                0x04228a44       0x14 cpu\dv17\tools\sdk.elf.o
-                0x04228a44                yuv_encode_subdev
+                0x042247c4       0x14 cpu\dv17\tools\sdk.elf.o
+                0x042247c4                yuv_encode_subdev
  *(.video_subdev.4)
  *(.video_subdev.5)
-                0x04228a58                _video_subdev_end = .
+                0x042247d8                _video_subdev_end = .
                 [!provide]                PROVIDE (video_subdev_end, .)
-                0x04228a58                _audio_subdev_begin = .
-                0x04228a58                PROVIDE (audio_subdev_begin, .)
+                0x042247d8                _audio_subdev_begin = .
+                0x042247d8                PROVIDE (audio_subdev_begin, .)
  *(.audio_subdev.0)
  .audio_subdev.0
-                0x04228a58       0x30 cpu\dv17\tools\sdk.elf.o
-                0x04228a58                subdev_aac_enc
-                0x04228a64                subdev_dac
-                0x04228a70                subdev_iis_dec
-                0x04228a7c                subdev_user_dec
+                0x042247d8       0x30 cpu\dv17\tools\sdk.elf.o
+                0x042247d8                subdev_aac_enc
+                0x042247e4                subdev_dac
+                0x042247f0                subdev_iis_dec
+                0x042247fc                subdev_user_dec
  *(.audio_subdev.1)
  .audio_subdev.1
-                0x04228a88        0xc cpu\dv17\tools\sdk.elf.o
-                0x04228a88                subdev_pcm_enc
+                0x04224808        0xc cpu\dv17\tools\sdk.elf.o
+                0x04224808                subdev_pcm_enc
  *(.audio_subdev.2)
  .audio_subdev.2
-                0x04228a94       0x30 cpu\dv17\tools\sdk.elf.o
-                0x04228a94                subdev_adc
-                0x04228aa0                subdev_iis_enc
-                0x04228aac                subdev_plnk
-                0x04228ab8                subdev_user_enc
+                0x04224814       0x30 cpu\dv17\tools\sdk.elf.o
+                0x04224814                subdev_adc
+                0x04224820                subdev_iis_enc
+                0x0422482c                subdev_plnk
+                0x04224838                subdev_user_enc
  *(.audio_subdev.3)
-                0x04228ac4                _audio_subdev_end = .
-                0x04228ac4                PROVIDE (audio_subdev_end, .)
-                0x04228ac4                _iic_device_begin = .
-                0x04228ac4                PROVIDE (iic_device_begin, .)
+                0x04224844                _audio_subdev_end = .
+                0x04224844                PROVIDE (audio_subdev_end, .)
+                0x04224844                _iic_device_begin = .
+                0x04224844                PROVIDE (iic_device_begin, .)
  *(.iic)
- .iic           0x04228ac4       0x28 cpu\dv17\tools\sdk.elf.o
-                0x04228aec                _iic_device_end = .
-                0x04228aec                PROVIDE (iic_device_end, .)
-                0x04228aec                _avin_spi_device_begin = .
+ .iic           0x04224844       0x28 cpu\dv17\tools\sdk.elf.o
+                0x0422486c                _iic_device_end = .
+                0x0422486c                PROVIDE (iic_device_end, .)
+                0x0422486c                _avin_spi_device_begin = .
                 [!provide]                PROVIDE (avin_spi_device_begin, .)
  *(.sw_spi)
-                0x04228aec                _avin_spi_device_end = .
+                0x0422486c                _avin_spi_device_end = .
                 [!provide]                PROVIDE (avin_spi_device_end, .)
-                0x04228aec                _video_dev_begin = .
-                0x04228aec                PROVIDE (video_dev_begin, .)
+                0x0422486c                _video_dev_begin = .
+                0x0422486c                PROVIDE (video_dev_begin, .)
  *(.video_device)
- .video_device  0x04228aec      0x1f8 cpu\dv17\tools\sdk.elf.o
-                0x04228ce4                _video_dev_end = .
-                0x04228ce4                PROVIDE (video_dev_end, .)
-                0x04228ce4                _uart_device_begin = .
-                0x04228ce4                PROVIDE (uart_device_begin, .)
+ .video_device  0x0422486c      0x1f8 cpu\dv17\tools\sdk.elf.o
+                0x04224a64                _video_dev_end = .
+                0x04224a64                PROVIDE (video_dev_end, .)
+                0x04224a64                _uart_device_begin = .
+                0x04224a64                PROVIDE (uart_device_begin, .)
  *(.uart)
- .uart          0x04228ce4      0x150 cpu\dv17\tools\sdk.elf.o
-                0x04228e34                _uart_device_end = .
-                0x04228e34                PROVIDE (uart_device_end, .)
-                0x04228e40                . = ALIGN (0x20)
- *fill*         0x04228e34        0xc 
-                0x04228e40                _key_driver_begin = .
-                0x04228e40                PROVIDE (key_driver_begin, .)
+ .uart          0x04224a64      0x150 cpu\dv17\tools\sdk.elf.o
+                0x04224bb4                _uart_device_end = .
+                0x04224bb4                PROVIDE (uart_device_end, .)
+                0x04224bc0                . = ALIGN (0x20)
+ *fill*         0x04224bb4        0xc 
+                0x04224bc0                _key_driver_begin = .
+                0x04224bc0                PROVIDE (key_driver_begin, .)
  *(.key_driver)
- .key_driver    0x04228e40       0x50 cpu\dv17\tools\sdk.elf.o
-                0x04228e90                _key_driver_end = .
-                0x04228e90                PROVIDE (key_driver_end, .)
-                0x04228e90                _touch_driver_begin = .
+ .key_driver    0x04224bc0       0x50 cpu\dv17\tools\sdk.elf.o
+                0x04224c10                _key_driver_end = .
+                0x04224c10                PROVIDE (key_driver_end, .)
+                0x04224c10                _touch_driver_begin = .
                 [!provide]                PROVIDE (touch_driver_begin, .)
  *(.touch_driver)
-                0x04228e90                _touch_driver_end = .
+                0x04224c10                _touch_driver_end = .
                 [!provide]                PROVIDE (touch_driver_end, .)
-                0x04228e90                _static_hi_timer_begin = .
-                0x04228e90                PROVIDE (static_hi_timer_begin, .)
+                0x04224c10                _static_hi_timer_begin = .
+                0x04224c10                PROVIDE (static_hi_timer_begin, .)
  *(.hi_timer)
-                0x04228e90                _static_hi_timer_end = .
-                0x04228e90                PROVIDE (static_hi_timer_end, .)
-                0x04228e90                _sys_cpu_timer_begin = .
-                0x04228e90                PROVIDE (sys_cpu_timer_begin, .)
+                0x04224c10                _static_hi_timer_end = .
+                0x04224c10                PROVIDE (static_hi_timer_end, .)
+                0x04224c10                _sys_cpu_timer_begin = .
+                0x04224c10                PROVIDE (sys_cpu_timer_begin, .)
  *(.sys_cpu_timer)
  .sys_cpu_timer
-                0x04228e90       0x10 cpu\dv17\tools\sdk.elf.o
-                0x04228e90                cpu_timer2
-                0x04228ea0                _sys_cpu_timer_end = .
-                0x04228ea0                PROVIDE (sys_cpu_timer_end, .)
-                0x04228ea0                _sys_config_begin = .
+                0x04224c10       0x10 cpu\dv17\tools\sdk.elf.o
+                0x04224c10                cpu_timer2
+                0x04224c20                _sys_cpu_timer_end = .
+                0x04224c20                PROVIDE (sys_cpu_timer_end, .)
+                0x04224c20                _sys_config_begin = .
                 [!provide]                PROVIDE (sys_config_begin, .)
  *(.sys_cfg)
-                0x04228ea0                _sys_config_end = .
+                0x04224c20                _sys_config_end = .
                 [!provide]                PROVIDE (sys_config_end, .)
-                0x04228ea0                _audio_decoder_begin = .
-                0x04228ea0                PROVIDE (audio_decoder_begin, .)
+                0x04224c20                _audio_decoder_begin = .
+                0x04224c20                PROVIDE (audio_decoder_begin, .)
  *(.audio_decoder)
  .audio_decoder
-                0x04228ea0       0x3c cpu\dv17\tools\sdk.elf.o
-                0x04228ea0                pcm_decoder_ops
-                0x04228eb4                adpcm_decoder_ops
-                0x04228ec8                m4a_decoder
-                0x04228edc                _audio_decoder_end = .
-                0x04228edc                PROVIDE (audio_decoder_end, .)
-                0x04228edc                _ethernet_device_begin = .
+                0x04224c20       0x3c cpu\dv17\tools\sdk.elf.o
+                0x04224c20                pcm_decoder_ops
+                0x04224c34                adpcm_decoder_ops
+                0x04224c48                m4a_decoder
+                0x04224c5c                _audio_decoder_end = .
+                0x04224c5c                PROVIDE (audio_decoder_end, .)
+                0x04224c5c                _ethernet_device_begin = .
                 [!provide]                PROVIDE (ethernet_device_begin, .)
  *(.ethernet_device)
  *(.eth_phy_device)
-                0x04228edc                _ethernet_device_end = .
+                0x04224c5c                _ethernet_device_end = .
                 [!provide]                PROVIDE (ethernet_device_end, .)
-                0x04228edc                _ctp_mapping_tab_begin = .
-                0x04228edc                PROVIDE (ctp_mapping_tab_begin, .)
-                0x04228edc                _ctp_mapping_tab_system_cmd_begin = .
+                0x04224c5c                _ctp_mapping_tab_begin = .
+                0x04224c5c                PROVIDE (ctp_mapping_tab_begin, .)
+                0x04224c5c                _ctp_mapping_tab_system_cmd_begin = .
                 [!provide]                PROVIDE (ctp_mapping_tab_system_cmd_begin, .)
  *(.ctp_system_cmd)
  .ctp_system_cmd
-                0x04228edc      0x280 cpu\dv17\tools\sdk.elf.o
-                0x04228edc                ctp_system_cmd_tab
-                0x0422915c                _ctp_mapping_tab_system_cmd_end = .
+                0x04224c5c      0x280 cpu\dv17\tools\sdk.elf.o
+                0x04224c5c                ctp_system_cmd_tab
+                0x04224edc                _ctp_mapping_tab_system_cmd_end = .
                 [!provide]                PROVIDE (ctp_mapping_tab_system_cmd_end, .)
-                0x0422915c                _ctp_mapping_tab_video_cmd_begin = .
+                0x04224edc                _ctp_mapping_tab_video_cmd_begin = .
                 [!provide]                PROVIDE (ctp_mapping_tab_video_cmd_begin, .)
  *(.ctp_video_cmd)
  .ctp_video_cmd
-                0x0422915c      0x230 cpu\dv17\tools\sdk.elf.o
-                0x0422915c                ctp_video_cmd_tab
-                0x0422938c                _ctp_mapping_tab_video_cmd_end = .
+                0x04224edc      0x230 cpu\dv17\tools\sdk.elf.o
+                0x04224edc                ctp_video_cmd_tab
+                0x0422510c                _ctp_mapping_tab_video_cmd_end = .
                 [!provide]                PROVIDE (ctp_mapping_tab_video_cmd_end, .)
-                0x0422938c                _ctp_mapping_tab_photo_cmd_begin = .
+                0x0422510c                _ctp_mapping_tab_photo_cmd_begin = .
                 [!provide]                PROVIDE (ctp_mapping_tab_photo_cmd_begin, .)
  *(.ctp_photo_cmd)
  .ctp_photo_cmd
-                0x0422938c       0x3c cpu\dv17\tools\sdk.elf.o
-                0x0422938c                ctp_photo_cmd_tab
-                0x042293c8                _ctp_mapping_tab_photo_cmd_end = .
+                0x0422510c       0x3c cpu\dv17\tools\sdk.elf.o
+                0x0422510c                ctp_photo_cmd_tab
+                0x04225148                _ctp_mapping_tab_photo_cmd_end = .
                 [!provide]                PROVIDE (ctp_mapping_tab_photo_cmd_end, .)
-                0x042293c8                _ctp_mapping_tab_end = .
-                0x042293c8                PROVIDE (ctp_mapping_tab_end, .)
-                0x042293c8                _net_video_stream_sub_begin = .
-                0x042293c8                PROVIDE (net_video_stream_sub_begin, .)
+                0x04225148                _ctp_mapping_tab_end = .
+                0x04225148                PROVIDE (ctp_mapping_tab_end, .)
+                0x04225148                _net_video_stream_sub_begin = .
+                0x04225148                PROVIDE (net_video_stream_sub_begin, .)
  *(.net_video_stream)
  .net_video_stream
-                0x042293c8       0x30 cpu\dv17\tools\sdk.elf.o
-                0x042293f8                _net_video_stream_sub_end = .
-                0x042293f8                PROVIDE (net_video_stream_sub_end, .)
-                0x042293fc                . = (((. + 0x1f) / 0x20) * 0x20)
- *fill*         0x042293f8        0x4 
-                0x042293fc                _layer_buf_begin = .
-                0x042293fc                PROVIDE (layer_buf_begin, .)
+                0x04225148       0x30 cpu\dv17\tools\sdk.elf.o
+                0x04225178                _net_video_stream_sub_end = .
+                0x04225178                PROVIDE (net_video_stream_sub_end, .)
+                0x0422518c                . = (((. + 0x1f) / 0x20) * 0x20)
+ *fill*         0x04225178       0x14 
+                0x0422518c                _layer_buf_begin = .
+                0x0422518c                PROVIDE (layer_buf_begin, .)
  *(.layer_buf_t)
-                0x042293fc                _layer_buf_end = .
-                0x042293fc                PROVIDE (layer_buf_end, .)
-                0x042293fc                . = (((. + 0x1f) / 0x20) * 0x20)
-                0x042293fc                _font_info_begin = .
-                0x042293fc                PROVIDE (font_info_begin, .)
+                0x0422518c                _layer_buf_end = .
+                0x0422518c                PROVIDE (layer_buf_end, .)
+                0x0422518c                . = (((. + 0x1f) / 0x20) * 0x20)
+                0x0422518c                _font_info_begin = .
+                0x0422518c                PROVIDE (font_info_begin, .)
  *(.font_info_t)
-                0x042293fc                _font_info_end = .
-                0x042293fc                PROVIDE (font_info_end, .)
-                0x042293fc                . = (((. + 0x1f) / 0x20) * 0x20)
-                0x042293fc                _screen_tool_info_begin = .
-                0x042293fc                PROVIDE (screen_tool_info_begin, .)
+                0x0422518c                _font_info_end = .
+                0x0422518c                PROVIDE (font_info_end, .)
+                0x0422518c                . = (((. + 0x1f) / 0x20) * 0x20)
+                0x0422518c                _screen_tool_info_begin = .
+                0x0422518c                PROVIDE (screen_tool_info_begin, .)
  *(.screen_tool_info)
  .screen_tool_info
-                0x042293fc       0x1c cpu\dv17\tools\sdk.elf.o
-                0x042293fc                screen
-                0x04229418                _screen_tool_info_end = .
+                0x0422518c       0x1c cpu\dv17\tools\sdk.elf.o
+                0x0422518c                screen
+                0x042251a8                _screen_tool_info_end = .
                 [!provide]                PROVIDE (screen_tool_info_end, .)
-                0x04229418                _pwm_device_begin = .
-                0x04229418                PROVIDE (pwm_device_begin, .)
+                0x042251a8                _pwm_device_begin = .
+                0x042251a8                PROVIDE (pwm_device_begin, .)
  *(.pwm_dev)
- .pwm_dev       0x04229418       0x60 cpu\dv17\tools\sdk.elf.o
-                0x04229418                pwm
-                0x04229438                tpwm
-                0x04229458                pwm8
-                0x04229478                _pwm_device_end = .
-                0x04229478                PROVIDE (pwm_device_end, .)
-                0x04229478                _wireless_driver_begin = .
+ .pwm_dev       0x042251a8       0x60 cpu\dv17\tools\sdk.elf.o
+                0x042251a8                pwm
+                0x042251c8                tpwm
+                0x042251e8                pwm8
+                0x04225208                _pwm_device_end = .
+                0x04225208                PROVIDE (pwm_device_end, .)
+                0x04225208                _wireless_driver_begin = .
                 [!provide]                PROVIDE (wireless_driver_begin, .)
  *(.wireless_driver)
-                0x04229478                _wireless_driver_end = .
+                0x04225208                _wireless_driver_end = .
                 [!provide]                PROVIDE (wireless_driver_end, .)
  *(.m4a_dec_lib.text)
-                0x04229478                . = ALIGN (0x4)
+                0x04225208                . = ALIGN (0x4)
  *(.jlsp_const)
-                0x04229478                . = ALIGN (0x4)
+                0x04225208                . = ALIGN (0x4)
  *(.jlsp_data)
-                0x04229478                . = ALIGN (0x4)
+                0x04225208                . = ALIGN (0x4)
  *(.dns_common_data)
-                0x04229478                . = ALIGN (0x4)
+                0x04225208                . = ALIGN (0x4)
  *(.dns_16k_data)
-                0x04229478                . = ALIGN (0x4)
+                0x04225208                . = ALIGN (0x4)
  *(.dns_8k_data)
-                0x04229478                . = ALIGN (0x4)
+                0x04225208                . = ALIGN (0x4)
  *(.dns_param_data_single)
 
-.bss            0x04229480   0x874100
-                0x04229480                _system_data_begin = .
+.bss            0x04225220   0x874160
+                0x04225220                _system_data_begin = .
  *(.bss)
- *fill*         0x04229480      0x180 
- .bss           0x04229600   0x52ebc0 cpu\dv17\tools\sdk.elf.o
-                0x043dc740                CurrentTCB
-                0x043dc748                highCurrentTCB
+ *fill*         0x04225220      0x1e0 
+ .bss           0x04225400   0x52ebd0 cpu\dv17\tools\sdk.elf.o
+                0x043d8540                CurrentTCB
+                0x043d8548                highCurrentTCB
  *(COMMON)
  *(.usb_slave_var)
  *(.mem_heap)
  *(.memp_memory_x)
  .memp_memory_x
-                0x047581c0    0x573a7 cpu\dv17\tools\sdk.elf.o
-                0x047af580                . = (((. + 0x1f) / 0x20) * 0x20)
- *fill*         0x047af567       0x19 
-                0x047af580                _lcd_dev_buf_addr = .
-                0x047af580                PROVIDE (lcd_dev_buf_addr, .)
+                0x04753fd0    0x573a7 cpu\dv17\tools\sdk.elf.o
+                0x047ab380                . = (((. + 0x1f) / 0x20) * 0x20)
+ *fill*         0x047ab377        0x9 
+                0x047ab380                _lcd_dev_buf_addr = .
+                0x047ab380                PROVIDE (lcd_dev_buf_addr, .)
  *(.lcd_dev_buf)
- .lcd_dev_buf   0x047af580   0x2ee000 cpu\dv17\tools\sdk.elf.o
-                0x047af580                lcd_dev_buf
-                0x04a9d580                . = ALIGN (0x4)
-                0x04a9d580                _system_data_end = .
-                0x04a9d580                _HEAP_BEGIN = (((. + 0x1f) / 0x20) * 0x20)
-                0x04a9d580                PROVIDE (HEAP_BEGIN, (((. + 0x1f) / 0x20) * 0x20))
+ .lcd_dev_buf   0x047ab380   0x2ee000 cpu\dv17\tools\sdk.elf.o
+                0x047ab380                lcd_dev_buf
+                0x04a99380                . = ALIGN (0x4)
+                0x04a99380                _system_data_end = .
+                0x04a99380                _HEAP_BEGIN = (((. + 0x1f) / 0x20) * 0x20)
+                0x04a99380                PROVIDE (HEAP_BEGIN, (((. + 0x1f) / 0x20) * 0x20))
                 0x07ffffe0                _HEAP_END = 0x7ffffe0
                 0x07ffffe0                PROVIDE (HEAP_END, 0x7ffffe0)
-                0x03562a60                _MALLOC_SIZE = (_HEAP_END - _HEAP_BEGIN)
+                0x03566c60                _MALLOC_SIZE = (_HEAP_END - _HEAP_BEGIN)
                 [!provide]                PROVIDE (MALLOC_SIZE, (_HEAP_END - _HEAP_BEGIN))
                 0x03f00000                . = ORIGIN (ram0)
 
@@ -4282,20 +4282,20 @@ END GROUP
  .plnk_buf      0x03f0f0c0      0x440 cpu\dv17\tools\sdk.elf.o
                 0x03f0f500                . = ALIGN (0x4)
                 0x04000000                text_begin = ADDR (.rom_code)
-                0x001e4ffc                text_size = SIZEOF (.rom_code)
-                0x04229480                bss_begin = ADDR (.bss)
-                0x00874100                bss_size = SIZEOF (.bss)
-                0x00874100                bss_size1 = (_system_data_end - _system_data_begin)
-                0x04229480                bss_begin1 = _system_data_begin
-                0x041e4ffc                data_begin = LOADADDR (.data)
-                0x041e4ffc                data_addr = ADDR (.data)
-                0x0004447c                data_size = SIZEOF (.data)
-                0x041e4ffc                data_vma = ADDR (.data)
-                0x041e4ffc                data_lma = (text_begin + SIZEOF (.rom_code))
+                0x001e4fcc                text_size = SIZEOF (.rom_code)
+                0x04225220                bss_begin = ADDR (.bss)
+                0x00874160                bss_size = SIZEOF (.bss)
+                0x00874160                bss_size1 = (_system_data_end - _system_data_begin)
+                0x04225220                bss_begin1 = _system_data_begin
+                0x041e4fcc                data_begin = LOADADDR (.data)
+                0x041e4fcc                data_addr = ADDR (.data)
+                0x0004023c                data_size = SIZEOF (.data)
+                0x041e4fcc                data_vma = ADDR (.data)
+                0x041e4fcc                data_lma = (text_begin + SIZEOF (.rom_code))
                 0x03f00d40                _ram0_bss_vma = ADDR (.ram0_bss)
                 0x0000e7c0                _ram0_bss_size = SIZEOF (.ram0_bss)
                 0x03f00000                _ram0_data_vma = ADDR (.ram0_data)
-                0x04229478                _ram0_data_lma = ((text_begin + SIZEOF (.rom_code)) + SIZEOF (.data))
+                0x04225208                _ram0_data_lma = ((text_begin + SIZEOF (.rom_code)) + SIZEOF (.data))
                 0x00000d40                _ram0_data_size = SIZEOF (.ram0_data)
 LOAD C:\JL\pi32\pi32v2-lib\r3\libm.a
 LOAD include_lib\liba\dv17\secret.a
@@ -4304,93 +4304,93 @@ LOAD C:\JL\pi32\pi32v2-lib\r3\libm.a
 LOAD C:\JL\pi32\pi32v2-lib\r3\libcompiler-rt.a
 OUTPUT(cpu\dv17\tools\sdk.elf elf32-pi32v2)
 
-.debug_str      0x00000000    0xa6ef4
- .debug_str     0x00000000    0xa3f30 cpu\dv17\tools\sdk.elf.o
-                              0xb140b (size before relaxing)
- .debug_str     0x000a3f30      0xa85 include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
+.debug_str      0x00000000    0xa6d7a
+ .debug_str     0x00000000    0xa3db6 cpu\dv17\tools\sdk.elf.o
+                              0xb1296 (size before relaxing)
+ .debug_str     0x000a3db6      0xa85 include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
                                 0xba4 (size before relaxing)
- .debug_str     0x000a49b5       0x77 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
+ .debug_str     0x000a483b       0x77 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
                                 0xb64 (size before relaxing)
- .debug_str     0x000a4a2c       0x92 include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
+ .debug_str     0x000a48b2       0x92 include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
                                 0xb62 (size before relaxing)
- .debug_str     0x000a4abe       0x65 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
+ .debug_str     0x000a4944       0x65 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
                                 0x116 (size before relaxing)
- .debug_str     0x000a4b23      0x31d include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
+ .debug_str     0x000a49a9      0x31d include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
                                 0x808 (size before relaxing)
- .debug_str     0x000a4e40       0x68 include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
+ .debug_str     0x000a4cc6       0x68 include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
                                 0x1af (size before relaxing)
- .debug_str     0x000a4ea8      0x183 include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
+ .debug_str     0x000a4d2e      0x183 include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
                                 0x70e (size before relaxing)
- .debug_str     0x000a502b      0x1f7 include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
+ .debug_str     0x000a4eb1      0x1f7 include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
                                 0xd40 (size before relaxing)
- .debug_str     0x000a5222      0x172 include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
+ .debug_str     0x000a50a8      0x172 include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
                                 0x2a9 (size before relaxing)
- .debug_str     0x000a5394      0x17e include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
+ .debug_str     0x000a521a      0x17e include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
                                 0x4db (size before relaxing)
- .debug_str     0x000a5512       0x53 include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
+ .debug_str     0x000a5398       0x53 include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
                                  0xda (size before relaxing)
- .debug_str     0x000a5565      0x10c include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
+ .debug_str     0x000a53eb      0x10c include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
                                 0x2f3 (size before relaxing)
- .debug_str     0x000a5671      0x1a5 include_lib/liba/dv17/aac_enc_lib.a(transform.o)
+ .debug_str     0x000a54f7      0x1a5 include_lib/liba/dv17/aac_enc_lib.a(transform.o)
                                 0x2b6 (size before relaxing)
- .debug_str     0x000a5816      0x2a5 include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
+ .debug_str     0x000a569c      0x2a5 include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
                                 0x32f (size before relaxing)
- .debug_str     0x000a5abb      0x566 include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
+ .debug_str     0x000a5941      0x566 include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
                                0x11e3 (size before relaxing)
- .debug_str     0x000a6021       0xf7 include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
+ .debug_str     0x000a5ea7       0xf7 include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
                                 0x184 (size before relaxing)
- .debug_str     0x000a6118       0x5a include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
+ .debug_str     0x000a5f9e       0x5a include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
                                  0xe3 (size before relaxing)
- .debug_str     0x000a6172      0x236 include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
+ .debug_str     0x000a5ff8      0x236 include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
                                 0x385 (size before relaxing)
- .debug_str     0x000a63a8      0x1ff include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
+ .debug_str     0x000a622e      0x1ff include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
                                 0x450 (size before relaxing)
- .debug_str     0x000a65a7      0x294 include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
+ .debug_str     0x000a642d      0x294 include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
                                 0x64f (size before relaxing)
- .debug_str     0x000a683b       0x46 include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
+ .debug_str     0x000a66c1       0x46 include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
                                 0x199 (size before relaxing)
- .debug_str     0x000a6881       0xb7 include_lib/liba/dv17/aac_enc_lib.a(interface.o)
+ .debug_str     0x000a6707       0xb7 include_lib/liba/dv17/aac_enc_lib.a(interface.o)
                                 0x307 (size before relaxing)
- .debug_str     0x000a6938       0x58 include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
+ .debug_str     0x000a67be       0x58 include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
                                 0x326 (size before relaxing)
- .debug_str     0x000a6990      0x101 include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
+ .debug_str     0x000a6816      0x101 include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
                                 0x218 (size before relaxing)
- .debug_str     0x000a6a91       0xfe include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
+ .debug_str     0x000a6917       0xfe include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
                                 0x1e7 (size before relaxing)
- .debug_str     0x000a6b8f       0x82 include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
+ .debug_str     0x000a6a15       0x82 include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
                                 0x167 (size before relaxing)
- .debug_str     0x000a6c11      0x2e3 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
+ .debug_str     0x000a6a97      0x2e3 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
                                 0x55a (size before relaxing)
 
-.debug_loc      0x00000000   0x118818
- .debug_loc     0x00000000   0x1100a3 cpu\dv17\tools\sdk.elf.o
- .debug_loc     0x001100a3       0xc4 include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
- .debug_loc     0x00110167       0xf8 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
- .debug_loc     0x0011025f       0xd9 include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
- .debug_loc     0x00110338       0x88 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
- .debug_loc     0x001103c0      0x33e include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
- .debug_loc     0x001106fe       0xa6 include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
- .debug_loc     0x001107a4      0x615 include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
- .debug_loc     0x00110db9      0x40c include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
- .debug_loc     0x001111c5      0x992 include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
- .debug_loc     0x00111b57      0x823 include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
- .debug_loc     0x0011237a       0x7d include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
- .debug_loc     0x001123f7       0xa3 include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
- .debug_loc     0x0011249a      0xc0b include_lib/liba/dv17/aac_enc_lib.a(transform.o)
- .debug_loc     0x001130a5        0x0 include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
- .debug_loc     0x001130a5     0x12c3 include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
- .debug_loc     0x00114368      0x544 include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
- .debug_loc     0x001148ac      0x263 include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
- .debug_loc     0x00114b0f      0xd4f include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
- .debug_loc     0x0011585e      0x529 include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
- .debug_loc     0x00115d87      0x7dc include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
- .debug_loc     0x00116563      0x6c1 include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
- .debug_loc     0x00116c24      0x309 include_lib/liba/dv17/aac_enc_lib.a(interface.o)
- .debug_loc     0x00116f2d      0x423 include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
- .debug_loc     0x00117350      0x45e include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
- .debug_loc     0x001177ae      0x809 include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
- .debug_loc     0x00117fb7      0x17f include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
- .debug_loc     0x00118136      0x6e2 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
+.debug_loc      0x00000000   0x1187ce
+ .debug_loc     0x00000000   0x110059 cpu\dv17\tools\sdk.elf.o
+ .debug_loc     0x00110059       0xc4 include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
+ .debug_loc     0x0011011d       0xf8 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
+ .debug_loc     0x00110215       0xd9 include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
+ .debug_loc     0x001102ee       0x88 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
+ .debug_loc     0x00110376      0x33e include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
+ .debug_loc     0x001106b4       0xa6 include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
+ .debug_loc     0x0011075a      0x615 include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
+ .debug_loc     0x00110d6f      0x40c include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
+ .debug_loc     0x0011117b      0x992 include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
+ .debug_loc     0x00111b0d      0x823 include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
+ .debug_loc     0x00112330       0x7d include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
+ .debug_loc     0x001123ad       0xa3 include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
+ .debug_loc     0x00112450      0xc0b include_lib/liba/dv17/aac_enc_lib.a(transform.o)
+ .debug_loc     0x0011305b        0x0 include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
+ .debug_loc     0x0011305b     0x12c3 include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
+ .debug_loc     0x0011431e      0x544 include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
+ .debug_loc     0x00114862      0x263 include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
+ .debug_loc     0x00114ac5      0xd4f include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
+ .debug_loc     0x00115814      0x529 include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
+ .debug_loc     0x00115d3d      0x7dc include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
+ .debug_loc     0x00116519      0x6c1 include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
+ .debug_loc     0x00116bda      0x309 include_lib/liba/dv17/aac_enc_lib.a(interface.o)
+ .debug_loc     0x00116ee3      0x423 include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
+ .debug_loc     0x00117306      0x45e include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
+ .debug_loc     0x00117764      0x809 include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
+ .debug_loc     0x00117f6d      0x17f include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
+ .debug_loc     0x001180ec      0x6e2 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
 
 .debug_abbrev   0x00000000     0x388a
  .debug_abbrev  0x00000000     0x11c8 cpu\dv17\tools\sdk.elf.o
@@ -4424,67 +4424,67 @@ OUTPUT(cpu\dv17\tools\sdk.elf elf32-pi32v2)
  .debug_abbrev  0x00003578       0xbf include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
  .debug_abbrev  0x00003637      0x253 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
 
-.debug_info     0x00000000   0x62290c
- .debug_info    0x00000000   0x612552 cpu\dv17\tools\sdk.elf.o
- .debug_info    0x00612552      0x115 include_lib/liba/dv17/librtos.a(port_asm.S.o)
- .debug_info    0x00612667      0x25d include_lib/liba/dv17/libcpu.a(startup.S.o)
- .debug_info    0x006128c4     0x10a4 include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
- .debug_info    0x00613968     0x1075 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
- .debug_info    0x006149dd     0x1039 include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
- .debug_info    0x00615a16      0x198 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
- .debug_info    0x00615bae      0xc87 include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
- .debug_info    0x00616835      0x237 include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
- .debug_info    0x00616a6c      0xc15 include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
- .debug_info    0x00617681     0x1495 include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
- .debug_info    0x00618b16      0x8eb include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
- .debug_info    0x00619401      0xa48 include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
- .debug_info    0x00619e49      0x130 include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
- .debug_info    0x00619f79      0x335 include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
- .debug_info    0x0061a2ae      0x97a include_lib/liba/dv17/aac_enc_lib.a(transform.o)
- .debug_info    0x0061ac28      0x5f7 include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
- .debug_info    0x0061b21f     0x2ab5 include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
- .debug_info    0x0061dcd4      0x386 include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
- .debug_info    0x0061e05a      0x3da include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
- .debug_info    0x0061e434      0xb0e include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
- .debug_info    0x0061ef42      0x7cd include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
- .debug_info    0x0061f70f      0xa28 include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
- .debug_info    0x00620137      0x35b include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
- .debug_info    0x00620492      0x476 include_lib/liba/dv17/aac_enc_lib.a(interface.o)
- .debug_info    0x00620908      0x61f include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
- .debug_info    0x00620f27      0x35c include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
- .debug_info    0x00621283      0x8ee include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
- .debug_info    0x00621b71      0x1d8 include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
- .debug_info    0x00621d49      0xbc3 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
+.debug_info     0x00000000   0x622ba3
+ .debug_info    0x00000000   0x6127e9 cpu\dv17\tools\sdk.elf.o
+ .debug_info    0x006127e9      0x115 include_lib/liba/dv17/librtos.a(port_asm.S.o)
+ .debug_info    0x006128fe      0x25d include_lib/liba/dv17/libcpu.a(startup.S.o)
+ .debug_info    0x00612b5b     0x10a4 include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
+ .debug_info    0x00613bff     0x1075 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
+ .debug_info    0x00614c74     0x1039 include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
+ .debug_info    0x00615cad      0x198 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
+ .debug_info    0x00615e45      0xc87 include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
+ .debug_info    0x00616acc      0x237 include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
+ .debug_info    0x00616d03      0xc15 include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
+ .debug_info    0x00617918     0x1495 include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
+ .debug_info    0x00618dad      0x8eb include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
+ .debug_info    0x00619698      0xa48 include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
+ .debug_info    0x0061a0e0      0x130 include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
+ .debug_info    0x0061a210      0x335 include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
+ .debug_info    0x0061a545      0x97a include_lib/liba/dv17/aac_enc_lib.a(transform.o)
+ .debug_info    0x0061aebf      0x5f7 include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
+ .debug_info    0x0061b4b6     0x2ab5 include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
+ .debug_info    0x0061df6b      0x386 include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
+ .debug_info    0x0061e2f1      0x3da include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
+ .debug_info    0x0061e6cb      0xb0e include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
+ .debug_info    0x0061f1d9      0x7cd include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
+ .debug_info    0x0061f9a6      0xa28 include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
+ .debug_info    0x006203ce      0x35b include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
+ .debug_info    0x00620729      0x476 include_lib/liba/dv17/aac_enc_lib.a(interface.o)
+ .debug_info    0x00620b9f      0x61f include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
+ .debug_info    0x006211be      0x35c include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
+ .debug_info    0x0062151a      0x8ee include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
+ .debug_info    0x00621e08      0x1d8 include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
+ .debug_info    0x00621fe0      0xbc3 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
 
-.debug_ranges   0x00000000    0x217c0
- .debug_ranges  0x00000000    0x21220 cpu\dv17\tools\sdk.elf.o
- .debug_ranges  0x00021220        0x0 include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
- .debug_ranges  0x00021220       0x18 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
- .debug_ranges  0x00021238        0x0 include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
- .debug_ranges  0x00021238        0x0 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
- .debug_ranges  0x00021238       0xa0 include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
- .debug_ranges  0x000212d8        0x0 include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
- .debug_ranges  0x000212d8       0x18 include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
- .debug_ranges  0x000212f0       0x30 include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
- .debug_ranges  0x00021320       0x30 include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
- .debug_ranges  0x00021350       0x58 include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
- .debug_ranges  0x000213a8       0x38 include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
- .debug_ranges  0x000213e0       0x18 include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
- .debug_ranges  0x000213f8        0x0 include_lib/liba/dv17/aac_enc_lib.a(transform.o)
- .debug_ranges  0x000213f8        0x0 include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
- .debug_ranges  0x000213f8      0x1c8 include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
- .debug_ranges  0x000215c0       0x70 include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
- .debug_ranges  0x00021630       0x30 include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
- .debug_ranges  0x00021660        0x0 include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
- .debug_ranges  0x00021660        0x0 include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
- .debug_ranges  0x00021660       0x58 include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
- .debug_ranges  0x000216b8       0x78 include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
- .debug_ranges  0x00021730        0x0 include_lib/liba/dv17/aac_enc_lib.a(interface.o)
- .debug_ranges  0x00021730       0x18 include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
- .debug_ranges  0x00021748        0x0 include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
- .debug_ranges  0x00021748       0x30 include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
- .debug_ranges  0x00021778       0x30 include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
- .debug_ranges  0x000217a8       0x18 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
+.debug_ranges   0x00000000    0x21690
+ .debug_ranges  0x00000000    0x210f0 cpu\dv17\tools\sdk.elf.o
+ .debug_ranges  0x000210f0        0x0 include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
+ .debug_ranges  0x000210f0       0x18 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
+ .debug_ranges  0x00021108        0x0 include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
+ .debug_ranges  0x00021108        0x0 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
+ .debug_ranges  0x00021108       0xa0 include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
+ .debug_ranges  0x000211a8        0x0 include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
+ .debug_ranges  0x000211a8       0x18 include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
+ .debug_ranges  0x000211c0       0x30 include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
+ .debug_ranges  0x000211f0       0x30 include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
+ .debug_ranges  0x00021220       0x58 include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
+ .debug_ranges  0x00021278       0x38 include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
+ .debug_ranges  0x000212b0       0x18 include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
+ .debug_ranges  0x000212c8        0x0 include_lib/liba/dv17/aac_enc_lib.a(transform.o)
+ .debug_ranges  0x000212c8        0x0 include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
+ .debug_ranges  0x000212c8      0x1c8 include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
+ .debug_ranges  0x00021490       0x70 include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
+ .debug_ranges  0x00021500       0x30 include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
+ .debug_ranges  0x00021530        0x0 include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
+ .debug_ranges  0x00021530        0x0 include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
+ .debug_ranges  0x00021530       0x58 include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
+ .debug_ranges  0x00021588       0x78 include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
+ .debug_ranges  0x00021600        0x0 include_lib/liba/dv17/aac_enc_lib.a(interface.o)
+ .debug_ranges  0x00021600       0x18 include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
+ .debug_ranges  0x00021618        0x0 include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
+ .debug_ranges  0x00021618       0x30 include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
+ .debug_ranges  0x00021648       0x30 include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
+ .debug_ranges  0x00021678       0x18 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
 
 .debug_macinfo  0x00000000       0x1c
  .debug_macinfo
@@ -4545,224 +4545,224 @@ OUTPUT(cpu\dv17\tools\sdk.elf elf32-pi32v2)
                 0x0000001b        0x1 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
 
 .debug_pubnames
-                0x00000000    0x5f343
+                0x00000000    0x5f312
  .debug_pubnames
-                0x00000000    0x5ddf6 cpu\dv17\tools\sdk.elf.o
+                0x00000000    0x5ddc5 cpu\dv17\tools\sdk.elf.o
  .debug_pubnames
-                0x0005ddf6       0x6e include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
+                0x0005ddc5       0x6e include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
  .debug_pubnames
-                0x0005de64       0x23 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
+                0x0005de33       0x23 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
  .debug_pubnames
-                0x0005de87       0x32 include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
+                0x0005de56       0x32 include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
  .debug_pubnames
-                0x0005deb9       0x45 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
+                0x0005de88       0x45 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
  .debug_pubnames
-                0x0005defe      0x16a include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
+                0x0005decd      0x16a include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
  .debug_pubnames
-                0x0005e068       0x5d include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
+                0x0005e037       0x5d include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
  .debug_pubnames
-                0x0005e0c5       0xaf include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
+                0x0005e094       0xaf include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
  .debug_pubnames
-                0x0005e174       0xc7 include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
+                0x0005e143       0xc7 include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
  .debug_pubnames
-                0x0005e23b       0xc9 include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
+                0x0005e20a       0xc9 include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
  .debug_pubnames
-                0x0005e304       0xcd include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
+                0x0005e2d3       0xcd include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
  .debug_pubnames
-                0x0005e3d1       0x30 include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
+                0x0005e3a0       0x30 include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
  .debug_pubnames
-                0x0005e401       0x3f include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
+                0x0005e3d0       0x3f include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
  .debug_pubnames
-                0x0005e440       0xdf include_lib/liba/dv17/aac_enc_lib.a(transform.o)
+                0x0005e40f       0xdf include_lib/liba/dv17/aac_enc_lib.a(transform.o)
  .debug_pubnames
-                0x0005e51f      0x375 include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
+                0x0005e4ee      0x375 include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
  .debug_pubnames
-                0x0005e894      0x1c8 include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
+                0x0005e863      0x1c8 include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
  .debug_pubnames
-                0x0005ea5c       0x44 include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
+                0x0005ea2b       0x44 include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
  .debug_pubnames
-                0x0005eaa0       0x85 include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
+                0x0005ea6f       0x85 include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
  .debug_pubnames
-                0x0005eb25      0x130 include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
+                0x0005eaf4      0x130 include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
  .debug_pubnames
-                0x0005ec55      0x170 include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
+                0x0005ec24      0x170 include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
  .debug_pubnames
-                0x0005edc5       0xe8 include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
+                0x0005ed94       0xe8 include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
  .debug_pubnames
-                0x0005eead       0x2f include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
+                0x0005ee7c       0x2f include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
  .debug_pubnames
-                0x0005eedc       0x2f include_lib/liba/dv17/aac_enc_lib.a(interface.o)
+                0x0005eeab       0x2f include_lib/liba/dv17/aac_enc_lib.a(interface.o)
  .debug_pubnames
-                0x0005ef0b       0x66 include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
+                0x0005eeda       0x66 include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
  .debug_pubnames
-                0x0005ef71       0x34 include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
+                0x0005ef40       0x34 include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
  .debug_pubnames
-                0x0005efa5      0x115 include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
+                0x0005ef74      0x115 include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
  .debug_pubnames
-                0x0005f0ba       0x49 include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
+                0x0005f089       0x49 include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
  .debug_pubnames
-                0x0005f103      0x240 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
+                0x0005f0d2      0x240 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
 
 .debug_pubtypes
-                0x00000000    0x8510b
+                0x00000000    0x850bc
  .debug_pubtypes
-                0x00000000    0x834c2 cpu\dv17\tools\sdk.elf.o
+                0x00000000    0x83473 cpu\dv17\tools\sdk.elf.o
  .debug_pubtypes
-                0x000834c2      0x32b include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
+                0x00083473      0x32b include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
  .debug_pubtypes
-                0x000837ed      0x309 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
+                0x0008379e      0x309 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
  .debug_pubtypes
-                0x00083af6      0x304 include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
+                0x00083aa7      0x304 include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
  .debug_pubtypes
-                0x00083dfa       0x80 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
+                0x00083dab       0x80 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
  .debug_pubtypes
-                0x00083e7a      0x181 include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
+                0x00083e2b      0x181 include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
  .debug_pubtypes
-                0x00083ffb       0x6d include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
+                0x00083fac       0x6d include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
  .debug_pubtypes
-                0x00084068      0x163 include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
+                0x00084019      0x163 include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
  .debug_pubtypes
-                0x000841cb      0x330 include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
+                0x0008417c      0x330 include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
  .debug_pubtypes
-                0x000844fb       0x6a include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
+                0x000844ac       0x6a include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
  .debug_pubtypes
-                0x00084565       0xbf include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
+                0x00084516       0xbf include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
  .debug_pubtypes
-                0x00084624       0x5f include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
+                0x000845d5       0x5f include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
  .debug_pubtypes
-                0x00084683       0x70 include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
+                0x00084634       0x70 include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
  .debug_pubtypes
-                0x000846f3       0x69 include_lib/liba/dv17/aac_enc_lib.a(transform.o)
+                0x000846a4       0x69 include_lib/liba/dv17/aac_enc_lib.a(transform.o)
  .debug_pubtypes
-                0x0008475c       0x93 include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
+                0x0008470d       0x93 include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
  .debug_pubtypes
-                0x000847ef      0x34b include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
+                0x000847a0      0x34b include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
  .debug_pubtypes
-                0x00084b3a       0x57 include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
+                0x00084aeb       0x57 include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
  .debug_pubtypes
-                0x00084b91       0x4c include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
+                0x00084b42       0x4c include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
  .debug_pubtypes
-                0x00084bdd       0xd5 include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
+                0x00084b8e       0xd5 include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
  .debug_pubtypes
-                0x00084cb2       0x8f include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
+                0x00084c63       0x8f include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
  .debug_pubtypes
-                0x00084d41       0xc3 include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
+                0x00084cf2       0xc3 include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
  .debug_pubtypes
-                0x00084e04       0x5b include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
+                0x00084db5       0x5b include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
  .debug_pubtypes
-                0x00084e5f       0x94 include_lib/liba/dv17/aac_enc_lib.a(interface.o)
+                0x00084e10       0x94 include_lib/liba/dv17/aac_enc_lib.a(interface.o)
  .debug_pubtypes
-                0x00084ef3       0x93 include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
+                0x00084ea4       0x93 include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
  .debug_pubtypes
-                0x00084f86       0x57 include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
+                0x00084f37       0x57 include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
  .debug_pubtypes
-                0x00084fdd       0x4c include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
+                0x00084f8e       0x4c include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
  .debug_pubtypes
-                0x00085029       0x5f include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
+                0x00084fda       0x5f include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
  .debug_pubtypes
-                0x00085088       0x83 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
+                0x00085039       0x83 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
 
-.debug_frame    0x00000000    0x31e2c
- .debug_frame   0x00000000    0x30ed4 cpu\dv17\tools\sdk.elf.o
- .debug_frame   0x00030ed4       0x74 include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
- .debug_frame   0x00030f48       0x40 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
- .debug_frame   0x00030f88       0x5c include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
- .debug_frame   0x00030fe4       0x60 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
- .debug_frame   0x00031044       0x90 include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
- .debug_frame   0x000310d4       0x58 include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
- .debug_frame   0x0003112c       0x70 include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
- .debug_frame   0x0003119c       0xdc include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
- .debug_frame   0x00031278       0xc0 include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
- .debug_frame   0x00031338       0x8c include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
- .debug_frame   0x000313c4       0x38 include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
- .debug_frame   0x000313fc       0x30 include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
- .debug_frame   0x0003142c      0x1a0 include_lib/liba/dv17/aac_enc_lib.a(transform.o)
- .debug_frame   0x000315cc       0xb4 include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
- .debug_frame   0x00031680       0x74 include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
- .debug_frame   0x000316f4       0x8c include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
- .debug_frame   0x00031780      0x1b8 include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
- .debug_frame   0x00031938       0xa8 include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
- .debug_frame   0x000319e0       0x9c include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
- .debug_frame   0x00031a7c       0x44 include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
- .debug_frame   0x00031ac0       0x44 include_lib/liba/dv17/aac_enc_lib.a(interface.o)
- .debug_frame   0x00031b04       0x74 include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
- .debug_frame   0x00031b78       0x44 include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
- .debug_frame   0x00031bbc       0xd8 include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
- .debug_frame   0x00031c94       0x54 include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
- .debug_frame   0x00031ce8      0x144 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
+.debug_frame    0x00000000    0x31d6c
+ .debug_frame   0x00000000    0x30e14 cpu\dv17\tools\sdk.elf.o
+ .debug_frame   0x00030e14       0x74 include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
+ .debug_frame   0x00030e88       0x40 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
+ .debug_frame   0x00030ec8       0x5c include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
+ .debug_frame   0x00030f24       0x60 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
+ .debug_frame   0x00030f84       0x90 include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
+ .debug_frame   0x00031014       0x58 include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
+ .debug_frame   0x0003106c       0x70 include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
+ .debug_frame   0x000310dc       0xdc include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
+ .debug_frame   0x000311b8       0xc0 include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
+ .debug_frame   0x00031278       0x8c include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
+ .debug_frame   0x00031304       0x38 include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
+ .debug_frame   0x0003133c       0x30 include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
+ .debug_frame   0x0003136c      0x1a0 include_lib/liba/dv17/aac_enc_lib.a(transform.o)
+ .debug_frame   0x0003150c       0xb4 include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
+ .debug_frame   0x000315c0       0x74 include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
+ .debug_frame   0x00031634       0x8c include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
+ .debug_frame   0x000316c0      0x1b8 include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
+ .debug_frame   0x00031878       0xa8 include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
+ .debug_frame   0x00031920       0x9c include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
+ .debug_frame   0x000319bc       0x44 include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
+ .debug_frame   0x00031a00       0x44 include_lib/liba/dv17/aac_enc_lib.a(interface.o)
+ .debug_frame   0x00031a44       0x74 include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
+ .debug_frame   0x00031ab8       0x44 include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
+ .debug_frame   0x00031afc       0xd8 include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
+ .debug_frame   0x00031bd4       0x54 include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
+ .debug_frame   0x00031c28      0x144 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
 
-.debug_line     0x00000000   0x1b57d8
- .debug_line    0x00000000   0x1adc23 cpu\dv17\tools\sdk.elf.o
- .debug_line    0x001adc23       0x2c include_lib/liba/dv17/librtos.a(version.z.o)
- .debug_line    0x001adc4f       0xc9 include_lib/liba/dv17/librtos.a(port_asm.S.o)
- .debug_line    0x001add18       0x2c include_lib/liba/dv17/libsdx.a(version.z.o)
- .debug_line    0x001add44       0x2c include_lib/liba/dv17/libres.a(version.z.o)
- .debug_line    0x001add70       0x2c include_lib/liba/dv17/libusb.a(version.z.o)
- .debug_line    0x001add9c       0x2c include_lib/liba/dv17/libfs.a(version.z.o)
- .debug_line    0x001addc8       0x2c include_lib/liba/dv17/libupgrade.a(version.z.o)
- .debug_line    0x001addf4       0x2c include_lib/liba/dv17/libfont.a(version.z.o)
- .debug_line    0x001ade20       0x2c include_lib/liba/dv17/libserver_core.a(version.z.o)
- .debug_line    0x001ade4c       0x2c include_lib/liba/dv17/libui_server.a(version.z.o)
- .debug_line    0x001ade78       0x2c include_lib/liba/dv17/libvideo_engine_server.a(version.z.o)
- .debug_line    0x001adea4       0x2c include_lib/liba/dv17/libusb_server.a(version.z.o)
- .debug_line    0x001aded0       0x2c include_lib/liba/dv17/libvideo_dec_server.a(version.z.o)
- .debug_line    0x001adefc       0x2c include_lib/liba/dv17/libvideo_rec_server.a(version.z.o)
- .debug_line    0x001adf28       0x2c include_lib/liba/dv17/libaudio_server.a(version.z.o)
- .debug_line    0x001adf54       0x2c include_lib/liba/dv17/libvm.a(version.z.o)
- .debug_line    0x001adf80       0x2c include_lib/liba/dv17/libsys.a(version.z.o)
- .debug_line    0x001adfac       0x2c include_lib/liba/dv17/libdlmalloc.a(version.z.o)
- .debug_line    0x001adfd8       0x2c include_lib/liba/dv17/libh264.a(version.z.o)
- .debug_line    0x001ae004       0x2c include_lib/liba/dv17/libjpeg.a(version.z.o)
- .debug_line    0x001ae030       0x2c include_lib/liba/dv17/libvideo_framework.a(version.z.o)
- .debug_line    0x001ae05c       0x2c include_lib/liba/dv17/libdev.a(version.z.o)
- .debug_line    0x001ae088       0x2c include_lib/liba/dv17/libui.a(version.z.o)
- .debug_line    0x001ae0b4       0xd8 include_lib/liba/dv17/libcpu.a(startup.S.o)
- .debug_line    0x001ae18c       0x2c include_lib/liba/dv17/libcpu.a(version.z.o)
- .debug_line    0x001ae1b8       0x2c include_lib/liba/dv17/libisp.a(version.z.o)
- .debug_line    0x001ae1e4       0x2c include_lib/liba/dv17/liblog.a(version.z.o)
- .debug_line    0x001ae210      0x1b8 include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
- .debug_line    0x001ae3c8      0x275 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
- .debug_line    0x001ae63d      0x2a0 include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
- .debug_line    0x001ae8dd       0xe7 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
- .debug_line    0x001ae9c4      0x44e include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
- .debug_line    0x001aee12       0xf5 include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
- .debug_line    0x001aef07      0x6de include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
- .debug_line    0x001af5e5      0x4c9 include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
- .debug_line    0x001afaae      0x4f6 include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
- .debug_line    0x001affa4      0x4c4 include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
- .debug_line    0x001b0468      0x105 include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
- .debug_line    0x001b056d       0xd6 include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
- .debug_line    0x001b0643      0x9b0 include_lib/liba/dv17/aac_enc_lib.a(transform.o)
- .debug_line    0x001b0ff3       0x4f include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
- .debug_line    0x001b1042     0x1538 include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
- .debug_line    0x001b257a      0x228 include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
- .debug_line    0x001b27a2      0x1e4 include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
- .debug_line    0x001b2986      0xb45 include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
- .debug_line    0x001b34cb      0x433 include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
- .debug_line    0x001b38fe      0x5e9 include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
- .debug_line    0x001b3ee7      0x46a include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
- .debug_line    0x001b4351      0x1dc include_lib/liba/dv17/aac_enc_lib.a(interface.o)
- .debug_line    0x001b452d      0x2c9 include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
- .debug_line    0x001b47f6      0x20c include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
- .debug_line    0x001b4a02      0x3fc include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
- .debug_line    0x001b4dfe      0x166 include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
- .debug_line    0x001b4f64      0x5b4 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
- .debug_line    0x001b5518       0x2c include_lib/liba/dv17/libhsm.a(version.z.o)
- .debug_line    0x001b5544       0x2c include_lib/liba/dv17/libwifi_dev.a(version.z.o)
- .debug_line    0x001b5570       0x2c include_lib/liba/dv17/libmbedtls.a(version.z.o)
- .debug_line    0x001b559c       0x2c include_lib/liba/dv17/liblwip.a(version.z.o)
- .debug_line    0x001b55c8       0x2c include_lib/liba/dv17/libjson.a(version.z.o)
- .debug_line    0x001b55f4       0x2c include_lib/liba/dv17/libftpcli.a(version.z.o)
- .debug_line    0x001b5620       0x2c include_lib/liba/dv17/libnet_server.a(version.z.o)
- .debug_line    0x001b564c       0x2c include_lib/liba/dv17/libhttp_server.a(version.z.o)
- .debug_line    0x001b5678       0x2c include_lib/liba/dv17/libhttp_cli.a(version.z.o)
- .debug_line    0x001b56a4       0x2c include_lib/liba/dv17/libiperf.a(version.z.o)
- .debug_line    0x001b56d0       0x2c include_lib/liba/dv17/libcommon.a(version.z.o)
- .debug_line    0x001b56fc       0x2c include_lib/liba/dv17/librtsp.a(version.z.o)
- .debug_line    0x001b5728       0x2c include_lib/liba/dv17/libftpd.a(version.z.o)
- .debug_line    0x001b5754       0x2c include_lib/liba/dv17/libsdio_card.a(version.z.o)
- .debug_line    0x001b5780       0x2c include_lib/liba/dv17/librtl8189f.a(version.z.o)
- .debug_line    0x001b57ac       0x2c include_lib/liba/dv17/libhostapd_wpa.a(version.z.o)
+.debug_line     0x00000000   0x1b55be
+ .debug_line    0x00000000   0x1ada09 cpu\dv17\tools\sdk.elf.o
+ .debug_line    0x001ada09       0x2c include_lib/liba/dv17/librtos.a(version.z.o)
+ .debug_line    0x001ada35       0xc9 include_lib/liba/dv17/librtos.a(port_asm.S.o)
+ .debug_line    0x001adafe       0x2c include_lib/liba/dv17/libsdx.a(version.z.o)
+ .debug_line    0x001adb2a       0x2c include_lib/liba/dv17/libres.a(version.z.o)
+ .debug_line    0x001adb56       0x2c include_lib/liba/dv17/libusb.a(version.z.o)
+ .debug_line    0x001adb82       0x2c include_lib/liba/dv17/libfs.a(version.z.o)
+ .debug_line    0x001adbae       0x2c include_lib/liba/dv17/libupgrade.a(version.z.o)
+ .debug_line    0x001adbda       0x2c include_lib/liba/dv17/libfont.a(version.z.o)
+ .debug_line    0x001adc06       0x2c include_lib/liba/dv17/libserver_core.a(version.z.o)
+ .debug_line    0x001adc32       0x2c include_lib/liba/dv17/libui_server.a(version.z.o)
+ .debug_line    0x001adc5e       0x2c include_lib/liba/dv17/libvideo_engine_server.a(version.z.o)
+ .debug_line    0x001adc8a       0x2c include_lib/liba/dv17/libusb_server.a(version.z.o)
+ .debug_line    0x001adcb6       0x2c include_lib/liba/dv17/libvideo_dec_server.a(version.z.o)
+ .debug_line    0x001adce2       0x2c include_lib/liba/dv17/libvideo_rec_server.a(version.z.o)
+ .debug_line    0x001add0e       0x2c include_lib/liba/dv17/libaudio_server.a(version.z.o)
+ .debug_line    0x001add3a       0x2c include_lib/liba/dv17/libvm.a(version.z.o)
+ .debug_line    0x001add66       0x2c include_lib/liba/dv17/libsys.a(version.z.o)
+ .debug_line    0x001add92       0x2c include_lib/liba/dv17/libdlmalloc.a(version.z.o)
+ .debug_line    0x001addbe       0x2c include_lib/liba/dv17/libh264.a(version.z.o)
+ .debug_line    0x001addea       0x2c include_lib/liba/dv17/libjpeg.a(version.z.o)
+ .debug_line    0x001ade16       0x2c include_lib/liba/dv17/libvideo_framework.a(version.z.o)
+ .debug_line    0x001ade42       0x2c include_lib/liba/dv17/libdev.a(version.z.o)
+ .debug_line    0x001ade6e       0x2c include_lib/liba/dv17/libui.a(version.z.o)
+ .debug_line    0x001ade9a       0xd8 include_lib/liba/dv17/libcpu.a(startup.S.o)
+ .debug_line    0x001adf72       0x2c include_lib/liba/dv17/libcpu.a(version.z.o)
+ .debug_line    0x001adf9e       0x2c include_lib/liba/dv17/libisp.a(version.z.o)
+ .debug_line    0x001adfca       0x2c include_lib/liba/dv17/liblog.a(version.z.o)
+ .debug_line    0x001adff6      0x1b8 include_lib/liba/dv17/aac_enc_lib.a(AAC_E_SAMPLES.o)
+ .debug_line    0x001ae1ae      0x275 include_lib/liba/dv17/aac_enc_lib.a(aacenc.o)
+ .debug_line    0x001ae423      0x2a0 include_lib/liba/dv17/aac_enc_lib.a(aacenc_core.o)
+ .debug_line    0x001ae6c3       0xe7 include_lib/liba/dv17/aac_enc_lib.a(bitbuffer.o)
+ .debug_line    0x001ae7aa      0x44e include_lib/liba/dv17/aac_enc_lib.a(bitenc.o)
+ .debug_line    0x001aebf8       0xf5 include_lib/liba/dv17/aac_enc_lib.a(channel_map.o)
+ .debug_line    0x001aeced      0x6de include_lib/liba/dv17/aac_enc_lib.a(psy_main.o)
+ .debug_line    0x001af3cb      0x4c9 include_lib/liba/dv17/aac_enc_lib.a(qc_main.o)
+ .debug_line    0x001af894      0x4f6 include_lib/liba/dv17/aac_enc_lib.a(quantize.o)
+ .debug_line    0x001afd8a      0x4c4 include_lib/liba/dv17/aac_enc_lib.a(sf_estim.o)
+ .debug_line    0x001b024e      0x105 include_lib/liba/dv17/aac_enc_lib.a(spreading.o)
+ .debug_line    0x001b0353       0xd6 include_lib/liba/dv17/aac_enc_lib.a(stat_bits.o)
+ .debug_line    0x001b0429      0x9b0 include_lib/liba/dv17/aac_enc_lib.a(transform.o)
+ .debug_line    0x001b0dd9       0x4f include_lib/liba/dv17/aac_enc_lib.a(aac_rom.o)
+ .debug_line    0x001b0e28     0x1538 include_lib/liba/dv17/aac_enc_lib.a(adj_thr.o)
+ .debug_line    0x001b2360      0x228 include_lib/liba/dv17/aac_enc_lib.a(band_nrg.o)
+ .debug_line    0x001b2588      0x1e4 include_lib/liba/dv17/aac_enc_lib.a(basicop2.o)
+ .debug_line    0x001b276c      0xb45 include_lib/liba/dv17/aac_enc_lib.a(bit_cnt.o)
+ .debug_line    0x001b32b1      0x433 include_lib/liba/dv17/aac_enc_lib.a(block_switch.o)
+ .debug_line    0x001b36e4      0x5e9 include_lib/liba/dv17/aac_enc_lib.a(dyn_bits.o)
+ .debug_line    0x001b3ccd      0x46a include_lib/liba/dv17/aac_enc_lib.a(grp_data.o)
+ .debug_line    0x001b4137      0x1dc include_lib/liba/dv17/aac_enc_lib.a(interface.o)
+ .debug_line    0x001b4313      0x2c9 include_lib/liba/dv17/aac_enc_lib.a(line_pe.o)
+ .debug_line    0x001b45dc      0x20c include_lib/liba/dv17/aac_enc_lib.a(ms_stereo.o)
+ .debug_line    0x001b47e8      0x3fc include_lib/liba/dv17/aac_enc_lib.a(oper_32b.o)
+ .debug_line    0x001b4be4      0x166 include_lib/liba/dv17/aac_enc_lib.a(pre_echo_control.o)
+ .debug_line    0x001b4d4a      0x5b4 include_lib/liba/dv17/aac_enc_lib.a(psy_configuration.o)
+ .debug_line    0x001b52fe       0x2c include_lib/liba/dv17/libhsm.a(version.z.o)
+ .debug_line    0x001b532a       0x2c include_lib/liba/dv17/libwifi_dev.a(version.z.o)
+ .debug_line    0x001b5356       0x2c include_lib/liba/dv17/libmbedtls.a(version.z.o)
+ .debug_line    0x001b5382       0x2c include_lib/liba/dv17/liblwip.a(version.z.o)
+ .debug_line    0x001b53ae       0x2c include_lib/liba/dv17/libjson.a(version.z.o)
+ .debug_line    0x001b53da       0x2c include_lib/liba/dv17/libftpcli.a(version.z.o)
+ .debug_line    0x001b5406       0x2c include_lib/liba/dv17/libnet_server.a(version.z.o)
+ .debug_line    0x001b5432       0x2c include_lib/liba/dv17/libhttp_server.a(version.z.o)
+ .debug_line    0x001b545e       0x2c include_lib/liba/dv17/libhttp_cli.a(version.z.o)
+ .debug_line    0x001b548a       0x2c include_lib/liba/dv17/libiperf.a(version.z.o)
+ .debug_line    0x001b54b6       0x2c include_lib/liba/dv17/libcommon.a(version.z.o)
+ .debug_line    0x001b54e2       0x2c include_lib/liba/dv17/librtsp.a(version.z.o)
+ .debug_line    0x001b550e       0x2c include_lib/liba/dv17/libftpd.a(version.z.o)
+ .debug_line    0x001b553a       0x2c include_lib/liba/dv17/libsdio_card.a(version.z.o)
+ .debug_line    0x001b5566       0x2c include_lib/liba/dv17/librtl8189f.a(version.z.o)
+ .debug_line    0x001b5592       0x2c include_lib/liba/dv17/libhostapd_wpa.a(version.z.o)
 
 .debug_aranges  0x00000000       0x40
  .debug_aranges

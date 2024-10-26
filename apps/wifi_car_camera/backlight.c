@@ -112,7 +112,7 @@ void pwm_ch0_backlight_init(u8 backlight_io)
             // 设置PWM频率为100kHz
             pwm_data.freq = 100000;
             // 调用设备控制接口设置PWM频率
-            ret = dev_ioctl(pwm_dev_handle, PWM_SET_FREQ, (u32)&pwm_data);
+            dev_ioctl(pwm_dev_handle, PWM_SET_FREQ, (u32)&pwm_data);
 
             // 再次设置PWM通道为通道0
             pwm_data.pwm_ch = PWMCH0;
@@ -120,7 +120,7 @@ void pwm_ch0_backlight_init(u8 backlight_io)
             // 设置PWM占空比为0（即初始关闭背光）
             pwm_data.duty = 0;
             // 调用设备控制接口设置PWM占空比
-            ret = dev_ioctl(pwm_dev_handle, PWM_SET_DUTY, (u32)&pwm_data);
+            dev_ioctl(pwm_dev_handle, PWM_SET_DUTY, (u32)&pwm_data);
 
             // 再次设置PWM通道为通道0
             pwm_data.pwm_ch = PWMCH0;
@@ -145,9 +145,9 @@ void pwm_ch0_backlight_init(u8 backlight_io)
             // 启动PWM，输出控制信号
             dev_ioctl(pwm_dev_handle, PWM_RUN, (u32)&pwm_data);
 
-            //前照灯设置
+            //前照灯1设置
             pwm_data.pwm_ch = PWMCH7;  //IR红外 PWM_PORTG端口的通道0, 对应引脚PG8
-            pwm_data.freq = 100000;  //1000;//1k
+            pwm_data.freq = 1800;  //1000;//1k
             ret = dev_ioctl(pwm_dev_handle, PWM_SET_FREQ, (u32)&pwm_data);
 
             pwm_data.pwm_ch = PWMCH7;
@@ -156,10 +156,28 @@ void pwm_ch0_backlight_init(u8 backlight_io)
             /* 死区设置，不用可注释掉 */
             pwm_data.pwm_ch = PWMCH7;
             pwm_data.dtime_en = true;
-            pwm_data.dtime_us = 1.5;//1.5us
+            pwm_data.dtime_us = 2;//1.5us
             /* dev_ioctl(pwm_dev_handle, PWM_SET_DEATH_TIME, (u32)&pwm_data); */
 
             pwm_data.pwm_ch = PWMCH7;
+            pwm_data.outputchannel = -1;  //-1为取消outputchannel
+            ret = dev_ioctl(pwm_dev_handle, PWM_RUN, (u32)&pwm_data);
+
+            //前照灯2设置
+            pwm_data.pwm_ch = PWMCH6;  //IR红外 PWM_PORTG端口的通道0, 对应引脚PG8
+            pwm_data.freq = 1800;  //1000;//1k
+            ret = dev_ioctl(pwm_dev_handle, PWM_SET_FREQ, (u32)&pwm_data);
+
+            pwm_data.pwm_ch = PWMCH6;
+            pwm_data.duty = 0;
+            ret = dev_ioctl(pwm_dev_handle, PWM_SET_DUTY, (u32)&pwm_data);
+            /* 死区设置，不用可注释掉 */
+            pwm_data.pwm_ch = PWMCH6;
+            pwm_data.dtime_en = true;
+            pwm_data.dtime_us = 1.5;//1.5us
+            /* dev_ioctl(pwm_dev_handle, PWM_SET_DEATH_TIME, (u32)&pwm_data); */
+
+            pwm_data.pwm_ch = PWMCH6;
             pwm_data.outputchannel = -1;  //-1为取消outputchannel
             ret = dev_ioctl(pwm_dev_handle, PWM_RUN, (u32)&pwm_data);
         }

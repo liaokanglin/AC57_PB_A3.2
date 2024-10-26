@@ -507,7 +507,7 @@ static void wifi_first_setup(void)
     if (!strstr(info.ssid, WIFI_CAM_NAME_MATCH)) {
         sprintf(ssid, WIFI_CAM_PREFIX"%02x%02x%02x%02x%02x%02x", mac_addr[0], mac_addr[1], mac_addr[2], mac_addr[3], mac_addr[4], mac_addr[5]);
         info.ssid = ssid;
-        info.pwd = WIFI_CAM_WIFI_PWD;
+        info.pwd = WIFI_CAM_WIFI_PWD; 
         info.mode = AP_MODE;
         info.force_default_mode = 1;
         dev_ioctl(wifi_dev, DEV_SAVE_DEFAULT_MODE, (u32)&info);
@@ -634,7 +634,7 @@ static int network_user_callback(void *network_ctx, enum NETWORK_EVENT state, vo
 //linked_info_dump(*(int*)netdev_priv(net_dev_find()), 1);
 
 #if 0 //是否使能自动扫描获取最佳信道
-        int rtw_scan(void);
+        int rtw_scan(void);W
         rtw_scan();//扫描1秒
         rtw_scan();//扫描1秒
         rtw_scan();//扫描1秒
@@ -645,7 +645,15 @@ static int network_user_callback(void *network_ctx, enum NETWORK_EVENT state, vo
         hostapd_set_wifi_channel(best_ch);
 #endif
 
+#ifdef CONFIG_STA_MODE
+    info.ssid = "CMW-AP";
+    info.pwd = "12345678";//WIFI_CAM_WIFI_PWD;
+    info.mode = STA_MODE;
+    info.force_default_mode = 1;//1
+    dev_ioctl(wifi_dev, DEV_SAVE_DEFAULT_MODE, (u32)&info);
+    break;
 
+#endif
 //设置VM保存AP_MODE
 #if defined (WIFI_CAM_SUFFIX)
         sprintf(ssid, WIFI_CAM_PREFIX WIFI_CAM_SUFFIX);

@@ -48,9 +48,9 @@ const struct task_info task_info_table[] = {
     {"video_preview_server", 27,     1024,   1024  },
     {"video0_rec0",         22,     2048,   512   },
     {"video0_rec1",         21,     4096,   512   },
-    {"video0_rec2",         21,     2048,   512   },
-    {"video0_rec3",         21,     2048,   512   },
-    {"video0_rec4",         21,     2048,   512   },
+//    {"video0_rec2",         21,     2048,   512   },
+//    {"video0_rec3",         21,     2048,   512   },
+//    {"video0_rec4",         21,     2048,   512   },
     {"audio0_rec0",          24,     2048,   256   },
     {"audio0_rec1",          24,     2048,   256   },
     {"audio1_rec0",          24,     2048,   256   },
@@ -65,6 +65,9 @@ const struct task_info task_info_table[] = {
     {"video1_rec0",         19,     2048,   512   },
     {"video1_rec1",         19,     2048,   256   },
     {"video2_rec0",         19,     2048,   512   },
+#ifdef CONFIG_VIDEO2_ENABLE
+    {"video2_rec1",         27,     2048,   512   },
+#endif
     {"video3_rec0",         19,     2048,   512   },
     {"video3_rec1",         19,     2048,   512   },
     /*{"video3_rec2",         27,     2048,   256   },*/
@@ -174,7 +177,7 @@ static void power_off_play_end(void *_ui)
     struct server *ui = (struct server *)_ui;
     u32 park_en;
 
-    
+
     if (ui) {
         server_close(ui);
     }
@@ -794,9 +797,91 @@ void scanning_ahd_signal()
 {
     video1_state=valid_vin1_signal();
     video2_state=valid_vin2_signal();
-    printf(">>video1_state=%d\n",video1_state);
+//    printf(">>video1_state=%d\n",video1_state);
 }
+const char *repair_path[4][3] = {
+    { CONFIG_REC_PATH_0, "-tMOVAVI -st" ,"-tMOVAVI -sn" },
+    { CONFIG_REC_PATH_1, "-tMOVAVI -st" ,"-tMOVAVI -sn" },
+    { CONFIG_REC_PATH_2, "-tMOVAVI -st" ,"-tMOVAVI -sn" },
+    { CONFIG_REC_PATH_3, "-tMOVAVI -st" ,"-tMOVAVI -sn" },
+};
+static void sys_file_video_repair_user(u8 mode)//0:时间排序  1:序号排序
+{
+    u8 name[MAX_FILE_NAME_LEN]={0};
+    u8 path[MAX_FILE_NAME_LEN]={0};
+    FILE *file = NULL;
+    int sel_mode = FSEL_LAST_FILE;
+    struct vfscan *video_scan_fs = NULL;
+    void *pkg=NULL;
+    int err=0,i=0;
 
+    if(!storage_device_ready()){
+        return;
+    }
+    printf("===========sys_file_video_repair start:%d.%ds\n",(jiffies*2)/1000,(jiffies*2)%1000);
+    for(i=0;i<4;i++){
+    #ifndef CONFIG_VIDEO1_ENABLE
+        if(i == 1){continue;}
+    #endif
+    #ifndef CONFIG_VIDEO2_ENABLE
+        if(i == 2){continue;}
+    #endif
+    #ifndef CONFIG_VIDEO3_ENABLE
+        if(i == 3){continue;}
+    #endif
+        if(!fopen(repair_path[i][0],"r")){
+            return;
+        }
+        if(mode){
+            video_scan_fs = fscan(repair_path[i][0],repair_path[i][2]);
+        }else{
+            video_scan_fs = fscan(repair_path[i][0],repair_path[i][1]);
+        }
+        if(video_scan_fs){
+            if(video_scan_fs->file_number){
+                file = fselect(video_scan_fs, sel_mode, 0);
+                if(file){
+                    memset(name,0,MAX_FILE_NAME_LEN);
+                    memset(path,0,MAX_FILE_NAME_LEN);
+                    fget_name(file, name, MAX_FILE_NAME_LEN);
+                    if(strstr(name,".MOV")){
+                        sprintf(path,"%s%s",repair_path[i][0],name);
+                        pkg = pkg_rcv_open(path, "mov");
+                    }else if(strstr(name,".AVI")){
+                        sprintf(path,"%s%s",repair_path[i][0],name);
+                        pkg = pkg_rcv_open(path, "mov");
+                    }else{
+                        printf(">>>>>>>>>>>file repair path err : %s\n", name);
+                        fclose(file);
+                        file = NULL;
+                        fscan_release(video_scan_fs);
+                        video_scan_fs = NULL;
+                        continue;
+                    }
+                    printf(">>>>>>>>>>>file repair path %s\n", path);
+                    if (pkg == NULL) {
+                        printf("file pkg_rcv open err\n");
+                        err = -1;
+                    } else {
+                        err = pkg_rcv(pkg);
+                        if (err) {
+                            printf("file pkg_rcv err:%d\n",err);
+                        }else{
+                            printf("file pkg_rcv succ\n");
+                        }
+                    }
+                    pkg_rcv_close(pkg);
+                    fclose(file);
+                    file = NULL;
+                    pkg = NULL;
+                }
+            }
+            fscan_release(video_scan_fs);
+            video_scan_fs = NULL;
+        }
+    }
+    printf("===========sys_file_video_repair end:%d.%ds\n",(jiffies*2)/1000,(jiffies*2)%1000);
+}
 
 /*
  * 应用程序主函数
@@ -807,25 +892,26 @@ extern void imb_layer_disp();
 /* #define DAC_TEST_ENABLE */
 /* #define ADC_TEST_ENABLE */
 extern void change_camera_config();
-
+//extern pwm_mult_output_init();
 extern void camera_display_init();
 void app_main()
 {
     struct intent it;                // 定义一个意图（intent）结构体，用于后续应用程序跳转或其他功能调用
     int err;                         // 定义一个整型变量 err，用于存储函数调用的返回值，以检查是否有错误
 
-
+    printf("SDK path = %s time=[%s,%s]\n", __FILE__,__DATE__, __TIME__);
     /* LDO_CON &=~(0xFF << 4); */
     /* LDO_CON |= BIT(4) | BIT(8) | (1 << 5) | (2 << 9); */
     /* delay(10000); */
 
-    // sys_power_low_voltage_shutdown(380, 0);  // 调用系统电压检测功能，参数 380 表示最低允许电压为 3.8V，0 表示立即关机
+    sys_power_low_voltage_shutdown(755, 0);  // 调用系统电压检测功能，参数 380 表示最低允许电压为 3.8V，0 表示立即关机
     // // 检查电源键是否被按下
     // if (!read_power_key()) {
     //     // sys_power_set_port_wakeup("wkup_usb", 1);
     //     sys_power_poweroff(0);
     //     return;  // 如果未按下电源键，直接返回
     // }
+    //pwm_mult_output_init();
     printf("app_main\n");             // 打印 "app_main" 字符串，调试信息
     printf("%s %s-%s\n", __FUNCTION__, __DATE__, __TIME__);  // 打印当前函数名称、编译日期和时间
 #ifdef MULTI_LCD_EN
@@ -841,7 +927,7 @@ void app_main()
         db_update("mir",0);
         db_flush();
     }
-    db_reset();
+    // db_reset();
     if (!fdir_exist("mnt/spiflash")) {
         mount("spiflash", "mnt/spiflash", "sdfile", 0, NULL);
     }
@@ -935,7 +1021,7 @@ void app_main()
 
 
     sys_power_init();
-
+    sys_file_video_repair_user(0);
 
 
     // if(!dev_online("usb0")){
@@ -967,11 +1053,11 @@ void app_main()
     sys_touch_event_enable();
 #endif
 
-    // sys_power_auto_shutdown_start(db_select("aff") * 60);	//自动关机时间
-    // sys_power_low_voltage_shutdown(370, 3);					//低电关机电压/时间
+    sys_power_auto_shutdown_start(db_select("aff") * 60);	//自动关机时间
+    sys_power_low_voltage_shutdown(755, 3);					//低电关机电压/时间
     // sys_power_charger_off_shutdown(10, 1);					//拔电关机时间/能否取消
 
-    
+
     // pwm_duty_cycle(50);
     // pwm_backlight_init();//////////////////////////////////////////////////////////
 
@@ -1049,7 +1135,7 @@ void app_main()
         // u32 *flag = imd_dmm_get_update_flags();
         // *flag |= BIT(SET_Y_GAIN);
         // printf("Flag pointer value: %p\n", (void *)flag); // 打印指针地址
-        // printf("Current flag value: 0x%X\n", *flag); 
+        // printf("Current flag value: 0x%X\n", *flag);
         // printf("Value of BIT(SET_Y_GAIN): 0x%X\n", BIT(SET_Y_GAIN)); // 打印16进制
 
 }

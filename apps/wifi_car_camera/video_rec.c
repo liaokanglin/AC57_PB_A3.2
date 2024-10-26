@@ -263,9 +263,9 @@ static void video_set_disp_window()
     disp_window[DISP_MAIN_WIN][2].height = small_screen_h; // 第三个窗口的高度设置为小窗口高度
     disp_window[DISP_MAIN_WIN][2].left   = SCREEN_W - small_screen_w-95; // 第三个窗口的左边距设置为屏幕宽度减去小窗口宽度
     disp_window[DISP_MAIN_WIN][2].top    = 40;  //
-    disp_window[DISP_MAIN_WIN][3].width  = 16; // 小窗口宽度
-    disp_window[DISP_MAIN_WIN][3].height = 16; // 小窗口高度
-    disp_window[DISP_MAIN_WIN][3].top    = 0;  // 小窗口的上边距设置为0;
+    // disp_window[DISP_MAIN_WIN][3].width  = 16; // 小窗口宽度
+    // disp_window[DISP_MAIN_WIN][3].height = 16; // 小窗口高度
+    // disp_window[DISP_MAIN_WIN][3].top    = 0;  // 小窗口的上边距设置为0;
 
     //单路全屏
     disp_window[DISP_FRONT_WIN][1].width=SCREEN_W;
@@ -323,17 +323,18 @@ static const char *rec_path[][2] = {
 };
 
 
+
 #if NAME_FILE_BY_DATE
 static int __get_sys_time(struct sys_time *time)
 {
-    void *fd = dev_open("rtc", NULL);
-    if (fd) {
-        dev_ioctl(fd, IOCTL_GET_SYS_TIME, (u32)time);
-        dev_close(fd);
-        return 0;
+    void *fd = dev_open("rtc", NULL);  // 打开设备“rtc”（实时时钟设备），返回设备文件描述符
+    if (fd) {                          // 如果设备打开成功
+        dev_ioctl(fd, IOCTL_GET_SYS_TIME, (u32)time);  // 使用设备控制命令 IOCTL_GET_SYS_TIME 获取系统时间，将结果存储到 time 结构体中
+        dev_close(fd);                 // 关闭设备
+        return 0;                      // 返回 0，表示成功获取时间
     }
 
-    return -EINVAL;
+    return -EINVAL;                    // 如果设备打开失败，返回错误码 -EINVAL
 }
 #endif
 
@@ -367,9 +368,8 @@ static const char *rec_file_name(int format)
 
 u32 get_video_disp_state()
 {
-    return __this->disp_state;
+    return __this->disp_state;  // 返回当前视频显示状态的值
 }
-
 static void video_home_post_msg(const char *msg, ...)
 {
 #ifdef CONFIG_UI_STYLE_JL02_ENABLE
@@ -438,16 +438,18 @@ void video_rec_post_msg(const char *msg, ...)
 
 static int video_rec_online_nums()
 {
-    u8 nums = 0;
+    u8 nums = 0;  // 定义一个无符号 8 位整数，用于记录在线视频录制的数量
 
+    // 循环遍历所有可能的视频录制通道数量
     for (int i = 0; i < CONFIG_VIDEO_REC_NUM; i++) {
-        if (__this->video_online[i]) {
-            nums++;
+        if (__this->video_online[i]) {  // 检查当前视频通道是否在线
+            nums++;  // 如果在线，计数加 1
         }
     }
 
-    return nums;
+    return nums;  // 返回在线的视频录制通道数量
 }
+
 
 static int video_disp_pause(int id)
 {
@@ -477,13 +479,19 @@ static int video_disp_start(int id, const struct video_window *win)
     sprintf(dev_name, "video%d.%d", id, id < 3 ? 0 : __this->uvc_id);
 #endif
 
+// 检查指定的 video_display 是否已打开，如果没有，则尝试打开对应的 video_server
+if (!__this->video_display[id]) {
+    // 尝试打开视频服务器，并将其句柄保存到 __this->video_display[id]
+    __this->video_display[id] = server_open("video_server", (void *)dev_name);
+    
+    // 检查打开视频服务器是否成功
     if (!__this->video_display[id]) {
-        __this->video_display[id] = server_open("video_server", (void *)dev_name);
-        if (!__this->video_display[id]) {
-            log_e("open video_server: faild, id = %d\n", id);
-            return -EFAULT;
-        }
+        // 如果打开失败，记录错误信息并返回错误码
+        log_e("open video_server: faild, id = %d\n", id);
+        return -EFAULT;  // 返回错误代码，表示文件操作失败
     }
+}
+
 
 
     req.display.fb 		        = "fb1";
@@ -574,17 +582,18 @@ static int video_disp_start(int id, const struct video_window *win)
     req.display.camera_type     = VIDEO_CAMERA_MUX;
 #endif
 
-    req.display.state 	        = VIDEO_STATE_START;
-    req.display.pctl            = NULL;
+        req.display.state 	        = VIDEO_STATE_START;   // 设置显示状态为开始
+        req.display.pctl            = NULL;               // 设置控制参数为NULL
 
-    sys_key_event_disable();
-    sys_touch_event_disable();
-    err = server_request(__this->video_display[id], VIDEO_REQ_DISPLAY, &req);
-    if (err) {
-        printf("display req err = %d!!\n", err);
-        server_close(__this->video_display[id]);
-        __this->video_display[id] = NULL;
-    }
+        sys_key_event_disable();    // 禁用系统按键事件
+        sys_touch_event_disable();   // 禁用触摸事件
+        err = server_request(__this->video_display[id], VIDEO_REQ_DISPLAY, &req); // 向视频显示服务器发送请求
+        if (err) {
+            printf("display req err = %d!!\n", err);   // 如果请求失败，输出错误信息
+            server_close(__this->video_display[id]);    // 关闭视频显示服务器连接
+            __this->video_display[id] = NULL;            // 将该显示 ID 设置为 NULL
+        }
+
 #ifndef CONFIG_VIDEO4_ENABLE
 
     video_rec_start_isp_scenes();
@@ -639,117 +648,118 @@ static int video_disp_start(int id, const struct video_window *win)
 }
 
 
-static int video_disp_win_switch(int mode, int dev_id)
-{
-    int i;
-    int err = 0;
-    int next_win = 0;
-    int curr_win = __this->disp_state;
-    static u16 mirror = 0;
+// static int video_disp_win_switch(int mode, int dev_id)//窗口切换函数
+// {
+//     return 0;
+//     int i;
+//     int err = 0;
+//     int next_win = 0;
+//     int curr_win = __this->disp_state;
+//     static u16 mirror = 0;
 
-#ifdef CONFIG_DISPLAY_ENABLE
-    switch (mode) {
-    case DISP_WIN_SW_SHOW_PARKING:
-        // 如果停车显示模式被选择且当前选择的停车视频源不可用，返回设备不存在的错误码。
-        if (!__this->video_online[__this->disp_park_sel]) {
-            return -ENODEV;
-        }
-        next_win = DISP_PARK_WIN;
-        break;
-    case DISP_WIN_SW_HIDE_PARKING:
-        // 隐藏停车显示模式时，保持当前窗口，并将当前窗口设为停车显示窗口。
-        next_win = curr_win;
-        curr_win = DISP_PARK_WIN;
-        break;
-    case DISP_WIN_SW_SHOW_SMALL:
-        // 显示小窗口时，设置当前和下一个窗口为主窗口。
-        curr_win = DISP_MAIN_WIN;
-        next_win = DISP_MAIN_WIN;
-        break;
-    case DISP_WIN_SW_SHOW_NEXT:
-        // 如果只有一个摄像头在线或停车状态为1，则退出。
-        if (video_rec_online_nums() < 2) {
-            return 0;
-        }
-        if (get_parking_status() == 1) {
-            curr_win = DISP_MAIN_WIN;
-            next_win = DISP_MAIN_WIN;
-            return 0;
-        }
-        // 否则，切换到下一个窗口，如果超出范围则返回主窗口。
-        next_win = curr_win;
-        if (++next_win >= DISP_PARK_WIN) {
-            next_win = DISP_MAIN_WIN;
-        }
-        break;
-    case DISP_WIN_SW_DEV_IN:
-        // 如果当前窗口不是主窗口，退出，否则保持当前窗口。
-        if (curr_win != DISP_MAIN_WIN) {
-            return 0;
-        }
-        next_win = curr_win;
-        break;
-    case DISP_WIN_SW_DEV_OUT:
-        // 当设备移除时，将下一个窗口设置为主窗口。
-        next_win = DISP_MAIN_WIN;
-        break;
-    case DISP_WIN_SW_MIRROR:
-        // 切换镜像模式，调用函数设置镜像，并保持当前窗口。
-        mirror = !mirror;
-        video_set_disp_mirror(3, mirror);
-        next_win = curr_win;
-        break;
-    default:
-        // 如果模式无效，返回错误码。
-        return -EINVAL;
-    }
-
-    printf("disp_win_switch: %d, %d\n", curr_win, next_win);//当前窗口，下一个窗口
-
-    // 停止所有显示视频
-    // for (i = 1; i < CONFIG_VIDEO_REC_NUM; i++) {
-    //     video_disp_stop(i);
-    // }
-
-    // 如果当前窗口与下一个窗口不同，或者切换了镜像模式，重新启动显示。
-    if (curr_win != next_win || mode == DISP_WIN_SW_MIRROR) {
-        video_disp_stop(0);
-        err = video_disp_start(0, &disp_window[next_win][0]);
-    }
-
-    // 为在线的每个视频设备重新启动显示。
-//     for (i = 1; i < CONFIG_VIDEO_REC_NUM; i++) {
-//         if (__this->video_online[i]) {
-// #ifdef CONFIG_VIDEO4_ENABLE
-//             err = video_disp_start(i, &disp_window[next_win][i]);
-// #elif defined THREE_WAY_ENABLE
-//             err = video_disp_start(i, &disp_window[next_win][i]);
-// #else
-//             err = video_disp_start(i, &disp_window[next_win][1]);
-//             if (err == 0) {
-//                 break;
-//             }
-// #endif
+// #ifdef CONFIG_DISPLAY_ENABLE
+//     switch (mode) {
+//     case DISP_WIN_SW_SHOW_PARKING:
+//         // 如果停车显示模式被选择且当前选择的停车视频源不可用，返回设备不存在的错误码。
+//         if (!__this->video_online[__this->disp_park_sel]) {
+//             return -ENODEV;
 //         }
+//         next_win = DISP_PARK_WIN;
+//         break;
+//     case DISP_WIN_SW_HIDE_PARKING:
+//         // 隐藏停车显示模式时，保持当前窗口，并将当前窗口设为停车显示窗口。
+//         next_win = curr_win;
+//         curr_win = DISP_PARK_WIN;
+//         break;
+//     case DISP_WIN_SW_SHOW_SMALL:
+//         // 显示小窗口时，设置当前和下一个窗口为主窗口。
+//         curr_win = DISP_MAIN_WIN;
+//         next_win = DISP_MAIN_WIN;
+//         break;
+//     case DISP_WIN_SW_SHOW_NEXT:
+//         // 如果只有一个摄像头在线或停车状态为1，则退出。
+//         if (video_rec_online_nums() < 2) {
+//             return 0;
+//         }
+//         if (get_parking_status() == 1) {
+//             curr_win = DISP_MAIN_WIN;
+//             next_win = DISP_MAIN_WIN;
+//             return 0;
+//         }
+//         // 否则，切换到下一个窗口，如果超出范围则返回主窗口。
+//         next_win = curr_win;
+//         if (++next_win >= DISP_PARK_WIN) {
+//             next_win = DISP_MAIN_WIN;
+//         }
+//         break;
+//     case DISP_WIN_SW_DEV_IN:
+//         // 如果当前窗口不是主窗口，退出，否则保持当前窗口。
+//         if (curr_win != DISP_MAIN_WIN) {
+//             return 0;
+//         }
+//         next_win = curr_win;
+//         break;
+//     case DISP_WIN_SW_DEV_OUT:
+//         // 当设备移除时，将下一个窗口设置为主窗口。
+//         next_win = DISP_MAIN_WIN;
+//         break;
+//     case DISP_WIN_SW_MIRROR:
+//         // 切换镜像模式，调用函数设置镜像，并保持当前窗口。
+//         mirror = !mirror;
+//         video_set_disp_mirror(3, mirror);
+//         next_win = curr_win;
+//         break;
+//     default:
+//         // 如果模式无效，返回错误码。
+//         return -EINVAL;
 //     }
 
-    // 如果不是停车模式，将当前显示状态更新为下一个窗口。
-    if (next_win != DISP_PARK_WIN) {
-        __this->disp_state = next_win;
-    }
+//     printf("disp_win_switch: %d, %d\n", curr_win, next_win);//当前窗口，下一个窗口
 
-#ifndef CONFIG_VIDEO4_ENABLE
-    // 如果当前显示状态为后视窗口，关闭前照灯并设置屏显场景为1。
-    if (__this->disp_state == DISP_BACK_WIN) {
-        video_rec_post_msg("HlightOff");
-        isp_scr_work_hdl(1);
-    }
-#endif
+//     // 停止所有显示视频
+//     // for (i = 1; i < CONFIG_VIDEO_REC_NUM; i++) {
+//     //     video_disp_stop(i);
+//     // }
 
-#endif
+//     // 如果当前窗口与下一个窗口不同，或者切换了镜像模式，重新启动显示。
+//     if (curr_win != next_win || mode == DISP_WIN_SW_MIRROR) {
+//         video_disp_stop(0);
+//         err = video_disp_start(0, &disp_window[next_win][0]);
+//     }
 
-    return err;
-}
+//     // 为在线的每个视频设备重新启动显示。
+// //     for (i = 1; i < CONFIG_VIDEO_REC_NUM; i++) {
+// //         if (__this->video_online[i]) {
+// // #ifdef CONFIG_VIDEO4_ENABLE
+// //             err = video_disp_start(i, &disp_window[next_win][i]);
+// // #elif defined THREE_WAY_ENABLE
+// //             err = video_disp_start(i, &disp_window[next_win][i]);
+// // #else
+// //             err = video_disp_start(i, &disp_window[next_win][1]);
+// //             if (err == 0) {
+// //                 break;
+// //             }
+// // #endif
+// //         }
+// //     }
+
+//     // 如果不是停车模式，将当前显示状态更新为下一个窗口。
+//     if (next_win != DISP_PARK_WIN) {
+//         __this->disp_state = next_win;
+//     }
+
+// #ifndef CONFIG_VIDEO4_ENABLE
+//     // 如果当前显示状态为后视窗口，关闭前照灯并设置屏显场景为1。
+//     if (__this->disp_state == DISP_BACK_WIN) {
+//         video_rec_post_msg("HlightOff");
+//         isp_scr_work_hdl(1);
+//     }
+// #endif
+
+// #endif
+
+//     return err;
+// }
 
 
 
@@ -789,400 +799,400 @@ static void rec_dev_server_event_handler(void *priv, int argc, int *argv)
 
 
 
-extern void play_voice_file(const char *file_name);
-static void ve_server_event_handler(void *priv, int argc, int *argv)
-{
-    switch (argv[0]) {
-    case VE_MSG_MOTION_DETECT_STILL:
-        /*
-         *录像时，移动侦测打开的情况下，画面基本静止20秒，则进入该分支
-         */
-        printf("**************VE_MSG_MOTION_DETECT_STILL**********\n");
-        if (!db_select("mot") || (__this->menu_inout)) {
-            return;
-        }
-        if (__this->state == VIDREC_STA_START && __this->user_rec == 0) {
-            video_rec_stop(0);
-        }
-
-        break;
-    case VE_MSG_MOTION_DETECT_MOVING:
-        /*
-         *移动侦测打开，当检测到画面活动一段时间，则进入该分支去启动录像
-         */
-        printf("**************VE_MSG_MOTION_DETECT_MOVING**********\n");
-        if (!db_select("mot") || (__this->menu_inout)) {
-            return;
-        }
-        if ((__this->state == VIDREC_STA_STOP) || (__this->state == VIDREC_STA_IDLE)) {//录像停止或处于空闲
-            // video_rec_start();
-        }
-
-        break;
-    case VE_MSG_LANE_DETECT_WARNING:
-
-        if (!__this->lan_det_setting) {
-            if (!db_select("lan")) {
-                return;
-            }
-        }
-
-        play_voice_file("mnt/spiflash/audlogo/lane.adp");
-
-        puts("==lane dete waring==\n");
-        break;
-    case VE_MSG_LANE_DETCET_LEFT:
-        puts("==lane dete waring==l\n");
-        break;
-    case VE_MSG_LANE_DETCET_RIGHT:
-        puts("==lane dete waring==r\n");
-        break;
-    case VE_MSG_VEHICLE_DETECT_WARNING:
-        //printf("x = %d,y = %d,w = %d,hid = %d\n",argv[1],argv[2],argv[3],argv[4]);
-        //位置
-        video_rec_post_msg("carpos:p=%4", ((u32)(argv[1]) | (argv[2] << 16))); //x:x y:y
-        //颜色
-        if (argv[3] > 45) {
-            video_rec_post_msg("carpos:w=%4", ((u32)(argv[3]) | (3 << 16)));    //w:width c:color,0:transparent, 1:green,2:yellow,3:red
-        } else {
-            video_rec_post_msg("carpos:w=%4", ((u32)(argv[3]) | (1 << 16)));
-        }
-        //隐藏
-        if (argv[4] == 0) {
-            video_rec_post_msg("carpos:w=%4", ((u32)(1) | (0 << 16)));
-        }
-        //刷新
-        video_rec_post_msg("carpos:s=%4", 1);
-        break;
-    default :
-        break;
-    }
-}
-
-/*
- *智能引擎服务打开，它包括移动侦测等一些功能,在打开这些功能之前，必须要打开这个智能引擎服务
- */
-static s32 ve_server_open(u8 fun_sel)
-{
-    //printf("-----lane start\n");
-    //printf("-----fun_sel = %d\n",fun_sel);
-#ifdef CONFIG_VIDEO4_ENABLE
-    return 0;
-#endif
-    if (!__this->video_engine) {
-        __this->video_engine = server_open("video_engine_server", NULL);
-        if (!__this->video_engine) {
-            puts("video_engine_server:faild\n");
-            return -1;
-        }
-
-        // server_register_event_handler(__this->video_engine, NULL, ve_server_event_handler);
-
-        struct video_engine_req ve_req;
-        ve_req.module = 0;
-        ve_req.md_mode = 0;
-        ve_req.cmd = 0;
-        /* ve_req.hint_info.hint = ((1 << VE_MODULE_MOTION_DETECT) | (1 << VE_MODULE_LANE_DETECT) | (1 << VE_MODULE_FACE_DETECT)); */
-        ve_req.hint_info.hint = ((1 << VE_MODULE_MOTION_DETECT) | (1 << VE_MODULE_LANE_DETECT));
-
-        //  if (fun_sel) {
-        //      ve_req.hint_info.hint = 0;
-        //      ve_req.hint_info.hint = (1 << VE_MODULE_LANE_DETECT);
-        //  }
-
-#ifdef CONFIG_VE_MOTION_DETECT_MODE_ISP
-        ve_req.hint_info.mode_hint0 = (VE_MOTION_DETECT_MODE_ISP
-                                       << (VE_MODULE_MOTION_DETECT * 4));
-#else
-        ve_req.hint_info.mode_hint0 = (VE_MOTION_DETECT_MODE_NORMAL
-                                       << (VE_MODULE_MOTION_DETECT * 4));
-#endif
+// extern void play_voice_file(const char *file_name);
+// static void ve_server_event_handler(void *priv, int argc, int *argv)
+// {
+//     switch (argv[0]) {
+//     case VE_MSG_MOTION_DETECT_STILL:
+//         /*
+//          *录像时，移动侦测打开的情况下，画面基本静止20秒，则进入该分支
+//          */
+//         printf("**************VE_MSG_MOTION_DETECT_STILL**********\n");
+//         if (!db_select("mot") || (__this->menu_inout)) {
+//             return;
+//         }
+//         if (__this->state == VIDREC_STA_START && __this->user_rec == 0) {
+//             video_rec_stop(0);
+//         }
+
+//         break;
+//     case VE_MSG_MOTION_DETECT_MOVING:
+//         /*
+//          *移动侦测打开，当检测到画面活动一段时间，则进入该分支去启动录像
+//          */
+//         printf("**************VE_MSG_MOTION_DETECT_MOVING**********\n");
+//         if (!db_select("mot") || (__this->menu_inout)) {
+//             return;
+//         }
+//         if ((__this->state == VIDREC_STA_STOP) || (__this->state == VIDREC_STA_IDLE)) {//录像停止或处于空闲
+//             // video_rec_start();
+//         }
+
+//         break;
+//     case VE_MSG_LANE_DETECT_WARNING:
+
+//         if (!__this->lan_det_setting) {
+//             if (!db_select("lan")) {
+//                 return;
+//             }
+//         }
+
+//         play_voice_file("mnt/spiflash/audlogo/lane.adp");
+
+//         puts("==lane dete waring==\n");
+//         break;
+//     case VE_MSG_LANE_DETCET_LEFT:
+//         puts("==lane dete waring==l\n");
+//         break;
+//     case VE_MSG_LANE_DETCET_RIGHT:
+//         puts("==lane dete waring==r\n");
+//         break;
+//     case VE_MSG_VEHICLE_DETECT_WARNING:
+//         //printf("x = %d,y = %d,w = %d,hid = %d\n",argv[1],argv[2],argv[3],argv[4]);
+//         //位置
+//         video_rec_post_msg("carpos:p=%4", ((u32)(argv[1]) | (argv[2] << 16))); //x:x y:y
+//         //颜色
+//         if (argv[3] > 45) {
+//             video_rec_post_msg("carpos:w=%4", ((u32)(argv[3]) | (3 << 16)));    //w:width c:color,0:transparent, 1:green,2:yellow,3:red
+//         } else {
+//             video_rec_post_msg("carpos:w=%4", ((u32)(argv[3]) | (1 << 16)));
+//         }
+//         //隐藏
+//         if (argv[4] == 0) {
+//             video_rec_post_msg("carpos:w=%4", ((u32)(1) | (0 << 16)));
+//         }
+//         //刷新
+//         video_rec_post_msg("carpos:s=%4", 1);
+//         break;
+//     default :
+//         break;
+//     }
+// }
+
+// /*
+//  *智能引擎服务打开，它包括移动侦测等一些功能,在打开这些功能之前，必须要打开这个智能引擎服务
+//  */
+// static s32 ve_server_open(u8 fun_sel)
+// {
+//     //printf("-----lane start\n");
+//     //printf("-----fun_sel = %d\n",fun_sel);
+// #ifdef CONFIG_VIDEO4_ENABLE
+//     return 0;
+// #endif
+//     if (!__this->video_engine) {
+//         __this->video_engine = server_open("video_engine_server", NULL);
+//         if (!__this->video_engine) {
+//             puts("video_engine_server:faild\n");
+//             return -1;
+//         }
+
+//         // server_register_event_handler(__this->video_engine, NULL, ve_server_event_handler);
+
+//         struct video_engine_req ve_req;
+//         ve_req.module = 0;
+//         ve_req.md_mode = 0;
+//         ve_req.cmd = 0;
+//         /* ve_req.hint_info.hint = ((1 << VE_MODULE_MOTION_DETECT) | (1 << VE_MODULE_LANE_DETECT) | (1 << VE_MODULE_FACE_DETECT)); */
+//         ve_req.hint_info.hint = ((1 << VE_MODULE_MOTION_DETECT) | (1 << VE_MODULE_LANE_DETECT));
+
+//         //  if (fun_sel) {
+//         //      ve_req.hint_info.hint = 0;
+//         //      ve_req.hint_info.hint = (1 << VE_MODULE_LANE_DETECT);
+//         //  }
+
+// #ifdef CONFIG_VE_MOTION_DETECT_MODE_ISP
+//         ve_req.hint_info.mode_hint0 = (VE_MOTION_DETECT_MODE_ISP
+//                                        << (VE_MODULE_MOTION_DETECT * 4));
+// #else
+//         ve_req.hint_info.mode_hint0 = (VE_MOTION_DETECT_MODE_NORMAL
+//                                        << (VE_MODULE_MOTION_DETECT * 4));
+// #endif
 
-        ve_req.hint_info.mode_hint1 = 0;
-        server_request(__this->video_engine, VE_REQ_SET_HINT, &ve_req);
-    }
+//         ve_req.hint_info.mode_hint1 = 0;
+//         server_request(__this->video_engine, VE_REQ_SET_HINT, &ve_req);
+//     }
 
 
 
-    if (fun_sel) {
+//     if (fun_sel) {
 
-        ve_face_det_start(1);
+//         ve_face_det_start(1);
 
-        //ve_mdet_start();//@kyj
-        //ve_lane_det_start(1);
+//         //ve_mdet_start();//@kyj
+//         //ve_lane_det_start(1);
 
-    } else {
-        //printf("--------------server open %d\n",fun_sel);
-        __this->car_head_y = 351;//db_select("lan") & 0x0000ffff;
-        __this->vanish_y   = 0;//(db_select("lan") >> 16) & 0x0000ffff;
-        ve_mdet_start();
-        ve_lane_det_start(0);
-    }
+//     } else {
+//         //printf("--------------server open %d\n",fun_sel);
+//         __this->car_head_y = 351;//db_select("lan") & 0x0000ffff;
+//         __this->vanish_y   = 0;//(db_select("lan") >> 16) & 0x0000ffff;
+//         ve_mdet_start();
+//         ve_lane_det_start(0);
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
 
-static s32 ve_server_close()
-{
-    if (__this->video_engine) {
+// static s32 ve_server_close()
+// {
+//     if (__this->video_engine) {
 
-        if (!__this->lan_det_setting) {
-            ve_mdet_stop();
-        }
-        ve_lane_det_stop(0);
+//         if (!__this->lan_det_setting) {
+//             ve_mdet_stop();
+//         }
+//         ve_lane_det_stop(0);
 
-        server_close(__this->video_engine);
+//         server_close(__this->video_engine);
 
-        __this->video_engine = NULL;
-    }
-    return 0;
-}
+//         __this->video_engine = NULL;
+//     }
+//     return 0;
+// }
 
-static int ve_mdet_start()
-{
-    struct video_engine_req ve_req;
+// static int ve_mdet_start()
+// {
+//     struct video_engine_req ve_req;
 
-#ifdef CONFIG_VIDEO4_ENABLE
-    return -EINVAL;
-#endif
-    //@kyj
-    // if ((__this->video_engine == NULL) || !db_select("mot")) {
-    //     return -EINVAL;
-    // }
+// #ifdef CONFIG_VIDEO4_ENABLE
+//     return -EINVAL;
+// #endif
+//     //@kyj
+//     // if ((__this->video_engine == NULL) || !db_select("mot")) {
+//     //     return -EINVAL;
+//     // }
 
-    ve_req.module = VE_MODULE_MOTION_DETECT;
-#ifdef CONFIG_VE_MOTION_DETECT_MODE_ISP
-    ve_req.md_mode = VE_MOTION_DETECT_MODE_ISP;
-#else
-    ve_req.md_mode = VE_MOTION_DETECT_MODE_NORMAL;
-#endif
-    ve_req.cmd = 0;
+//     ve_req.module = VE_MODULE_MOTION_DETECT;
+// #ifdef CONFIG_VE_MOTION_DETECT_MODE_ISP
+//     ve_req.md_mode = VE_MOTION_DETECT_MODE_ISP;
+// #else
+//     ve_req.md_mode = VE_MOTION_DETECT_MODE_NORMAL;
+// #endif
+//     ve_req.cmd = 0;
 
-    server_request(__this->video_engine, VE_REQ_MODULE_OPEN, &ve_req);
+//     server_request(__this->video_engine, VE_REQ_MODULE_OPEN, &ve_req);
 
 
-    server_request(__this->video_engine, VE_REQ_MODULE_GET_PARAM, &ve_req);
+//     server_request(__this->video_engine, VE_REQ_MODULE_GET_PARAM, &ve_req);
 
 
-    /*
-    *移动侦测的检测启动时间和检测静止的时候
-    **/
-    ve_req.md_params.level = 2;
-    ve_req.md_params.move_delay_ms = MOTION_START_SEC * 1000;
-    ve_req.md_params.still_delay_ms = MOTION_STOP_SEC * 1000;
-    server_request(__this->video_engine, VE_REQ_MODULE_SET_PARAM, &ve_req);
+//     /*
+//     *移动侦测的检测启动时间和检测静止的时候
+//     **/
+//     ve_req.md_params.level = 2;
+//     ve_req.md_params.move_delay_ms = MOTION_START_SEC * 1000;
+//     ve_req.md_params.still_delay_ms = MOTION_STOP_SEC * 1000;
+//     server_request(__this->video_engine, VE_REQ_MODULE_SET_PARAM, &ve_req);
 
-    server_request(__this->video_engine, VE_REQ_MODULE_START, &ve_req);
+//     server_request(__this->video_engine, VE_REQ_MODULE_START, &ve_req);
 
-    return 0;
-}
+//     return 0;
+// }
 
 
-static int ve_mdet_stop()
-{
-    struct video_engine_req ve_req;
+// static int ve_mdet_stop()
+// {
+//     struct video_engine_req ve_req;
 
-    // 如果视频引擎为空或者数据库中未找到 "mot" 相关条目，则返回无效参数错误
-    if ((__this->video_engine == NULL) || !db_select("mot")) {
-        return -EINVAL;
-    }
+//     // 如果视频引擎为空或者数据库中未找到 "mot" 相关条目，则返回无效参数错误
+//     if ((__this->video_engine == NULL) || !db_select("mot")) {
+//         return -EINVAL;
+//     }
 
-    // 设置请求的模块为运动检测模块
-    ve_req.module = VE_MODULE_MOTION_DETECT;
+//     // 设置请求的模块为运动检测模块
+//     ve_req.module = VE_MODULE_MOTION_DETECT;
 
-    // 根据编译配置选择运动检测模式
-#ifdef CONFIG_VE_MOTION_DETECT_MODE_ISP
-    ve_req.md_mode = VE_MOTION_DETECT_MODE_ISP;   // 设置为 ISP 模式
-#else
-    ve_req.md_mode = VE_MOTION_DETECT_MODE_NORMAL; // 设置为普通模式
-#endif
+//     // 根据编译配置选择运动检测模式
+// #ifdef CONFIG_VE_MOTION_DETECT_MODE_ISP
+//     ve_req.md_mode = VE_MOTION_DETECT_MODE_ISP;   // 设置为 ISP 模式
+// #else
+//     ve_req.md_mode = VE_MOTION_DETECT_MODE_NORMAL; // 设置为普通模式
+// #endif
 
-    ve_req.cmd = 0; // 设置命令为 0，通常表示停止操作
+//     ve_req.cmd = 0; // 设置命令为 0，通常表示停止操作
 
-    // 发送请求以停止运动检测模块
-    server_request(__this->video_engine, VE_REQ_MODULE_STOP, &ve_req);
+//     // 发送请求以停止运动检测模块
+//     server_request(__this->video_engine, VE_REQ_MODULE_STOP, &ve_req);
 
-    // 发送请求以关闭运动检测模块
-    server_request(__this->video_engine, VE_REQ_MODULE_CLOSE, &ve_req);
+//     // 发送请求以关闭运动检测模块
+//     server_request(__this->video_engine, VE_REQ_MODULE_CLOSE, &ve_req);
 
-    return 0; // 返回 0 表示操作成功
-}
+//     return 0; // 返回 0 表示操作成功
+// }
 
 
-static void ve_mdet_reset()
-{
-    ve_mdet_stop();
-    ve_mdet_start();
-}
+// static void ve_mdet_reset()
+// {
+//     ve_mdet_stop();
+//     ve_mdet_start();
+// }
 
 
-static int ve_lane_det_start(u8 fun_sel)
-{
-    struct video_engine_req ve_req;
+// static int ve_lane_det_start(u8 fun_sel)
+// {
+//     struct video_engine_req ve_req;
 
-#ifdef CONFIG_VIDEO4_ENABLE
-    return -EINVAL;
-#endif
-    if (!fun_sel) {
-        if ((__this->video_engine == NULL) || !db_select("lan")) {
-            return -EINVAL;
-        }
-    }
+// #ifdef CONFIG_VIDEO4_ENABLE
+//     return -EINVAL;
+// #endif
+//     if (!fun_sel) {
+//         if ((__this->video_engine == NULL) || !db_select("lan")) {
+//             return -EINVAL;
+//         }
+//     }
 
-    ve_req.module = VE_MODULE_LANE_DETECT;
-#ifdef CONFIG_VE_MOTION_DETECT_MODE_ISP
-    ve_req.md_mode = VE_MOTION_DETECT_MODE_ISP;
-#else
-    ve_req.md_mode = VE_MOTION_DETECT_MODE_NORMAL;
-#endif
+//     ve_req.module = VE_MODULE_LANE_DETECT;
+// #ifdef CONFIG_VE_MOTION_DETECT_MODE_ISP
+//     ve_req.md_mode = VE_MOTION_DETECT_MODE_ISP;
+// #else
+//     ve_req.md_mode = VE_MOTION_DETECT_MODE_NORMAL;
+// #endif
 
-    ve_req.cmd = 0;
-    server_request(__this->video_engine, VE_REQ_MODULE_OPEN, &ve_req);
+//     ve_req.cmd = 0;
+//     server_request(__this->video_engine, VE_REQ_MODULE_OPEN, &ve_req);
 
-    server_request(__this->video_engine, VE_REQ_MODULE_GET_PARAM, &ve_req);
+//     server_request(__this->video_engine, VE_REQ_MODULE_GET_PARAM, &ve_req);
 
-    /**
-     *轨道偏移 配置车头 位置，视线结束为止，以及车道宽度
-     * */
-    /* ve_req.lane_detect_params.car_head_y = 230; */
-    /* ve_req.lane_detect_params.vanish_y = 170; */
-    /* ve_req.lane_detect_params.len_factor = 0; */
-    ve_req.lane_detect_params.car_head_y = __this->car_head_y;
-    ve_req.lane_detect_params.vanish_y =  __this->vanish_y;
-    ve_req.lane_detect_params.len_factor = 0;
+//     /**
+//      *轨道偏移 配置车头 位置，视线结束为止，以及车道宽度
+//      * */
+//     /* ve_req.lane_detect_params.car_head_y = 230; */
+//     /* ve_req.lane_detect_params.vanish_y = 170; */
+//     /* ve_req.lane_detect_params.len_factor = 0; */
+//     ve_req.lane_detect_params.car_head_y = __this->car_head_y;
+//     ve_req.lane_detect_params.vanish_y =  __this->vanish_y;
+//     ve_req.lane_detect_params.len_factor = 0;
 
-    server_request(__this->video_engine, VE_REQ_MODULE_SET_PARAM, &ve_req);
+//     server_request(__this->video_engine, VE_REQ_MODULE_SET_PARAM, &ve_req);
 
-    server_request(__this->video_engine, VE_REQ_MODULE_START, &ve_req);
+//     server_request(__this->video_engine, VE_REQ_MODULE_START, &ve_req);
 
-    return 0;
-}
+//     return 0;
+// }
 
 
-static int ve_lane_det_stop(u8 fun_sel)
-{
-    struct video_engine_req ve_req;
+// static int ve_lane_det_stop(u8 fun_sel)
+// {
+//     struct video_engine_req ve_req;
 
-    // 如果 fun_sel 为 0，则需要检查 video_engine 是否为空以及数据库中是否有 "lan" 条目
-    if (!fun_sel) {
-        if ((__this->video_engine == NULL) || !db_select("lan")) {
-            return -EINVAL; // 如果条件不满足，则返回无效参数错误
-        }
-    }
+//     // 如果 fun_sel 为 0，则需要检查 video_engine 是否为空以及数据库中是否有 "lan" 条目
+//     if (!fun_sel) {
+//         if ((__this->video_engine == NULL) || !db_select("lan")) {
+//             return -EINVAL; // 如果条件不满足，则返回无效参数错误
+//         }
+//     }
 
-    // 设置请求的模块为车道检测模块
-    ve_req.module = VE_MODULE_LANE_DETECT;
+//     // 设置请求的模块为车道检测模块
+//     ve_req.module = VE_MODULE_LANE_DETECT;
 
-    // 根据编译配置选择运动检测模式
-#ifdef CONFIG_VE_MOTION_DETECT_MODE_ISP
-    ve_req.md_mode = VE_MOTION_DETECT_MODE_ISP;   // 设置为 ISP 模式
-#else
-    ve_req.md_mode = VE_MOTION_DETECT_MODE_NORMAL; // 设置为普通模式
-#endif
+//     // 根据编译配置选择运动检测模式
+// #ifdef CONFIG_VE_MOTION_DETECT_MODE_ISP
+//     ve_req.md_mode = VE_MOTION_DETECT_MODE_ISP;   // 设置为 ISP 模式
+// #else
+//     ve_req.md_mode = VE_MOTION_DETECT_MODE_NORMAL; // 设置为普通模式
+// #endif
 
-    ve_req.cmd = 0; // 设置命令为 0，通常表示停止操作
+//     ve_req.cmd = 0; // 设置命令为 0，通常表示停止操作
 
-    // 发送请求以停止车道检测模块
-    server_request(__this->video_engine, VE_REQ_MODULE_STOP, &ve_req);
+//     // 发送请求以停止车道检测模块
+//     server_request(__this->video_engine, VE_REQ_MODULE_STOP, &ve_req);
 
-    // 发送请求以关闭车道检测模块
-    server_request(__this->video_engine, VE_REQ_MODULE_CLOSE, &ve_req);
+//     // 发送请求以关闭车道检测模块
+//     server_request(__this->video_engine, VE_REQ_MODULE_CLOSE, &ve_req);
 
-    return 0; // 返回 0 表示操作成功
-}
+//     return 0; // 返回 0 表示操作成功
+// }
 
-void ve_lane_det_reset()
-{
-    // 重置车道检测功能
-    ve_lane_det_stop(0);   // 停止车道检测
-    ve_lane_det_start(0);  // 启动车道检测
-    ve_face_det_start(0);  // 启动人脸检测
-}
+// void ve_lane_det_reset()
+// {
+//     // 重置车道检测功能
+//     ve_lane_det_stop(0);   // 停止车道检测
+//     ve_lane_det_start(0);  // 启动车道检测
+//     ve_face_det_start(0);  // 启动人脸检测
+// }
 
 
 
 
-static int ve_face_det_start(u8 fun_sel)
-{
-    struct video_engine_req ve_req;
+// static int ve_face_det_start(u8 fun_sel)
+// {
+//     struct video_engine_req ve_req;
 
-    return 0;
-    if (!fun_sel) {
-        if (__this->video_engine == NULL) {
-            return -EINVAL;
-        }
-    }
+//     return 0;
+//     if (!fun_sel) {
+//         if (__this->video_engine == NULL) {
+//             return -EINVAL;
+//         }
+//     }
 
 
-    ve_req.module = VE_MODULE_FACE_DETECT;
-#ifdef CONFIG_VE_MOTION_DETECT_MODE_ISP
-    ve_req.md_mode = VE_MOTION_DETECT_MODE_ISP;
-#else
-    ve_req.md_mode = VE_MOTION_DETECT_MODE_NORMAL;
-#endif
+//     ve_req.module = VE_MODULE_FACE_DETECT;
+// #ifdef CONFIG_VE_MOTION_DETECT_MODE_ISP
+//     ve_req.md_mode = VE_MOTION_DETECT_MODE_ISP;
+// #else
+//     ve_req.md_mode = VE_MOTION_DETECT_MODE_NORMAL;
+// #endif
 
 
 
-    ve_req.cmd = 0;
-    server_request(__this -> video_engine, VE_REQ_MODULE_OPEN, &ve_req);
-    server_request(__this -> video_engine, VE_REQ_MODULE_GET_PARAM, &ve_req);
+//     ve_req.cmd = 0;
+//     server_request(__this -> video_engine, VE_REQ_MODULE_OPEN, &ve_req);
+//     server_request(__this -> video_engine, VE_REQ_MODULE_GET_PARAM, &ve_req);
 
-    ve_req.face_detect_params.roi_top = 0;
-    ve_req.face_detect_params.roi_bottom = 351;
+//     ve_req.face_detect_params.roi_top = 0;
+//     ve_req.face_detect_params.roi_bottom = 351;
 
-    server_request(__this -> video_engine, VE_REQ_MODULE_SET_PARAM, &ve_req);
-    server_request(__this -> video_engine, VE_REQ_MODULE_START, &ve_req);
+//     server_request(__this -> video_engine, VE_REQ_MODULE_SET_PARAM, &ve_req);
+//     server_request(__this -> video_engine, VE_REQ_MODULE_START, &ve_req);
 
-    return 0;
+//     return 0;
 
-}
+// }
 
 
-static int ve_face_det_stop(u8 fun_sel)
-{
-    struct video_engine_req ve_req;
+// static int ve_face_det_stop(u8 fun_sel)
+// {
+//     struct video_engine_req ve_req;
 
-    if (!fun_sel) {
-        if ((__this -> video_engine == NULL) || !db_select("fac")) {
-            return -EINVAL;
-        }
-    }
+//     if (!fun_sel) {
+//         if ((__this -> video_engine == NULL) || !db_select("fac")) {
+//             return -EINVAL;
+//         }
+//     }
 
 
-    ve_req.module = VE_MODULE_FACE_DETECT;
-#ifdef CONFIG_VE_MOTION_DETECT_MODE_ISP
-    ve_req.md_mode = VE_MOTION_DETECT_MODE_ISP;
-#else
-    ve_req.md_mode = VE_MOTION_DETECT_MODE_NORMAL;
-#endif
+//     ve_req.module = VE_MODULE_FACE_DETECT;
+// #ifdef CONFIG_VE_MOTION_DETECT_MODE_ISP
+//     ve_req.md_mode = VE_MOTION_DETECT_MODE_ISP;
+// #else
+//     ve_req.md_mode = VE_MOTION_DETECT_MODE_NORMAL;
+// #endif
 
-    ve_req.cmd = 0;
+//     ve_req.cmd = 0;
 
-    server_request(__this -> video_engine, VE_REQ_MODULE_STOP, &ve_req);
-    server_request(__this -> video_engine, VE_REQ_MODULE_CLOSE, &ve_req);
+//     server_request(__this -> video_engine, VE_REQ_MODULE_STOP, &ve_req);
+//     server_request(__this -> video_engine, VE_REQ_MODULE_CLOSE, &ve_req);
 
 
-    return 0;
+//     return 0;
 
-}
+// }
 
 
-void ve_face_det_reset()
-{
-    ve_face_det_stop(0);
-    ve_face_det_start(0);
-}
+// void ve_face_det_reset()
+// {
+//     ve_face_det_stop(0);
+//     ve_face_det_start(0);
+// }
 
 
 
-void ve_server_reopen()
-{
-    ve_mdet_stop();
-    ve_lane_det_stop(0);
+// void ve_server_reopen()
+// {
+//     ve_mdet_stop();
+//     ve_lane_det_stop(0);
 
-    ve_server_close();
-    ve_server_open(0);
-}
+//     ve_server_close();
+//     ve_server_open(0);
+// }
 
 /*
  * 判断SD卡是否挂载成功和簇大小是否大于32K
@@ -2568,9 +2578,454 @@ static int video1_rec_start()
 
 static int video1_rec_len()
 {
+    union video_req req = {0}; // 定义一个视频请求的联合体，并初始化为零
+
+    // 检查视频录制状态，如果未开启录制，则返回错误码
+    if (!__this->video_rec1) {
+        return -EINVAL; // -EINVAL表示无效参数错误
+    }
+
+    // 设置请求状态为视频数据包长度
+    req.rec.state = VIDEO_STATE_PKG_LEN; 
+    // 从数据库中获取循环时间
+    req.rec.cycle_time = db_select("cyc");
+    
+    // 如果循环时间为0，则设置为默认值5
+    if (req.rec.cycle_time == 0) {
+        req.rec.cycle_time = 5; 
+    }
+    
+    // 将循环时间转换为秒
+    req.rec.cycle_time = req.rec.cycle_time * 60; 
+
+    // 发送请求并返回结果
+    return server_request(__this->video_rec1, VIDEO_REQ_REC, &req);
+}
+
+
+static int video1_rec_aud_mute()
+{
+    union video_req req = {0}; // 定义一个视频请求的联合体，并初始化为零
+
+    // 检查视频录制状态，如果未开启录制，则返回错误码
+    if (!__this->video_rec1) {
+        return -EINVAL; // -EINVAL表示无效参数错误
+    }
+
+    // 设置请求通道为0（通常表示主通道）
+    req.rec.channel = 0; 
+    // 设置请求状态为音频静音状态
+    req.rec.state = VIDEO_STATE_PKG_MUTE; 
+    // 根据数据库中麦克风的状态决定是否静音
+    req.rec.pkg_mute.aud_mute = !db_select("mic"); 
+
+    // 发送请求并返回结果
+    return server_request(__this->video_rec1, VIDEO_REQ_REC, &req);
+}
+
+
+static int video1_rec_set_dr()
+{
+    union video_req req = {0}; // 定义一个视频请求的联合体，并初始化为零
+
+    // 检查视频录制状态，如果未开启录制，则返回错误码
+    if (!__this->video_rec1) {
+        return -EINVAL; // -EINVAL表示无效参数错误
+    }
+
+    // 设置请求的实际帧率为7
+    req.rec.real_fps = 7; 
+    // 设置请求的通道为0，通常表示主通道
+    req.rec.channel = 0; 
+    // 设置请求状态为设置动态范围
+    req.rec.state = VIDEO_STATE_SET_DR; 
+
+    // 发送请求并返回结果
+    return server_request(__this->video_rec1, VIDEO_REQ_REC, &req);
+}
+
+
+static int video1_rec_stop(u8 close)
+{
+    union video_req req = {0}; // 定义一个视频请求的联合体，并初始化为零
+    int err; // 用于存储请求的错误码
+
+    log_d("video1_rec_stop\n"); // 记录停止录制的日志
+
+    // 如果视频录制已开启
+    if (__this->video_rec1) {
+        req.rec.channel = 0; // 设置请求的通道为0，通常表示主通道
+        req.rec.state = VIDEO_STATE_STOP; // 设置请求状态为停止录制
+        err = server_request(__this->video_rec1, VIDEO_REQ_REC, &req); // 发送停止请求
+        // 检查请求是否成功
+        if (err != 0) {
+            printf("\nstop rec2 err 0x%x\n", err); // 打印错误信息
+            return VREC_ERR_V1_REQ_STOP; // 返回停止录制的错误码
+        }
+    }
+
+    video_rec_close_file(1); // 关闭视频文件
+
+    // 如果需要关闭视频录制
+    if (close) {
+        if (__this->video_rec1) {
+            server_close(__this->video_rec1); // 关闭服务器连接
+            __this->video_rec1 = NULL; // 将录制状态置为NULL
+        }
+    }
+
+    return 0; // 返回成功状态
+}
+
+
+static int video1_rec_savefile()
+{
+    union video_req req = {0}; // 定义一个视频请求的联合体，并初始化为零
+    int err; // 用于存储请求的错误码
+
+    // 检查视频录制状态是否开启
+    if (__this->video_rec1) {
+
+        // 检查文件句柄是否有效
+        if (!__this->file[1]) {
+            log_i("\n\nf1null\n\n"); // 记录日志：文件句柄为NULL
+            return -ENOENT; // 返回错误：没有这样的文件
+        }
+
+        // 设置视频请求参数
+        req.rec.channel = 0; // 设置通道为0
+        req.rec.width = AVIN_WIDTH; // 设置视频宽度
+        req.rec.height = AVIN_HEIGH; // 设置视频高度
+        req.rec.format = VIDEO1_REC_FORMAT; // 设置视频格式
+        req.rec.state = VIDEO_STATE_SAVE_FILE; // 设置状态为保存文件
+        req.rec.file = __this->file[1]; // 设置文件句柄
+        req.rec.fps = 0; // 设置帧率为0
+        req.rec.real_fps = 0; // 设置实际帧率为0
+
+#if (defined THREE_WAY_ENABLE || defined CONFIG_USB_VIDEO_OUT)
+        req.rec.rec_small_pic = 0; // 如果启用三路视频或USB视频输出，设置小图为0
+#else
+        req.rec.rec_small_pic = 1; // 否则设置小图为1
+#endif
+
+        // 从数据库中获取循环时间
+        req.rec.cycle_time = db_select("cyc");
+        // 如果循环时间为0，设置为默认值5
+        if (req.rec.cycle_time == 0) {
+            req.rec.cycle_time = 5;
+        }
+        // 将循环时间转换为秒
+        req.rec.cycle_time = req.rec.cycle_time * 60;
+
+        // 设置音频参数
+        req.rec.audio.fmt_format = AUDIO_FMT_PCM; // 设置音频格式为PCM
+        req.rec.audio.sample_rate = 8000; // 设置采样率为8000Hz
+        req.rec.audio.channel = 1; // 设置音频通道数为1
+        req.rec.audio.volume = 100; // 设置音量为100%
+        req.rec.audio.buf = __this->audio_buf[1]; // 设置音频缓冲区
+        req.rec.audio.buf_len = AUDIO_BUF_SIZE; // 设置音频缓冲区长度
+        req.rec.pkg_mute.aud_mute = !db_select("mic"); // 设置音频静音状态
+
+        // 从数据库中获取时间间隔
+        req.rec.tlp_time = db_select("gap");
+        // 如果时间间隔有效，计算实际帧率和包帧率
+        if (req.rec.tlp_time) {
+            req.rec.real_fps = 1000 / req.rec.tlp_time; // 计算实际帧率
+            req.rec.pkg_fps = 30; // 设置包帧率为30
+        }
+
+        // 发送保存文件请求
+        err = server_request(__this->video_rec1, VIDEO_REQ_REC, &req);
+        // 检查请求是否成功
+        if (err != 0) {
+            printf("\nsave rec2 err 0x%x\n", err); // 打印错误信息
+            return VREC_ERR_V1_REQ_SAVEFILE; // 返回保存文件的错误码
+        }
+    }
+
+    return 0; // 返回成功状态
+}
+
+
+static void video1_rec_close()
+{
+    // 检查视频录制状态是否开启
+    if (__this->video_rec1) {
+        server_close(__this->video_rec1); // 关闭与服务器的连接
+        __this->video_rec1 = NULL; // 将录制状态置为NULL，表示录制已停止
+    }
+}
+
+
+
+/*
+ *必须在启动录像之后才可调用该函数，并且确保启动录像时已经打开了osd
+ *新设置的osd的整体结构要和启动录像时一样，只是内容改变!!!
+ */
+static int video1_rec_set_osd_str(char *str)
+{
+    union video_req req = {0}; // 定义一个视频请求的联合体，并初始化为零
+    int err; // 用于存储请求的错误码
+
+    // 检查视频录制状态是否开启
+    if (!__this->video_rec1) {
+        return -1; // 如果未开启录制，返回错误
+    }
+
+    // 设置请求参数
+    req.rec.channel = 0; // 设置通道为0
+    req.rec.state = VIDEO_STATE_SET_OSD_STR; // 设置状态为设置OSD字符串
+    req.rec.new_osd_str = str; // 设置新的OSD字符串
+
+    // 发送请求到服务器
+    err = server_request(__this->video_rec1, VIDEO_REQ_REC, &req);
+    // 检查请求是否成功
+    if (err != 0) {
+        printf("\nset osd rec1 str err 0x%x\n", err); // 打印错误信息
+        return -1; // 返回错误
+    }
+
+    return 0; // 返回成功状态
+}
+
+
+static int video1_rec_osd_ctl(u8 onoff)
+{
+    union video_req req = {0}; // 定义一个视频请求的联合体，并初始化为零
+    struct video_text_osd text_osd; // 定义一个结构体，用于设置OSD文本
+    int err; // 用于存储请求的错误码
+
+    // 检查视频录制状态是否开启
+    if (__this->video_rec1) {
+        // 设置视频请求的宽度和高度
+        req.rec.width = AVIN_WIDTH; 
+        req.rec.height = AVIN_HEIGH; 
+
+        // 设置OSD文本的属性
+        text_osd.font_w = 16; // 字体宽度
+        text_osd.font_h = 32; // 字体高度
+        // 计算OSD文本的X和Y坐标，确保文本在视频画面中居中显示
+        text_osd.x = (req.rec.width - strlen(osd_str_buf) * text_osd.font_w) / 64 * 64; 
+        text_osd.y = (req.rec.height - text_osd.font_h) / 16 * 16; 
+        text_osd.color[0] = 0xe20095; // 设置文本颜色
+        text_osd.bit_mode = 1; // 设置位模式
+        text_osd.text_format = osd_str_buf; // 设置要显示的文本
+        text_osd.font_matrix_table = osd_str_total; // 设置字体矩阵表
+        text_osd.font_matrix_base = osd_str_matrix; // 设置字体矩阵基址
+        text_osd.font_matrix_len = sizeof(osd_str_matrix); // 设置字体矩阵长度
+        text_osd.direction = 1; // 设置文本方向
+        
+        // 默认情况下不启用OSD文本
+        req.rec.text_osd = 0; 
+        // 如果onoff为真，则启用OSD文本
+        if (onoff) {
+            req.rec.text_osd = &text_osd; 
+        }
+        
+        req.rec.channel = 0; // 设置通道为0
+        req.rec.state = VIDEO_STATE_SET_OSD; // 设置状态为设置OSD
+
+        // 发送请求到服务器
+        err = server_request(__this->video_rec1, VIDEO_REQ_REC, &req);
+        // 检查请求是否成功
+        if (err != 0) {
+            printf("\nset osd rec1 err 0x%x\n", err); // 打印错误信息
+            return -1; // 返回错误
+        }
+    }
+
+    return 0; // 返回成功状态
+}
+
+#endif
+
+
+/******* 不要单独调用这些子函数 ********/
+#ifdef CONFIG_VIDEO2_ENABLE
+static int video2_rec_start()
+{
+    int err;
+    union video_req req = {0};
+    struct video_text_osd text_osd;
+    struct video_graph_osd graph_osd;
+    u16 max_one_line_strnum;
+    u16 osd_line_num;
+
+    puts("start_video_rec2 \n");
+    if (!__this->video_rec2) {
+        __this->video_rec2 = server_open("video_server", "video2.0");
+        /* __this->video_rec1 = server_open("video_server", "video4.1"); */
+        if (!__this->video_rec2) {
+            return VREC_ERR_V2_SERVER_OPEN;
+        }
+
+        server_register_event_handler(__this->video_rec2, (void *)2, rec_dev_server_event_handler);
+    }
+
+    /* req.rec.channel = 1; */
+    req.rec.channel = 0;
+    req.rec.camera_type = VIDEO_CAMERA_NORMAL;
+    req.rec.width 	= AVIN_WIDTH;
+    req.rec.height 	= AVIN_HEIGH;
+    req.rec.format 	= VIDEO2_REC_FORMAT;
+    req.rec.state 	= VIDEO_STATE_START;
+    req.rec.file    = __this->file[2];
+    req.rec.quality = VIDEO_LOW_Q;
+    req.rec.fps 	= 0;
+    req.rec.real_fps 	= 0;
+
+    req.rec.audio.fmt_format = AUDIO_FMT_PCM;
+    req.rec.audio.sample_rate = 8000;
+    req.rec.audio.channel 	= 1;
+    req.rec.audio.volume    = 100;
+    req.rec.audio.buf = __this->audio_buf[2];
+    req.rec.audio.buf_len = AUDIO_BUF_SIZE;
+    req.rec.pkg_mute.aud_mute = !db_select("mic");
+
+    req.rec.abr_kbps = video_rec_get_abr(req.rec.width);
+    req.rec.IP_interval = 32;
+
+    /*感兴趣区域为下方 中间 2/6 * 4/6 区域，可以调整
+    	感兴趣区域qp 为其他区域的 70% ，可以调整
+    */
+    /* req.rec.roi.roio_xy = (req.rec.height * 5 / 6 / 16) << 24 | (req.rec.height * 3 / 6 / 16) << 16 | (req.rec.width * 5 / 6 / 16) << 8 | (req.rec.width) * 1 / 6 / 16; */
+    /* req.rec.roi.roio_ratio = 256 * 70 / 100 ; */
+    /* req.rec.roi.roi1_xy = 0; */
+    /* req.rec.roi.roi2_xy = 0; */
+    /* req.rec.roi.roi3_xy = (1 << 24) | (0 << 16) | ((req.rec.width / 16) << 8) | 0; */
+    /* req.rec.roi.roio_ratio1 = 0; */
+    /* req.rec.roi.roio_ratio2 = 0; */
+    /* req.rec.roi.roio_ratio3 = 256 * 80 / 100; */
+
+/* 编码参数配置，请仔细参阅说明文档后修改 */
+    /* 录像编码参数统一使用下面这一组,对主控会更友好 */
+    struct app_enc_info app_avc_cfg;
+    app_avc_cfg.pre_pskip_limit_flag = 1; 				//SKIP块提前判断限制开关
+    app_avc_cfg.pre_pskip_th = 0;						//SKIP块提前判断阈值
+    app_avc_cfg.common_pskip_limit_flag = 0; 			//SKIP块常规判断限制开关
+    app_avc_cfg.common_pskip_th = 0;					//SKIP块常规判断阈值
+    app_avc_cfg.dsw_size = 1;							//搜索窗口大小（0:3x7  1:5x7）
+    app_avc_cfg.fs_x_points = 32;						//水平搜索点数
+    app_avc_cfg.fs_y_points = 24;						//垂直搜索点数
+    app_avc_cfg.f_aq_strength = 0.8f;					//宏块QP自适应强度
+    app_avc_cfg.qp_offset_low = -3;						//宏块QP偏移下限
+    app_avc_cfg.qp_offset_high = 7;						//宏块QP偏移上限
+    app_avc_cfg.nr_reduction = 0;						//DCT降噪开关
+    app_avc_cfg.user_cfg_enable = 1;					//编码参数用户配置使能
+    req.rec.app_avc_cfg = &app_avc_cfg;
+    /* req.rec.app_avc_cfg = NULL; */
+
+#if 0
+    text_osd.font_w = 16;
+    text_osd.font_h = 32;
+
+    max_one_line_strnum = strlen(video_rec_osd_buf);//20;
+    osd_line_num = 1;
+    if (db_select("num")) {
+        osd_line_num = 2;
+    }
+    text_osd.x = (req.rec.width - max_one_line_strnum * text_osd.font_w) / 64 * 64;
+    text_osd.y = (req.rec.height - text_osd.font_h * osd_line_num) / 16 * 16;
+
+    text_osd.direction = 1;
+    /* text_osd.color[0] = 0xe20095; */
+    /* text_osd.bit_mode = 1; */
+    text_osd.color[0] = 0x057d88;
+    text_osd.color[1] = 0xe20095;
+    text_osd.color[2] = 0xe20095;
+    text_osd.bit_mode = 2;
+    text_osd.text_format = video_rec_osd_buf;
+    text_osd.font_matrix_table = osd_str_total;
+    /* text_osd.font_matrix_base = osd_str_matrix; */
+    /* text_osd.font_matrix_len = sizeof(osd_str_matrix); */
+    text_osd.font_matrix_base = osd2_str_matrix;
+    text_osd.font_matrix_len = sizeof(osd2_str_matrix);
+#endif
+    req.rec.text_osd = 0;
+    if (db_select("dat")) {
+        req.rec.text_osd =  NULL;// &text_osd;
+    }
+
+#if (defined __CPU_DV15__ || defined __CPU_DV17__ || defined __CPU_AC571X__)
+    graph_osd.bit_mode = 16;//2bit的osd需要配置3个color
+    graph_osd.x = 0;
+    graph_osd.y = 0;
+    graph_osd.width = 256;
+    graph_osd.height = 256;
+    graph_osd.icon = icon_osd_buf;
+    graph_osd.icon_size = sizeof(icon_osd_buf);
+    req.rec.graph_osd = NULL;//&graph_osd;
+#endif
+
+    req.rec.slow_motion = 0;
+
+        req.rec.tlp_time = db_select("gap");
+#ifdef FUNCTION_ACC_ENABLE
+        if (req.rec.tlp_time && in_gap_flag==1) {
+#else
+   		if (req.rec.tlp_time) {
+#endif
+            req.rec.real_fps = 1000 / req.rec.tlp_time;
+            // req.rec.pkg_fps	 = 30;
+            req.rec.pkg_fps	 = 25;
+#ifdef PUBLIC_PORTING_ENABLE
+            req.rec.abr_kbps /= (req.rec.pkg_fps * req.rec.tlp_time / 1000);
+#endif
+        }
+#ifdef  FUNCTION_ACC_ENABLE
+        if(!in_gap_flag){
+            printf("gap time _start!!!!!!!!!!\r\n");
+            req.rec.tlp_time = 0;
+        }
+#endif
+
+
+
+
+    if (req.rec.slow_motion || req.rec.tlp_time) {
+        req.rec.audio.sample_rate = 0;
+        req.rec.audio.channel 	= 0;
+        req.rec.audio.volume    = 0;
+        req.rec.audio.buf = 0;
+        req.rec.audio.buf_len = 0;
+    }
+    req.rec.buf = __this->video_buf[2];
+    req.rec.buf_len = VREC2_FBUF_SIZE;
+
+#if (defined THREE_WAY_ENABLE || defined CONFIG_USB_VIDEO_OUT)
+    req.rec.rec_small_pic 	= 0;
+#else
+    req.rec.rec_small_pic 	= 1;
+#endif
+
+
+    req.rec.cycle_time = db_select("cyc");
+    if (req.rec.cycle_time == 0) {
+        req.rec.cycle_time = 5;
+    }
+
+    req.rec.cycle_time = req.rec.cycle_time * 60;
+    #ifdef FUNCTION_ACC_ENABLE
+    if(req.rec.tlp_time){
+        req.rec.cycle_time = req.rec.cycle_time * req.rec.pkg_fps * req.rec.tlp_time / 1000;
+        printf("+++++++++%s:%d   %d\n",__func__,__LINE__,req.rec.cycle_time);
+    }
+    #endif
+
+    err = server_request(__this->video_rec2, VIDEO_REQ_REC, &req);
+    if (err != 0) {
+        puts("\n\n\nstart rec2 err\n\n\n");
+        return VREC_ERR_V2_REQ_START;
+    }
+
+    return 0;
+}
+
+static int video2_rec_len()
+{
     union video_req req = {0};
 
-    if (!__this->video_rec1) {
+    if (!__this->video_rec2) {
         return -EINVAL;
     }
 
@@ -2581,14 +3036,14 @@ static int video1_rec_len()
     }
     req.rec.cycle_time = req.rec.cycle_time * 60;
 
-    return server_request(__this->video_rec1, VIDEO_REQ_REC, &req);
+    return server_request(__this->video_rec2, VIDEO_REQ_REC, &req);
 }
 
-static int video1_rec_aud_mute()
+static int video2_rec_aud_mute()
 {
     union video_req req = {0};
 
-    if (!__this->video_rec1) {
+    if (!__this->video_rec2) {
         return -EINVAL;
     }
 
@@ -2596,14 +3051,14 @@ static int video1_rec_aud_mute()
     req.rec.state 	= VIDEO_STATE_PKG_MUTE;
     req.rec.pkg_mute.aud_mute = !db_select("mic");
 
-    return server_request(__this->video_rec1, VIDEO_REQ_REC, &req);
+    return server_request(__this->video_rec2, VIDEO_REQ_REC, &req);
 }
 
-static int video1_rec_set_dr()
+static int video2_rec_set_dr()
 {
     union video_req req = {0};
 
-    if (!__this->video_rec1) {
+    if (!__this->video_rec2) {
         return -EINVAL;
     }
 
@@ -2611,48 +3066,48 @@ static int video1_rec_set_dr()
     req.rec.channel = 0;
     req.rec.state 	= VIDEO_STATE_SET_DR;
 
-    return server_request(__this->video_rec1, VIDEO_REQ_REC, &req);
+    return server_request(__this->video_rec2, VIDEO_REQ_REC, &req);
 
 }
 
 
-static int video1_rec_stop(u8 close)
+static int video2_rec_stop(u8 close)
 {
     union video_req req = {0};
     int err;
 
-    log_d("video1_rec_stop\n");
+    log_d("video2_rec_stop\n");
 
-    if (__this->video_rec1) {
+    if (__this->video_rec2) {
         req.rec.channel = 0;
         req.rec.state = VIDEO_STATE_STOP;
-        err = server_request(__this->video_rec1, VIDEO_REQ_REC, &req);
+        err = server_request(__this->video_rec2, VIDEO_REQ_REC, &req);
         if (err != 0) {
             printf("\nstop rec2 err 0x%x\n", err);
-            return VREC_ERR_V1_REQ_STOP;
+            return VREC_ERR_V2_REQ_STOP;
         }
     }
 
-    video_rec_close_file(1);
+    video_rec_close_file(2);
 
     if (close) {
-        if (__this->video_rec1) {
-            server_close(__this->video_rec1);
-            __this->video_rec1 = NULL;
+        if (__this->video_rec2) {
+            server_close(__this->video_rec2);
+            __this->video_rec2 = NULL;
         }
     }
 
     return 0;
 }
 
-static int video1_rec_savefile()
+static int video2_rec_savefile()
 {
     union video_req req = {0};
     int err;
 
-    if (__this->video_rec1) {
+    if (__this->video_rec2) {
 
-        if (!__this->file[1]) {
+        if (!__this->file[2]) {
             log_i("\n\nf1null\n\n");
             return -ENOENT;
         }
@@ -2660,9 +3115,9 @@ static int video1_rec_savefile()
         req.rec.channel = 0;
         req.rec.width 	= AVIN_WIDTH;
         req.rec.height 	= AVIN_HEIGH;
-        req.rec.format 	= VIDEO1_REC_FORMAT;
+        req.rec.format 	= VIDEO2_REC_FORMAT;
         req.rec.state 	= VIDEO_STATE_SAVE_FILE;
-        req.rec.file    = __this->file[1];
+        req.rec.file    = __this->file[2];
         req.rec.fps 	= 0;
         req.rec.real_fps 	= 0;
 
@@ -2676,38 +3131,55 @@ static int video1_rec_savefile()
         if (req.rec.cycle_time == 0) {
             req.rec.cycle_time = 5;
         }
+#ifdef  FUNCTION_ACC_ENABLE
+        if (req.rec.camera_type != VIDEO_CAMERA_UVC) {
+            req.rec.tlp_time = db_select("gap");
+            if (req.rec.tlp_time && in_gap_flag==1) {
+                req.rec.real_fps = 1000 / req.rec.tlp_time;
+                req.rec.pkg_fps	 = 25;
+                req.rec.abr_kbps /= (req.rec.pkg_fps * req.rec.tlp_time / 1000);
+            }
+
+            if(!in_gap_flag){
+                req.rec.tlp_time = 0;
+            }
+
+        } else {
+            req.rec.tlp_time = 0;
+        }
+ #endif
         req.rec.cycle_time = req.rec.cycle_time * 60;
-
-
+        #ifdef FUNCTION_ACC_ENABLE
+        if(req.rec.tlp_time){
+            req.rec.cycle_time = req.rec.cycle_time * req.rec.pkg_fps * req.rec.tlp_time / 1000;
+            printf("+++++++++%s:%d   %d\n",__func__,__LINE__,req.rec.cycle_time);
+        }
+        #endif
         req.rec.audio.fmt_format = AUDIO_FMT_PCM;
         req.rec.audio.sample_rate = 8000;
         req.rec.audio.channel 	= 1;
         req.rec.audio.volume    = 100;
-        req.rec.audio.buf = __this->audio_buf[1];
+        req.rec.audio.buf = __this->audio_buf[2];
         req.rec.audio.buf_len = AUDIO_BUF_SIZE;
         req.rec.pkg_mute.aud_mute = !db_select("mic");
 
-        req.rec.tlp_time = db_select("gap");
-        if (req.rec.tlp_time) {
-            req.rec.real_fps = 1000 / req.rec.tlp_time;
-            req.rec.pkg_fps	 = 30;
-        }
 
-        err = server_request(__this->video_rec1, VIDEO_REQ_REC, &req);
+
+        err = server_request(__this->video_rec2, VIDEO_REQ_REC, &req);
         if (err != 0) {
             printf("\nsave rec2 err 0x%x\n", err);
-            return VREC_ERR_V1_REQ_SAVEFILE;
+            return VREC_ERR_V2_REQ_SAVEFILE;
         }
     }
 
     return 0;
 }
 
-static void video1_rec_close()
+static void video2_rec_close()
 {
-    if (__this->video_rec1) {
-        server_close(__this->video_rec1);
-        __this->video_rec1 = NULL;
+    if (__this->video_rec2) {
+        server_close(__this->video_rec2);
+        __this->video_rec2 = NULL;
     }
 }
 
@@ -2716,33 +3188,33 @@ static void video1_rec_close()
  *必须在启动录像之后才可调用该函数，并且确保启动录像时已经打开了osd
  *新设置的osd的整体结构要和启动录像时一样，只是内容改变!!!
  */
-static int video1_rec_set_osd_str(char *str)
+static int video2_rec_set_osd_str(char *str)
 {
     union video_req req = {0};
     int err;
-    if (!__this->video_rec1) {
+    if (!__this->video_rec2) {
         return -1;
     }
 
     req.rec.channel = 0;
     req.rec.state 	= VIDEO_STATE_SET_OSD_STR;
     req.rec.new_osd_str = str;
-    err = server_request(__this->video_rec1, VIDEO_REQ_REC, &req);
+    err = server_request(__this->video_rec2, VIDEO_REQ_REC, &req);
     if (err != 0) {
-        printf("\nset osd rec1 str err 0x%x\n", err);
+        printf("\nset osd rec2 str err 0x%x\n", err);
         return -1;
     }
 
     return 0;
 }
 
-static int video1_rec_osd_ctl(u8 onoff)
+static int video2_rec_osd_ctl(u8 onoff)
 {
     union video_req req = {0};
     struct video_text_osd text_osd;
     int err;
 
-    if (__this->video_rec1) {
+    if (__this->video_rec2) {
         req.rec.width 	= AVIN_WIDTH;
         req.rec.height 	= AVIN_HEIGH;
 
@@ -2751,7 +3223,7 @@ static int video1_rec_osd_ctl(u8 onoff)
         text_osd.x = (req.rec.width - strlen(osd_str_buf) * text_osd.font_w) / 64 * 64;
         text_osd.y = (req.rec.height - text_osd.font_h) / 16 * 16;
         /* text_osd.osd_yuv = 0xe20095; */
-        text_osd.color[0] = 0xe20095;
+        text_osd.color[0] = 0xFF8080;
         text_osd.bit_mode = 1;
         text_osd.text_format = osd_str_buf;
         text_osd.font_matrix_table = osd_str_total;
@@ -2765,9 +3237,9 @@ static int video1_rec_osd_ctl(u8 onoff)
         req.rec.channel = 0;
         req.rec.state 	= VIDEO_STATE_SET_OSD;
 
-        err = server_request(__this->video_rec1, VIDEO_REQ_REC, &req);
+        err = server_request(__this->video_rec2, VIDEO_REQ_REC, &req);
         if (err != 0) {
-            printf("\nset osd rec1 err 0x%x\n", err);
+            printf("\nset osd rec2 err 0x%x\n", err);
             return -1;
         }
     }
@@ -2779,82 +3251,89 @@ static int video1_rec_osd_ctl(u8 onoff)
 
 
 
-
-
 #ifdef CONFIG_VIDEO3_ENABLE
 
 static int video3_rec_start()
 {
     int err;
-    union video_req req = {0};
-    struct video_text_osd text_osd;
-    struct video_graph_osd graph_osd;
-    u16 max_one_line_strnum;
-    u16 osd_line_num;
-    char name[12];
+    union video_req req = {0}; // 视频请求的联合体，用于存储请求参数
+    struct video_text_osd text_osd; // 文本OSD（On Screen Display）结构体，用于显示文本的参数
+    struct video_graph_osd graph_osd; // 图形OSD结构体，用于显示图形的参数
+    u16 max_one_line_strnum; // 一行文本的最大字符数
+    u16 osd_line_num; // OSD显示的行数
+    char name[12]; // 服务器名称，用于后续打开服务器
 
-    void *uvc_fd;
-    struct uvc_capability uvc_cap;
+    void *uvc_fd; // 用于设备操作的文件描述符
+    struct uvc_capability uvc_cap; // UVC设备能力结构体，用于获取设备支持的分辨率等信息
 
-    puts("-----start_video_rec3 \n");
+    puts("-----start_video_rec3 \n"); // 打印启动录像的提示信息
+
+    // 如果video_rec3还没有初始化，则初始化它
     if (!__this->video_rec3) {
-        sprintf(name, "video3.%d", __this->uvc_id);
-        __this->video_rec3 = server_open("video_server", name);
+        sprintf(name, "video3.%d", __this->uvc_id); // 根据UVC ID生成对应的服务器名称
+        __this->video_rec3 = server_open("video_server", name); // 打开视频服务器
         if (!__this->video_rec3) {
-            log_e("rec3 video_server open err! \n");
-            return -EINVAL;
+            log_e("rec3 video_server open err! \n"); // 打开失败，打印错误日志
+            return -EINVAL; // 返回错误代码
         }
 
+        // 注册事件处理器，处理来自视频服务器的事件
         server_register_event_handler(__this->video_rec3, (void *)3, rec_dev_server_event_handler);
     }
 
-    req.rec.channel = 0;
-    req.rec.camera_type = VIDEO_CAMERA_UVC;
+    // 设置录像请求的各个参数
+    req.rec.channel = 0; // 通道号为0
+    req.rec.camera_type = VIDEO_CAMERA_UVC; // 摄像头类型为UVC
 #ifdef THREE_WAY_ENABLE
-    req.rec.three_way_type = VIDEO_THREE_WAY_JPEG;
-    req.rec.IP_interval = 99;
+    req.rec.three_way_type = VIDEO_THREE_WAY_JPEG; // 设置为三路JPEG录像模式
+    req.rec.IP_interval = 99; // 设置关键帧间隔
 #else
-    req.rec.three_way_type = 0;
-    req.rec.IP_interval = 128;
+    req.rec.three_way_type = 0; // 没有开启三路录像
+    req.rec.IP_interval = 128; // 设置为默认的IP帧间隔
 #endif
-    req.rec.format 	= VIDEO3_REC_FORMAT;
-    req.rec.width 	= UVC_ENC_WIDTH;
-    req.rec.height 	= UVC_ENC_HEIGH;
-    req.rec.src_w   = __this->src_width[3];
-    req.rec.src_h   = __this->src_height[3];
+    req.rec.format = VIDEO3_REC_FORMAT; // 设置视频格式
+    req.rec.width = UVC_ENC_WIDTH; // 设置编码宽度
+    req.rec.height = UVC_ENC_HEIGH; // 设置编码高度
+    req.rec.src_w = __this->src_width[3]; // 设置源视频的宽度
+    req.rec.src_h = __this->src_height[3]; // 设置源视频的高度
+
+    // 如果三路录像开启，则从UVC设备中获取分辨率
     if (req.rec.three_way_type == VIDEO_THREE_WAY_JPEG) {
-        uvc_fd = dev_open("uvc", (void *)__this->uvc_id);
+        uvc_fd = dev_open("uvc", (void *)__this->uvc_id); // 打开UVC设备
         if (uvc_fd) {
-            dev_ioctl(uvc_fd, UVCIOC_QUERYCAP, (unsigned int)&uvc_cap);
-            req.rec.width 	= uvc_cap.reso[0].width;
-            req.rec.height 	= uvc_cap.reso[0].height;
-            dev_close(uvc_fd);
+            dev_ioctl(uvc_fd, UVCIOC_QUERYCAP, (unsigned int)&uvc_cap); // 查询UVC设备能力
+            req.rec.width = uvc_cap.reso[0].width; // 使用设备支持的分辨率宽度
+            req.rec.height = uvc_cap.reso[0].height; // 使用设备支持的分辨率高度
+            dev_close(uvc_fd); // 关闭设备
         }
     }
+
+    // 更新当前UVC的宽度和高度
     __this->uvc_width = req.rec.width;
     __this->uvc_height = req.rec.height;
-    printf("\n\nuvc size %d, %d\n\n", req.rec.width, req.rec.height);
-    req.rec.state 	= VIDEO_STATE_START;
-    req.rec.file    = __this->file[3];
-    req.rec.uvc_id = __this->uvc_id;
-    req.rec.quality = VIDEO_LOW_Q;
-    req.rec.fps 	= 0;
-    req.rec.real_fps 	= 0;
-    req.rec.mirror=db_select("mir");
-    req.rec.audio.fmt_format = AUDIO_FMT_PCM;
-    req.rec.audio.sample_rate = 8000;
-    req.rec.audio.channel 	= 1;
-    req.rec.audio.volume    = 100;
-    req.rec.audio.buf = __this->audio_buf[3];
-    req.rec.audio.buf_len = AUDIO_BUF_SIZE;
-    req.rec.pkg_mute.aud_mute = !db_select("mic");
+    printf("\n\nuvc size %d, %d\n\n", req.rec.width, req.rec.height); // 打印分辨率信息
 
+    // 设置录像状态为开始
+    req.rec.state = VIDEO_STATE_START;
+    req.rec.file = __this->file[3]; // 设置录像文件路径
+    req.rec.uvc_id = __this->uvc_id; // 设置UVC设备ID
+    req.rec.quality = VIDEO_LOW_Q; // 设置录像质量为低
+    req.rec.fps = 0; // 设置帧率为0（默认）
+    req.rec.real_fps = 0; // 设置实际帧率为0（默认）
+    req.rec.mirror = db_select("mir"); // 从数据库获取镜像参数
+    req.rec.audio.fmt_format = AUDIO_FMT_PCM; // 设置音频格式为PCM
+    req.rec.audio.sample_rate = 8000; // 设置音频采样率为8000Hz
+    req.rec.audio.channel = 1; // 设置音频通道为1（单声道）
+    req.rec.audio.volume = 100; // 设置音频音量
+    req.rec.audio.buf = __this->audio_buf[3]; // 设置音频缓冲区
+    req.rec.audio.buf_len = AUDIO_BUF_SIZE; // 设置音频缓冲区长度
+    req.rec.pkg_mute.aud_mute = !db_select("mic"); // 根据数据库选择是否静音
+
+    // 设置视频的自适应比特率
     req.rec.abr_kbps = video_rec_get_abr(req.rec.width);
 
-
-    /*感兴趣区域为下方 中间 2/6 * 4/6 区域，可以调整
-    	感兴趣区域qp 为其他区域的 70% ，可以调整
-    */
+    // 以下是编码参数配置（已注释掉）
+    /* 感兴趣区域设置，这里为下方2/6到4/6的区域，感兴趣区域的QP值为其他区域的70% */
     /* req.rec.roi.roio_xy = (req.rec.height * 5 / 6 / 16) << 24 | (req.rec.height * 3 / 6 / 16) << 16 | (req.rec.width * 5 / 6 / 16) << 8 | (req.rec.width) * 1 / 6 / 16; */
     /* req.rec.roi.roio_ratio = 256 * 70 / 100 ; */
     /* req.rec.roi.roi1_xy = 0; */
@@ -2880,35 +3359,32 @@ static int video3_rec_start()
     /* app_avc_cfg.user_cfg_enable = 1;					//编码参数用户配置使能 */
     /* req.rec.app_avc_cfg = &app_avc_cfg; */
     req.rec.app_avc_cfg = NULL;
+    text_osd.font_w = 16; // 字体宽度
+    text_osd.font_h = 32; // 字体高度
 
+    max_one_line_strnum = strlen(video_rec_osd_buf); // 一行显示的最大字符数
+    osd_line_num = 2; // 显示两行
+    text_osd.x = (req.rec.width - max_one_line_strnum * text_osd.font_w) / 64 * 64; // 计算文本OSD的x坐标
+    text_osd.y = (req.rec.height - text_osd.font_h * osd_line_num) / 16 * 16; // 计算文本OSD的y坐标
 
+    text_osd.direction = 1; // 文本方向
+    text_osd.color[0] = 0xe20095; // OSD颜色
+    text_osd.bit_mode = 1; // 位模式
+    text_osd.text_format = video_rec_osd_buf; // OSD文本格式
+    text_osd.font_matrix_table = osd_str_total; // 字符矩阵表
 
-    text_osd.font_w = 16;
-    text_osd.font_h = 32;
-
-    max_one_line_strnum = strlen(video_rec_osd_buf);//20;
-    osd_line_num = 2;
-    text_osd.x = (req.rec.width - max_one_line_strnum * text_osd.font_w) / 64 * 64;
-    text_osd.y = (req.rec.height - text_osd.font_h * osd_line_num) / 16 * 16;
-
-    text_osd.direction = 1;
-    /* text_osd.osd_yuv = 0xe20095; */
-    text_osd.color[0] = 0xe20095;
-    text_osd.bit_mode = 1;
-    text_osd.text_format = video_rec_osd_buf;
-    text_osd.font_matrix_table = osd_str_total;
+    // 如果启用了三路录像，则使用特定的字体矩阵
 #ifdef THREE_WAY_ENABLE
-    text_osd.font_matrix_base = osd_mimc_str_matrix;
-    text_osd.font_matrix_len = sizeof(osd_mimc_str_matrix);
+    text_osd.font_matrix_base = osd_mimc_str_matrix; // 三路录像字体矩阵
+    text_osd.font_matrix_len = sizeof(osd_mimc_str_matrix); // 字体矩阵长度
 #else
-    text_osd.font_matrix_base = osd_str_matrix;
-    text_osd.font_matrix_len = sizeof(osd_str_matrix);
+    text_osd.font_matrix_base = osd_str_matrix; // 单路录像字体矩阵
+    text_osd.font_matrix_len = sizeof(osd_str_matrix); // 字体矩阵长度
 #endif
 
 #ifndef THREE_WAY_ENABLE
 #if (defined __CPU_DV15__ || defined __CPU_DV17__ || defined __CPU_AC571X__)
     text_osd.direction = 1;
-
     graph_osd.bit_mode = 16;//2bit的osd需要配置3个color
     graph_osd.x = 0;
     graph_osd.y = 0;
@@ -2918,7 +3394,6 @@ static int video3_rec_start()
     graph_osd.icon_size = sizeof(icon_16bit_data);//sizeof(icon_osd_buf);
 #endif
 #endif
-
     if (db_select("dat")) {
         req.rec.text_osd = &text_osd;
 #ifndef THREE_WAY_ENABLE
@@ -2928,43 +3403,53 @@ static int video3_rec_start()
 #endif
     }
 
-    req.rec.slow_motion = 0;
-    req.rec.tlp_time = db_select("gap");
+    // 处理慢动作和延时拍摄相关参数
+    req.rec.slow_motion = 0; // 没有开启慢动作
+    req.rec.tlp_time = db_select("gap"); // 获取延时拍摄间隔时间
     if (req.rec.tlp_time) {
-        req.rec.real_fps = 1000 / req.rec.tlp_time;
-        req.rec.pkg_fps	 = 30;
+        req.rec.real_fps = 1000 / req.rec.tlp_time; // 计算实际帧率
+        req.rec.pkg_fps = 30; // 打包帧率
     }
 
+    // 如果开启了慢动作或延时拍摄，禁用音频
     if (req.rec.slow_motion || req.rec.tlp_time) {
-        req.rec.audio.sample_rate = 0;
-        req.rec.audio.channel 	= 0;
-        req.rec.audio.volume    = 0;
-        req.rec.audio.buf = 0;
-        req.rec.audio.buf_len = 0;
+        req.rec.audio.sample_rate = 0; // 禁用音频采样
+        req.rec.audio.channel = 0; // 禁用音频通道
+        req.rec.audio.volume = 0; // 禁用音量
+        req.rec.audio.buf = 0; // 禁用音频缓冲区
+        req.rec.audio.buf_len = 0; // 禁用缓冲区长度
     }
+
+    // 设置视频缓冲区
     req.rec.buf = __this->video_buf[3];
     req.rec.buf_len = VREC3_FBUF_SIZE;
+
+    // 是否录制小图像，依据编译选项
 #if (defined THREE_WAY_ENABLE || defined CONFIG_USB_VIDEO_OUT)
-    req.rec.rec_small_pic 	= 0;
+    req.rec.rec_small_pic = 0; // 不录制小图像
 #else
-    req.rec.rec_small_pic 	= 1;
+    req.rec.rec_small_pic = 1; // 录制小图像
 #endif
 
-
+    // 设置循环时间，默认为5分钟
     req.rec.cycle_time = db_select("cyc");
     if (req.rec.cycle_time == 0) {
         req.rec.cycle_time = 5;
     }
-    req.rec.cycle_time = req.rec.cycle_time * 60;
+    req.rec.cycle_time = req.rec.cycle_time * 60; // 转换为秒
+
+    // 向视频服务器发送录像请求
     err = server_request(__this->video_rec3, VIDEO_REQ_REC, &req);
     if (err != 0) {
-        log_e("rec3 rec start err! \n");
-        return -EINVAL;
+        log_e("rec3 rec start err! \n"); // 请求失败，打印错误日志
+        return -EINVAL; // 返回错误代码
     }
-    printf("rec3 rec start ok. \n");
+
+    printf("rec3 rec start ok. \n"); // 打印成功消息
 
     return 0;
 }
+
 
 static int video3_rec_len()
 {
@@ -3554,7 +4039,7 @@ static int video4_rec_set_osd_str(u8 id, char *str)
 /* return sizeof(mov_user_data); */
 /* } */
 
-static int video_rec_start()
+static int video_rec_start()//开始录像函数
 {
     //return 0;
     int err;                 // 用于存储函数返回的错误码
@@ -3589,7 +4074,7 @@ static int video_rec_start()
         if (abuf_size[i]) {
             if (!__this->audio_buf[i]) { // 检查音频缓冲区是否已分配
                 __this->audio_buf[i] = malloc(abuf_size[i]); // 分配音频缓冲区
-                if (__this->audio_buf[i] == NULL) { // 检查分配是否成功
+                if (__this->audio_buf[i] == NULL) {
                     log_i("err maloo\n"); // 输出错误信息
                     while (1); // 进入死循环，表示严重错误
                 }
@@ -3644,53 +4129,113 @@ static int video_rec_start()
         __this->new_file[i] = NULL; // 清空新文件指针
     }
 
-#if 1 // 判断是否启用视频0
-    if(__this->video_online[2]) { // 检查视频0是否在线
-        err = video0_rec_start(); // 启动视频0录制
-    }
-    if (err) { // 检查启动是否成功
-        video0_rec_stop(0); // 停止录像
-        return err; // 返回错误
-    }
-#endif
+//   switch (disp_state) {
+//         case DISP_720AHD_FULL:  // VIDEO1
+//         printf("start video1\n");
+//             err = video0_rec_start();  // 启动摄像头0录制
+//         if (err) {
+//             video0_rec_stop(0);    // 录制失败，停止摄像头0
+//             return err;            // 返回错误
+//         }
+//             break;
+//         case DISP_1080AHD_FULL: // VIDEO2
+//         printf("start video2\n");
+            err = video3_rec_start();  // 启动摄像头1录制
+            // err = video2_rec_start();  // 启动摄像头1录制
+        //    err = video1_rec_start();  // 启动摄像头1录制
+        //    err = video0_rec_start();  // 启动摄像头1录制
+        if (err) {
+            // video1_rec_stop(0);    // 录制失败，停止摄像头1
+            // video2_rec_stop(0);    // 录制失败，停止摄像头1
+            // video0_rec_stop(0);    // 录制失败，停止摄像头1
+            video3_rec_stop(0);    // 录制失败，停止摄像头1
+            return err;            // 返回错误
+        }
+    //         break;
+    //     case DISP_UVC_FULL:     // VIDEO3
+    //     printf("start video3\n");
+    //         err = video3_rec_start();  // 启动摄像头3录制
+    //     if (err) {
+    //         video3_rec_stop(0);    // 录制失败，停止摄像头3
+    //         return err;            // 返回错误
+    //     }
+    //         break;
+    // }
+
+    // 根据选择的摄像头启动相应的视频录制
+    // if (__this->photo_camera_sel == 0) {
+    //     err = video0_rec_start();  // 启动摄像头0录制
+    //     if (err) {
+    //         video0_rec_stop(0);    // 录制失败，停止摄像头0
+    //         return err;            // 返回错误
+    //     }
+    // } else if (__this->photo_camera_sel == 1) {
+    //     err = video1_rec_start();  // 启动摄像头1录制
+    //     if (err) {
+    //         video1_rec_stop(0);    // 录制失败，停止摄像头1
+    //         return err;            // 返回错误
+    //     }
+    // } else if (__this->photo_camera_sel == 2) {
+    //     err = video0_rec_start();  // 启动摄像头0录制（与选择0相同）
+    //     if (err) {
+    //         video0_rec_stop(0);    // 录制失败，停止摄像头0
+    //         return err;            // 返回错误
+    //     }
+    // } else if (__this->photo_camera_sel == 3) {
+    //     err = video3_rec_start();  // 启动摄像头3录制
+    //     if (err) {
+    //         video3_rec_stop(0);    // 录制失败，停止摄像头3
+    //         return err;            // 返回错误
+    //     }
+    // }
+
+// #if 1 // 判断是否启用视频0
+//     if(__this->video_online[2]) { // 检查视频0是否在线
+//         err = video0_rec_start(); // 启动视频0录制
+//     }
+//     if (err) { // 检查启动是否成功
+//         video0_rec_stop(0); // 停止录像
+//         return err; // 返回错误
+//     }
+// #endif
 
 
 
-#if (defined CONFIG_VIDEO1_ENABLE && !defined CONFIG_SINGLE_VIDEO_REC_ENABLE) // 检查视频1是否启用
-    if (__this->video_online[1]) {
-        printf(">>>>>>>>%s %d\n",__func__,__LINE__); // 输出调试信息
-        err = video1_rec_start(); // 启动视频1录制
-    }
-    if (err) {
-        video1_rec_stop(0); // 停止录像
-        return err; // 返回错误
-    }
-#endif
+// #if (defined CONFIG_VIDEO1_ENABLE && !defined CONFIG_SINGLE_VIDEO_REC_ENABLE) // 检查视频1是否启用
+//     if (__this->video_online[1]) {
+//         printf(">>>>>>>>%s %d\n",__func__,__LINE__); // 输出调试信息
+//         err = video1_rec_start(); // 启动视频1录制
+//     }
+//     if (err) {
+//         video1_rec_stop(0); // 停止录像
+//         return err; // 返回错误
+//     }
+// #endif
 
 
-#ifdef CONFIG_VIDEO3_ENABLE // 检查视频3是否启用
-    if (__this->video_online[3]) {
-        err = video3_rec_start(); // 启动视频3录制
-    }
-    if (err) {
-        video3_rec_stop(0); // 停止录像
-        return err; // 返回错误
-    }
-#endif
+// #ifdef CONFIG_VIDEO3_ENABLE // 检查视频3是否启用
+//     if (__this->video_online[3]) {
+//         err = video3_rec_start(); // 启动视频3录制
+//     }
+//     if (err) {
+//         video3_rec_stop(0); // 停止录像
+//         return err; // 返回错误
+//     }
+// #endif
     video_rec_post_msg("onREC");
     video_parking_post_msg("onREC");
-#ifdef CONFIG_VIDEO4_ENABLE
-    int id; // 视频4的ID
-    for (id = 0; id < CONFIG_VIDEO_REC_NUM; id++) {
-        if (__this->video_online[id]) { // 检查视频是否在线
-            err = video4_rec_start(id); // 启动视频4录制
-            if (err != 0) {
-                log_i("video4 start err out\n"); // 输出错误信息
-                return -1; // 返回错误
-            }
-        }
-    }
-#endif
+// #ifdef CONFIG_VIDEO4_ENABLE
+//     int id; // 视频4的ID
+//     for (id = 0; id < CONFIG_VIDEO_REC_NUM; id++) {
+//         if (__this->video_online[id]) { // 检查视频是否在线
+//             err = video4_rec_start(id); // 启动视频4录制
+//             if (err != 0) {
+//                 log_i("video4 start err out\n"); // 输出错误信息
+//                 return -1; // 返回错误
+//             }
+//         }
+//     }
+// #endif
     // 检查传感器锁定状态
     if (__this->gsen_lock == 0xff) {
         video_rec_post_msg("lockREC"); // 发送锁定录像消息
@@ -3738,6 +4283,10 @@ static int video_rec_len()
     video1_rec_len();
 #endif
 
+#ifdef CONFIG_VIDEO2_ENABLE
+    video2_rec_len();
+#endif
+
 #ifdef CONFIG_VIDEO3_ENABLE
     video3_rec_len();
 #endif
@@ -3773,6 +4322,10 @@ static int video_rec_aud_mute()
 
 #if (defined CONFIG_VIDEO1_ENABLE && !defined CONFIG_SINGLE_VIDEO_REC_ENABLE)
     video1_rec_aud_mute();
+#endif
+
+#if (defined CONFIG_VIDEO2_ENABLE)
+    video2_rec_aud_mute();
 #endif
 
 #ifdef CONFIG_VIDEO3_ENABLE
@@ -3815,6 +4368,15 @@ static int video_rec_stop(u8 close)
     if (err) {
         puts("\nstop1 err\n");
     }
+#endif
+
+#if (defined CONFIG_VIDEO2_ENABLE )
+
+        err = video2_rec_stop(close);
+        if (err) {
+            puts("\nstop2 err\n");
+        }
+
 #endif
 
 #ifdef CONFIG_VIDEO3_ENABLE
@@ -4112,6 +4674,17 @@ static int video_rec_savefile(int dev_id)
     }
 #endif
 
+#if (defined CONFIG_VIDEO2_ENABLE  )
+    __this->video_online[2] = dev_online("video2.*");
+    if (__this->video_online[2] && (dev_id == 2)) {
+        err = video2_rec_savefile();
+        if (err) {
+            log_i("\n\n\nv1_serr %x\n\n", err);
+            goto __err;
+        }
+    }
+#endif
+
     /* puts("\n\n------save2\n\n"); */
 #ifdef CONFIG_VIDEO3_ENABLE
     if (__this->video_online[3] && (dev_id == 3)) {
@@ -4201,6 +4774,16 @@ __err:
     }
 #endif
 
+#if (defined CONFIG_VIDEO2_ENABLE )
+    if (__this->video_online[2])
+    {
+        err = video2_rec_stop(0);
+        if (err) {
+            printf("\nsave wrong2 %x\n", err);
+        }
+    }
+#endif
+
 #if 1//def CONFIG_VIDEO0_ENABLE
     err = video0_rec_stop(0);
     if (err) {
@@ -4257,130 +4840,133 @@ static int set_label_config(u16 image_width, u16 image_height, u32 font_color,st
     return 0;
 }
 /* 用于录像模式下拍照  sel: 0表示前视 1表示后视 */
-int shot_flag=0;
-static int video_take_photo(u8 sel)
+int shot_flag = 0; // 标志是否进行连续拍摄
+static int video_take_photo(u8 sel) // 拍照函数，参数 sel 用于选择摄像头
 {
-    u8 date_name_flag = 0;
-    char name_buf[64]={0};
-    char file_name[64]={0};
-    struct sys_time time;
-    int camera0_reso[][2] = {
-        {640,  480},  //                VGA
-        {1280, 720},  // {1024, 768}    1M
-        {1920, 1088}, // {1600, 1200}   2M
-        {2048, 1536}, //                3M
-        {2560, 1936}, //                4M
-        {2592, 1944}, //                5M
-        {3072, 1944}, //                6M
-        {3456, 1944}, //                7M
-        {3456, 2448}, //                8M
-        {3456, 2592}, //                9M
-        {3648, 2736}, //                10M
-        {4032, 2736}, //                11M
-        {4032, 3024}, //                12M
+    u8 date_name_flag = 0; // 标志是否根据日期生成文件名
+    char name_buf[64] = {0}; // 文件名缓冲区
+    char file_name[64] = {0}; // 存储生成的照片文件名
+    struct sys_time time; // 用于获取当前系统时间
+    int camera0_reso[][2] = { // 摄像头支持的分辨率数组
+        {640,  480},  // VGA
+        {1280, 720},  // 1M
+        {1920, 1088}, // 2M
+        {2048, 1536}, // 3M
+        {2560, 1936}, // 4M
+        {2592, 1944}, // 5M
+        {3072, 1944}, // 6M
+        {3456, 1944}, // 7M
+        {3456, 2448}, // 8M
+        {3456, 2592}, // 9M
+        {3648, 2736}, // 10M
+        {4032, 2736}, // 11M
+        {4032, 3024}, // 12M
     };
     int err = 0;
-//    int res = db_select("pres");
-    union video_req req = {0};
-    struct icap_auxiliary_mem aux_mem;
-    struct jpg_thumbnail thumbnails;
-    struct server *server;
-    char video_name[8];
+    int res = db_select("pres"); // 获取图像分辨率配置
+    union video_req req = {0}; // 视频请求结构体，用于拍照参数
+    struct icap_auxiliary_mem aux_mem; // 辅助内存结构体，用于图像处理
+    struct jpg_thumbnail thumbnails; // 缩略图结构体
+    struct server *server; // 视频服务
+    char video_name[8]; // 视频名称
     int i = 1;
-    struct vfs_partition *part;
-    void *cap_buf=NULL;
-    void *aux_buf=NULL;
-    void *thumbnails_buf=NULL;
-    char buf[128] = {0};
-    i = db_select("cyt");
-    if(i == 0){
-        i = 1;
+    struct vfs_partition *part; // 文件系统分区结构体
+    void *cap_buf = NULL; // 缓存，用于保存图像数据
+    void *aux_buf = NULL; // 辅助缓冲区，用于缩放等操作
+    void *thumbnails_buf = NULL; // 缩略图缓存
+    char buf[128] = {0}; // 用于存储文件名或路径
+    i = db_select("cyt"); // 获取图像质量配置
+    if (i == 0) {
+        i = 1; // 如果没有设置质量，默认设置为1
     }
+    // 检查存储设备是否准备就绪
     if (!storage_device_ready()) {
-        if (!dev_online(SDX_DEV)) {
-            video_rec_post_msg("noCard");
+        if (!dev_online(SDX_DEV)) { // 如果没有检测到存储卡
+            video_rec_post_msg("noCard"); // 发送无卡提示
         } else {
-            video_rec_post_msg("fsErr");
+            video_rec_post_msg("fsErr"); // 文件系统错误
         }
-        return -ENODEV;
+        return -ENODEV; // 返回设备不存在错误
     } else {
-        part = fget_partition(CONFIG_ROOT_PATH);
-        if (part->clust_size < 32 || (part->fs_attr & F_ATTR_RO)) {
-            video_rec_post_msg("fsErr");
-            return -ENODEV;
+        part = fget_partition(CONFIG_ROOT_PATH); // 获取当前根路径的分区信息
+        if (part->clust_size < 32 || (part->fs_attr & F_ATTR_RO)) { // 检查分区簇大小和只读属性
+            video_rec_post_msg("fsErr"); // 文件系统错误提示
+            return -ENODEV; // 返回设备错误
         }
     }
 
-    /*
-     *打开相机对应的video服务
-     */
-#ifdef CONFIG_VIDEO4_ENABLE
-    sprintf(video_name, "video4.%d.0", (sel == 1) ? 3 : 0);
-#else
-    sprintf(video_name, "video%d.0", sel);
-#endif
-    if (!server) {
-        server = server_open("video_server", video_name);
+    // 打开相机对应的 video 服务
+// #ifdef CONFIG_VIDEO4_ENABLE
+    // sprintf(video_name, "video4.%d.0", (sel == 1) ? 3 : 0); // 根据 sel 选择对应视频服务
+// #else
+    // sprintf(video_name, "video%d.0", sel); // 选择普通视频服务
+// #endif
+    switch(disp_state){
+        case DISP_720AHD_FULL:
+            sprintf(video_name, "video1.0"); // 选择普通视频服务
+        break;
+        case DISP_1080AHD_FULL:
+            sprintf(video_name, "video2.0"); // 选择高清视频服务
+        break;
+        case DISP_UVC_FULL:
+            sprintf(video_name, "video3.0"); // 选择普通视频服务
+        break;
+    default:
+        sprintf(video_name, "video0.0"); // 选择普通视频服务
     }
-
     if (!server) {
-        return -EFAULT;
+        server = server_open("video_server", video_name); // 打开视频服务
+    }
+    if (!server) {
+        return -EFAULT; // 返回故障错误
     }
     printf("video_server:%p\n", server);
-    #if (SDRAM_SIZE == (64 * 1024 * 1024))
-    req.icap.width = rec_pix_w[VIDEO_RES_1080P];
+
+#if (SDRAM_SIZE == (64 * 1024 * 1024)) // 根据 SDRAM 大小选择分辨率
+    req.icap.width = rec_pix_w[VIDEO_RES_1080P]; // 1080P分辨率
     req.icap.height = rec_pix_h[VIDEO_RES_1080P];
-    #else
-    req.icap.width = 1280;
-    req.icap.height = 720;
-    #endif
+#else
+    req.icap.width = 1920; // 默认宽度
+    req.icap.height = 1088; // 默认高度
+#endif
 
-    /*
-     *设置拍照所需要的buffer
-     */
-    cap_buf = (u8 *)malloc(2 * 1024 * 1024);
-
-    if (req.icap.width > 1920 && !aux_buf) {
-        /*
-         *设置尺寸较大时缩放所需要的buffer
-         */
-        aux_buf = (u8 *)malloc(2 * 1024 * 1024 + 160 * 1024);
-        thumbnails_buf = (u8 *)malloc(64 * 1024);
-        if (!aux_buf || !thumbnails_buf) {
-            err = -ENOMEM;
-            goto __err;
+    // 设置拍照所需的缓冲区
+    cap_buf = (u8 *)malloc(2 * 1024 * 1024); // 为拍照分配2MB的缓冲区
+    if (req.icap.width > 1920 && !aux_buf) { // 如果分辨率大于1920并且辅助缓冲区未分配
+        aux_buf = (u8 *)malloc(2 * 1024 * 1024 + 160 * 1024); // 分配辅助缓冲区
+        thumbnails_buf = (u8 *)malloc(64 * 1024); // 分配64KB的缩略图缓冲区
+        if (!aux_buf || !thumbnails_buf) { // 如果分配失败
+            err = -ENOMEM; // 返回内存不足错误
+            goto __err; // 跳转到错误处理
         }
     }
-    if(sel==1){
-      __this->photo_camera_sel=1;
-    }else{
-     __this->photo_camera_sel=0;
+    if(sel == 1){
+        __this->photo_camera_sel = 1; // 选择摄像头1
+    } else {
+        __this->photo_camera_sel = 0; // 选择摄像头0
     }
 
-    aux_mem.addr = aux_buf;
-    aux_mem.size = 2 * 1024 * 1024 + 160 * 1024;
+    aux_mem.addr = aux_buf; // 辅助内存地址
+    aux_mem.size = 2 * 1024 * 1024 + 160 * 1024; // 辅助内存大小
 
-    /*
-     *配置拍照服务参数
-     *尺寸、buffer、质量、日期标签
-     */
+    // 配置拍照服务参数：分辨率、缓冲区、质量、日期标签等
+    req.icap.quality = db_select("qua"); // 获取图像质量
 
-    req.icap.quality = db_select("qua");
-
-    if (__get_sys_time(&time) == 0) {
-        date_name_flag=1;
-        if(__this->photo_camera_sel == 0){
+    if (__get_sys_time(&time) == 0) { // 获取当前系统时间
+        date_name_flag = 1; // 标志设置为使用日期生成文件名
+        // 根据摄像头选择生成文件名
+        if (__this->photo_camera_sel == 0) {
             sprintf(file_name, CAMERA0_CAP_PATH"IMG_%0d%02d%02d%02d%02d%02d.JPG",time.year, time.month, time.day, time.hour, time.min, time.sec);
         } else if (__this->photo_camera_sel == 1) {
             sprintf(file_name, CAMERA1_CAP_PATH"IMG_%0d%02d%02d%02d%02d%02d.JPG",time.year, time.month, time.day, time.hour, time.min, time.sec);
         } else if (__this->photo_camera_sel == 2) {
             sprintf(file_name, CAMERA1_CAP_PATH"IMG_%0d%02d%02d%02d%02d%02d.JPG",time.year, time.month, time.day, time.hour, time.min, time.sec);
-        }else{
+        } else {
             sprintf(file_name, CAMERA1_CAP_PATH"IMG_%0d%02d%02d%02d%02d%02d.JPG",time.year, time.month, time.day, time.hour, time.min, time.sec);
         }
-        req.icap.path = file_name;
-    }else{
-        date_name_flag=0;
+        req.icap.path = file_name; // 设置生成的文件路径
+    } else {
+        date_name_flag = 0; // 如果无法获取系统时间，使用默认文件名
         if (__this->photo_camera_sel == 0) {
             req.icap.path = CAMERA0_CAP_PATH"IMG_****.JPG";
         } else if (__this->photo_camera_sel == 1) {
@@ -4397,30 +4983,30 @@ static int video_take_photo(u8 sel)
     req.icap.buf_size = 2 * 1024 * 1024;
     req.icap.aux_mem = &aux_mem;
     req.icap.camera_type = VIDEO_CAMERA_NORMAL;
+
 #ifdef JPG_THUMBNAILS_ENABLE
-    if (req.icap.width > 1920) {
-        thumbnails.enable = 1;
-        thumbnails.quality = 10;
-        thumbnails.width = 480;
-        thumbnails.height = 320;
-        thumbnails.buf = thumbnails_buf;
-        thumbnails.len = 64 * 1024;
-        req.icap.thumbnails = &thumbnails;
+    if (req.icap.width > 1920) { // 如果分辨率大于1920，生成缩略图
+        thumbnails.enable = 1; // 启用缩略图
+        thumbnails.quality = 10; // 缩略图质量
+        thumbnails.width = 480; // 缩略图宽度
+        thumbnails.height = 320; // 缩略图高度
+        thumbnails.buf = thumbnails_buf; // 缩略图缓冲区
+        thumbnails.len = 64 * 1024; // 缩略图长度
+        req.icap.thumbnails = &thumbnails; // 设置缩略图
     }
 #endif
 
 #ifdef CONFIG_VIDEO3_ENABLE
     if (sel == 1) {
-        req.icap.camera_type = VIDEO_CAMERA_UVC;
-        req.icap.uvc_id = __this->uvc_id;
+        req.icap.camera_type = VIDEO_CAMERA_UVC; // USB 摄像头类型
+        req.icap.uvc_id = __this->uvc_id; // 设置 UVC 摄像头ID
     }
 #endif
 
-    /* req.icap.label = NULL;  */
-    struct video_text_osd label;
-    struct video_graph_osd graph_label;
+    struct video_text_osd label; // 文本OSD标签
+    struct video_graph_osd graph_label; // 图形OSD标签
 
-        req.icap.text_label = db_select("pdat") ? &label : NULL;
+    req.icap.text_label = db_select("pdat") ? &label : NULL; // 如果需要日期标签，设置文本标签
 #ifdef CONFIG_OSD_LOGO
          req.icap.graph_label =db_select("pdat") ? &graph_label : NULL;
 #endif // CONFIG_OSD_LOGO
@@ -4441,64 +5027,60 @@ static int video_take_photo(u8 sel)
         }
         graph_label.width = 128;
         graph_label.height = 32;
-
         graph_label.icon = (u8 *)icon_16bit_data; //icon_osd_buf;
         graph_label.icon_size = sizeof(icon_16bit_data);//sizeof(icon_osd_buf);
-    #endif
-if(shot_flag==1)
-{
-     while (i--) {
-        /*
-         *发送拍照请求
-         */
-        err = server_request(server, VIDEO_REQ_IMAGE_CAPTURE, &req);
-        delay_2ms(500);
-        if (err != 0) {
-            puts("take photo err.\n");
-            goto __err;
-        }
-        key_voice_start(1);
-    }
-
-}else {
-        /*
-         *发送拍照请求
-         */
-        err = server_request(server, VIDEO_REQ_IMAGE_CAPTURE, &req);
-        if (err != 0) {
-            puts("take photo err.\n");
-            goto __err;
-        }
-        key_voice_start(1);
-    }
- #if (APP_CASE == __WIFI_CAR_CAMERA__)
-    if(date_name_flag){
-        sprintf(buf, "%s", req.icap.path);
-    }else{
-        sprintf(buf, "%s", req.icap.file_name);
-    }
-    printf("*********rec_photo_user:%s,%s\n",buf,req.icap.path);
-    FILE_LIST_ADD(0, buf, 0);
 #endif
 
-    /* return 0; */
+    //set_label_config(req.icap.width, req.icap.height, 0xe20095, req.icap.text_label); // 设置标签配置
+
+    // 判断是否进行连续拍摄
+    if (shot_flag == 1) {
+        while (i--) {
+            // 发送拍照请求
+            err = server_request(server, VIDEO_REQ_IMAGE_CAPTURE, &req);
+            delay_2ms(500); // 延迟500ms
+            if (err != 0) {
+                puts("take photo err.\n");
+                goto __err; // 出现错误跳转到错误处理
+            }
+            key_voice_start(1); // 触发快门声音
+        }
+    } else {
+        // 单次拍照
+        err = server_request(server, VIDEO_REQ_IMAGE_CAPTURE, &req);
+        if (err != 0) {
+            puts("take photo err.\n");
+            goto __err; // 出现错误跳转到错误处理
+        }
+        key_voice_start(1); // 触发快门声音
+    }
+
+#if (APP_CASE == __WIFI_CAR_CAMERA__) // 如果是WIFI车载摄像头应用
+    if(date_name_flag){
+        sprintf(buf, "%s", req.icap.path); // 使用生成的文件路径
+    }else{
+        sprintf(buf, "%s", req.icap.file_name); // 使用文件名
+    }
+    printf("*********rec_photo_user:%s,%s\n", buf, req.icap.path); // 打印文件信息
+    FILE_LIST_ADD(0, buf, 0); // 将文件加入文件列表
+#endif
+
 __err:
+    // 错误处理部分，释放所有分配的资源
     if (server) {
-        server_close(server);
+        server_close(server); // 关闭视频服务
     }
     if (cap_buf) {
-        free(cap_buf);
+        free(cap_buf); // 释放图像缓冲区
     }
     if (aux_buf) {
-        free(aux_buf);
+        free(aux_buf); // 释放辅助缓冲区
     }
-    if(thumbnails_buf){
-        free(thumbnails_buf);
+    if (thumbnails_buf) {
+        free(thumbnails_buf); // 释放缩略图缓冲区
     }
 
-    /* malloc_stats(); */
-    return err;
-
+    return err; // 返回错误码或成功
 }
 int delay_timeout_flag = 0;         //延时拍照定时器
 int temp_camera = 0;
@@ -5071,8 +5653,8 @@ static int video_rec_sd_in()
      */
     if (__this->state == VIDREC_STA_IDLE) {
         video_rec_get_remain_time();  // 获取剩余录像时间
-        ve_mdet_stop();               // 停止运动检测
-        ve_lane_det_stop(0);          // 停止车道检测
+        // ve_mdet_stop();               // 停止运动检测
+        // ve_lane_det_stop(0);          // 停止车道检测
     }
 
     /*
@@ -5082,9 +5664,9 @@ static int video_rec_sd_in()
      * 3. 启动人脸检测
      */
     if (__this->menu_inout == 0) {
-        ve_mdet_start();              // 启动运动检测
-        ve_lane_det_start(0);         // 启动车道检测
-        ve_face_det_start(0);         // 启动人脸检测
+        // ve_mdet_start();              // 启动运动检测
+        // ve_lane_det_start(0);         // 启动车道检测
+        // ve_face_det_start(0);         // 启动人脸检测
     }
 
     /*
@@ -5105,8 +5687,8 @@ static int video_rec_sd_in()
 
 static int video_rec_sd_out()
 {
-    ve_mdet_stop();
-    ve_lane_det_stop(0);
+    // ve_mdet_stop();
+    // ve_lane_det_stop(0);
 
     video_rec_fscan_release(0);
     video_rec_fscan_release(1);
@@ -5214,7 +5796,7 @@ static int video_rec_init()
     void sd1_out_timeout(u8 timeout);
     sd1_out_timeout(100);  // 设置SD卡超时时间为100
 
-    ve_server_open(0);  // 打开视频服务器
+    // ve_server_open(0);  // 打开视频服务器
     db_update("cyc", 1);  // 更新数据库记录，设置循环记录
 
 #if (CONFIG_VIDEO_PARK_DECT == 1)
@@ -5340,11 +5922,11 @@ static int video_rec_init()
                                       video_rec_storage_device_ready, (void *)1);  // 等待存储设备准备好，带参数1
 #endif
 
-    if (get_parking_status()) {
-        video_disp_win_switch(DISP_WIN_SW_SHOW_PARKING, 0);  // 显示停车窗口
-    } else {
-        video_disp_win_switch(DISP_WIN_SW_SHOW_SMALL, 0);  // 显示小窗口
-    }
+    // if (get_parking_status()) {
+    //     video_disp_win_switch(DISP_WIN_SW_SHOW_PARKING, 0);  // 显示停车窗口
+    // } else {
+    //     video_disp_win_switch(DISP_WIN_SW_SHOW_SMALL, 0);  // 显示小窗口
+    // }
 
 #ifdef CONFIG_USB_VIDEO_OUT
     extern int usb_device_ready();
@@ -5388,13 +5970,25 @@ static int video_rec_uninit()
 
     video_rec_stop_isp_scenes(3, 0);
 
-    ve_server_close();
+    // ve_server_close();
 
     if (__this->state == VIDREC_STA_START) {
         err = video_rec_stop(1);
     }
     video_rec_close();
 
+// if(!__this->video_online[1])
+// {
+//     video1_rec_close();
+//     printf("---ee----%s,%d",__func__,__LINE__);
+// //    return 0;
+// }
+// if(!__this->video_online[2])
+// {
+//     video2_rec_close();
+//     printf("---dd----%s,%d",__func__,__LINE__);
+// //    return 0;
+// }
 
     video_rec_fscan_release(0);
     video_rec_fscan_release(1);
@@ -5477,10 +6071,10 @@ static int video_rec_change_status(struct intent *it)
         if ((__this->state != VIDREC_STA_START) && (__this->state != VIDREC_STA_FORBIDDEN)) { /* 允许ui打开菜单 */
             __this->menu_inout = 1;
             if (db_select("mot")) {
-                ve_mdet_stop();
+                // ve_mdet_stop();
             }
             if (db_select("lan")) {
-                ve_lane_det_stop(0);
+                // ve_lane_det_stop(0);
             }
 
             it->data = "opMENU:en";
@@ -5493,16 +6087,16 @@ static int video_rec_change_status(struct intent *it)
         __this->menu_inout = 0;
 
         video_rec_get_remain_time();
-        video_rec_fun_restore();
-        if (db_select("mot")) {
-            ve_mdet_start();
-        }
-        if (db_select("lan")) {
-            ve_lane_det_start(0);
-        }
-        if (db_select("fac")) {
-            ve_face_det_start(0);
-        }
+        // video_rec_fun_restore();
+        // if (db_select("mot")) {
+        //     ve_mdet_start();
+        // }
+        // if (db_select("lan")) {
+        //     ve_lane_det_start(0);
+        // }
+        // if (db_select("fac")) {
+        //     ve_face_det_start(0);
+        // }
     } else if (!strcmp(it->data, "sdCard:")) {
         video_rec_get_remain_time();
         if (storage_device_ready() == 0) {
@@ -5592,8 +6186,8 @@ static int video_rec_state_machine(struct application *app, enum app_state state
             puts("ACTION_VIDEO_REC_MAIN\n");
             if (it->data && !strcmp(it->data, "lan_setting")) {
                 __this->lan_det_setting = 1;  // 设置车道检测配置标志
-                ve_server_open(1);  // 打开视频服务器并开启车道检测
-                lane_det_setting_disp();  // 显示车道检测设置界面
+                // ve_server_open(1);  // 打开视频服务器并开启车道检测
+                // lane_det_setting_disp();  // 显示车道检测设置界面
                 // printf("ACTION_VIDEO_REC_MAIN:lan_settingGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG\n");
             } else {
                 //  camera_display_init();
@@ -5672,8 +6266,8 @@ static int video_rec_state_machine(struct application *app, enum app_state state
             // 并重置运动检测和车道偏离检测功能。
             if (__this->state == VIDREC_STA_START) {
                 video_rec_stop(0);
-                ve_mdet_reset();
-                ve_lane_det_reset();
+                // ve_mdet_reset();
+                // ve_lane_det_reset();
             } else {
                 // 否则，启动视频录制。
                 video_rec_start();
@@ -5748,8 +6342,8 @@ static int video_rec_state_machine(struct application *app, enum app_state state
 #endif
         if (__this->state == VIDREC_STA_START) {
             video_rec_stop(0);
-            ve_mdet_stop();
-            ve_lane_det_stop(0);
+            // ve_mdet_stop();
+            // ve_lane_det_stop(0);
         }
 
         if (video_rec_uninit()) {
@@ -6615,14 +7209,14 @@ static int video_rec_device_event_handler(struct sys_event *event)
             ASCII_StrToInt(event->arg + strlen("lane_set_open"), &aToint, strlen(event->arg) - strlen("lane_set_open"));
             __this->car_head_y = aToint & 0x0000ffff;
             __this->vanish_y   = (aToint >> 16) & 0x0000ffff;
-            ve_lane_det_start(1);
+            // ve_lane_det_start(1);
         }
         break;
         }
     } else if (!strncmp(event->arg, "lane_set_close", strlen("lane_set_close"))) {
         switch (event->u.dev.event) {
         case DEVICE_EVENT_CHANGE:
-            ve_lane_det_stop(1);
+            // ve_lane_det_stop(1);
             break;
         }
     } else if (!strcmp(event->arg, "camera0_err")) {
@@ -6630,8 +7224,8 @@ static int video_rec_device_event_handler(struct sys_event *event)
 
         if (__this->state == VIDREC_STA_START) {
             video_rec_stop(0);
-            ve_mdet_reset();
-            ve_lane_det_reset();
+            // ve_mdet_reset();
+            // ve_lane_det_reset();
             // video_rec_start();
         }
     } else if (!strncmp((char *)event->arg, "rec", 3)) {
@@ -6678,11 +7272,11 @@ REGISTER_APPLICATION(app_video_rec) = {
 
 #if (APP_CASE == __WIFI_CAR_CAMERA__)
 /******************************用于网络实时流*************************************/
-static void ve_mdet_reset();
+// static void ve_mdet_reset();
 static int video_rec_sd_in();
 static int video_rec_sd_out();
 static int video_rec_device_event_handler(struct sys_event *event);
-void ve_lane_det_reset();
+// void ve_lane_det_reset();
 extern char *video_rec_finish_get_name(FILE *fd, int index, u8 is_emf); //index：video0则0，video1则1，video2则2
 extern int video_rec_finish_notify(char *path);
 extern int video_rec_delect_notify(FILE *fd, int id);
@@ -6732,8 +7326,8 @@ int video_rec_control_doing(void)
     int err;
     if (__this->state == VIDREC_STA_START) {
         err = video_rec_stop(0);
-        ve_mdet_reset();
-        ve_lane_det_reset();
+        // ve_mdet_reset();
+        // ve_lane_det_reset();
     } else {
         // err = video_rec_start();
     }

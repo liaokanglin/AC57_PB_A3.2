@@ -79,7 +79,7 @@ static const struct db_table app_config_table[] = {
     {"res2",    3,      VIDEO_RES_VGA},           // 录像分辨率
     {"rtf",     3,      VIDEO_RES_VGA},            //预览前视分辨率
     {"rtb",     3,      VIDEO_RES_VGA},             //预览后视分辨率
-    {"wfo",     1,      0},                         //wifi开关
+    {"wfo",     1,      1},                         //wifi开关
     {"bvo",     1,      1},                         // 开机音开关
     {"yta",     1,      0},                         // 云台开关
 

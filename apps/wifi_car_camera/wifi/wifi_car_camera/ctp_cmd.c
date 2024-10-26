@@ -2012,20 +2012,20 @@ int cmd_put_open_audio_rt_stream(void *priv, char *content)
 int cmd_put_open_pull_rt_stream(void *priv, char *content)
 {
 #if defined (CONFIG_VIDEO1_ENABLE) || defined (CONFIG_VIDEO3_ENABLE)
-#ifdef CONFIG_VIDEO1_ENABLE
-    if (!dev_online("video1.*")) {
-        CTP_CMD_COMBINED(NULL, CTP_PULL_OFFLINE, "OPEN_PULL_RT_STREAM", "NOTIFY", CTP_PULL_OFFLINE_MSG);
-        return 0;
-    }
-#endif
-#ifdef CONFIG_VIDEO3_ENABLE
+//#ifdef CONFIG_VIDEO1_ENABLE
+//    if (!dev_online("video1.*")) {
+//        CTP_CMD_COMBINED(NULL, CTP_PULL_OFFLINE, "OPEN_PULL_RT_STREAM", "NOTIFY", CTP_PULL_OFFLINE_MSG);
+//        return 0;
+//    }
+//#endif
+//#ifdef CONFIG_VIDEO3_ENABLE
 
-    if (!dev_online("uvc")) {
-        CTP_CMD_COMBINED(NULL, CTP_PULL_OFFLINE, "OPEN_PULL_RT_STREAM", "NOTIFY", CTP_PULL_OFFLINE_MSG);
-        return 0;
-    }
+//    if (!dev_online("uvc")) {
+//        CTP_CMD_COMBINED(NULL, CTP_PULL_OFFLINE, "OPEN_PULL_RT_STREAM", "NOTIFY", CTP_PULL_OFFLINE_MSG);
+//        return 0;
+//    }
 
-#endif
+//#endif
 
 
     json_object *new_obj = NULL;

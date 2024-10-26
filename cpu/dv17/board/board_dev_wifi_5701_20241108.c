@@ -985,7 +985,7 @@ SPI0_PLATFORM_DATA_BEGIN(spi0_data)//ok
 	.clk    = 20000000,
     /* .clk    = 1000000, */
 
-#ifdef CONFIG_BOARD_DEV_5711_20190809
+#ifdef CONFIG_BOARD_DEV_5711_20190809   
 	// 5711使用的flash与5701不同，如果mode一样
 	// 会导致ui资源无法打开，打印----show err
 	.mode   = SPI_DUAL_MODE,
@@ -1127,7 +1127,7 @@ unsigned char PWR_CTL(unsigned char on_off)
     return 0;
 }
 
-#define USB_WKUP_IO 	-1//IO_PORT_PR_01
+#define USB_WKUP_IO 	IO_PORT_PR_01
 #define GSEN_WKUP_IO 	-1//IO_PORT_PR_02
 unsigned char usb_is_charging()
 {
@@ -1135,14 +1135,15 @@ unsigned char usb_is_charging()
 	static unsigned char init = 0;
 	if (!init){
 		init = 1;
-		// gpio_direction_input(USB_WKUP_IO);
-		// gpio_set_pull_up(USB_WKUP_IO, 0);
-		// gpio_set_pull_down(USB_WKUP_IO, 0);
-		// gpio_set_die(USB_WKUP_IO, 1);
-		// delay(10);
+		gpio_direction_input(USB_WKUP_IO);//将引脚配置为输入模式，用于检测外部信号
+		gpio_set_pull_up(USB_WKUP_IO, 0);//关闭引脚的上拉电阻
+		gpio_set_pull_down(USB_WKUP_IO, 0);//关闭引脚的下拉电阻
+		gpio_set_die(USB_WKUP_IO, 1);//设置引脚的数字输入特性，使其能正确读取外部信号
+		delay(10);
 	}
 
 	return (gpio_read(USB_WKUP_IO));//no usb charing == false
+    // return 1;
 #else
 	return 1;
 #endif
@@ -1150,14 +1151,14 @@ unsigned char usb_is_charging()
 
 unsigned int get_usb_wkup_gpio()
 {
-	// return (USB_WKUP_IO);
+	return (USB_WKUP_IO);
 }
 
 
 
 POWER_PLATFORM_DATA_BEGIN(sys_power_data)
     .wkup_map = {
-        {"wkup_gsen", WKUP_IO_PR2, 0},
+        // {"wkup_gsen", WKUP_IO_PR2, 0},
         {"wkup_usb", WKUP_IO_PR1, 0},
         {0, 0, 0}
     },
@@ -1176,19 +1177,19 @@ POWER_PLATFORM_DATA_BEGIN(sys_power_data)
     // .min_bat_power_val = 350,
     // .max_bat_power_val = 420,
     .voltage_table = {
-        {365, 10},
-        {370, 20},
-        {373, 30},
-        {376, 40},
-        {379, 50},
-        {387, 60},
-        {390, 70},
-        {397, 80},
-        {408, 90},
-        {422, 100},
+        {730, 10},
+        {755, 20},  //6.5v
+        {782, 30},
+        {813, 40},  //6.95v
+        {842, 50},
+        {874, 60}, //7.45v
+        {901, 70},
+        {929, 80}, //7.925v
+        {960, 90},
+        {988, 100},//8.4v
     },
-    .min_bat_power_val = 350,
-    .max_bat_power_val = 420,
+    .min_bat_power_val = 732,
+    .max_bat_power_val = 986,
     .charger_online = usb_is_charging,
     .charger_gpio  = get_usb_wkup_gpio,
     .read_power_key = read_power_key,
@@ -1495,7 +1496,7 @@ void board_init()
     //printf("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n");
     gpio_direction_output(IO_PORTG_02, 1);
 
-    //gpio_direction_output(IO_PORTA_05, 1);
+    gpio_direction_output(IO_PORTG_15, 0);
 
 #ifdef CONFIG_ETH_ENABLE
     gpio_direction_output(IO_PORTB_05, 0);

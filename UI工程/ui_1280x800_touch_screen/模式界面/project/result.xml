@@ -4,10 +4,10 @@
         <Page id="0">
             <ColorList>
                 <Color id="0">55AAA5</Color>
-                <Color id="1">FFC046</Color>
-                <Color id="2">FFFFFF</Color>
-                <Color id="3">212121</Color>
-                <Color id="4">000000</Color>
+                <Color id="1">212121</Color>
+                <Color id="2">000000</Color>
+                <Color id="3">FFC046</Color>
+                <Color id="4">FFFFFF</Color>
                 <Color id="5">4B4B4B</Color>
                 <Color id="6">4C4C4C</Color>
                 <Color id="7">4D4D4D</Color>
@@ -356,7 +356,7 @@
                 <Color id="181">D36666</Color>
                 <Color id="182">E84545</Color>
                 <Color id="183">E85454</Color>
-                <Color id="184">FE4645</Color>
+                <Color id="184">FE4646</Color>
                 <Color id="185">FF504E</Color>
                 <Color id="186">FE5452</Color>
                 <Color id="187">FF605E</Color>
@@ -434,19 +434,19 @@
                 <Picture fmt="OSD8" id="2">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\-1.png</Picture>
                 <Picture fmt="OSD8" id="3">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\-2.png</Picture>
                 <Picture fmt="OSD8" id="4">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\-3.png</Picture>
-                <Picture fmt="OSD8" id="5">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\0.png</Picture>
-                <Picture fmt="OSD8" id="6">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\0.png</Picture>
+                <Picture fmt="OSD8" id="5">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\0.png</Picture>
+                <Picture fmt="OSD8" id="6">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\0.png</Picture>
                 <Picture fmt="OSD8" id="7">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\00.png</Picture>
-                <Picture fmt="OSD8" id="8">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\0d.png</Picture>
-                <Picture fmt="OSD8" id="9">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241009\0d.png</Picture>
-                <Picture fmt="OSD8" id="10">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\1.png</Picture>
-                <Picture fmt="OSD8" id="11">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\1.png</Picture>
-                <Picture fmt="OSD8" id="12">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\1.png</Picture>
+                <Picture fmt="OSD8" id="8">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241009\0d.png</Picture>
+                <Picture fmt="OSD8" id="9">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\0d.png</Picture>
+                <Picture fmt="OSD8" id="10">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\1.png</Picture>
+                <Picture fmt="OSD8" id="11">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\1.png</Picture>
+                <Picture fmt="OSD8" id="12">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\1.png</Picture>
                 <Picture fmt="OSD8" id="13">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\01.png</Picture>
                 <Picture fmt="OSD8" id="14">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241009\1d.png</Picture>
                 <Picture fmt="OSD8" id="15">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\1d.png</Picture>
-                <Picture fmt="OSD8" id="16">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\2.png</Picture>
-                <Picture fmt="OSD8" id="17">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\2.png</Picture>
+                <Picture fmt="OSD8" id="16">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\2.png</Picture>
+                <Picture fmt="OSD8" id="17">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\2.png</Picture>
                 <Picture fmt="OSD8" id="18">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\2.png</Picture>
                 <Picture fmt="OSD8" id="19">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\02.png</Picture>
                 <Picture fmt="OSD8" id="20">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241009\2d.png</Picture>
@@ -454,30 +454,30 @@
                 <Picture fmt="OSD8" id="22">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\2kuang.png</Picture>
                 <Picture fmt="OSD8" id="23">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\2kuang2.png</Picture>
                 <Picture fmt="OSD8" id="24">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\3.png</Picture>
-                <Picture fmt="OSD8" id="25">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\3.png</Picture>
-                <Picture fmt="OSD8" id="26">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\3.png</Picture>
+                <Picture fmt="OSD8" id="25">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\3.png</Picture>
+                <Picture fmt="OSD8" id="26">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\3.png</Picture>
                 <Picture fmt="OSD8" id="27">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\3d.png</Picture>
                 <Picture fmt="OSD8" id="28">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\3kuang.png</Picture>
                 <Picture fmt="OSD8" id="29">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\3kuang3.png</Picture>
-                <Picture fmt="OSD8" id="30">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\4.png</Picture>
-                <Picture fmt="OSD8" id="31">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\4.png</Picture>
-                <Picture fmt="OSD8" id="32">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\4.png</Picture>
+                <Picture fmt="OSD8" id="30">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\4.png</Picture>
+                <Picture fmt="OSD8" id="31">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\4.png</Picture>
+                <Picture fmt="OSD8" id="32">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\4.png</Picture>
                 <Picture fmt="OSD8" id="33">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\4d.png</Picture>
                 <Picture fmt="OSD8" id="34">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241009\4d.png</Picture>
                 <Picture fmt="OSD8" id="35">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\4kuang.png</Picture>
                 <Picture fmt="OSD8" id="36">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\4kuang4.png</Picture>
-                <Picture fmt="OSD8" id="37">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\5.png</Picture>
-                <Picture fmt="OSD8" id="38">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\5.png</Picture>
-                <Picture fmt="OSD8" id="39">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\5.png</Picture>
+                <Picture fmt="OSD8" id="37">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\5.png</Picture>
+                <Picture fmt="OSD8" id="38">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\5.png</Picture>
+                <Picture fmt="OSD8" id="39">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\5.png</Picture>
                 <Picture fmt="OSD8" id="40">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241009\5d.png</Picture>
                 <Picture fmt="OSD8" id="41">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\5d.png</Picture>
                 <Picture fmt="OSD8" id="42">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\6.png</Picture>
-                <Picture fmt="OSD8" id="43">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\6.png</Picture>
-                <Picture fmt="OSD8" id="44">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\6.png</Picture>
+                <Picture fmt="OSD8" id="43">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\6.png</Picture>
+                <Picture fmt="OSD8" id="44">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\6.png</Picture>
                 <Picture fmt="OSD8" id="45">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\7.png</Picture>
                 <Picture fmt="OSD8" id="46">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\7.png</Picture>
-                <Picture fmt="OSD8" id="47">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\8.png</Picture>
-                <Picture fmt="OSD8" id="48">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\8.png</Picture>
+                <Picture fmt="OSD8" id="47">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\8.png</Picture>
+                <Picture fmt="OSD8" id="48">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\8.png</Picture>
                 <Picture fmt="OSD8" id="49">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\9.png</Picture>
                 <Picture fmt="OSD8" id="50">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\9.png</Picture>
                 <Picture fmt="OSD8" id="51">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\43r4ewr.png</Picture>
@@ -550,56 +550,58 @@
                 <Picture fmt="OSD8" id="118">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\pop_up_window.png</Picture>
                 <Picture fmt="OSD8" id="119">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Portugus1.png</Picture>
                 <Picture fmt="OSD8" id="120">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Portugus2.png</Picture>
-                <Picture fmt="OSD8" id="121">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\PZ.png</Picture>
-                <Picture fmt="OSD8" id="122">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\图标\refsdf.png</Picture>
-                <Picture fmt="OSD8" id="123">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\rerswf.png</Picture>
-                <Picture fmt="OSD8" id="124">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resf.png</Picture>
-                <Picture fmt="OSD8" id="125">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resf (2).png</Picture>
-                <Picture fmt="OSD8" id="126">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resfd.png</Picture>
-                <Picture fmt="OSD8" id="127">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resfsd.png</Picture>
-                <Picture fmt="OSD8" id="128">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resfsf.png</Picture>
-                <Picture fmt="OSD8" id="129">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\rfsfvx.png</Picture>
-                <Picture fmt="OSD8" id="130">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\图标\rsdfdcx.png</Picture>
-                <Picture fmt="OSD8" id="131">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\rsef.png</Picture>
-                <Picture fmt="OSD8" id="132">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\rwed.png</Picture>
-                <Picture fmt="OSD8" id="133">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\ry.png</Picture>
-                <Picture fmt="OSD8" id="134">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\ry (2).png</Picture>
-                <Picture fmt="OSD8" id="135">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240807\sanunmm.png</Picture>
-                <Picture fmt="OSD8" id="136">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sd.png</Picture>
-                <Picture fmt="OSD8" id="137">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sd-x.png</Picture>
-                <Picture fmt="OSD8" id="138">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sdf.png</Picture>
-                <Picture fmt="OSD8" id="139">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sdfdf.png</Picture>
-                <Picture fmt="OSD8" id="140">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sdfr.png</Picture>
-                <Picture fmt="OSD8" id="141">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sefdf.png</Picture>
-                <Picture fmt="OSD8" id="142">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sefr.png</Picture>
-                <Picture fmt="OSD8" id="143">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfd.png</Picture>
-                <Picture fmt="OSD8" id="144">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfd (2).png</Picture>
-                <Picture fmt="OSD8" id="145">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfdf.png</Picture>
-                <Picture fmt="OSD8" id="146">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfdxf.png</Picture>
-                <Picture fmt="OSD8" id="147">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfef.png</Picture>
-                <Picture fmt="OSD8" id="148">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\temple.png</Picture>
-                <Picture fmt="OSD8" id="149">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\set\time_down.png</Picture>
-                <Picture fmt="OSD8" id="150">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\set\time_down_hight.png</Picture>
-                <Picture fmt="OSD8" id="151">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\set\time_up.png</Picture>
-                <Picture fmt="OSD8" id="152">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\set\time_up_hight.png</Picture>
-                <Picture fmt="OSD8" id="153">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\w3erw.png</Picture>
-                <Picture fmt="OSD8" id="154">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\w3rew.png</Picture>
-                <Picture fmt="OSD8" id="155">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\WIFI.png</Picture>
-                <Picture fmt="OSD8" id="156">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\wifi-1.png</Picture>
-                <Picture fmt="OSD8" id="157">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\wifi-2.png</Picture>
-                <Picture fmt="OSD8" id="158">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\wifi-3.png</Picture>
-                <Picture fmt="OSD8" id="159">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\wifi-x.png</Picture>
-                <Picture fmt="OSD8" id="160">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X1.png</Picture>
-                <Picture fmt="OSD8" id="161">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X2.png</Picture>
-                <Picture fmt="OSD8" id="162">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X3.png</Picture>
-                <Picture fmt="OSD8" id="163">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X4.png</Picture>
-                <Picture fmt="OSD8" id="164">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X5.png</Picture>
-                <Picture fmt="OSD8" id="165">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X6.png</Picture>
-                <Picture fmt="OSD8" id="166">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X7.png</Picture>
-                <Picture fmt="OSD8" id="167">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240807\xiayij.png</Picture>
-                <Picture fmt="OSD8" id="168">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\xiehang.png</Picture>
-                <Picture fmt="OSD8" id="169">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\zw.png</Picture>
-                <Picture fmt="OSD8" id="170">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\zw (2).png</Picture>
+                <Picture fmt="OSD8" id="121">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\py.png</Picture>
+                <Picture fmt="OSD8" id="122">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\py1.png</Picture>
+                <Picture fmt="OSD8" id="123">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\PZ.png</Picture>
+                <Picture fmt="OSD8" id="124">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\图标\refsdf.png</Picture>
+                <Picture fmt="OSD8" id="125">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\rerswf.png</Picture>
+                <Picture fmt="OSD8" id="126">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resf.png</Picture>
+                <Picture fmt="OSD8" id="127">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resf (2).png</Picture>
+                <Picture fmt="OSD8" id="128">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resfd.png</Picture>
+                <Picture fmt="OSD8" id="129">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resfsd.png</Picture>
+                <Picture fmt="OSD8" id="130">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resfsf.png</Picture>
+                <Picture fmt="OSD8" id="131">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\rfsfvx.png</Picture>
+                <Picture fmt="OSD8" id="132">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\图标\rsdfdcx.png</Picture>
+                <Picture fmt="OSD8" id="133">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\rsef.png</Picture>
+                <Picture fmt="OSD8" id="134">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\rwed.png</Picture>
+                <Picture fmt="OSD8" id="135">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\ry.png</Picture>
+                <Picture fmt="OSD8" id="136">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\ry (2).png</Picture>
+                <Picture fmt="OSD8" id="137">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240807\sanunmm.png</Picture>
+                <Picture fmt="OSD8" id="138">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sd.png</Picture>
+                <Picture fmt="OSD8" id="139">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sd-x.png</Picture>
+                <Picture fmt="OSD8" id="140">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sdf.png</Picture>
+                <Picture fmt="OSD8" id="141">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sdfdf.png</Picture>
+                <Picture fmt="OSD8" id="142">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sdfr.png</Picture>
+                <Picture fmt="OSD8" id="143">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sefdf.png</Picture>
+                <Picture fmt="OSD8" id="144">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sefr.png</Picture>
+                <Picture fmt="OSD8" id="145">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfd.png</Picture>
+                <Picture fmt="OSD8" id="146">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfd (2).png</Picture>
+                <Picture fmt="OSD8" id="147">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfdf.png</Picture>
+                <Picture fmt="OSD8" id="148">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfdxf.png</Picture>
+                <Picture fmt="OSD8" id="149">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfef.png</Picture>
+                <Picture fmt="OSD8" id="150">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\temple.png</Picture>
+                <Picture fmt="OSD8" id="151">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\set\time_down.png</Picture>
+                <Picture fmt="OSD8" id="152">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\set\time_down_hight.png</Picture>
+                <Picture fmt="OSD8" id="153">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\set\time_up.png</Picture>
+                <Picture fmt="OSD8" id="154">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\set\time_up_hight.png</Picture>
+                <Picture fmt="OSD8" id="155">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\w3erw.png</Picture>
+                <Picture fmt="OSD8" id="156">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\w3rew.png</Picture>
+                <Picture fmt="OSD8" id="157">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\WIFI.png</Picture>
+                <Picture fmt="OSD8" id="158">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\wifi-1.png</Picture>
+                <Picture fmt="OSD8" id="159">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\wifi-2.png</Picture>
+                <Picture fmt="OSD8" id="160">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\wifi-3.png</Picture>
+                <Picture fmt="OSD8" id="161">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\wifi-x.png</Picture>
+                <Picture fmt="OSD8" id="162">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X1.png</Picture>
+                <Picture fmt="OSD8" id="163">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X2.png</Picture>
+                <Picture fmt="OSD8" id="164">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X3.png</Picture>
+                <Picture fmt="OSD8" id="165">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X4.png</Picture>
+                <Picture fmt="OSD8" id="166">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X5.png</Picture>
+                <Picture fmt="OSD8" id="167">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X6.png</Picture>
+                <Picture fmt="OSD8" id="168">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X7.png</Picture>
+                <Picture fmt="OSD8" id="169">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240807\xiayij.png</Picture>
+                <Picture fmt="OSD8" id="170">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\xiehang.png</Picture>
+                <Picture fmt="OSD8" id="171">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\zw.png</Picture>
+                <Picture fmt="OSD8" id="172">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\zw (2).png</Picture>
             </PictureList>
             <CellList>
                 <Cell id="1">m1</Cell>
@@ -901,20 +903,20 @@
                 <Picture fmt="OSD8" id="3">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\1.png</Picture>
                 <Picture fmt="OSD8" id="4">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\2.png</Picture>
                 <Picture fmt="OSD8" id="5">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\2.png</Picture>
-                <Picture fmt="OSD8" id="6">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\3.png</Picture>
-                <Picture fmt="OSD8" id="7">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\3.png</Picture>
-                <Picture fmt="OSD8" id="8">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\4.png</Picture>
-                <Picture fmt="OSD8" id="9">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\4.png</Picture>
+                <Picture fmt="OSD8" id="6">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\3.png</Picture>
+                <Picture fmt="OSD8" id="7">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\3.png</Picture>
+                <Picture fmt="OSD8" id="8">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\4.png</Picture>
+                <Picture fmt="OSD8" id="9">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\4.png</Picture>
                 <Picture fmt="OSD8" id="10">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\5.png</Picture>
                 <Picture fmt="OSD8" id="11">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\5.png</Picture>
                 <Picture fmt="OSD8" id="12">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\6.png</Picture>
                 <Picture fmt="OSD8" id="13">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\6.png</Picture>
-                <Picture fmt="OSD8" id="14">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\7.png</Picture>
-                <Picture fmt="OSD8" id="15">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\7.png</Picture>
+                <Picture fmt="OSD8" id="14">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\7.png</Picture>
+                <Picture fmt="OSD8" id="15">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\7.png</Picture>
                 <Picture fmt="OSD8" id="16">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\8.png</Picture>
                 <Picture fmt="OSD8" id="17">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\8.png</Picture>
-                <Picture fmt="OSD8" id="18">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\9.png</Picture>
-                <Picture fmt="OSD8" id="19">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\9.png</Picture>
+                <Picture fmt="OSD8" id="18">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\9.png</Picture>
+                <Picture fmt="OSD8" id="19">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\9.png</Picture>
                 <Picture fmt="OSD8" id="20">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\10.png</Picture>
                 <Picture fmt="OSD8" id="21">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\侧滑icon\设置界面\ball.png</Picture>
                 <Picture fmt="OSD8" id="22">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\侧滑icon\设置界面\EXP7.png</Picture>
@@ -1281,8 +1283,8 @@
                 <Picture fmt="OSD8" id="44">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\unchoose.png</Picture>
                 <Picture fmt="OSD8" id="45">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\UNLOCK.png</Picture>
                 <Picture fmt="OSD8" id="46">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\unlock_on.png</Picture>
-                <Picture fmt="OSD8" id="47">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\video.png</Picture>
-                <Picture fmt="OSD8" id="48">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\VIDEO.png</Picture>
+                <Picture fmt="OSD8" id="47">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\VIDEO.png</Picture>
+                <Picture fmt="OSD8" id="48">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\video.png</Picture>
                 <Picture fmt="OSD8" id="49">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\video_on.png</Picture>
                 <Picture fmt="OSD8" id="50">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\弹窗\white.png</Picture>
                 <Picture fmt="OSD8" id="51">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\弹窗\white_choose.png</Picture>
@@ -1859,10 +1861,10 @@
         <Page id="7">
             <ColorList>
                 <Color id="0">55AAA5</Color>
-                <Color id="1">353535</Color>
-                <Color id="2">000000</Color>
-                <Color id="3">00C4FF</Color>
-                <Color id="4">FFF795</Color>
+                <Color id="1">FFF795</Color>
+                <Color id="2">353535</Color>
+                <Color id="3">000000</Color>
+                <Color id="4">00C4FF</Color>
                 <Color id="5">FFC046</Color>
                 <Color id="6">FFFFFF</Color>
             </ColorList>

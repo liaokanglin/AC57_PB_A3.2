@@ -65,8 +65,9 @@ static struct video_rec_hdl *rec_handler = NULL;
 #define __this 	(rec_handler)
 
 static OS_MUTEX net_vdrec_mutex;
-
-
+extern u8 camera_config;
+extern int get_video1_state();
+extern int get_video2_state();
 #define CONFIG_OSD_LOGO
 
 /*
@@ -894,11 +895,17 @@ static int net_video_rec0_start()
 
 
     if (!__this_net->net_video_rec) {
-#ifdef CONFIG_PIP_ENABLE
-        __this_net->net_video_rec = server_open("video_server", "video5.0");
-#else
+        if(camera_config==1){
+            __this_net->net_video_rec = server_open("video_server", "video3.0");
+            req.rec.camera_type = VIDEO_CAMERA_UVC;
+        }else{
+            if(get_video1_state()){
         __this_net->net_video_rec = server_open("video_server", "video1.1");
-#endif
+            }else{
+                __this_net->net_video_rec = server_open("video_server", "video2.1");
+            }
+            req.rec.camera_type = VIDEO_CAMERA_NORMAL;
+        }
         printf(">>>>>>%s %d\n",__func__,__LINE__);
         if (!__this_net->net_video_rec) {
             printf("[DEBUG INFO] SERVER OPEN FAILD\n");
@@ -912,11 +919,11 @@ static int net_video_rec0_start()
      */
 
     req.rec.channel     = 1;//用于区分任务
-    req.rec.camera_type = VIDEO_CAMERA_NORMAL;
-    req.rec.width       = 1280;//__this_net->net_videoreq[0].rec.width;
-    req.rec.height      = 720;//__this_net->net_videoreq[0].rec.height;
+
+    req.rec.width       = 640;//__this_net->net_videoreq[0].rec.width;
+    req.rec.height      = 480;//__this_net->net_videoreq[0].rec.height;
     req.rec.format      = 0;//NET_REC_FORMAT;
-    printf(">>>>>>width=%d    height=%d\n\n\n\n", __this_net->net_videoreq[0].rec.width, __this_net->net_videoreq[0].rec.height);
+//    printf(">>>>>>width=%d    height=%d\n\n\n\n", __this_net->net_videoreq[0].rec.width, __this_net->net_videoreq[0].rec.height);
     req.rec.state       = VIDEO_STATE_START;
     //req.rec.file        = __this->file[0];  //实时流无需写卡
 
@@ -1133,8 +1140,8 @@ static int net_video_rec1_start()
     u16 osd_line_num;
     u16 osd_max_heigh;
 
-    req.rec.width 	= __this_net->net_videoreq[1].rec.width;
-    req.rec.height 	= __this_net->net_videoreq[1].rec.height;
+    req.rec.width 	= 640;//__this_net->net_videoreq[1].rec.width;
+    req.rec.height 	= 480;//__this_net->net_videoreq[1].rec.height;
 
 #ifdef CONFIG_VIDEO1_ENABLE
     puts("start_video_rec1 \n");
@@ -1148,14 +1155,16 @@ static int net_video_rec1_start()
 
 
     if (!__this_net->net_video_rec1) {
-        __this_net->net_video_rec1 = server_open("video_server", "video1.1");
+        if(camera_config==3){
+            __this_net->net_video_rec1 = server_open("video_server", "video2.1");
+        }
         if (!__this_net->net_video_rec1) {
             return VREC_ERR_V1_SERVER_OPEN;
         }
         server_register_event_handler(__this_net->net_video_rec1, (void *)1, net_rec_dev_server_event_handler);
     }
     req.rec.camera_type = VIDEO_CAMERA_NORMAL;
-    req.rec.file    = __this->file[1];
+
     req.rec.IP_interval = 0;
     __this_net->video_id = 1;
 #endif
@@ -1164,7 +1173,7 @@ static int net_video_rec1_start()
     char name[12];
     void *uvc_fd;
 #if NET_REC_FORMAT
-    if (__this->video_rec3) {
+    if (__this->video_rec3&&camera_config==4) {
         __this_net->net_video_rec1 = __this->video_rec3;
     }
 #endif
@@ -1172,7 +1181,7 @@ static int net_video_rec1_start()
     struct uvc_capability uvc_cap;
 
     puts("start_video_rec3 \n");
-    if (!__this_net->net_video_rec1) {
+    if (!__this_net->net_video_rec1&&camera_config==4) {
         sprintf(name, "video3.%d", __this->uvc_id);
         __this_net->net_video_rec1 = server_open("video_server", name);
         if (!__this_net->net_video_rec1) {
@@ -1188,7 +1197,6 @@ static int net_video_rec1_start()
     __this->uvc_width = req.rec.width;
     __this->uvc_height = req.rec.height;
     req.rec.uvc_id = __this->uvc_id;
-    req.rec.file    = __this->file[2];
     __this_net->video_id = 1;
 #endif
     /*

@@ -549,10 +549,12 @@ static int video_layout_up_onchange(void *ctr, enum element_change_event e, void
             case 1:
                 ui_highlight_element_by_id(ENC_BTN_WIFI);
                 ui_no_highlight_element_by_id(ENC_BTN_WIFI1);
+                ui_pic_show_image_by_id(PIC_REC_WIFI, 3);
                 break;
             default:
                 ui_no_highlight_element_by_id(ENC_BTN_WIFI);
                 ui_highlight_element_by_id(ENC_BTN_WIFI1);
+                ui_pic_show_image_by_id(PIC_REC_WIFI, 0);
                 break;
         }
 
@@ -1067,6 +1069,8 @@ enum box_msg {
     BOX_MSG_NEED_FORMAT,
     BOX_MSG_INSERT_SD,
     BOX_MSG_SD_WRITE_ERR,
+    BOX_MSG_EXIT_APP,
+
     /* BOX_MSG_DEFAULT_SET, */
     /* BOX_MSG_FORMATTING, */
     /* BOX_MSG_10S_SHUTDOWN, */
@@ -1359,7 +1363,7 @@ static void get_sys_time(struct sys_time *time)
         return;
     }
     dev_ioctl(fd, IOCTL_GET_SYS_TIME, (u32)time);
-     printf("get_sys_time : %d-%d-%d,%d:%d:%d\n", time->year, time->month, time->day, time->hour, time->min, time->sec);
+    //  printf("get_sys_time : %d-%d-%d,%d:%d:%d\n", time->year, time->month, time->day, time->hour, time->min, time->sec);
     dev_close(fd);
 }
 
@@ -1601,6 +1605,8 @@ static int rec_lock_handler(const char *type, u32 arg)
     return 0;
 }
 
+
+
 extern void play_voice_file(const char *file_name);
 static int rec_headlight_on_handler(const char *type, u32 arg)
 {
@@ -1662,6 +1668,40 @@ static int rec_remain_handler(const char *type, u32 arg)
     }
     return 0;
 }
+// static int wifi_onoff_set_handler(const char *type, u32 arg)
+// {
+//     if(arg == 0){  // 如果参数arg为0
+//         // ui_hide(PIC_REC_WIFI);  // 隐藏WiFi图标
+//         ui_pic_show_image_by_id(PIC_REC_WIFI, 0);
+//         wifi_off();  // 关闭WiFi
+//         play_voice_file("mnt/spiflash/audlogo/wifi_off.adp");  // 播放WiFi关闭的语音文件
+//     }else if(arg == 1){  // 如果参数arg为1
+//         // ui_show(PIC_REC_WIFI);  // 显示WiFi图标、
+//         ui_pic_show_image_by_id(PIC_REC_WIFI, 3);
+//         wifi_on();  // 打开WiFi
+//         play_voice_file("mnt/spiflash/audlogo/wifi_on.adp");  // 播放WiFi打开的语音文件
+//     }
+//     return 0;  // 返回0表示函数执行成功
+// }
+// static int app_link_msg_handler(const char *type, u32 arg)
+// {
+//     printf("==========app_link:%s,%d\n",type,arg);  // 打印出传入的type和arg值，方便调试
+//     if (type[0] == 'a') {  // 如果type的第一个字符是'a'
+//         if(arg == 0){
+//            ui_pic_show_image_by_id(PIC_REC_WIFI, 0);  // 显示WiFi图片状态0
+//         }else if(arg == 1){
+//             ui_pic_show_image_by_id(PIC_REC_WIFI, 3);  // 显示WiFi图片状态1
+//         }
+//     }else if(type[0] == 'w'){  // 如果type的第一个字符是'w'
+//         if(arg == 0){
+//            __rec_msg_show(BOX_MSG_EXIT_APP, 3000);  // 显示退出应用的消息，持续3000毫秒
+//         }else if(arg == 1){
+//             __rec_msg_show(BOX_MSG_EXIT_APP, 3000);  // 显示退出应用的消息，持续3000毫秒
+//         }
+//     }
+
+//     return 0;  // 返回0表示函数执行成功
+// }
 /*
  * 录像模式的APP状态响应回调
  */
@@ -1679,8 +1719,11 @@ static const struct uimsg_handl rec_msg_handler[] = {
     { "carpos",         rec_car_pos_handler  },
     // { "onMIC",          rec_on_mic_handler   },
     // { "offMIC",         rec_off_mic_handler  },
-    // { NULL, NULL},      /* 必须以此结尾！ */
-    { "Remain",         rec_remain_handler  },
+
+    // { "Remain",         rec_remain_handler  },
+    // { "wifi",       wifi_onoff_set_handler},
+    // { "app",       app_link_msg_handler},
+    { NULL, NULL},      /* 必须以此结尾！ */
 };
 /*
  * (end)
@@ -1772,13 +1815,13 @@ static void rec_layout_up_onchange_ok(void *p, int err)
         __this->lock_file_flag = 1;
     }
 
-    // if(usb_is_charging()){ // 如果设备正在充电
-    //     ui_pic_show_image_by_id(LIGHT_ADJ_PIC, index_of_table8(db_select("bkl"), TABLE(table_light_lcd)));
-    //     // 显示亮度调整图片，并根据当前亮度设置相应的图像
-    // }else{
-    //     ui_pic_show_image_by_id(LIGHT_ADJ_PIC, 0);
-    //     // 如果设备未在充电，则隐藏亮度调整图片
-    // }
+    if(usb_is_charging()){ // 如果设备正在充电
+        ui_pic_show_image_by_id(LIGHT_ADJ_PIC, index_of_table8(db_select("bkl"), TABLE(table_light_lcd)));
+        // 显示亮度调整图片，并根据当前亮度设置相应的图像
+    }else{
+        ui_pic_show_image_by_id(LIGHT_ADJ_PIC, 0);
+        // 如果设备未在充电，则隐藏亮度调整图片
+    }
 }
 
 static int rec_layout_up_onchange(void *ctr, enum element_change_event e, void *arg)
@@ -1892,6 +1935,12 @@ static int rec_layout_up_onchange(void *ctr, enum element_change_event e, void *
             // ui_show(ENC_ANI_REC_HL);  // 显示录像中的动画效果
             ui_highlight_element_by_id(ENC_PIC_REC);
         }
+        //  if(db_select("wfo")){  // 如果数据库查询“wfo”返回为真（即查询成功或有记录）
+        //     //ui_pic_show_image_by_id(PIC_REC_WIFI, wifi_app_flag);  // 根据wifi_app_flag显示WiFi图标对应的状态
+        //      ui_pic_show_image_by_id(PIC_REC_WIFI, 3);  // 根据wifi_app_flag显示WiFi图标对应的状态
+        // }else{
+        //     ui_pic_show_image_by_id(PIC_REC_WIFI, 0);
+        // }
 
         break;
 
@@ -2269,7 +2318,7 @@ static void no_power_msg_box_timer(void *priv)
  */
 static void battery_event_handler(struct sys_event *event, void *priv)
 {
-    static u8 ten_sec_off = 0; 
+    static u8 ten_sec_off = 0;
     // 静态变量，用于记录是否已经显示10秒的关机提示，如果值为1表示提示显示中
 
     if (ten_sec_off) {
@@ -2301,22 +2350,22 @@ static void battery_event_handler(struct sys_event *event, void *priv)
                 }
                 if (__this->battery_char == 0) {
                     // 如果没有在充电状态，更新电池显示为当前电量
-                    ui_battery_level_change(__this->battery_val, 0); 
+                    ui_battery_level_change(__this->battery_val, 0);
                 }
             } else if (event->u.dev.event == DEVICE_EVENT_POWER_CHARGER_IN) {
                 // 如果检测到充电器插入事件
                 ui_battery_level_change(100, 1); // 将电池显示更新为满电状态，充电中
                 __this->battery_char = 1; // 设置充电状态为1（正在充电）
-                if (ten_sec_off) {
-                    ten_sec_off = 0; // 取消10秒关机提示
-                    __rec_msg_hide(0); // 隐藏关机提示信息
-                }
+                // if (ten_sec_off) {
+                //     ten_sec_off = 0; // 取消10秒关机提示
+                //     __rec_msg_hide(0); // 隐藏关机提示信息
+                // }
             } else if (event->u.dev.event == DEVICE_EVENT_POWER_CHARGER_OUT) {
                 // 如果检测到充电器拔出事件
                 ui_battery_level_change(__this->battery_val, 0); // 更新电池电量为实际电量值，非充电状态
                 __this->battery_char = 0; // 设置充电状态为0（未充电）
-                __rec_msg_show(BOX_MSG_POWER_OFF, 0); // 显示关机提示信息
-                ten_sec_off = 1; // 开始10秒倒计时，标志关机提示显示中
+                // __rec_msg_show(BOX_MSG_POWER_OFF, 0); // 显示关机提示信息
+                // ten_sec_off = 1; // 开始10秒倒计时，标志关机提示显示中
             }
         }
     }
@@ -2348,8 +2397,9 @@ static int battery_rec_onchange(void *ctr, enum element_change_event e, void *ar
             __this->battery_val = 100; // 如果电量超过100%，则限制为100%
         }
 
-        // __this->battery_char = (usb_is_charging() ? 1 : 0); // 判断是否正在充电，设置充电状态
-
+        // 检查设备是否在充电状态，保存充电状态到__this结构体中
+        __this->battery_char = (usb_is_charging() ? 1 : 0); // 判断是否正在充电，设置充电状态
+        __this->battery_char = 0; // 判断是否正在充电，设置充电状态
         ui_battery_level_change(__this->battery_val, __this->battery_char); // 更新UI中的电池显示，电量值和充电状态
         timer_handle = sys_timer_add(NULL, no_power_msg_box_timer, 1000); // 添加一个定时器，每秒触发一次，用于定期检查
         break;
@@ -3401,7 +3451,9 @@ static int toggle_WIFI_ontouch(void *ctr, struct element_touch_event *e)
             ui_highlight_element_by_id(ENC_BTN_WIFI);
             ui_no_highlight_element_by_id(ENC_BTN_WIFI1);
             db_update("wfo", 1);
+            db_flush(); // 立即将数据写入数据库
             wifi_on();
+            ui_pic_show_image_by_id(PIC_REC_WIFI, 3);
 
     }
     return 1; // 返回1表示事件处理完成
@@ -3436,7 +3488,9 @@ static int toggle_WIFI1_ontouch(void *ctr, struct element_touch_event *e)
             ui_highlight_element_by_id(ENC_BTN_WIFI1);
             ui_no_highlight_element_by_id(ENC_BTN_WIFI);
             db_update("wfo", 0);
+            db_flush(); // 立即将数据写入数据库
             wifi_off();
+            ui_pic_show_image_by_id(PIC_REC_WIFI, 0);
 
     }
     return 1; // 返回1表示事件处理完成
@@ -3837,62 +3891,126 @@ REGISTER_UI_EVENT_HANDLER(ENC_BTN_RULER)
 
 
 /*********************************照明灯亮度调节***************************************************/
-
-
+static bool led1_on = false; // LED1状态，false表示熄灭，true表示亮起
+static bool led2_on = false; // LED2状态
 extern sys_pwm_ctrl(u8 ch, u8 duty_val);
 #define MAX_BRIGHTNESS_LEVEL 6  // 最大亮度级别为6（共7档，从0到6）
 #define BRIGHTNESS_STEP 1       // 每次增加1档
 #define MAX_CLICKS (MAX_BRIGHTNESS_LEVEL + 1) // 最大点击次数为7次（7档亮度）
-static int current_clicks = 0; // 记录当前点击次数
-static int brightness = 0;     // 记录当前亮度
+static bool is_led1_selected = true;   // true表示控制LED1，false表示控制LED2
+static int current_clicks_led1 = 0;    // LED1的当前点击次数
+static int brightness_led1 = 0;        // LED1的当前亮度
+static int current_clicks_led2 = 0;    // LED2的当前点击次数
+static int brightness_led2 = 0;        // LED2的当前亮度
+// 函数控制LED灯的状态
+void control_led1(bool state) {
+    if (state) {
+        sys_pwm_ctrl(6, 50); // LED1全亮，假设100为亮度值
+    } else {
+        sys_pwm_ctrl(6, 0);   // LED1熄灭
+    }
+}
+
+void control_led2(bool state) {
+    if (state) {
+        sys_pwm_ctrl(7, 50); // LED2全亮，假设100为亮度值
+    } else {
+        sys_pwm_ctrl(7, 0);   // LED2熄灭
+    }
+}
+
 // extern pwm_duty_cycle();
 static int screens_light_adjustment_ontouch(void *ctr, struct element_touch_event *e)
 {
     UI_ONTOUCH_DEBUG("**screen_light_adjustment_ontouch**"); // 调试信息，显示触摸事件
 
 
-    switch (e->event) { // 根据触摸事件类型进行处理
+     switch (e->event) {
     case ELM_EVENT_TOUCH_DOWN: // 触摸按下事件
         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
 
-        // 计算新的亮度值
-        current_clicks++;
-        if (current_clicks > MAX_BRIGHTNESS_LEVEL) {
-            current_clicks = 0; // 循环重置到初始状态
-        }
-        brightness = current_clicks * BRIGHTNESS_STEP; // 根据点击次数计算亮度
-        switch (brightness) {
-        case 0:
-            ui_pic_show_image_by_id(ENC_BL_1, 0);
-            sys_pwm_ctrl(7,0);
-            break;
-        case 1:
-            ui_pic_show_image_by_id(ENC_BL_1, 1);
-            sys_pwm_ctrl(7,50);
-            break;
-        case 2:
-            ui_pic_show_image_by_id(ENC_BL_1, 2);
-            sys_pwm_ctrl(7,60);
-            break;
-        case 3:
-            ui_pic_show_image_by_id(ENC_BL_1, 3);
-            sys_pwm_ctrl(7,70);
-            break;
-        case 4:
-            ui_pic_show_image_by_id(ENC_BL_1, 4);
-            sys_pwm_ctrl(7,75);
-            break;
-        case 5:
-            ui_pic_show_image_by_id(ENC_BL_1, 5);
-            sys_pwm_ctrl(7,80);
-            break;
-        case 6:
-            ui_pic_show_image_by_id(ENC_BL_1, 6);
-            break;
-        default:
-            break;
+        if (is_led1_selected) {//turn on led1
+            // LED1亮度调节逻辑
+            current_clicks_led1++;
+            if (current_clicks_led1 > MAX_BRIGHTNESS_LEVEL) {
+                current_clicks_led1 = 0; // 循环重置到初始状态
+            }
+            brightness_led1 = current_clicks_led1 * BRIGHTNESS_STEP; // 根据点击次数计算亮度
+            switch (brightness_led1) {
+            case 0:
+                ui_pic_show_image_by_id(ENC_BL_1, 0);
+                sys_pwm_ctrl(7, 0);  // LED1亮度0
+                break;
+            case 1:
+                ui_pic_show_image_by_id(ENC_BL_1, 1);
+                sys_pwm_ctrl(7, 50); // LED1亮度1
+                break;
+            case 2:
+                ui_pic_show_image_by_id(ENC_BL_1, 2);
+                sys_pwm_ctrl(7, 60); // LED1亮度2
+                break;
+            case 3:
+                ui_pic_show_image_by_id(ENC_BL_1, 3);
+                sys_pwm_ctrl(7, 70); // LED1亮度3
+                break;
+            case 4:
+                ui_pic_show_image_by_id(ENC_BL_1, 4);
+                sys_pwm_ctrl(7, 75); // LED1亮度4
+                break;
+            case 5:
+                ui_pic_show_image_by_id(ENC_BL_1, 5);
+                sys_pwm_ctrl(7, 80); // LED1亮度5
+                break;
+            case 6:
+                ui_pic_show_image_by_id(ENC_BL_1, 6);
+                sys_pwm_ctrl(7, 85); // LED1亮度6
+                break;
+            default:
+                break;
+            }
+        } else {
+            // LED2亮度调节逻辑
+            current_clicks_led2++;
+            if (current_clicks_led2 > MAX_BRIGHTNESS_LEVEL) {
+                current_clicks_led2 = 0; // 循环重置到初始状态
+            }
+            brightness_led2 = current_clicks_led2 * BRIGHTNESS_STEP; // 根据点击次数计算亮度
+            switch (brightness_led2) {
+            case 0:
+                ui_pic_show_image_by_id(ENC_BL_1, 0);
+                sys_pwm_ctrl(6, 0);  // LED2亮度0
+                break;
+            case 1:
+                ui_pic_show_image_by_id(ENC_BL_1, 1);
+                sys_pwm_ctrl(6, 50); // LED2亮度1
+                break;
+            case 2:
+                ui_pic_show_image_by_id(ENC_BL_1, 2);
+                sys_pwm_ctrl(6, 60); // LED2亮度2
+                break;
+            case 3:
+                ui_pic_show_image_by_id(ENC_BL_1, 3);
+                sys_pwm_ctrl(6, 70); // LED2亮度3
+                break;
+            case 4:
+                ui_pic_show_image_by_id(ENC_BL_1, 4);
+                sys_pwm_ctrl(6, 75); // LED2亮度4
+                break;
+            case 5:
+                ui_pic_show_image_by_id(ENC_BL_1, 5);
+                sys_pwm_ctrl(6, 80); // LED2亮度5
+                break;
+            case 6:
+                ui_pic_show_image_by_id(ENC_BL_1, 6);
+                sys_pwm_ctrl(6, 85); // LED2亮度6
+                break;
+            default:
+                break;
+            }
         }
         break;
+
+
 
     case ELM_EVENT_TOUCH_HOLD: // 触摸保持事件
         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_HOLD\n");
@@ -4818,6 +4936,22 @@ static int enc_onkey(void *ctr, struct element_key_event *e)//PB3.2按键版事�
         sys_key_event_takeover(false, true); // 系统键接管
         return true;
     }
+    if (e->event == KEY_EVENT_LONG && e->value == KEY_6) { // 长按LED键事件处理
+        // 切换LED状态
+        if (is_led1_selected) {
+            sys_pwm_ctrl(7, 0);
+            sys_pwm_ctrl(6, 50);
+            ui_pic_show_image_by_id(ENC_BL_1, 0);
+            is_led1_selected = false;
+        } else {
+            sys_pwm_ctrl(7, 50);
+            sys_pwm_ctrl(6, 0);
+            ui_pic_show_image_by_id(ENC_BL_1, 0);
+            is_led1_selected = true;
+        }
+        return true;
+    }
+
 
     if (e->event != KEY_EVENT_CLICK || __this->key_disable) { // 点击事件且键未禁用时处理
         return true;
@@ -4871,41 +5005,84 @@ static int enc_onkey(void *ctr, struct element_key_event *e)//PB3.2按键版事�
             key_voice_start(1);
         break;
         case KEY_6: // LED键处理
-            current_clicks++;
-        if (current_clicks > MAX_BRIGHTNESS_LEVEL) {
-            current_clicks = 0; // 循环重置到初始状态
-        }
-        brightness = current_clicks * BRIGHTNESS_STEP; // 根据点击次数计算亮度
-        switch (brightness) {
-        case 0:
-            ui_pic_show_image_by_id(ENC_BL_1, 0);
-            sys_pwm_ctrl(7,0);
-            break;
-        case 1:
-            ui_pic_show_image_by_id(ENC_BL_1, 1);
-            sys_pwm_ctrl(7,50);
-            break;
-        case 2:
-            ui_pic_show_image_by_id(ENC_BL_1, 2);
-            sys_pwm_ctrl(7,60);
-            break;
-        case 3:
-            ui_pic_show_image_by_id(ENC_BL_1, 3);
-            sys_pwm_ctrl(7,70);
-            break;
-        case 4:
-            ui_pic_show_image_by_id(ENC_BL_1, 4);
-            sys_pwm_ctrl(7,75);
-            break;
-        case 5:
-            ui_pic_show_image_by_id(ENC_BL_1, 5);
-            sys_pwm_ctrl(7,80);
-            break;
-        case 6:
-            ui_pic_show_image_by_id(ENC_BL_1, 6);
-            break;
-        default:
-            break;
+        if (is_led1_selected) {//turn on led1
+            // LED1亮度调节逻辑
+            current_clicks_led1++;
+            if (current_clicks_led1 > MAX_BRIGHTNESS_LEVEL) {
+                current_clicks_led1 = 0; // 循环重置到初始状态
+            }
+            brightness_led1 = current_clicks_led1 * BRIGHTNESS_STEP; // 根据点击次数计算亮度
+            switch (brightness_led1) {
+            case 0:
+                ui_pic_show_image_by_id(ENC_BL_1, 0);
+                sys_pwm_ctrl(7, 0);  // LED1亮度0
+                break;
+            case 1:
+                ui_pic_show_image_by_id(ENC_BL_1, 1);
+                sys_pwm_ctrl(7, 50); // LED1亮度1
+                break;
+            case 2:
+                ui_pic_show_image_by_id(ENC_BL_1, 2);
+                sys_pwm_ctrl(7, 60); // LED1亮度2
+                break;
+            case 3:
+                ui_pic_show_image_by_id(ENC_BL_1, 3);
+                sys_pwm_ctrl(7, 70); // LED1亮度3
+                break;
+            case 4:
+                ui_pic_show_image_by_id(ENC_BL_1, 4);
+                sys_pwm_ctrl(7, 75); // LED1亮度4
+                break;
+            case 5:
+                ui_pic_show_image_by_id(ENC_BL_1, 5);
+                sys_pwm_ctrl(7, 80); // LED1亮度5
+                break;
+            case 6:
+                ui_pic_show_image_by_id(ENC_BL_1, 6);
+                sys_pwm_ctrl(7, 85); // LED1亮度6
+                break;
+            default:
+                break;
+            }
+        } else {
+            // LED2亮度调节逻辑
+            current_clicks_led2++;
+            if (current_clicks_led2 > MAX_BRIGHTNESS_LEVEL) {
+                current_clicks_led2 = 0; // 循环重置到初始状态
+            }
+            brightness_led2 = current_clicks_led2 * BRIGHTNESS_STEP; // 根据点击次数计算亮度
+            switch (brightness_led2) {
+            case 0:
+                ui_pic_show_image_by_id(ENC_BL_1, 0);
+                sys_pwm_ctrl(6, 0);  // LED2亮度0
+                break;
+            case 1:
+                ui_pic_show_image_by_id(ENC_BL_1, 1);
+                sys_pwm_ctrl(6, 50); // LED2亮度1
+                break;
+            case 2:
+                ui_pic_show_image_by_id(ENC_BL_1, 2);
+                sys_pwm_ctrl(6, 60); // LED2亮度2
+                break;
+            case 3:
+                ui_pic_show_image_by_id(ENC_BL_1, 3);
+                sys_pwm_ctrl(6, 70); // LED2亮度3
+                break;
+            case 4:
+                ui_pic_show_image_by_id(ENC_BL_1, 4);
+                sys_pwm_ctrl(6, 75); // LED2亮度4
+                break;
+            case 5:
+                ui_pic_show_image_by_id(ENC_BL_1, 5);
+                sys_pwm_ctrl(6, 80); // LED2亮度5
+                break;
+            case 6:
+                ui_pic_show_image_by_id(ENC_BL_1, 6);
+                sys_pwm_ctrl(6, 85); // LED2亮度6
+                break;
+            default:
+                break;
+            }
         }
             break;
         case KEY_7: // 菜单按键
@@ -5408,6 +5585,8 @@ REGISTER_UI_EVENT_HANDLER(ENC_WIN)
 .onchange = enc_onchange,
  .onkey = enc_onkey,
 };
+
+
 
 static int enc_car_pos_onchange(void *ctr, enum element_change_event e, void *arg)
 {
@@ -6435,7 +6614,7 @@ REGISTER_UI_EVENT_HANDLER(BTN_DFT_PT)
 // extern void video_set_disp_window_with_aspect_ratio(float aspect_ratio); // 裁剪函数
 extern void set_display_window(int aspect_ratio);
 extern void set_display_crop(int aspect_ratio);
-extern void video_disp_stop(int id);  
+extern void video_disp_stop(int id);
 static int set_aspect_ratio_16_9_ontouch(void *ctr, struct element_touch_event *e)
 {
     UI_ONTOUCH_DEBUG("**set aspect ratio to 16:9 ontouch**\n");
@@ -6457,7 +6636,7 @@ static int set_aspect_ratio_16_9_ontouch(void *ctr, struct element_touch_event *
         // video_set_disp_window_with_aspect_ratio(16.0f / 9.0f);  // 调用裁剪函数，设置16:9
         set_display_window(0); // 设置显示窗口
         set_display_crop(0);  // 设置裁剪 16:9
-        
+
         break;
     default:
         return false;
@@ -6492,7 +6671,7 @@ static int set_aspect_ratio_4_3_ontouch(void *ctr, struct element_touch_event *e
         // video_set_disp_window_with_aspect_ratio(4.0f / 3.0f);  // 调用裁剪函数，设置4:3
         set_display_window(1); // 设置显示窗口
         set_display_crop(1);  // 设置裁剪 4:3
-        
+
         break;
     default:
         return false;
@@ -6527,7 +6706,7 @@ static int set_aspect_ratio_1_1_ontouch(void *ctr, struct element_touch_event *e
         // video_set_disp_window_with_aspect_ratio(1.0f);  // 调用裁剪函数，设置1:1
         set_display_window(2); // 设置显示窗口
         set_display_crop(2);  // 设置裁剪 1:1
-        
+
         break;
     default:
         return false;

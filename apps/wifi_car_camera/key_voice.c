@@ -619,6 +619,7 @@ void key_voice_start(int id)
 
 
     if (bindex == 0xff) {
+        // printf("bindexxxxxxxxxxxxx=%d\n", bindex);
         dev_ioctl(dev, AUDIOC_STREAM_ON, (u32)&bindex);
     }
 }

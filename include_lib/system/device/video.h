@@ -64,12 +64,13 @@ enum video_rec_quality {
 };
 
 enum video_camera_type {
-    VIDEO_CAMERA_NORMAL = 0,
-    VIDEO_CAMERA_UVC,
-    VIDEO_CAMERA_VIRTUAL,
-    VIDEO_CAMERA_JLC,
-    VIDEO_CAMERA_MUX,
+    VIDEO_CAMERA_NORMAL = 0,   // 普通摄像头
+    VIDEO_CAMERA_UVC,          // UVC (USB Video Class) 摄像头
+    VIDEO_CAMERA_VIRTUAL,      // 虚拟摄像头
+    VIDEO_CAMERA_JLC,          // JLC 摄像头（可能是特定品牌或型号）
+    VIDEO_CAMERA_MUX,          // 多路复用摄像头
 };
+
 
 struct YUV_frame_data {
     u16 width;

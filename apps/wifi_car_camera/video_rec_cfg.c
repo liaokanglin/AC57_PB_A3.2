@@ -196,15 +196,15 @@ static int lane_det_set_function(u32 parm)
     return 0;
 }
 
-void video_rec_fun_restore(u32 parm)
-{
-    if (get_default_setting_st()) {
-        clear_default_setting_st();
+// void video_rec_fun_restore(u32 parm)
+// {
+//     if (get_default_setting_st()) {
+//         clear_default_setting_st();
 
-        gra_set_function(db_select("gra"));
-        ve_server_reopen();
-    }
-}
+//         gra_set_function(db_select("gra"));
+//         ve_server_reopen();
+//     }
+// }
 
 /*
  * 在此处添加所需配置即可

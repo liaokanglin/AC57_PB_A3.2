@@ -6189,7 +6189,7 @@
 	"generic/list.h"
 	"system/event.h"
 
-1690943448 e:\project\pb-a3.2\include_lib\system\database.h
+1729648124 e:\project\pb-a3.2\include_lib\system\database.h
 	"typedef.h"
 
 1690943448 e:\project\pb-a3.2\include_lib\system\fs\fs.h
@@ -6286,7 +6286,7 @@
 	"os/os_api.h"
 	<pthread.h>
 
-1690943448 e:\project\pb-a3.2\include_lib\system\device\video.h
+1729914271 e:\project\pb-a3.2\include_lib\system\device\video.h
 	"video/video_ioctl.h"
 	"device/device.h"
 
@@ -6857,7 +6857,7 @@
 	"storage_device.h"
 	"asm/lcd_config.h"
 
-1724901024 e:\project\pb-a3.2\include_lib\server\video_server.h
+1729909843 e:\project\pb-a3.2\include_lib\server\video_server.h
 	"server/server_core.h"
 	"server/vpkg_server.h"
 	"system/includes.h"
@@ -6870,7 +6870,7 @@
 	"server/server_core.h"
 	"system/includes.h"
 
-1729321023 e:\project\pb-a3.2\apps\wifi_car_camera\include\video_rec.h
+1729823275 e:\project\pb-a3.2\apps\wifi_car_camera\include\video_rec.h
 	"system/includes.h"
 	"server/video_server.h"
 	"app_config.h"
@@ -7066,7 +7066,7 @@
 	"system/includes.h"
 	"generic/log.h"
 
-1729155878 source:e:\project\pb-a3.2\apps\wifi_car_camera\app_database.c
+1729668052 source:e:\project\pb-a3.2\apps\wifi_car_camera\app_database.c
 	"system/includes.h"
 	"res.h"
 	"app_database.h"
@@ -7074,7 +7074,7 @@
 
 1727076353 e:\project\pb-a3.2\include_lib\ui\res\res.h
 
-1729324595 source:e:\project\pb-a3.2\apps\wifi_car_camera\app_main.c
+1729924664 source:e:\project\pb-a3.2\apps\wifi_car_camera\app_main.c
 	"system/includes.h"
 	"server/ui_server.h"
 	"action.h"
@@ -7103,7 +7103,7 @@
 	"style_jl02.h"
 	"style_ly.h"
 
-1729234705 e:\project\pb-a3.2\apps\wifi_car_camera\include\style_jl02.h
+1729825246 e:\project\pb-a3.2\apps\wifi_car_camera\include\style_jl02.h
 
 1690943448 e:\project\pb-a3.2\apps\wifi_car_camera\include\style_ly.h
 
@@ -7158,7 +7158,7 @@
 1729326629 e:\project\pb-a3.2\apps\wifi_car_camera\wifi\wifi_car_camera\include\net_config.h
 	"app_config.h"
 
-1727144645 source:e:\project\pb-a3.2\apps\wifi_car_camera\backlight.c
+1729601498 source:e:\project\pb-a3.2\apps\wifi_car_camera\backlight.c
 	"device/lcd_driver.h"
 	"system/includes.h"
 	"ui/includes.h"
@@ -7207,7 +7207,7 @@
 
 1690943448 e:\project\pb-a3.2\apps\wifi_car_camera\include\stk8312.h
 
-1728721769 source:e:\project\pb-a3.2\apps\wifi_car_camera\key_voice.c
+1729762684 source:e:\project\pb-a3.2\apps\wifi_car_camera\key_voice.c
 	"system/includes.h"
 	"server/audio_server.h"
 	"server/video_dec_server.h"
@@ -7274,7 +7274,7 @@
 	"system/includes.h"
 	"app_database.h"
 
-1729321156 source:e:\project\pb-a3.2\apps\wifi_car_camera\ui\style_jl02\ui_action_rec.c
+1729740476 source:e:\project\pb-a3.2\apps\wifi_car_camera\ui\style_jl02\ui_action_rec.c
 	"ui/includes.h"
 	"server/ui_server.h"
 	"style.h"
@@ -7458,7 +7458,7 @@
 	"app_config.h"
 	"storage_device.h"
 
-1728360514 source:e:\project\pb-a3.2\apps\wifi_car_camera\video_photo.c
+1729740476 source:e:\project\pb-a3.2\apps\wifi_car_camera\video_photo.c
 	"system/includes.h"
 	"server/video_server.h"
 	"server/video_dec_server.h"
@@ -7494,7 +7494,7 @@
 	"user_isp_cfg.h"
 	"app_database.h"
 
-1729327433 source:e:\project\pb-a3.2\apps\wifi_car_camera\video_rec.c
+1729824024 source:e:\project\pb-a3.2\apps\wifi_car_camera\video_rec.c
 	"system/includes.h"
 	"server/ui_server.h"
 	"server/video_server.h"
@@ -7534,7 +7534,7 @@
 
 1690943448 e:\project\pb-a3.2\apps\wifi_car_camera\wifi\wifi_car_camera\include\video_bitrate_ctrl.h
 
-1690943448 source:e:\project\pb-a3.2\apps\wifi_car_camera\video_rec_cfg.c
+1729925121 source:e:\project\pb-a3.2\apps\wifi_car_camera\video_rec_cfg.c
 	"system/includes.h"
 	"server/ui_server.h"
 	"server/video_server.h"
@@ -7613,7 +7613,7 @@
 1690943448 source:e:\project\pb-a3.2\apps\wifi_car_camera\wifi\wifi-tools\wl_sta_conf.c
 	<string.h>
 
-1727099866 source:e:\project\pb-a3.2\apps\wifi_car_camera\wifi\wifi_car_camera\ctp_cmd.c
+1729564868 source:e:\project\pb-a3.2\apps\wifi_car_camera\wifi\wifi_car_camera\ctp_cmd.c
 	"net_video_rec.h"
 	"video_rec.h"
 	"server/ctp_server.h"
@@ -7722,7 +7722,7 @@
 	"asm/clock.h"
 	"generic/jiffies.h"
 
-1729326949 source:e:\project\pb-a3.2\apps\wifi_car_camera\wifi\wifi_car_camera\net_video_rec.c
+1729564766 source:e:\project\pb-a3.2\apps\wifi_car_camera\wifi\wifi_car_camera\net_video_rec.c
 	"system/includes.h"
 	"stream_core.h"
 	"server/ui_server.h"
@@ -7911,7 +7911,7 @@
 	"generic/list.h"
 	"net_config.h"
 
-1690943448 source:e:\project\pb-a3.2\apps\wifi_car_camera\wifi\wifi_car_camera\wifi_app_task.c
+1729564784 source:e:\project\pb-a3.2\apps\wifi_car_camera\wifi\wifi_car_camera\wifi_app_task.c
 	"server/wifi_connect.h"
 	"lwip/sockets.h"
 	"lwip/netdb.h"
@@ -8450,7 +8450,7 @@
 	"gpio.h"
 	"os/os_compat.h"
 
-1729320530 source:e:\project\pb-a3.2\cpu\dv17\power_inf.c
+1729665306 source:e:\project\pb-a3.2\cpu\dv17\power_inf.c
 	"device/device.h"
 	"device/key_driver.h"
 	"timer.h"
@@ -8465,7 +8465,7 @@
 	"generic/ascii.h"
 	"asm/gpio.h"
 
-1729303194 source:e:\project\pb-a3.2\cpu\dv17\setup.c
+1729605940 source:e:\project\pb-a3.2\cpu\dv17\setup.c
 	"asm/includes.h"
 	"asm/sysinfo.h"
 	"asm/ldo.h"
@@ -8484,7 +8484,7 @@
 	"system/event.h"
 	"asm/uart.h"
 
-1729303313 source:e:\project\pb-a3.2\cpu\dv17\board\board_dev_wifi_5701_20241108.c
+1729764790 source:e:\project\pb-a3.2\cpu\dv17\board\board_dev_wifi_5701_20241108.c
 	"system/includes.h"
 	"app_config.h"
 	"gSensor_manage.h"
@@ -8515,7 +8515,7 @@
 	"asm/gpio.h"
 	"system/init.h"
 
-1727661105 source:e:\project\pb-a3.2\cpu\dv17\adkey1.c
+1729515744 source:e:\project\pb-a3.2\cpu\dv17\adkey1.c
 	"asm/adkey.h"
 	"asm/adc.h"
 	"generic/gpio.h"
