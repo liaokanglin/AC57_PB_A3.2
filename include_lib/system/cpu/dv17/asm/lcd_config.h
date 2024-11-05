@@ -53,7 +53,7 @@
 #define LCD_DEV_HIGHT   800
 #endif
 
-#if (defined LCD_DSI_VDO_4LANE_1280x800_RP_CH)
+#if (defined LCD_DSI_VDO_4LANE_1280x800_RP_X)
 #define LCD_DEV_WIDTH   1280
 #define LCD_DEV_HIGHT   800
 #endif

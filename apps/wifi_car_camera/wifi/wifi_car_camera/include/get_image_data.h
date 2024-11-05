@@ -9,6 +9,7 @@ typedef struct {
 
     int pid;
     int exit_state;
+    char *camera_name; // 添加摄像头名称字段
     void (*cb)(u8 *data) ;
 } get_yuv_cfg;
 

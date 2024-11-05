@@ -746,9 +746,6 @@
 		<Unit filename="cpu/dv17/mipi_lcd_driver/1280x800_RP.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="cpu/dv17/mipi_lcd_driver/1280x800_RP_ch.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="cpu/dv17/mipi_lcd_driver/dsi_dcs_1lane_16bit.c">
 			<Option compilerVar="CC" />
 		</Unit>

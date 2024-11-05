@@ -1,2 +1,4 @@
-dsfvxc.png|E:/Project/PB-A3.2/UI工程/ui_1280x800_touch_screen/模式界面/project/config/UI_1280_480/ruipin/20240804/dsfvxc.pngbaskslash equal zero else
-config/UI_1280_480/ruipin/20240804/dsfvxc.png
+hd2.png|E:/Project/PB-A3.2/UI工程/ui_1280x800_touch_screen/模式界面/project/config/UI_1280_480/20240905/hd2.pngbaskslash equal zero else
+config/UI_1280_480/20240905/hd2.png
+hd1.png|E:/Project/PB-A3.2/UI工程/ui_1280x800_touch_screen/模式界面/project/config/UI_1280_480/20240905/hd1.pngbaskslash equal zero else
+config/UI_1280_480/20240905/hd1.png

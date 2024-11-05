@@ -6,7 +6,7 @@
 #include "asm/pwm.h"
 #include "system/includes.h"
 
-#ifdef LCD_DSI_VDO_4LANE_1280x800_RP_CH
+#ifdef LCD_DSI_VDO_4LANE_1280x800_RP_X
 
 #define freq 394
 

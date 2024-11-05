@@ -645,7 +645,7 @@ static int video_audio_key_event_handler(struct key_event *key)
     switch (key->event) {
     case KEY_EVENT_CLICK:
         switch (key->value) {
-        case KEY_OK:
+        // case KEY_OK:
 //             puts("audio key ok\n");
 
 // #if 1

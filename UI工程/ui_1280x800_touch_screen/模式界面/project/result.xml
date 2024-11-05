@@ -4,181 +4,12 @@
         <Page id="0">
             <ColorList>
                 <Color id="0">55AAA5</Color>
-                <Color id="1">212121</Color>
-                <Color id="2">000000</Color>
-                <Color id="3">FFC046</Color>
-                <Color id="4">FFFFFF</Color>
-                <Color id="5">4B4B4B</Color>
-                <Color id="6">4C4C4C</Color>
-                <Color id="7">4D4D4D</Color>
-                <Color id="8">4E4E4E</Color>
-                <Color id="9">4F4F4F</Color>
-                <Color id="10">505050</Color>
-                <Color id="11">515151</Color>
-                <Color id="12">525252</Color>
-                <Color id="13">535353</Color>
-                <Color id="14">545454</Color>
-                <Color id="15">555555</Color>
-                <Color id="16">565656</Color>
-                <Color id="17">575757</Color>
-                <Color id="18">585858</Color>
-                <Color id="19">595959</Color>
-                <Color id="20">5A5A5A</Color>
-                <Color id="21">5B5B5B</Color>
-                <Color id="22">5C5C5C</Color>
-                <Color id="23">606060</Color>
-                <Color id="24">616161</Color>
-                <Color id="25">626262</Color>
-                <Color id="26">666666</Color>
-                <Color id="27">686868</Color>
-                <Color id="28">696969</Color>
-                <Color id="29">6A6A6A</Color>
-                <Color id="30">6B6B6B</Color>
-                <Color id="31">6C6C6C</Color>
-                <Color id="32">6D6D6D</Color>
-                <Color id="33">6E6E6E</Color>
-                <Color id="34">727272</Color>
-                <Color id="35">737373</Color>
-                <Color id="36">747474</Color>
-                <Color id="37">757575</Color>
-                <Color id="38">7A7A7A</Color>
-                <Color id="39">7C7C7C</Color>
-                <Color id="40">7D7D7D</Color>
-                <Color id="41">7E7E7E</Color>
-                <Color id="42">7F7F7F</Color>
-                <Color id="43">808080</Color>
-                <Color id="44">818181</Color>
-                <Color id="45">828282</Color>
-                <Color id="46">838383</Color>
-                <Color id="47">858585</Color>
-                <Color id="48">878787</Color>
-                <Color id="49">888888</Color>
-                <Color id="50">898989</Color>
-                <Color id="51">8A8A8A</Color>
-                <Color id="52">8B8B8B</Color>
-                <Color id="53">8C8C8C</Color>
-                <Color id="54">8E8E8E</Color>
-                <Color id="55">8F8F8F</Color>
-                <Color id="56">949494</Color>
-                <Color id="57">959595</Color>
-                <Color id="58">969696</Color>
-                <Color id="59">979797</Color>
-                <Color id="60">989898</Color>
-                <Color id="61">999999</Color>
-                <Color id="62">9A9A9A</Color>
-                <Color id="63">9B9B9B</Color>
-                <Color id="64">9C9C9C</Color>
-                <Color id="65">9F9F9F</Color>
-                <Color id="66">A0A0A0</Color>
-                <Color id="67">A1A1A1</Color>
-                <Color id="68">A2A2A2</Color>
-                <Color id="69">A3A3A3</Color>
-                <Color id="70">A4A4A4</Color>
-                <Color id="71">A5A5A5</Color>
-                <Color id="72">A6A6A6</Color>
-                <Color id="73">A7A7A7</Color>
-                <Color id="74">A8A8A8</Color>
-                <Color id="75">ACACAC</Color>
-                <Color id="76">ADADAD</Color>
-                <Color id="77">AFAFAF</Color>
-                <Color id="78">B1B1B1</Color>
-                <Color id="79">B2B2B2</Color>
-                <Color id="80">B3B3B3</Color>
-                <Color id="81">B4B4B4</Color>
-                <Color id="82">B5B5B5</Color>
-                <Color id="83">B6B6B6</Color>
-                <Color id="84">B7B7B7</Color>
-                <Color id="85">B8B8B8</Color>
-                <Color id="86">B9B9B9</Color>
-                <Color id="87">BBBBBB</Color>
-                <Color id="88">BCBCBC</Color>
-                <Color id="89">BDBDBD</Color>
-                <Color id="90">BEBEBE</Color>
-                <Color id="91">BFBFBF</Color>
-                <Color id="92">C0C0C0</Color>
-                <Color id="93">C2C2C2</Color>
-                <Color id="94">C5C5C5</Color>
-                <Color id="95">C9C9C9</Color>
-                <Color id="96">CACACA</Color>
-                <Color id="97">CBCBCB</Color>
-                <Color id="98">CCCCCC</Color>
-                <Color id="99">CDCDCD</Color>
-                <Color id="100">CECECE</Color>
-                <Color id="101">D2D2D2</Color>
-                <Color id="102">D3D3D3</Color>
-                <Color id="103">D4D4D4</Color>
-                <Color id="104">D5D5D5</Color>
-                <Color id="105">D6D6D6</Color>
-                <Color id="106">D7D7D7</Color>
-                <Color id="107">DDDDDD</Color>
-                <Color id="108">DEDEDE</Color>
-                <Color id="109">DFDFDF</Color>
-                <Color id="110">E0E0E0</Color>
-                <Color id="111">E1E1E1</Color>
-                <Color id="112">E2E2E2</Color>
-                <Color id="113">E3E3E3</Color>
-                <Color id="114">E6E6E6</Color>
-                <Color id="115">E7E7E7</Color>
-                <Color id="116">E8E8E8</Color>
-                <Color id="117">E9E9E9</Color>
-                <Color id="118">EAEAEA</Color>
-                <Color id="119">ECECEC</Color>
-                <Color id="120">EDEDED</Color>
-                <Color id="121">EFEFEF</Color>
-                <Color id="122">F0F0F0</Color>
-                <Color id="123">F1F1F1</Color>
-                <Color id="124">F2F2F2</Color>
-                <Color id="125">F3F3F3</Color>
-                <Color id="126">F4F4F4</Color>
-                <Color id="127">F5F5F5</Color>
-                <Color id="128">F6F6F6</Color>
-                <Color id="129">F7F7F7</Color>
-                <Color id="130">F8F8F8</Color>
-                <Color id="131">F9F9F9</Color>
-                <Color id="132">FBFBFB</Color>
-                <Color id="133">FCFCFC</Color>
-                <Color id="134">FDFDFD</Color>
-                <Color id="135">FEFEFE</Color>
-            </ColorList>
-            <PictureList>
-                <Picture fmt="OSD8" id="1">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\初始界面\数字大号\NUM_.png</Picture>
-                <Picture fmt="OSD8" id="2">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\初始界面\数字大号\NUM_0.png</Picture>
-                <Picture fmt="OSD8" id="3">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\初始界面\数字大号\NUM_1.png</Picture>
-                <Picture fmt="OSD8" id="4">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\初始界面\数字大号\NUM_2.png</Picture>
-                <Picture fmt="OSD8" id="5">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\初始界面\数字大号\NUM_3.png</Picture>
-                <Picture fmt="OSD8" id="6">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\初始界面\数字大号\NUM_4.png</Picture>
-                <Picture fmt="OSD8" id="7">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\初始界面\数字大号\NUM_5.png</Picture>
-                <Picture fmt="OSD8" id="8">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\初始界面\数字大号\NUM_6.png</Picture>
-                <Picture fmt="OSD8" id="9">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\初始界面\数字大号\NUM_7.png</Picture>
-                <Picture fmt="OSD8" id="10">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\初始界面\数字大号\NUM_8.png</Picture>
-                <Picture fmt="OSD8" id="11">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\初始界面\数字大号\NUM_9.png</Picture>
-                <Picture fmt="OSD8" id="12">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\初始界面\数字大号\NUM_n.png</Picture>
-                <Picture fmt="OSD8" id="13">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\pop_up_window.png</Picture>
-            </PictureList>
-            <CellList>
-                <Cell id="1">m1</Cell>
-                <Cell id="2">m2</Cell>
-                <Cell id="3">m3</Cell>
-                <Cell id="4">m4</Cell>
-                <Cell id="5">m5</Cell>
-                <Cell id="6">m6</Cell>
-                <Cell id="7">m7</Cell>
-                <Cell id="8">m8</Cell>
-                <Cell id="9">m9</Cell>
-                <Cell id="10">m10</Cell>
-                <Cell id="127">tip2</Cell>
-                <Cell id="141">tip16</Cell>
-            </CellList>
-        </Page>
-        <Page id="1">
-            <ColorList>
-                <Color id="0">55AAA5</Color>
-                <Color id="1">FFFFFF</Color>
-                <Color id="2">0D0C0C</Color>
-                <Color id="3">000000</Color>
-                <Color id="4">323232</Color>
-                <Color id="5">717171</Color>
-                <Color id="6">4D4747</Color>
+                <Color id="1">717171</Color>
+                <Color id="2">4D4747</Color>
+                <Color id="3">FFFFFF</Color>
+                <Color id="4">0D0C0C</Color>
+                <Color id="5">000000</Color>
+                <Color id="6">323232</Color>
                 <Color id="7">010202</Color>
                 <Color id="8">00060E</Color>
                 <Color id="9">03080D</Color>
@@ -255,7 +86,7 @@
                 <Color id="80">41444D</Color>
                 <Color id="81">454B4D</Color>
                 <Color id="82">494545</Color>
-                <Color id="83">4A4A4A</Color>
+                <Color id="83">4B4B4B</Color>
                 <Color id="84">414653</Color>
                 <Color id="85">4D515B</Color>
                 <Color id="86">544849</Color>
@@ -336,7 +167,7 @@
                 <Color id="161">E51010</Color>
                 <Color id="162">FE0301</Color>
                 <Color id="163">FF110D</Color>
-                <Color id="164">FF1915</Color>
+                <Color id="164">FF1A15</Color>
                 <Color id="165">FF221D</Color>
                 <Color id="166">E83D3D</Color>
                 <Color id="167">F72C2A</Color>
@@ -358,7 +189,7 @@
                 <Color id="183">E85454</Color>
                 <Color id="184">FE4646</Color>
                 <Color id="185">FF504E</Color>
-                <Color id="186">FE5452</Color>
+                <Color id="186">FE5453</Color>
                 <Color id="187">FF605E</Color>
                 <Color id="188">EB7C7C</Color>
                 <Color id="189">FE6867</Color>
@@ -373,7 +204,7 @@
                 <Color id="198">899799</Color>
                 <Color id="199">948383</Color>
                 <Color id="200">949494</Color>
-                <Color id="201">888FA0</Color>
+                <Color id="201">898FA0</Color>
                 <Color id="202">8C94A5</Color>
                 <Color id="203">989CA6</Color>
                 <Color id="204">89A3A3</Color>
@@ -401,7 +232,7 @@
                 <Color id="226">D9B6B6</Color>
                 <Color id="227">E68989</Color>
                 <Color id="228">E89595</Color>
-                <Color id="229">FE8887</Color>
+                <Color id="229">FE8888</Color>
                 <Color id="230">FF908F</Color>
                 <Color id="231">FE9696</Color>
                 <Color id="232">FFA09F</Color>
@@ -424,184 +255,191 @@
                 <Color id="249">DCF8F8</Color>
                 <Color id="250">E6C7C7</Color>
                 <Color id="251">E5D8D8</Color>
-                <Color id="252">FEC7C7</Color>
-                <Color id="253">FED8D8</Color>
+                <Color id="252">FEC7C6</Color>
+                <Color id="253">FED9D9</Color>
                 <Color id="254">ECECEC</Color>
                 <Color id="255">E3ECFF</Color>
             </ColorList>
             <PictureList>
-                <Picture fmt="OSD8" id="1">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\+3.png</Picture>
-                <Picture fmt="OSD8" id="2">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\-1.png</Picture>
-                <Picture fmt="OSD8" id="3">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\-2.png</Picture>
-                <Picture fmt="OSD8" id="4">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\-3.png</Picture>
-                <Picture fmt="OSD8" id="5">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\0.png</Picture>
-                <Picture fmt="OSD8" id="6">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\0.png</Picture>
-                <Picture fmt="OSD8" id="7">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\00.png</Picture>
-                <Picture fmt="OSD8" id="8">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241009\0d.png</Picture>
-                <Picture fmt="OSD8" id="9">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\0d.png</Picture>
-                <Picture fmt="OSD8" id="10">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\1.png</Picture>
-                <Picture fmt="OSD8" id="11">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\1.png</Picture>
-                <Picture fmt="OSD8" id="12">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\1.png</Picture>
-                <Picture fmt="OSD8" id="13">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\01.png</Picture>
-                <Picture fmt="OSD8" id="14">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241009\1d.png</Picture>
-                <Picture fmt="OSD8" id="15">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\1d.png</Picture>
-                <Picture fmt="OSD8" id="16">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\2.png</Picture>
-                <Picture fmt="OSD8" id="17">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\2.png</Picture>
-                <Picture fmt="OSD8" id="18">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\2.png</Picture>
-                <Picture fmt="OSD8" id="19">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\02.png</Picture>
-                <Picture fmt="OSD8" id="20">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241009\2d.png</Picture>
-                <Picture fmt="OSD8" id="21">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\2d.png</Picture>
-                <Picture fmt="OSD8" id="22">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\2kuang.png</Picture>
-                <Picture fmt="OSD8" id="23">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\2kuang2.png</Picture>
-                <Picture fmt="OSD8" id="24">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\3.png</Picture>
-                <Picture fmt="OSD8" id="25">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\3.png</Picture>
-                <Picture fmt="OSD8" id="26">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\3.png</Picture>
-                <Picture fmt="OSD8" id="27">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\3d.png</Picture>
-                <Picture fmt="OSD8" id="28">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\3kuang.png</Picture>
-                <Picture fmt="OSD8" id="29">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\3kuang3.png</Picture>
-                <Picture fmt="OSD8" id="30">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\4.png</Picture>
-                <Picture fmt="OSD8" id="31">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\4.png</Picture>
-                <Picture fmt="OSD8" id="32">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\4.png</Picture>
-                <Picture fmt="OSD8" id="33">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\4d.png</Picture>
-                <Picture fmt="OSD8" id="34">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241009\4d.png</Picture>
-                <Picture fmt="OSD8" id="35">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\4kuang.png</Picture>
-                <Picture fmt="OSD8" id="36">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\4kuang4.png</Picture>
-                <Picture fmt="OSD8" id="37">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\5.png</Picture>
-                <Picture fmt="OSD8" id="38">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\5.png</Picture>
-                <Picture fmt="OSD8" id="39">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\5.png</Picture>
-                <Picture fmt="OSD8" id="40">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241009\5d.png</Picture>
-                <Picture fmt="OSD8" id="41">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\5d.png</Picture>
-                <Picture fmt="OSD8" id="42">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\6.png</Picture>
-                <Picture fmt="OSD8" id="43">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\6.png</Picture>
-                <Picture fmt="OSD8" id="44">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\6.png</Picture>
-                <Picture fmt="OSD8" id="45">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\7.png</Picture>
-                <Picture fmt="OSD8" id="46">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\7.png</Picture>
-                <Picture fmt="OSD8" id="47">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\8.png</Picture>
-                <Picture fmt="OSD8" id="48">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\8.png</Picture>
-                <Picture fmt="OSD8" id="49">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\9.png</Picture>
-                <Picture fmt="OSD8" id="50">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\9.png</Picture>
-                <Picture fmt="OSD8" id="51">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\43r4ewr.png</Picture>
-                <Picture fmt="OSD8" id="52">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\2432r43r3.png</Picture>
-                <Picture fmt="OSD8" id="53">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\4324e.png</Picture>
-                <Picture fmt="OSD8" id="54">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\4324ew.png</Picture>
-                <Picture fmt="OSD8" id="55">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\ad.png</Picture>
-                <Picture fmt="OSD8" id="56">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241009\ADD.png</Picture>
-                <Picture fmt="OSD8" id="57">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\AE.png</Picture>
-                <Picture fmt="OSD8" id="58">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\AE1.png</Picture>
-                <Picture fmt="OSD8" id="59">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\BC01.png</Picture>
-                <Picture fmt="OSD8" id="60">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\BC02.png</Picture>
-                <Picture fmt="OSD8" id="61">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\CD11.png</Picture>
-                <Picture fmt="OSD8" id="62">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\d1.png</Picture>
-                <Picture fmt="OSD8" id="63">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\d2.png</Picture>
-                <Picture fmt="OSD8" id="64">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\d3.png</Picture>
-                <Picture fmt="OSD8" id="65">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\d4.png</Picture>
-                <Picture fmt="OSD8" id="66">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\d5.png</Picture>
-                <Picture fmt="OSD8" id="67">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\d6.png</Picture>
-                <Picture fmt="OSD8" id="68">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\d7.png</Picture>
-                <Picture fmt="OSD8" id="69">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\ddd.png</Picture>
-                <Picture fmt="OSD8" id="70">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Deutsch1.png</Picture>
-                <Picture fmt="OSD8" id="71">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Deutsch2.png</Picture>
-                <Picture fmt="OSD8" id="72">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dfsfvxcv.png</Picture>
-                <Picture fmt="OSD8" id="73">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dianchi.png</Picture>
-                <Picture fmt="OSD8" id="74">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dianchi1.png</Picture>
-                <Picture fmt="OSD8" id="75">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dianchi2.png</Picture>
-                <Picture fmt="OSD8" id="76">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dianchi3.png</Picture>
-                <Picture fmt="OSD8" id="77">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dianchi4.png</Picture>
-                <Picture fmt="OSD8" id="78">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dsc.png</Picture>
-                <Picture fmt="OSD8" id="79">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dsfdxf.png</Picture>
-                <Picture fmt="OSD8" id="80">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dsff.png</Picture>
-                <Picture fmt="OSD8" id="81">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dsfvxc.png</Picture>
-                <Picture fmt="OSD8" id="82">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dsfxd.png</Picture>
-                <Picture fmt="OSD8" id="83">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\English1.png</Picture>
-                <Picture fmt="OSD8" id="84">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\English2.png</Picture>
-                <Picture fmt="OSD8" id="85">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240807\erjicaidanxiahuax.png</Picture>
-                <Picture fmt="OSD8" id="86">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\图标\ers.png</Picture>
-                <Picture fmt="OSD8" id="87">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\esdf.png</Picture>
-                <Picture fmt="OSD8" id="88">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\esfd.png</Picture>
-                <Picture fmt="OSD8" id="89">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\esfdf.png</Picture>
-                <Picture fmt="OSD8" id="90">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Espaol1.png</Picture>
-                <Picture fmt="OSD8" id="91">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Espaol2.png</Picture>
-                <Picture fmt="OSD8" id="92">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\EV.png</Picture>
-                <Picture fmt="OSD8" id="93">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\EV1.png</Picture>
-                <Picture fmt="OSD8" id="94">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\ewrfd.png</Picture>
-                <Picture fmt="OSD8" id="95">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\fdf.png</Picture>
-                <Picture fmt="OSD8" id="96">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\fdsfs.png</Picture>
-                <Picture fmt="OSD8" id="97">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Franais1.png</Picture>
-                <Picture fmt="OSD8" id="98">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Franais2.png</Picture>
-                <Picture fmt="OSD8" id="99">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\fsdf (2).png</Picture>
-                <Picture fmt="OSD8" id="100">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\fsdfdxv.png</Picture>
-                <Picture fmt="OSD8" id="101">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\fsdfvdxcv.png</Picture>
-                <Picture fmt="OSD8" id="102">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\fsdfvsd.png</Picture>
-                <Picture fmt="OSD8" id="103">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\hd1.png</Picture>
-                <Picture fmt="OSD8" id="104">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\hd2.png</Picture>
-                <Picture fmt="OSD8" id="105">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\hy.png</Picture>
-                <Picture fmt="OSD8" id="106">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\hy2.png</Picture>
-                <Picture fmt="OSD8" id="107">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Italiano1.png</Picture>
-                <Picture fmt="OSD8" id="108">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Italiano2.png</Picture>
-                <Picture fmt="OSD8" id="109">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\jianhao.png</Picture>
-                <Picture fmt="OSD8" id="110">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\jianhao1.png</Picture>
-                <Picture fmt="OSD8" id="111">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241009\lose.png</Picture>
-                <Picture fmt="OSD8" id="112">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\maohao.png</Picture>
-                <Picture fmt="OSD8" id="113">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\maohao.png</Picture>
-                <Picture fmt="OSD8" id="114">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\maohao1.png</Picture>
-                <Picture fmt="OSD8" id="115">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\maohao1.png</Picture>
-                <Picture fmt="OSD8" id="116">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\polski1.png</Picture>
-                <Picture fmt="OSD8" id="117">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\polski2.png</Picture>
-                <Picture fmt="OSD8" id="118">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\pop_up_window.png</Picture>
-                <Picture fmt="OSD8" id="119">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Portugus1.png</Picture>
-                <Picture fmt="OSD8" id="120">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Portugus2.png</Picture>
-                <Picture fmt="OSD8" id="121">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\py.png</Picture>
-                <Picture fmt="OSD8" id="122">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\py1.png</Picture>
-                <Picture fmt="OSD8" id="123">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\PZ.png</Picture>
-                <Picture fmt="OSD8" id="124">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\图标\refsdf.png</Picture>
-                <Picture fmt="OSD8" id="125">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\rerswf.png</Picture>
-                <Picture fmt="OSD8" id="126">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resf.png</Picture>
-                <Picture fmt="OSD8" id="127">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resf (2).png</Picture>
-                <Picture fmt="OSD8" id="128">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resfd.png</Picture>
-                <Picture fmt="OSD8" id="129">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resfsd.png</Picture>
-                <Picture fmt="OSD8" id="130">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resfsf.png</Picture>
-                <Picture fmt="OSD8" id="131">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\rfsfvx.png</Picture>
-                <Picture fmt="OSD8" id="132">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\图标\rsdfdcx.png</Picture>
-                <Picture fmt="OSD8" id="133">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\rsef.png</Picture>
-                <Picture fmt="OSD8" id="134">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\rwed.png</Picture>
-                <Picture fmt="OSD8" id="135">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\ry.png</Picture>
-                <Picture fmt="OSD8" id="136">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\ry (2).png</Picture>
-                <Picture fmt="OSD8" id="137">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240807\sanunmm.png</Picture>
-                <Picture fmt="OSD8" id="138">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sd.png</Picture>
-                <Picture fmt="OSD8" id="139">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sd-x.png</Picture>
-                <Picture fmt="OSD8" id="140">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sdf.png</Picture>
-                <Picture fmt="OSD8" id="141">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sdfdf.png</Picture>
-                <Picture fmt="OSD8" id="142">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sdfr.png</Picture>
-                <Picture fmt="OSD8" id="143">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sefdf.png</Picture>
-                <Picture fmt="OSD8" id="144">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sefr.png</Picture>
-                <Picture fmt="OSD8" id="145">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfd.png</Picture>
-                <Picture fmt="OSD8" id="146">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfd (2).png</Picture>
-                <Picture fmt="OSD8" id="147">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfdf.png</Picture>
-                <Picture fmt="OSD8" id="148">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfdxf.png</Picture>
-                <Picture fmt="OSD8" id="149">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfef.png</Picture>
-                <Picture fmt="OSD8" id="150">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\temple.png</Picture>
-                <Picture fmt="OSD8" id="151">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\set\time_down.png</Picture>
-                <Picture fmt="OSD8" id="152">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\set\time_down_hight.png</Picture>
-                <Picture fmt="OSD8" id="153">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\set\time_up.png</Picture>
-                <Picture fmt="OSD8" id="154">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\set\time_up_hight.png</Picture>
-                <Picture fmt="OSD8" id="155">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\w3erw.png</Picture>
-                <Picture fmt="OSD8" id="156">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\w3rew.png</Picture>
-                <Picture fmt="OSD8" id="157">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\WIFI.png</Picture>
-                <Picture fmt="OSD8" id="158">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\wifi-1.png</Picture>
-                <Picture fmt="OSD8" id="159">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\wifi-2.png</Picture>
-                <Picture fmt="OSD8" id="160">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\wifi-3.png</Picture>
-                <Picture fmt="OSD8" id="161">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\wifi-x.png</Picture>
-                <Picture fmt="OSD8" id="162">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X1.png</Picture>
-                <Picture fmt="OSD8" id="163">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X2.png</Picture>
-                <Picture fmt="OSD8" id="164">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X3.png</Picture>
-                <Picture fmt="OSD8" id="165">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X4.png</Picture>
-                <Picture fmt="OSD8" id="166">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X5.png</Picture>
-                <Picture fmt="OSD8" id="167">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X6.png</Picture>
-                <Picture fmt="OSD8" id="168">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X7.png</Picture>
-                <Picture fmt="OSD8" id="169">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240807\xiayij.png</Picture>
-                <Picture fmt="OSD8" id="170">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\xiehang.png</Picture>
-                <Picture fmt="OSD8" id="171">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\zw.png</Picture>
-                <Picture fmt="OSD8" id="172">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\zw (2).png</Picture>
+                <Picture fmt="OSD8" id="1">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\+3.png</Picture>
+                <Picture fmt="OSD8" id="2">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\-1.png</Picture>
+                <Picture fmt="OSD8" id="3">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\-2.png</Picture>
+                <Picture fmt="OSD8" id="4">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\-3.png</Picture>
+                <Picture fmt="OSD8" id="5">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\0.png</Picture>
+                <Picture fmt="OSD8" id="6">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\0.png</Picture>
+                <Picture fmt="OSD8" id="7">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\00.png</Picture>
+                <Picture fmt="OSD8" id="8">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\0d.png</Picture>
+                <Picture fmt="OSD8" id="9">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\0d.png</Picture>
+                <Picture fmt="OSD8" id="10">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\1.png</Picture>
+                <Picture fmt="OSD8" id="11">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\1.png</Picture>
+                <Picture fmt="OSD8" id="12">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\1.png</Picture>
+                <Picture fmt="OSD8" id="13">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\01.png</Picture>
+                <Picture fmt="OSD8" id="14">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\1d.png</Picture>
+                <Picture fmt="OSD8" id="15">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\1d.png</Picture>
+                <Picture fmt="OSD8" id="16">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\2.png</Picture>
+                <Picture fmt="OSD8" id="17">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\2.png</Picture>
+                <Picture fmt="OSD8" id="18">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\2.png</Picture>
+                <Picture fmt="OSD8" id="19">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\02.png</Picture>
+                <Picture fmt="OSD8" id="20">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\2d.png</Picture>
+                <Picture fmt="OSD8" id="21">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\2d.png</Picture>
+                <Picture fmt="OSD8" id="22">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\2kuang.png</Picture>
+                <Picture fmt="OSD8" id="23">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\2kuang2.png</Picture>
+                <Picture fmt="OSD8" id="24">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\3.png</Picture>
+                <Picture fmt="OSD8" id="25">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\3.png</Picture>
+                <Picture fmt="OSD8" id="26">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\3.png</Picture>
+                <Picture fmt="OSD8" id="27">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\3d.png</Picture>
+                <Picture fmt="OSD8" id="28">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\3kuang.png</Picture>
+                <Picture fmt="OSD8" id="29">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\3kuang3.png</Picture>
+                <Picture fmt="OSD8" id="30">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\4.png</Picture>
+                <Picture fmt="OSD8" id="31">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\4.png</Picture>
+                <Picture fmt="OSD8" id="32">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\4.png</Picture>
+                <Picture fmt="OSD8" id="33">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\4d.png</Picture>
+                <Picture fmt="OSD8" id="34">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\4d.png</Picture>
+                <Picture fmt="OSD8" id="35">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\4kuang.png</Picture>
+                <Picture fmt="OSD8" id="36">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\4kuang4.png</Picture>
+                <Picture fmt="OSD8" id="37">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\5.png</Picture>
+                <Picture fmt="OSD8" id="38">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\5.png</Picture>
+                <Picture fmt="OSD8" id="39">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\5.png</Picture>
+                <Picture fmt="OSD8" id="40">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\5d.png</Picture>
+                <Picture fmt="OSD8" id="41">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\5d.png</Picture>
+                <Picture fmt="OSD8" id="42">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\6.png</Picture>
+                <Picture fmt="OSD8" id="43">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\6.png</Picture>
+                <Picture fmt="OSD8" id="44">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\6.png</Picture>
+                <Picture fmt="OSD8" id="45">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\7.png</Picture>
+                <Picture fmt="OSD8" id="46">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\7.png</Picture>
+                <Picture fmt="OSD8" id="47">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\8.png</Picture>
+                <Picture fmt="OSD8" id="48">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\8.png</Picture>
+                <Picture fmt="OSD8" id="49">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\9.png</Picture>
+                <Picture fmt="OSD8" id="50">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\9.png</Picture>
+                <Picture fmt="OSD8" id="51">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\43r4ewr.png</Picture>
+                <Picture fmt="OSD8" id="52">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\2432r43r3.png</Picture>
+                <Picture fmt="OSD8" id="53">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\4324e.png</Picture>
+                <Picture fmt="OSD8" id="54">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\4324ew.png</Picture>
+                <Picture fmt="OSD8" id="55">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\ad.png</Picture>
+                <Picture fmt="OSD8" id="56">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241009\ADD.png</Picture>
+                <Picture fmt="OSD8" id="57">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\AE.png</Picture>
+                <Picture fmt="OSD8" id="58">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\AE1.png</Picture>
+                <Picture fmt="OSD8" id="59">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\BC01.png</Picture>
+                <Picture fmt="OSD8" id="60">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\BC02.png</Picture>
+                <Picture fmt="OSD8" id="61">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\CD11.png</Picture>
+                <Picture fmt="OSD8" id="62">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\d1.png</Picture>
+                <Picture fmt="OSD8" id="63">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\d2.png</Picture>
+                <Picture fmt="OSD8" id="64">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\d3.png</Picture>
+                <Picture fmt="OSD8" id="65">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\d4.png</Picture>
+                <Picture fmt="OSD8" id="66">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\d5.png</Picture>
+                <Picture fmt="OSD8" id="67">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\d6.png</Picture>
+                <Picture fmt="OSD8" id="68">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\d11.png</Picture>
+                <Picture fmt="OSD8" id="69">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\d21.png</Picture>
+                <Picture fmt="OSD8" id="70">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\d31.png</Picture>
+                <Picture fmt="OSD8" id="71">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\d41.png</Picture>
+                <Picture fmt="OSD8" id="72">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\d51.png</Picture>
+                <Picture fmt="OSD8" id="73">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\d61.png</Picture>
+                <Picture fmt="OSD8" id="74">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\ddd.png</Picture>
+                <Picture fmt="OSD8" id="75">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Deutsch1.png</Picture>
+                <Picture fmt="OSD8" id="76">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Deutsch2.png</Picture>
+                <Picture fmt="OSD8" id="77">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dfsfvxcv.png</Picture>
+                <Picture fmt="OSD8" id="78">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dianchi.png</Picture>
+                <Picture fmt="OSD8" id="79">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dianchi1.png</Picture>
+                <Picture fmt="OSD8" id="80">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dianchi2.png</Picture>
+                <Picture fmt="OSD8" id="81">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dianchi3.png</Picture>
+                <Picture fmt="OSD8" id="82">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dianchi4.png</Picture>
+                <Picture fmt="OSD8" id="83">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\DJ.png</Picture>
+                <Picture fmt="OSD8" id="84">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241030\DJ1.png</Picture>
+                <Picture fmt="OSD8" id="85">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dsc.png</Picture>
+                <Picture fmt="OSD8" id="86">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dsfdxf.png</Picture>
+                <Picture fmt="OSD8" id="87">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dsff.png</Picture>
+                <Picture fmt="OSD8" id="88">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dsfvxc.png</Picture>
+                <Picture fmt="OSD8" id="89">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\dsfxd.png</Picture>
+                <Picture fmt="OSD8" id="90">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\English1.png</Picture>
+                <Picture fmt="OSD8" id="91">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\English2.png</Picture>
+                <Picture fmt="OSD8" id="92">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240807\erjicaidanxiahuax.png</Picture>
+                <Picture fmt="OSD8" id="93">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\图标\ers.png</Picture>
+                <Picture fmt="OSD8" id="94">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\esdf.png</Picture>
+                <Picture fmt="OSD8" id="95">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\esfd.png</Picture>
+                <Picture fmt="OSD8" id="96">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\esfdf.png</Picture>
+                <Picture fmt="OSD8" id="97">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Espaol1.png</Picture>
+                <Picture fmt="OSD8" id="98">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Espaol2.png</Picture>
+                <Picture fmt="OSD8" id="99">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\EV.png</Picture>
+                <Picture fmt="OSD8" id="100">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\EV1.png</Picture>
+                <Picture fmt="OSD8" id="101">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\ewrfd.png</Picture>
+                <Picture fmt="OSD8" id="102">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\fdf.png</Picture>
+                <Picture fmt="OSD8" id="103">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\fdsfs.png</Picture>
+                <Picture fmt="OSD8" id="104">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Franais1.png</Picture>
+                <Picture fmt="OSD8" id="105">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Franais2.png</Picture>
+                <Picture fmt="OSD8" id="106">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\fsdf (2).png</Picture>
+                <Picture fmt="OSD8" id="107">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\fsdfdxv.png</Picture>
+                <Picture fmt="OSD8" id="108">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\fsdfvdxcv.png</Picture>
+                <Picture fmt="OSD8" id="109">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\fsdfvsd.png</Picture>
+                <Picture fmt="OSD8" id="110">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\hd1.png</Picture>
+                <Picture fmt="OSD8" id="111">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\hd2.png</Picture>
+                <Picture fmt="OSD8" id="112">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\hy.png</Picture>
+                <Picture fmt="OSD8" id="113">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\hy2.png</Picture>
+                <Picture fmt="OSD8" id="114">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Italiano1.png</Picture>
+                <Picture fmt="OSD8" id="115">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Italiano2.png</Picture>
+                <Picture fmt="OSD8" id="116">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\jianhao.png</Picture>
+                <Picture fmt="OSD8" id="117">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\jianhao1.png</Picture>
+                <Picture fmt="OSD8" id="118">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20241009\lose.png</Picture>
+                <Picture fmt="OSD8" id="119">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\maohao.png</Picture>
+                <Picture fmt="OSD8" id="120">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\maohao.png</Picture>
+                <Picture fmt="OSD8" id="121">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\maohao1.png</Picture>
+                <Picture fmt="OSD8" id="122">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\RED\maohao1.png</Picture>
+                <Picture fmt="OSD8" id="123">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\polski1.png</Picture>
+                <Picture fmt="OSD8" id="124">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\polski2.png</Picture>
+                <Picture fmt="OSD8" id="125">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\pop_up_window.png</Picture>
+                <Picture fmt="OSD8" id="126">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Portugus1.png</Picture>
+                <Picture fmt="OSD8" id="127">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\Portugus2.png</Picture>
+                <Picture fmt="OSD8" id="128">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\py.png</Picture>
+                <Picture fmt="OSD8" id="129">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\py1.png</Picture>
+                <Picture fmt="OSD8" id="130">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240905\PZ.png</Picture>
+                <Picture fmt="OSD8" id="131">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\图标\refsdf.png</Picture>
+                <Picture fmt="OSD8" id="132">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\rerswf.png</Picture>
+                <Picture fmt="OSD8" id="133">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resf.png</Picture>
+                <Picture fmt="OSD8" id="134">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resf (2).png</Picture>
+                <Picture fmt="OSD8" id="135">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resfd.png</Picture>
+                <Picture fmt="OSD8" id="136">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resfsd.png</Picture>
+                <Picture fmt="OSD8" id="137">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\resfsf.png</Picture>
+                <Picture fmt="OSD8" id="138">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\rfsfvx.png</Picture>
+                <Picture fmt="OSD8" id="139">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\图标\rsdfdcx.png</Picture>
+                <Picture fmt="OSD8" id="140">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\rsef.png</Picture>
+                <Picture fmt="OSD8" id="141">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\rwed.png</Picture>
+                <Picture fmt="OSD8" id="142">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\ry.png</Picture>
+                <Picture fmt="OSD8" id="143">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\ry (2).png</Picture>
+                <Picture fmt="OSD8" id="144">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240807\sanunmm.png</Picture>
+                <Picture fmt="OSD8" id="145">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sd.png</Picture>
+                <Picture fmt="OSD8" id="146">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sd-x.png</Picture>
+                <Picture fmt="OSD8" id="147">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sdf.png</Picture>
+                <Picture fmt="OSD8" id="148">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sdfdf.png</Picture>
+                <Picture fmt="OSD8" id="149">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sdfr.png</Picture>
+                <Picture fmt="OSD8" id="150">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sefdf.png</Picture>
+                <Picture fmt="OSD8" id="151">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sefr.png</Picture>
+                <Picture fmt="OSD8" id="152">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfd.png</Picture>
+                <Picture fmt="OSD8" id="153">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfd (2).png</Picture>
+                <Picture fmt="OSD8" id="154">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfdf.png</Picture>
+                <Picture fmt="OSD8" id="155">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfdxf.png</Picture>
+                <Picture fmt="OSD8" id="156">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\sfef.png</Picture>
+                <Picture fmt="OSD8" id="157">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\temple.png</Picture>
+                <Picture fmt="OSD8" id="158">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\set\time_down.png</Picture>
+                <Picture fmt="OSD8" id="159">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\set\time_down_hight.png</Picture>
+                <Picture fmt="OSD8" id="160">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\set\time_up.png</Picture>
+                <Picture fmt="OSD8" id="161">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\set\time_up_hight.png</Picture>
+                <Picture fmt="OSD8" id="162">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\w3erw.png</Picture>
+                <Picture fmt="OSD8" id="163">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\UI小图标\20240731\20240731\w3rew.png</Picture>
+                <Picture fmt="OSD8" id="164">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\WIFI.png</Picture>
+                <Picture fmt="OSD8" id="165">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\wifi-1.png</Picture>
+                <Picture fmt="OSD8" id="166">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\wifi-2.png</Picture>
+                <Picture fmt="OSD8" id="167">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\wifi-3.png</Picture>
+                <Picture fmt="OSD8" id="168">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\wifi-x.png</Picture>
+                <Picture fmt="OSD8" id="169">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X1.png</Picture>
+                <Picture fmt="OSD8" id="170">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X2.png</Picture>
+                <Picture fmt="OSD8" id="171">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X3.png</Picture>
+                <Picture fmt="OSD8" id="172">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X4.png</Picture>
+                <Picture fmt="OSD8" id="173">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X5.png</Picture>
+                <Picture fmt="OSD8" id="174">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X6.png</Picture>
+                <Picture fmt="OSD8" id="175">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\ruipin\20240804\X7.png</Picture>
+                <Picture fmt="OSD8" id="176">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\20240807\xiayij.png</Picture>
+                <Picture fmt="OSD8" id="177">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\xiehang.png</Picture>
+                <Picture fmt="OSD8" id="178">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\zw.png</Picture>
+                <Picture fmt="OSD8" id="179">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\language\zw (2).png</Picture>
             </PictureList>
             <CellList>
                 <Cell id="1">m1</Cell>
@@ -612,379 +450,48 @@
                 <Cell id="6">m6</Cell>
                 <Cell id="7">m7</Cell>
                 <Cell id="8">m8</Cell>
-                <Cell id="11">m12</Cell>
-                <Cell id="12">m14</Cell>
-                <Cell id="16">m26</Cell>
-                <Cell id="17">m27</Cell>
-                <Cell id="18">m28</Cell>
-                <Cell id="20">m30</Cell>
-                <Cell id="22">m32</Cell>
-                <Cell id="23">m33</Cell>
-                <Cell id="24">m34</Cell>
-                <Cell id="25">m35</Cell>
-                <Cell id="29">m40</Cell>
-                <Cell id="32">m43</Cell>
-                <Cell id="33">m44</Cell>
-                <Cell id="34">m45</Cell>
-                <Cell id="35">m46</Cell>
-                <Cell id="36">m47</Cell>
-                <Cell id="37">m48</Cell>
-                <Cell id="38">m49</Cell>
-                <Cell id="41">mv2</Cell>
-                <Cell id="42">mv3</Cell>
-                <Cell id="43">mv4</Cell>
-                <Cell id="44">mv5</Cell>
-                <Cell id="45">mv6</Cell>
-                <Cell id="46">mv7</Cell>
-                <Cell id="51">mp5</Cell>
-                <Cell id="52">mp6</Cell>
-                <Cell id="53">mp7</Cell>
-                <Cell id="54">mp8</Cell>
-                <Cell id="56">mp10</Cell>
-                <Cell id="57">mp12</Cell>
-                <Cell id="87">mst11</Cell>
-                <Cell id="124">mf2</Cell>
-                <Cell id="126">tip1</Cell>
-                <Cell id="127">tip2</Cell>
-                <Cell id="129">tip4</Cell>
-                <Cell id="132">tip7</Cell>
-                <Cell id="133">tip8</Cell>
-                <Cell id="141">tip16</Cell>
-                <Cell id="146">tip21</Cell>
+                <Cell id="9">m12</Cell>
+                <Cell id="10">m14</Cell>
+                <Cell id="11">m26</Cell>
+                <Cell id="12">m27</Cell>
+                <Cell id="13">m28</Cell>
+                <Cell id="14">m30</Cell>
+                <Cell id="15">m32</Cell>
+                <Cell id="16">m33</Cell>
+                <Cell id="17">m34</Cell>
+                <Cell id="18">m35</Cell>
+                <Cell id="19">m40</Cell>
+                <Cell id="20">m43</Cell>
+                <Cell id="21">m44</Cell>
+                <Cell id="22">m45</Cell>
+                <Cell id="23">m46</Cell>
+                <Cell id="24">m47</Cell>
+                <Cell id="25">m48</Cell>
+                <Cell id="26">m49</Cell>
+                <Cell id="27">mv2</Cell>
+                <Cell id="28">mv3</Cell>
+                <Cell id="29">mv4</Cell>
+                <Cell id="30">mv5</Cell>
+                <Cell id="31">mv6</Cell>
+                <Cell id="32">mv7</Cell>
+                <Cell id="33">mp5</Cell>
+                <Cell id="34">mp6</Cell>
+                <Cell id="35">mp7</Cell>
+                <Cell id="36">mp8</Cell>
+                <Cell id="38">mp10</Cell>
+                <Cell id="39">mp12</Cell>
+                <Cell id="40">mst11</Cell>
+                <Cell id="42">mf2</Cell>
+                <Cell id="44">tip1</Cell>
+                <Cell id="45">tip2</Cell>
+                <Cell id="47">tip4</Cell>
+                <Cell id="50">tip7</Cell>
+                <Cell id="51">tip8</Cell>
+                <Cell id="59">tip16</Cell>
+                <Cell id="62">tip21</Cell>
             </CellList>
         </Page>
-        <Page id="2">
-            <ColorList>
-                <Color id="0">55AAA5</Color>
-                <Color id="1">000000</Color>
-                <Color id="2">353535</Color>
-                <Color id="3">FFC046</Color>
-                <Color id="4">FFFFFF</Color>
-                <Color id="5">050505</Color>
-                <Color id="6">080808</Color>
-                <Color id="7">0B0B0B</Color>
-                <Color id="8">111111</Color>
-                <Color id="9">131313</Color>
-                <Color id="10">161616</Color>
-                <Color id="11">181818</Color>
-                <Color id="12">1A1A1A</Color>
-                <Color id="13">1F1F1F</Color>
-                <Color id="14">212121</Color>
-                <Color id="15">232323</Color>
-                <Color id="16">242424</Color>
-                <Color id="17">262626</Color>
-                <Color id="18">282828</Color>
-                <Color id="19">2A2A2A</Color>
-                <Color id="20">2C2C2C</Color>
-                <Color id="21">2D2D2D</Color>
-                <Color id="22">2F2F2F</Color>
-                <Color id="23">313131</Color>
-                <Color id="24">333333</Color>
-                <Color id="25">343434</Color>
-                <Color id="26">363636</Color>
-                <Color id="27">373737</Color>
-                <Color id="28">393939</Color>
-                <Color id="29">3A3A3A</Color>
-                <Color id="30">3C3C3C</Color>
-                <Color id="31">3D3D3D</Color>
-                <Color id="32">3F3F3F</Color>
-                <Color id="33">404040</Color>
-                <Color id="34">424242</Color>
-                <Color id="35">434343</Color>
-                <Color id="36">444444</Color>
-                <Color id="37">464646</Color>
-                <Color id="38">474747</Color>
-                <Color id="39">484848</Color>
-                <Color id="40">4A4A4A</Color>
-                <Color id="41">4B4B4B</Color>
-                <Color id="42">4C4C4C</Color>
-                <Color id="43">4D4D4D</Color>
-                <Color id="44">4E4E4E</Color>
-                <Color id="45">4F4F4F</Color>
-                <Color id="46">505050</Color>
-                <Color id="47">515151</Color>
-                <Color id="48">525252</Color>
-                <Color id="49">535353</Color>
-                <Color id="50">545454</Color>
-                <Color id="51">555555</Color>
-                <Color id="52">565656</Color>
-                <Color id="53">575757</Color>
-                <Color id="54">585858</Color>
-                <Color id="55">595959</Color>
-                <Color id="56">5A5A5A</Color>
-                <Color id="57">5B5B5B</Color>
-                <Color id="58">5C5C5C</Color>
-                <Color id="59">5E5E5E</Color>
-                <Color id="60">5F5F5F</Color>
-                <Color id="61">606060</Color>
-                <Color id="62">616161</Color>
-                <Color id="63">626262</Color>
-                <Color id="64">636363</Color>
-                <Color id="65">646464</Color>
-                <Color id="66">666666</Color>
-                <Color id="67">676767</Color>
-                <Color id="68">686868</Color>
-                <Color id="69">696969</Color>
-                <Color id="70">6A6A6A</Color>
-                <Color id="71">6B6B6B</Color>
-                <Color id="72">6C6C6C</Color>
-                <Color id="73">6D6D6D</Color>
-                <Color id="74">6E6E6E</Color>
-                <Color id="75">6F6F6F</Color>
-                <Color id="76">707070</Color>
-                <Color id="77">717171</Color>
-                <Color id="78">727272</Color>
-                <Color id="79">737373</Color>
-                <Color id="80">747474</Color>
-                <Color id="81">757575</Color>
-                <Color id="82">777777</Color>
-                <Color id="83">787878</Color>
-                <Color id="84">797979</Color>
-                <Color id="85">7A7A7A</Color>
-                <Color id="86">7B7B7B</Color>
-                <Color id="87">7C7C7C</Color>
-                <Color id="88">7D7D7D</Color>
-                <Color id="89">7E7E7E</Color>
-                <Color id="90">7F7F7F</Color>
-                <Color id="91">FFC14A</Color>
-                <Color id="92">FFC34E</Color>
-                <Color id="93">FFC34F</Color>
-                <Color id="94">FFC350</Color>
-                <Color id="95">FFC451</Color>
-                <Color id="96">FFC85F</Color>
-                <Color id="97">FFC95F</Color>
-                <Color id="98">FFC960</Color>
-                <Color id="99">FFCA63</Color>
-                <Color id="100">FFCE6F</Color>
-                <Color id="101">FFCE70</Color>
-                <Color id="102">FFCF71</Color>
-                <Color id="103">FFD074</Color>
-                <Color id="104">808080</Color>
-                <Color id="105">818181</Color>
-                <Color id="106">828282</Color>
-                <Color id="107">838383</Color>
-                <Color id="108">848484</Color>
-                <Color id="109">858585</Color>
-                <Color id="110">868686</Color>
-                <Color id="111">878787</Color>
-                <Color id="112">888888</Color>
-                <Color id="113">898989</Color>
-                <Color id="114">8A8A8A</Color>
-                <Color id="115">8B8B8B</Color>
-                <Color id="116">8C8C8C</Color>
-                <Color id="117">8D8D8D</Color>
-                <Color id="118">8E8E8E</Color>
-                <Color id="119">8F8F8F</Color>
-                <Color id="120">909090</Color>
-                <Color id="121">919191</Color>
-                <Color id="122">929292</Color>
-                <Color id="123">939393</Color>
-                <Color id="124">949494</Color>
-                <Color id="125">959595</Color>
-                <Color id="126">969696</Color>
-                <Color id="127">979797</Color>
-                <Color id="128">989898</Color>
-                <Color id="129">999999</Color>
-                <Color id="130">9A9A9A</Color>
-                <Color id="131">9B9B9B</Color>
-                <Color id="132">9C9C9C</Color>
-                <Color id="133">9D9D9D</Color>
-                <Color id="134">9E9E9E</Color>
-                <Color id="135">9F9F9F</Color>
-                <Color id="136">A0A0A0</Color>
-                <Color id="137">A1A1A1</Color>
-                <Color id="138">A2A2A2</Color>
-                <Color id="139">A3A3A3</Color>
-                <Color id="140">A4A4A4</Color>
-                <Color id="141">A5A5A5</Color>
-                <Color id="142">A6A6A6</Color>
-                <Color id="143">A7A7A7</Color>
-                <Color id="144">A8A8A8</Color>
-                <Color id="145">A9A9A9</Color>
-                <Color id="146">AAAAAA</Color>
-                <Color id="147">ABABAB</Color>
-                <Color id="148">ACACAC</Color>
-                <Color id="149">ADADAD</Color>
-                <Color id="150">AEAEAE</Color>
-                <Color id="151">AFAFAF</Color>
-                <Color id="152">B0B0B0</Color>
-                <Color id="153">B1B1B1</Color>
-                <Color id="154">B2B2B2</Color>
-                <Color id="155">B3B3B3</Color>
-                <Color id="156">B4B4B4</Color>
-                <Color id="157">B5B5B5</Color>
-                <Color id="158">B6B6B6</Color>
-                <Color id="159">B7B7B7</Color>
-                <Color id="160">B8B8B8</Color>
-                <Color id="161">B9B9B9</Color>
-                <Color id="162">BABABA</Color>
-                <Color id="163">BBBBBB</Color>
-                <Color id="164">BCBCBC</Color>
-                <Color id="165">BDBDBD</Color>
-                <Color id="166">BEBEBE</Color>
-                <Color id="167">BFBFBF</Color>
-                <Color id="168">FFD98F</Color>
-                <Color id="169">FFD990</Color>
-                <Color id="170">C0C0C0</Color>
-                <Color id="171">C1C1C1</Color>
-                <Color id="172">C2C2C2</Color>
-                <Color id="173">C3C3C3</Color>
-                <Color id="174">C4C4C4</Color>
-                <Color id="175">C5C5C5</Color>
-                <Color id="176">C6C6C6</Color>
-                <Color id="177">C7C7C7</Color>
-                <Color id="178">C8C8C8</Color>
-                <Color id="179">C9C9C9</Color>
-                <Color id="180">CACACA</Color>
-                <Color id="181">CBCBCB</Color>
-                <Color id="182">CCCCCC</Color>
-                <Color id="183">CDCDCD</Color>
-                <Color id="184">CECECE</Color>
-                <Color id="185">CFCFCF</Color>
-                <Color id="186">D0D0D0</Color>
-                <Color id="187">D1D1D1</Color>
-                <Color id="188">D2D2D2</Color>
-                <Color id="189">D3D3D3</Color>
-                <Color id="190">D4D4D4</Color>
-                <Color id="191">D5D5D5</Color>
-                <Color id="192">D6D6D6</Color>
-                <Color id="193">D7D7D7</Color>
-                <Color id="194">D8D8D8</Color>
-                <Color id="195">D9D9D9</Color>
-                <Color id="196">DADADA</Color>
-                <Color id="197">DBDBDB</Color>
-                <Color id="198">DCDCDC</Color>
-                <Color id="199">DDDDDD</Color>
-                <Color id="200">DEDEDE</Color>
-                <Color id="201">DFDFDF</Color>
-                <Color id="202">FFEECE</Color>
-                <Color id="203">FFEFCF</Color>
-                <Color id="204">FFEFD1</Color>
-                <Color id="205">FFF0D2</Color>
-                <Color id="206">E0E0E0</Color>
-                <Color id="207">E1E1E1</Color>
-                <Color id="208">E2E2E2</Color>
-                <Color id="209">E3E3E3</Color>
-                <Color id="210">E4E4E4</Color>
-                <Color id="211">E5E5E5</Color>
-                <Color id="212">E6E6E6</Color>
-                <Color id="213">E7E7E7</Color>
-                <Color id="214">E8E8E8</Color>
-                <Color id="215">E9E9E9</Color>
-                <Color id="216">EAEAEA</Color>
-                <Color id="217">EBEBEB</Color>
-                <Color id="218">ECECEC</Color>
-                <Color id="219">EDEDED</Color>
-                <Color id="220">EEEEEE</Color>
-                <Color id="221">EFEFEF</Color>
-                <Color id="222">FFF5E1</Color>
-                <Color id="223">FFF5E2</Color>
-                <Color id="224">FFF5E3</Color>
-                <Color id="225">F0F0F0</Color>
-                <Color id="226">F1F1F1</Color>
-                <Color id="227">F2F2F2</Color>
-                <Color id="228">F3F3F3</Color>
-                <Color id="229">F4F4F4</Color>
-                <Color id="230">F5F5F5</Color>
-                <Color id="231">F6F6F6</Color>
-                <Color id="232">F7F7F7</Color>
-                <Color id="233">F8F8F8</Color>
-                <Color id="234">F9F9F9</Color>
-                <Color id="235">FAFAFA</Color>
-                <Color id="236">FBFBFB</Color>
-                <Color id="237">FCFCFC</Color>
-                <Color id="238">FDFDFD</Color>
-                <Color id="239">FEFEFE</Color>
-                <Color id="240">FFFFFE</Color>
-            </ColorList>
-            <PictureList>
-                <Picture fmt="OSD8" id="1">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\0.png</Picture>
-                <Picture fmt="OSD8" id="2">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\1.png</Picture>
-                <Picture fmt="OSD8" id="3">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\1.png</Picture>
-                <Picture fmt="OSD8" id="4">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\2.png</Picture>
-                <Picture fmt="OSD8" id="5">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\2.png</Picture>
-                <Picture fmt="OSD8" id="6">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\3.png</Picture>
-                <Picture fmt="OSD8" id="7">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\3.png</Picture>
-                <Picture fmt="OSD8" id="8">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\4.png</Picture>
-                <Picture fmt="OSD8" id="9">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\4.png</Picture>
-                <Picture fmt="OSD8" id="10">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\5.png</Picture>
-                <Picture fmt="OSD8" id="11">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\5.png</Picture>
-                <Picture fmt="OSD8" id="12">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\6.png</Picture>
-                <Picture fmt="OSD8" id="13">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\6.png</Picture>
-                <Picture fmt="OSD8" id="14">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\7.png</Picture>
-                <Picture fmt="OSD8" id="15">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\7.png</Picture>
-                <Picture fmt="OSD8" id="16">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\8.png</Picture>
-                <Picture fmt="OSD8" id="17">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\8.png</Picture>
-                <Picture fmt="OSD8" id="18">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\9.png</Picture>
-                <Picture fmt="OSD8" id="19">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\9.png</Picture>
-                <Picture fmt="OSD8" id="20">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\倒计时\10.png</Picture>
-                <Picture fmt="OSD8" id="21">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\侧滑icon\设置界面\ball.png</Picture>
-                <Picture fmt="OSD8" id="22">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\侧滑icon\设置界面\EXP7.png</Picture>
-                <Picture fmt="OSD8" id="23">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\侧滑icon\设置界面\frame.png</Picture>
-                <Picture fmt="OSD8" id="24">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\侧滑icon\设置界面\frame2.png</Picture>
-                <Picture fmt="OSD8" id="25">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\左侧工具栏\home.png</Picture>
-                <Picture fmt="OSD8" id="26">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\左侧工具栏\home_on.png</Picture>
-                <Picture fmt="OSD8" id="27">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\jianhao.png</Picture>
-                <Picture fmt="OSD8" id="28">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\jianhao1.png</Picture>
-                <Picture fmt="OSD8" id="29">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\侧滑icon\设置界面\label.png</Picture>
-                <Picture fmt="OSD8" id="30">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\侧滑icon\设置界面\label_down.png</Picture>
-                <Picture fmt="OSD8" id="31">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\侧滑icon\设置界面\line.png</Picture>
-                <Picture fmt="OSD8" id="32">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\maohao.png</Picture>
-                <Picture fmt="OSD8" id="33">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\maohao1.png</Picture>
-                <Picture fmt="OSD8" id="34">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\pop_up_window.png</Picture>
-                <Picture fmt="OSD8" id="35">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\左侧工具栏\setting.png</Picture>
-                <Picture fmt="OSD8" id="36">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\左侧工具栏\setting_on.png</Picture>
-                <Picture fmt="OSD8" id="37">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\数字\WHITE\temple.png</Picture>
-                <Picture fmt="OSD8" id="38">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\侧滑icon\设置界面\TPH_RES.png</Picture>
-                <Picture fmt="OSD8" id="39">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\左侧工具栏\video.png</Picture>
-                <Picture fmt="OSD8" id="40">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\左侧工具栏\video_on.png</Picture>
-            </PictureList>
-            <CellList>
-                <Cell id="13">m19</Cell>
-                <Cell id="14">m22</Cell>
-                <Cell id="16">m26</Cell>
-                <Cell id="17">m27</Cell>
-                <Cell id="18">m28</Cell>
-                <Cell id="19">m29</Cell>
-                <Cell id="20">m30</Cell>
-                <Cell id="21">m31</Cell>
-                <Cell id="22">m32</Cell>
-                <Cell id="23">m33</Cell>
-                <Cell id="25">m35</Cell>
-                <Cell id="26">m36</Cell>
-                <Cell id="47">mp1</Cell>
-                <Cell id="48">mp2</Cell>
-                <Cell id="49">mp3</Cell>
-                <Cell id="50">mp4</Cell>
-                <Cell id="57">mp12</Cell>
-                <Cell id="58">mp13</Cell>
-                <Cell id="59">mp14</Cell>
-                <Cell id="60">mp15</Cell>
-                <Cell id="61">mp16</Cell>
-                <Cell id="62">mp17</Cell>
-                <Cell id="63">mp19</Cell>
-                <Cell id="64">mp20</Cell>
-                <Cell id="65">mp21</Cell>
-                <Cell id="66">mp22</Cell>
-                <Cell id="67">mp23</Cell>
-                <Cell id="68">mp24</Cell>
-                <Cell id="69">mp25</Cell>
-                <Cell id="70">mp26</Cell>
-                <Cell id="71">mp27</Cell>
-                <Cell id="72">mp29</Cell>
-                <Cell id="73">mp30</Cell>
-                <Cell id="74">mp31</Cell>
-                <Cell id="75">mp32</Cell>
-                <Cell id="76">mp33</Cell>
-                <Cell id="126">tip1</Cell>
-                <Cell id="127">tip2</Cell>
-                <Cell id="129">tip4</Cell>
-                <Cell id="132">tip7</Cell>
-                <Cell id="133">tip8</Cell>
-                <Cell id="141">tip16</Cell>
-            </CellList>
-        </Page>
-        <Page id="3">
+        <Page id="1">
             <ColorList>
                 <Color id="0">55AAA5</Color>
                 <Color id="1">353535</Color>
@@ -1237,81 +744,81 @@
                 <Color id="248">FFFFFE</Color>
             </ColorList>
             <PictureList>
-                <Picture fmt="OSD8" id="1">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\0.png</Picture>
-                <Picture fmt="OSD8" id="2">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\1.png</Picture>
-                <Picture fmt="OSD8" id="3">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\2.png</Picture>
-                <Picture fmt="OSD8" id="4">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\3.png</Picture>
-                <Picture fmt="OSD8" id="5">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\4.png</Picture>
-                <Picture fmt="OSD8" id="6">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\5.png</Picture>
-                <Picture fmt="OSD8" id="7">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\6.png</Picture>
-                <Picture fmt="OSD8" id="8">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\7.png</Picture>
-                <Picture fmt="OSD8" id="9">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\8.png</Picture>
-                <Picture fmt="OSD8" id="10">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\9.png</Picture>
-                <Picture fmt="OSD8" id="11">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\左侧工具栏\back.png</Picture>
-                <Picture fmt="OSD8" id="12">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\左侧工具栏\back_on.png</Picture>
-                <Picture fmt="OSD8" id="13">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\弹窗\bg.png</Picture>
-                <Picture fmt="OSD8" id="14">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\choose.png</Picture>
-                <Picture fmt="OSD8" id="15">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\DELETE.png</Picture>
-                <Picture fmt="OSD8" id="16">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\delete_on.png</Picture>
-                <Picture fmt="OSD8" id="17">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\EDIT.png</Picture>
-                <Picture fmt="OSD8" id="18">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\editor_on.png</Picture>
-                <Picture fmt="OSD8" id="19">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\file.png</Picture>
-                <Picture fmt="OSD8" id="20">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\HOME.png</Picture>
-                <Picture fmt="OSD8" id="21">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\home_on.png</Picture>
-                <Picture fmt="OSD8" id="22">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\左侧工具栏\last.png</Picture>
-                <Picture fmt="OSD8" id="23">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\左侧工具栏\last_on.png</Picture>
-                <Picture fmt="OSD8" id="24">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\LOCK.png</Picture>
-                <Picture fmt="OSD8" id="25">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\lock_on.png</Picture>
-                <Picture fmt="OSD8" id="26">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\maohao.png</Picture>
-                <Picture fmt="OSD8" id="27">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\music.png</Picture>
-                <Picture fmt="OSD8" id="28">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\左侧工具栏\next.png</Picture>
-                <Picture fmt="OSD8" id="29">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\左侧工具栏\next_on.png</Picture>
-                <Picture fmt="OSD8" id="30">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\pause.png</Picture>
-                <Picture fmt="OSD8" id="31">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\PAUSE_btn.png</Picture>
-                <Picture fmt="OSD8" id="32">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\PHOTO.png</Picture>
-                <Picture fmt="OSD8" id="33">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\photo_on.png</Picture>
-                <Picture fmt="OSD8" id="34">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\picture.png</Picture>
-                <Picture fmt="OSD8" id="35">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\play.png</Picture>
-                <Picture fmt="OSD8" id="36">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\play_btn.png</Picture>
-                <Picture fmt="OSD8" id="37">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\pop_up_window.png</Picture>
-                <Picture fmt="OSD8" id="38">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\RETURN.png</Picture>
-                <Picture fmt="OSD8" id="39">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\return_on.png</Picture>
-                <Picture fmt="OSD8" id="40">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\sil_l.png</Picture>
-                <Picture fmt="OSD8" id="41">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\sil_r.png</Picture>
-                <Picture fmt="OSD8" id="42">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\左侧工具栏\s_back.png</Picture>
-                <Picture fmt="OSD8" id="43">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\左侧工具栏\s_back_on.png</Picture>
-                <Picture fmt="OSD8" id="44">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\unchoose.png</Picture>
-                <Picture fmt="OSD8" id="45">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\UNLOCK.png</Picture>
-                <Picture fmt="OSD8" id="46">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\unlock_on.png</Picture>
-                <Picture fmt="OSD8" id="47">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\VIDEO.png</Picture>
-                <Picture fmt="OSD8" id="48">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\video.png</Picture>
-                <Picture fmt="OSD8" id="49">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\video_on.png</Picture>
-                <Picture fmt="OSD8" id="50">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\弹窗\white.png</Picture>
-                <Picture fmt="OSD8" id="51">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\弹窗\white_choose.png</Picture>
-                <Picture fmt="OSD8" id="52">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\弹窗\yellow.png</Picture>
-                <Picture fmt="OSD8" id="53">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\弹窗\yellow_choose.png</Picture>
+                <Picture fmt="OSD8" id="1">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\0.png</Picture>
+                <Picture fmt="OSD8" id="2">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\1.png</Picture>
+                <Picture fmt="OSD8" id="3">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\2.png</Picture>
+                <Picture fmt="OSD8" id="4">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\3.png</Picture>
+                <Picture fmt="OSD8" id="5">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\4.png</Picture>
+                <Picture fmt="OSD8" id="6">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\5.png</Picture>
+                <Picture fmt="OSD8" id="7">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\6.png</Picture>
+                <Picture fmt="OSD8" id="8">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\7.png</Picture>
+                <Picture fmt="OSD8" id="9">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\8.png</Picture>
+                <Picture fmt="OSD8" id="10">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\9.png</Picture>
+                <Picture fmt="OSD8" id="11">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\左侧工具栏\back.png</Picture>
+                <Picture fmt="OSD8" id="12">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\左侧工具栏\back_on.png</Picture>
+                <Picture fmt="OSD8" id="13">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\弹窗\bg.png</Picture>
+                <Picture fmt="OSD8" id="14">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\choose.png</Picture>
+                <Picture fmt="OSD8" id="15">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\DELETE.png</Picture>
+                <Picture fmt="OSD8" id="16">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\delete_on.png</Picture>
+                <Picture fmt="OSD8" id="17">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\EDIT.png</Picture>
+                <Picture fmt="OSD8" id="18">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\editor_on.png</Picture>
+                <Picture fmt="OSD8" id="19">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\file.png</Picture>
+                <Picture fmt="OSD8" id="20">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\HOME.png</Picture>
+                <Picture fmt="OSD8" id="21">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\home_on.png</Picture>
+                <Picture fmt="OSD8" id="22">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\左侧工具栏\last.png</Picture>
+                <Picture fmt="OSD8" id="23">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\左侧工具栏\last_on.png</Picture>
+                <Picture fmt="OSD8" id="24">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\LOCK.png</Picture>
+                <Picture fmt="OSD8" id="25">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\lock_on.png</Picture>
+                <Picture fmt="OSD8" id="26">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\数字\maohao.png</Picture>
+                <Picture fmt="OSD8" id="27">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\music.png</Picture>
+                <Picture fmt="OSD8" id="28">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\左侧工具栏\next.png</Picture>
+                <Picture fmt="OSD8" id="29">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\左侧工具栏\next_on.png</Picture>
+                <Picture fmt="OSD8" id="30">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\pause.png</Picture>
+                <Picture fmt="OSD8" id="31">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\PAUSE_btn.png</Picture>
+                <Picture fmt="OSD8" id="32">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\PHOTO.png</Picture>
+                <Picture fmt="OSD8" id="33">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\photo_on.png</Picture>
+                <Picture fmt="OSD8" id="34">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\picture.png</Picture>
+                <Picture fmt="OSD8" id="35">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\play.png</Picture>
+                <Picture fmt="OSD8" id="36">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\play_btn.png</Picture>
+                <Picture fmt="OSD8" id="37">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\pop_up_window.png</Picture>
+                <Picture fmt="OSD8" id="38">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\RETURN.png</Picture>
+                <Picture fmt="OSD8" id="39">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\return_on.png</Picture>
+                <Picture fmt="OSD8" id="40">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\sil_l.png</Picture>
+                <Picture fmt="OSD8" id="41">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\sil_r.png</Picture>
+                <Picture fmt="OSD8" id="42">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\左侧工具栏\s_back.png</Picture>
+                <Picture fmt="OSD8" id="43">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\左侧工具栏\s_back_on.png</Picture>
+                <Picture fmt="OSD8" id="44">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\unchoose.png</Picture>
+                <Picture fmt="OSD8" id="45">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\UNLOCK.png</Picture>
+                <Picture fmt="OSD8" id="46">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\unlock_on.png</Picture>
+                <Picture fmt="OSD8" id="47">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\VIDEO.png</Picture>
+                <Picture fmt="OSD8" id="48">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\video.png</Picture>
+                <Picture fmt="OSD8" id="49">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\右侧工具栏\video_on.png</Picture>
+                <Picture fmt="OSD8" id="50">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\弹窗\white.png</Picture>
+                <Picture fmt="OSD8" id="51">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\弹窗\white_choose.png</Picture>
+                <Picture fmt="OSD8" id="52">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\弹窗\yellow.png</Picture>
+                <Picture fmt="OSD8" id="53">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\文件查看\弹窗\yellow_choose.png</Picture>
             </PictureList>
             <CellList>
-                <Cell id="123">mf1</Cell>
-                <Cell id="124">mf2</Cell>
-                <Cell id="125">mf3</Cell>
-                <Cell id="127">tip2</Cell>
-                <Cell id="128">tip3</Cell>
-                <Cell id="130">tip5</Cell>
-                <Cell id="131">tip6</Cell>
-                <Cell id="134">tip9</Cell>
-                <Cell id="135">tip10</Cell>
-                <Cell id="136">tip11</Cell>
-                <Cell id="137">tip12</Cell>
-                <Cell id="138">tip13</Cell>
-                <Cell id="139">tip14</Cell>
-                <Cell id="140">tip15</Cell>
-                <Cell id="141">tip16</Cell>
-                <Cell id="144">tip19</Cell>
-                <Cell id="145">tip20</Cell>
+                <Cell id="41">mf1</Cell>
+                <Cell id="42">mf2</Cell>
+                <Cell id="43">mf3</Cell>
+                <Cell id="45">tip2</Cell>
+                <Cell id="46">tip3</Cell>
+                <Cell id="48">tip5</Cell>
+                <Cell id="49">tip6</Cell>
+                <Cell id="52">tip9</Cell>
+                <Cell id="53">tip10</Cell>
+                <Cell id="54">tip11</Cell>
+                <Cell id="55">tip12</Cell>
+                <Cell id="56">tip13</Cell>
+                <Cell id="57">tip14</Cell>
+                <Cell id="58">tip15</Cell>
+                <Cell id="59">tip16</Cell>
+                <Cell id="60">tip19</Cell>
+                <Cell id="61">tip20</Cell>
             </CellList>
         </Page>
-        <Page id="4">
+        <Page id="2">
             <ColorList>
                 <Color id="0">55AAA5</Color>
                 <Color id="1">FFC046</Color>
@@ -1571,310 +1078,11 @@
                 <Color id="255">F8F8F8</Color>
             </ColorList>
             <PictureList>
-                <Picture fmt="OSD8" id="1">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\USB\MASS.png</Picture>
-                <Picture fmt="OSD8" id="2">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\USB\MASS_on.png</Picture>
+                <Picture fmt="OSD8" id="1">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\USB\MASS.png</Picture>
+                <Picture fmt="OSD8" id="2">E:\Project\PB-A3.2_END\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\USB\MASS_on.png</Picture>
             </PictureList>
             <CellList>
-                <Cell id="55">mp9</Cell>
-            </CellList>
-        </Page>
-        <Page id="5">
-            <ColorList>
-                <Color id="0">55AAA5</Color>
-                <Color id="1">B3B3B3</Color>
-                <Color id="2">FFFFFF</Color>
-                <Color id="3">AEAEAE</Color>
-                <Color id="4">000000</Color>
-                <Color id="5">FFC046</Color>
-                <Color id="6">AAAAAA</Color>
-                <Color id="7">353535</Color>
-                <Color id="8">4B4B4B</Color>
-                <Color id="9">4C4C4C</Color>
-                <Color id="10">4D4D4D</Color>
-                <Color id="11">4E4E4E</Color>
-                <Color id="12">4F4F4F</Color>
-                <Color id="13">505050</Color>
-                <Color id="14">515151</Color>
-                <Color id="15">525252</Color>
-                <Color id="16">535353</Color>
-                <Color id="17">545454</Color>
-                <Color id="18">555555</Color>
-                <Color id="19">565656</Color>
-                <Color id="20">575757</Color>
-                <Color id="21">585858</Color>
-                <Color id="22">595959</Color>
-                <Color id="23">5A5A5A</Color>
-                <Color id="24">5B5B5B</Color>
-                <Color id="25">5C5C5C</Color>
-                <Color id="26">7C715D</Color>
-                <Color id="27">7C725D</Color>
-                <Color id="28">7D725D</Color>
-                <Color id="29">606060</Color>
-                <Color id="30">616161</Color>
-                <Color id="31">626262</Color>
-                <Color id="32">666461</Color>
-                <Color id="33">666666</Color>
-                <Color id="34">686561</Color>
-                <Color id="35">686868</Color>
-                <Color id="36">696969</Color>
-                <Color id="37">6A6A6A</Color>
-                <Color id="38">6B6B6B</Color>
-                <Color id="39">6C6C6C</Color>
-                <Color id="40">6D6D6D</Color>
-                <Color id="41">6E6E6E</Color>
-                <Color id="42">73726F</Color>
-                <Color id="43">75736F</Color>
-                <Color id="44">707070</Color>
-                <Color id="45">727272</Color>
-                <Color id="46">737373</Color>
-                <Color id="47">747474</Color>
-                <Color id="48">757575</Color>
-                <Color id="49">7A7A7A</Color>
-                <Color id="50">7C7C7C</Color>
-                <Color id="51">7D7D7D</Color>
-                <Color id="52">7E7E7E</Color>
-                <Color id="53">7F7F7F</Color>
-                <Color id="54">887D69</Color>
-                <Color id="55">897E69</Color>
-                <Color id="56">B99652</Color>
-                <Color id="57">BA9752</Color>
-                <Color id="58">BB9752</Color>
-                <Color id="59">BD9852</Color>
-                <Color id="60">BD9952</Color>
-                <Color id="61">BE9952</Color>
-                <Color id="62">BF9A51</Color>
-                <Color id="63">C49F57</Color>
-                <Color id="64">C09D58</Color>
-                <Color id="65">C09D59</Color>
-                <Color id="66">C19D58</Color>
-                <Color id="67">C29E58</Color>
-                <Color id="68">C39E58</Color>
-                <Color id="69">C5A057</Color>
-                <Color id="70">D5A74D</Color>
-                <Color id="71">D5A74E</Color>
-                <Color id="72">D6A74D</Color>
-                <Color id="73">D8AA51</Color>
-                <Color id="74">D9AB51</Color>
-                <Color id="75">E5B04B</Color>
-                <Color id="76">E6B14A</Color>
-                <Color id="77">E6B14B</Color>
-                <Color id="78">E7B24A</Color>
-                <Color id="79">E7B34D</Color>
-                <Color id="80">E8B34D</Color>
-                <Color id="81">E9B34D</Color>
-                <Color id="82">E9B44C</Color>
-                <Color id="83">F8BC47</Color>
-                <Color id="84">FBBD47</Color>
-                <Color id="85">FBBE47</Color>
-                <Color id="86">FCBE47</Color>
-                <Color id="87">FDBF46</Color>
-                <Color id="88">FEBF46</Color>
-                <Color id="89">F8BC48</Color>
-                <Color id="90">F9BD48</Color>
-                <Color id="91">808080</Color>
-                <Color id="92">818181</Color>
-                <Color id="93">828282</Color>
-                <Color id="94">838383</Color>
-                <Color id="95">858585</Color>
-                <Color id="96">878787</Color>
-                <Color id="97">888888</Color>
-                <Color id="98">898989</Color>
-                <Color id="99">8A8A8A</Color>
-                <Color id="100">8B8B8B</Color>
-                <Color id="101">8C8C8C</Color>
-                <Color id="102">8E8E8E</Color>
-                <Color id="103">8F8F8F</Color>
-                <Color id="104">949494</Color>
-                <Color id="105">959595</Color>
-                <Color id="106">969696</Color>
-                <Color id="107">979797</Color>
-                <Color id="108">989898</Color>
-                <Color id="109">999999</Color>
-                <Color id="110">9A9A9A</Color>
-                <Color id="111">9B9B9B</Color>
-                <Color id="112">9C9C9C</Color>
-                <Color id="113">9F9F9F</Color>
-                <Color id="114">A0A0A0</Color>
-                <Color id="115">A1A1A1</Color>
-                <Color id="116">A2A2A2</Color>
-                <Color id="117">A3A3A3</Color>
-                <Color id="118">A4A4A4</Color>
-                <Color id="119">A5A5A5</Color>
-                <Color id="120">A6A6A6</Color>
-                <Color id="121">A7A7A7</Color>
-                <Color id="122">A8A8A8</Color>
-                <Color id="123">ACACAC</Color>
-                <Color id="124">ADADAD</Color>
-                <Color id="125">AFAFAF</Color>
-                <Color id="126">B1B1B1</Color>
-                <Color id="127">B2B2B2</Color>
-                <Color id="128">B4B4B4</Color>
-                <Color id="129">B5B5B5</Color>
-                <Color id="130">B6B6B6</Color>
-                <Color id="131">B7B7B7</Color>
-                <Color id="132">B8B8B8</Color>
-                <Color id="133">B9B9B9</Color>
-                <Color id="134">BABABA</Color>
-                <Color id="135">BBBBBB</Color>
-                <Color id="136">BCBCBC</Color>
-                <Color id="137">BDBDBD</Color>
-                <Color id="138">BEBEBE</Color>
-                <Color id="139">BFBFBF</Color>
-                <Color id="140">C0C0C0</Color>
-                <Color id="141">C1C1C1</Color>
-                <Color id="142">C2C2C2</Color>
-                <Color id="143">C3C3C3</Color>
-                <Color id="144">C4C4C4</Color>
-                <Color id="145">C5C5C5</Color>
-                <Color id="146">C9C9C9</Color>
-                <Color id="147">CACACA</Color>
-                <Color id="148">CBCBCB</Color>
-                <Color id="149">CCCCCC</Color>
-                <Color id="150">CDCDCD</Color>
-                <Color id="151">CECECE</Color>
-                <Color id="152">D2D2D2</Color>
-                <Color id="153">D3D3D3</Color>
-                <Color id="154">D4D4D4</Color>
-                <Color id="155">D5D5D5</Color>
-                <Color id="156">D6D6D6</Color>
-                <Color id="157">D7D7D7</Color>
-                <Color id="158">D8D8D8</Color>
-                <Color id="159">D9D9D9</Color>
-                <Color id="160">DDDDDD</Color>
-                <Color id="161">DEDEDE</Color>
-                <Color id="162">DFDFDF</Color>
-                <Color id="163">E0E0E0</Color>
-                <Color id="164">E1E1E1</Color>
-                <Color id="165">E2E2E2</Color>
-                <Color id="166">E3E3E3</Color>
-                <Color id="167">E5E5E5</Color>
-                <Color id="168">E6E6E6</Color>
-                <Color id="169">E7E7E7</Color>
-                <Color id="170">E8E8E8</Color>
-                <Color id="171">E9E9E9</Color>
-                <Color id="172">EAEAEA</Color>
-                <Color id="173">ECECEC</Color>
-                <Color id="174">EDEDED</Color>
-                <Color id="175">EFEFEF</Color>
-                <Color id="176">F0F0F0</Color>
-                <Color id="177">F1F1F1</Color>
-                <Color id="178">F2F2F2</Color>
-                <Color id="179">F3F3F3</Color>
-                <Color id="180">F4F4F4</Color>
-                <Color id="181">F5F5F5</Color>
-                <Color id="182">F6F6F6</Color>
-                <Color id="183">F7F7F7</Color>
-                <Color id="184">F8F8F8</Color>
-                <Color id="185">F9F9F9</Color>
-                <Color id="186">FBFBFB</Color>
-                <Color id="187">FCFCFC</Color>
-                <Color id="188">FDFDFD</Color>
-                <Color id="189">FEFEFE</Color>
-            </ColorList>
-            <PictureList>
-                <Picture fmt="OSD8" id="1">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\系统设置\cancel.png</Picture>
-                <Picture fmt="OSD8" id="2">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\系统设置\choose.png</Picture>
-                <Picture fmt="OSD8" id="3">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\系统设置\左侧工具栏\FILES.png</Picture>
-                <Picture fmt="OSD8" id="4">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\系统设置\左侧工具栏\FILES_on.png</Picture>
-                <Picture fmt="OSD8" id="5">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\系统设置\forbid.png</Picture>
-                <Picture fmt="OSD8" id="6">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\系统设置\frame.png</Picture>
-                <Picture fmt="OSD8" id="7">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\系统设置\frame2.png</Picture>
-                <Picture fmt="OSD8" id="8">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\系统设置\左侧工具栏\home.png</Picture>
-                <Picture fmt="OSD8" id="9">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\系统设置\左侧工具栏\home_on.png</Picture>
-                <Picture fmt="OSD8" id="10">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\系统设置\ok.png</Picture>
-                <Picture fmt="OSD8" id="11">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\拍摄界面\pop_up_window.png</Picture>
-                <Picture fmt="OSD8" id="12">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\系统设置\左侧工具栏\video.png</Picture>
-                <Picture fmt="OSD8" id="13">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\系统设置\左侧工具栏\video_on.png</Picture>
-            </PictureList>
-            <CellList>
-                <Cell id="15">m25</Cell>
-                <Cell id="27">m38</Cell>
-                <Cell id="28">m39</Cell>
-                <Cell id="29">m40</Cell>
-                <Cell id="30">m41</Cell>
-                <Cell id="31">m42</Cell>
-                <Cell id="32">m43</Cell>
-                <Cell id="33">m44</Cell>
-                <Cell id="34">m45</Cell>
-                <Cell id="35">m46</Cell>
-                <Cell id="36">m47</Cell>
-                <Cell id="39">m51</Cell>
-                <Cell id="40">m52</Cell>
-                <Cell id="77">mst1</Cell>
-                <Cell id="78">mst2</Cell>
-                <Cell id="79">mst3</Cell>
-                <Cell id="80">mst4</Cell>
-                <Cell id="81">mst5</Cell>
-                <Cell id="82">mst6</Cell>
-                <Cell id="83">mst7</Cell>
-                <Cell id="84">mst8</Cell>
-                <Cell id="85">mst9</Cell>
-                <Cell id="86">mst10</Cell>
-                <Cell id="87">mst11</Cell>
-                <Cell id="88">mst12</Cell>
-                <Cell id="89">mst13</Cell>
-                <Cell id="90">ms1</Cell>
-                <Cell id="91">ms2</Cell>
-                <Cell id="92">ms3</Cell>
-                <Cell id="93">ms4</Cell>
-                <Cell id="94">ms5</Cell>
-                <Cell id="95">ms6</Cell>
-                <Cell id="96">ms7</Cell>
-                <Cell id="97">ms8</Cell>
-                <Cell id="98">ms9</Cell>
-                <Cell id="99">ms10</Cell>
-                <Cell id="100">ms11</Cell>
-                <Cell id="101">ms12</Cell>
-                <Cell id="102">ms14</Cell>
-                <Cell id="103">ms15</Cell>
-                <Cell id="104">ms16</Cell>
-                <Cell id="105">ms17</Cell>
-                <Cell id="106">ms18</Cell>
-                <Cell id="107">ms19</Cell>
-                <Cell id="108">ms21</Cell>
-                <Cell id="109">ms22</Cell>
-                <Cell id="110">ms23</Cell>
-                <Cell id="111">ms24</Cell>
-                <Cell id="112">ms25</Cell>
-                <Cell id="113">ms26</Cell>
-                <Cell id="114">ms27</Cell>
-                <Cell id="115">ms28</Cell>
-                <Cell id="116">ms29</Cell>
-                <Cell id="117">ms30</Cell>
-                <Cell id="118">ms31</Cell>
-                <Cell id="119">ms32</Cell>
-                <Cell id="120">ms33</Cell>
-                <Cell id="121">ms34</Cell>
-                <Cell id="122">ms35</Cell>
-                <Cell id="127">tip2</Cell>
-                <Cell id="141">tip16</Cell>
-            </CellList>
-        </Page>
-        <Page id="6">
-            <ColorList>
-                <Color id="0">55AAA5</Color>
-                <Color id="1">000000</Color>
-            </ColorList>
-            <PictureList/>
-            <CellList/>
-        </Page>
-        <Page id="7">
-            <ColorList>
-                <Color id="0">55AAA5</Color>
-                <Color id="1">FFF795</Color>
-                <Color id="2">353535</Color>
-                <Color id="3">000000</Color>
-                <Color id="4">00C4FF</Color>
-                <Color id="5">FFC046</Color>
-                <Color id="6">FFFFFF</Color>
-            </ColorList>
-            <PictureList>
-                <Picture fmt="OSD8" id="1">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\系统设置\左侧工具栏\OK.png</Picture>
-                <Picture fmt="OSD8" id="2">E:\Project\PB-A3.2\UI工程\ui_1280x800_touch_screen\模式界面\project\config\UI_1280_480\系统设置\左侧工具栏\OK_on.png</Picture>
-            </PictureList>
-            <CellList>
-                <Cell id="142">tip17</Cell>
-                <Cell id="143">tip18</Cell>
+                <Cell id="37">mp9</Cell>
             </CellList>
         </Page>
     </PageList>

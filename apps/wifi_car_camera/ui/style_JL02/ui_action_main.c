@@ -21,14 +21,14 @@ struct main_page_info {
     s8 onkey_sel;
 };
 static int onkey_sel_item[3] = {
-    HOME_BTN_RECORDER,
+    // HOME_BTN_RECORDER,
     HOME_BTN_FILE,
-    HOME_BTN_SETTINGS,
+    // HOME_BTN_SETTINGS,
 };
 static int onkey_sel_item1[3] = {
-    HOME_TXT_RECORDER,
-    HOME_TXT_FILES,
-    HOME_TXT_SETTINGS,
+    // HOME_TXT_RECORDER,
+    // HOME_TXT_FILES,
+    // HOME_TXT_SETTINGS,
 };
 
 extern volatile char if_in_rec; /* 是否正在录像 */
@@ -51,12 +51,12 @@ static void __main_msg_hide(enum box_msg id)
     if (msg_show_id == id) {
         if (msg_show_f) {
             msg_show_f = 0;
-            ui_hide(HOME_LAY_MESSAGEBOX);
+            // ui_hide(HOME_LAY_MESSAGEBOX);
         }
     } else if (id == 0) { /* 没有指定ID，强制隐藏 */
         if (msg_show_f) {
             msg_show_f = 0;
-            ui_hide(HOME_LAY_MESSAGEBOX);
+            // ui_hide(HOME_LAY_MESSAGEBOX);
         }
     }
 }
@@ -75,7 +75,7 @@ static void __main_msg_show(enum box_msg msg, u32 timeout_msec)
     if (msg == msg_show_id) {
         if (msg_show_f == 0) {
             msg_show_f = 1;
-            ui_show(HOME_LAY_MESSAGEBOX);
+            // ui_show(HOME_LAY_MESSAGEBOX);
            // ui_text_show_index_by_id(HOME_TXT_MESSAGEBOX, msg - 1);
             if (t_id) {
                 sys_timeout_del(t_id);
@@ -89,9 +89,9 @@ static void __main_msg_show(enum box_msg msg, u32 timeout_msec)
         msg_show_id = msg;
         if (msg_show_f == 0) {
             msg_show_f = 1;
-            ui_show(HOME_LAY_MESSAGEBOX);
+            // ui_show(HOME_LAY_MESSAGEBOX);
         }
-        ui_text_show_index_by_id(HOME_TXT_MESSAGEBOX, msg - 1);
+        // ui_text_show_index_by_id(HOME_TXT_MESSAGEBOX, msg - 1);
         if (t_id) {
             sys_timeout_del(t_id);
             t_id = 0;
@@ -196,7 +196,7 @@ static void battery_event_handler(struct sys_event *event, void *priv)
                 ten_sec_off = 1;
             } else if (event->u.dev.event == DEVICE_EVENT_POWER_SHUTDOWN) {
                 ten_sec_off = 0;
-                ui_hide(ID_WINDOW_MAIN_PAGE);
+//                ui_hide(ID_WINDOW_MAIN_PAGE);
             }
         }
     }
@@ -223,188 +223,188 @@ static const struct uimsg_handl main_msg_handler[] = {
     { "saveREC",        rec_save_handler     }, /* 保存录像 */
     // { NULL, NULL},      /* 必须以此结尾！ */
 };
-
-static int main_page_onchange(void *ctr, enum element_change_event e, void *arg)
-{
-    struct window *window = (struct window *)ctr;
-    int err, item, id;
-    const char *str = NULL;
-    struct intent it;
-    struct application *app;
-    int ret;
-    /* UI_ONTOUCH_DEBUG("\nmain page onchange \n"); */
-    switch (e) {
-    case ON_CHANGE_INIT:
-        ui_register_msg_handler(ID_WINDOW_MAIN_PAGE, main_msg_handler);
-        malloc_stats();
-        break;
-    default:
-        return false;
-    }
-
-    return false;
-}
-
-REGISTER_UI_EVENT_HANDLER(ID_WINDOW_MAIN_PAGE)
-.onchange = main_page_onchange,
-};
+//
+//static int main_page_onchange(void *ctr, enum element_change_event e, void *arg)
+//{
+//    struct window *window = (struct window *)ctr;
+//    int err, item, id;
+//    const char *str = NULL;
+//    struct intent it;
+//    struct application *app;
+//    int ret;
+//    /* UI_ONTOUCH_DEBUG("\nmain page onchange \n"); */
+//    switch (e) {
+//    case ON_CHANGE_INIT:
+////        ui_register_msg_handler(ID_WINDOW_MAIN_PAGE, main_msg_handler);
+//        malloc_stats();
+//        break;
+//    default:
+//        return false;
+//    }
+//
+//    return false;
+//}
+//
+//REGISTER_UI_EVENT_HANDLER(ID_WINDOW_MAIN_PAGE)
+//.onchange = main_page_onchange,
+//};
 /***************************** 星期文字动作 ************************************/
-static int text_week_onchange(void *ctr, enum element_change_event e, void *arg)
-{
-    struct ui_text *text = (struct ui_text *)ctr;
-    struct sys_time sys_time;
-    switch (e) {
-    case ON_CHANGE_INIT:
-        get_system_time(&sys_time);
-        printf("\nit is week %d\n", ReturnWeekDay(sys_time.year, sys_time.month, sys_time.day));
-        ui_text_set_index(text, ReturnWeekDay(sys_time.year, sys_time.month, sys_time.day) - 1);
-        return true;
-    default:
-        return false;
-    }
-    return false;
-}
+// static int text_week_onchange(void *ctr, enum element_change_event e, void *arg)
+// {
+//     struct ui_text *text = (struct ui_text *)ctr;
+//     struct sys_time sys_time;
+//     switch (e) {
+//     case ON_CHANGE_INIT:
+//         get_system_time(&sys_time);
+//         printf("\nit is week %d\n", ReturnWeekDay(sys_time.year, sys_time.month, sys_time.day));
+//         ui_text_set_index(text, ReturnWeekDay(sys_time.year, sys_time.month, sys_time.day) - 1);
+//         return true;
+//     default:
+//         return false;
+//     }
+//     return false;
+// }
 
-REGISTER_UI_EVENT_HANDLER(HOME_TXT_WEEKDAY)
-.onchange = text_week_onchange,
- .ontouch = NULL,
-};
+// REGISTER_UI_EVENT_HANDLER(HOME_TXT_WEEKDAY)
+// .onchange = text_week_onchange,
+//  .ontouch = NULL,
+// };
 
 /*****************************主界面电池控件动作 ************************************/
-static int battery_main_onchange(void *ctr, enum element_change_event e, void *arg)
-{
-    struct ui_battery *battery = (struct ui_battery *)ctr;
-    static u16 id = 0;
-    static u32 timer_handle = 0;
-    switch (e) {
-    case ON_CHANGE_INIT:
-        id = register_sys_event_handler(SYS_DEVICE_EVENT | SYS_KEY_EVENT | SYS_TOUCH_EVENT, 200, 0, battery_event_handler);
-        break;
-    case ON_CHANGE_FIRST_SHOW:
-        __this->battery_val = sys_power_get_battery_persent();
-        /* u32 power_level = 0; */
-        /* dev_ioctl(fd, POWER_DET_GET_LEVEL, (u32)&power_level); */
-        /* __this->battery_val = power_level * 20; */
-        if (__this->battery_val > 100) {
-            __this->battery_val = 100;
-        }
-        __this->battery_char = (usb_is_charging() ? 1 : 0);
-        ui_battery_level_change(__this->battery_val, __this->battery_char);
-        timer_handle = sys_timer_add(NULL, no_power_msg_box_timer, 1000);
-        break;
-    case ON_CHANGE_RELEASE:
-        unregister_sys_event_handler(id);
-        if (timer_handle) {
-            sys_timer_del(timer_handle);
-            timer_handle = 0;
-        }
-        break;
-    default:
-        return false;
-    }
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(HOME_BAT)
-.onchange = battery_main_onchange,
- .ontouch = NULL,
-};
+// static int battery_main_onchange(void *ctr, enum element_change_event e, void *arg)
+// {
+//     struct ui_battery *battery = (struct ui_battery *)ctr;
+//     static u16 id = 0;
+//     static u32 timer_handle = 0;
+//     switch (e) {
+//     case ON_CHANGE_INIT:
+//         id = register_sys_event_handler(SYS_DEVICE_EVENT | SYS_KEY_EVENT | SYS_TOUCH_EVENT, 200, 0, battery_event_handler);
+//         break;
+//     case ON_CHANGE_FIRST_SHOW:
+//         __this->battery_val = sys_power_get_battery_persent();
+//         /* u32 power_level = 0; */
+//         /* dev_ioctl(fd, POWER_DET_GET_LEVEL, (u32)&power_level); */
+//         /* __this->battery_val = power_level * 20; */
+//         if (__this->battery_val > 100) {
+//             __this->battery_val = 100;
+//         }
+//         __this->battery_char = (usb_is_charging() ? 1 : 0);
+//         ui_battery_level_change(__this->battery_val, __this->battery_char);
+//         timer_handle = sys_timer_add(NULL, no_power_msg_box_timer, 1000);
+//         break;
+//     case ON_CHANGE_RELEASE:
+//         unregister_sys_event_handler(id);
+//         if (timer_handle) {
+//             sys_timer_del(timer_handle);
+//             timer_handle = 0;
+//         }
+//         break;
+//     default:
+//         return false;
+//     }
+//     return false;
+// }
+// REGISTER_UI_EVENT_HANDLER(HOME_BAT)
+// .onchange = battery_main_onchange,
+//  .ontouch = NULL,
+// };
 /****************************主界面时间控件动作 ************************************/
-static int timer_sys_main_onchange(void *ctr, enum element_change_event e, void *arg)
-{
-    struct ui_time *time = (struct ui_time *)ctr;
-    struct sys_time sys_time;
+// static int timer_sys_main_onchange(void *ctr, enum element_change_event e, void *arg)
+// {
+//     struct ui_time *time = (struct ui_time *)ctr;
+//     struct sys_time sys_time;
 
-    switch (e) {
-    case ON_CHANGE_INIT:
-        get_system_time(&sys_time);
-        time->year = sys_time.year;
-        time->month = sys_time.month;
-        time->day = sys_time.day;
-        time->hour = sys_time.hour;
-        time->min = sys_time.min;
-        time->sec = sys_time.sec;
-        break;
-    default:
-        return false;
-    }
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(HOME_TIM_TIME)
-.onchange = timer_sys_main_onchange,
- .ontouch = NULL,
-};
+//     switch (e) {
+//     case ON_CHANGE_INIT:
+//         get_system_time(&sys_time);
+//         time->year = sys_time.year;
+//         time->month = sys_time.month;
+//         time->day = sys_time.day;
+//         time->hour = sys_time.hour;
+//         time->min = sys_time.min;
+//         time->sec = sys_time.sec;
+//         break;
+//     default:
+//         return false;
+//     }
+//     return false;
+// }
+// REGISTER_UI_EVENT_HANDLER(HOME_TIM_TIME)
+// .onchange = timer_sys_main_onchange,
+//  .ontouch = NULL,
+// };
 /*****************************主界面系统日期控件动作 ************************************/
-static int timer_sys_date_main_onchange(void *ctr, enum element_change_event e, void *arg)
-{
-    struct ui_time *time = (struct ui_time *)ctr;
-    struct sys_time sys_time;
+//static int timer_sys_date_main_onchange(void *ctr, enum element_change_event e, void *arg)
+//{
+//    struct ui_time *time = (struct ui_time *)ctr;
+//    struct sys_time sys_time;
+//
+//    switch (e) {
+//    case ON_CHANGE_INIT:
+//        get_system_time(&sys_time);
+//        time->year = sys_time.year;
+//        time->month = sys_time.month;
+//        time->day = sys_time.day;
+//        time->hour = sys_time.hour;
+//        time->min = sys_time.min;
+//        time->sec = sys_time.sec;
+//        break;
+//
+//    default:
+//        return false;
+//    }
+//    return false;
+//}
+//REGISTER_UI_EVENT_HANDLER(HOME_TIM_DATE)
+//.onchange = timer_sys_date_main_onchange,
+// .onkey = NULL,
+//  .ontouch = NULL,
+//};
 
-    switch (e) {
-    case ON_CHANGE_INIT:
-        get_system_time(&sys_time);
-        time->year = sys_time.year;
-        time->month = sys_time.month;
-        time->day = sys_time.day;
-        time->hour = sys_time.hour;
-        time->min = sys_time.min;
-        time->sec = sys_time.sec;
-        break;
 
-    default:
-        return false;
-    }
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(HOME_TIM_DATE)
-.onchange = timer_sys_date_main_onchange,
- .onkey = NULL,
-  .ontouch = NULL,
-};
+// static int car_recorder_ontouch(void *ctr, struct element_touch_event *e)
+// {
+//     UI_ONTOUCH_DEBUG("**car recorder ontouch**");
+//     struct intent it; // 定义一个 intent 结构体，用于启动应用
+//     struct application *app; // 定义一个指向当前应用的指针
+//     switch (e->event) {
+//     case ELM_EVENT_TOUCH_DOWN: // 触摸按下事件
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
+//         if (__this->onkey_sel) { // 如果有选中的按键项，取消高亮
+//             ui_no_highlight_element_by_id(onkey_sel_item[__this->onkey_sel - 1]);
+//             ui_no_highlight_element_by_id(onkey_sel_item1[__this->onkey_sel - 1]);
+//         }
+//         ui_highlight_element_by_id(HOME_TXT_RECORDER); // 高亮行车记录仪按钮
+//         break;
+//     case ELM_EVENT_TOUCH_HOLD: // 触摸长按事件
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_HOLD\n");
+//         break;
+//     case ELM_EVENT_TOUCH_MOVE: // 触摸移动事件
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
+//         break;
+//     case ELM_EVENT_TOUCH_UP: // 触摸抬起事件
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+//         app = get_current_app(); // 获取当前运行的应用
+//         if (app) { // 如果有应用在运行
+//             if (!strcmp(app->name, "video_rec")) { // 如果当前应用是 "video_rec"（视频录制应用）
+//                 ui_hide(ui_get_current_window_id()); // 隐藏当前窗口
+//                 ui_show(ID_WINDOW_VIDEO_REC); // 显示视频录制界面
+//             }
+//         } else { // 如果没有应用在运行
+//             ui_hide(ui_get_current_window_id()); // 隐藏当前窗口
+//             init_intent(&it); // 初始化 intent 结构体
+//             it.name = "video_rec"; // 设置要启动的应用名称为 "video_rec"
+//             it.action = ACTION_VIDEO_REC_MAIN; // 设置要执行的操作为视频录制主功能
+//             start_app_async(&it, NULL, NULL); // 异步启动视频录制应用
+//         }
+//         break;
+//     }
+//     return false; // 返回 false，表示不再处理事件
+// }
 
-
-static int car_recorder_ontouch(void *ctr, struct element_touch_event *e)
-{
-    UI_ONTOUCH_DEBUG("**car recorder ontouch**");
-    struct intent it; // 定义一个 intent 结构体，用于启动应用
-    struct application *app; // 定义一个指向当前应用的指针
-    switch (e->event) {
-    case ELM_EVENT_TOUCH_DOWN: // 触摸按下事件
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
-        if (__this->onkey_sel) { // 如果有选中的按键项，取消高亮
-            ui_no_highlight_element_by_id(onkey_sel_item[__this->onkey_sel - 1]);
-            ui_no_highlight_element_by_id(onkey_sel_item1[__this->onkey_sel - 1]);
-        }
-        ui_highlight_element_by_id(HOME_TXT_RECORDER); // 高亮行车记录仪按钮
-        break;
-    case ELM_EVENT_TOUCH_HOLD: // 触摸长按事件
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_HOLD\n");
-        break;
-    case ELM_EVENT_TOUCH_MOVE: // 触摸移动事件
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
-        break;
-    case ELM_EVENT_TOUCH_UP: // 触摸抬起事件
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-        app = get_current_app(); // 获取当前运行的应用
-        if (app) { // 如果有应用在运行
-            if (!strcmp(app->name, "video_rec")) { // 如果当前应用是 "video_rec"（视频录制应用）
-                ui_hide(ui_get_current_window_id()); // 隐藏当前窗口
-                ui_show(ID_WINDOW_VIDEO_REC); // 显示视频录制界面
-            }
-        } else { // 如果没有应用在运行
-            ui_hide(ui_get_current_window_id()); // 隐藏当前窗口
-            init_intent(&it); // 初始化 intent 结构体
-            it.name = "video_rec"; // 设置要启动的应用名称为 "video_rec"
-            it.action = ACTION_VIDEO_REC_MAIN; // 设置要执行的操作为视频录制主功能
-            start_app_async(&it, NULL, NULL); // 异步启动视频录制应用
-        }
-        break;
-    }
-    return false; // 返回 false，表示不再处理事件
-}
-
-REGISTER_UI_EVENT_HANDLER(HOME_BTN_RECORDER)
-.ontouch = car_recorder_ontouch, // 绑定触摸事件处理函数
-};
+// REGISTER_UI_EVENT_HANDLER(HOME_BTN_RECORDER)
+// .ontouch = car_recorder_ontouch, // 绑定触摸事件处理函数
+// };
 
 static void app_action_back_ok(void *p, int err)
 {
@@ -415,48 +415,48 @@ static void app_action_back_ok(void *p, int err)
         printf("---app action back faild: %d\n", err);
     }
 }
-static int system_setting_ontouch(void *ctr, struct element_touch_event *e)
-{
-    UI_ONTOUCH_DEBUG("**sys setting ontouch**");
-    struct intent it;
-    struct application *app;
-    switch (e->event) {
-    case ELM_EVENT_TOUCH_DOWN:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
-        if (__this->onkey_sel) {
-            ui_no_highlight_element_by_id(onkey_sel_item[__this->onkey_sel - 1]);
-            ui_no_highlight_element_by_id(onkey_sel_item1[__this->onkey_sel - 1]);
-        }
-        ui_highlight_element_by_id(HOME_TXT_SETTINGS);
-        break;
-    case ELM_EVENT_TOUCH_HOLD:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_HOLD\n");
-        break;
-    case ELM_EVENT_TOUCH_MOVE:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
-        break;
-    case ELM_EVENT_TOUCH_UP:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-        app = get_current_app();
-        if (app) {
-            init_intent(&it);
-            it.name = app->name;
-            it.action = ACTION_BACK;
-            start_app_async(&it, app_action_back_ok, NULL);
-        } else {
-            ui_hide(ui_get_current_window_id());
-        }
-        init_intent(&it);
-        it.name = "video_system";
-        it.action = ACTION_SYSTEM_MAIN;
-        start_app_async(&it, NULL, NULL);
-        break;
-    }
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(HOME_BTN_SETTINGS)
-.ontouch = system_setting_ontouch,
-};
+// static int system_setting_ontouch(void *ctr, struct element_touch_event *e)
+// {
+//     UI_ONTOUCH_DEBUG("**sys setting ontouch**");
+//     struct intent it;
+//     struct application *app;
+//     switch (e->event) {
+//     case ELM_EVENT_TOUCH_DOWN:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
+//         if (__this->onkey_sel) {
+//             ui_no_highlight_element_by_id(onkey_sel_item[__this->onkey_sel - 1]);
+//             ui_no_highlight_element_by_id(onkey_sel_item1[__this->onkey_sel - 1]);
+//         }
+//         ui_highlight_element_by_id(HOME_TXT_SETTINGS);
+//         break;
+//     case ELM_EVENT_TOUCH_HOLD:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_HOLD\n");
+//         break;
+//     case ELM_EVENT_TOUCH_MOVE:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
+//         break;
+//     case ELM_EVENT_TOUCH_UP:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+//         app = get_current_app();
+//         if (app) {
+//             init_intent(&it);
+//             it.name = app->name;
+//             it.action = ACTION_BACK;
+//             start_app_async(&it, app_action_back_ok, NULL);
+//         } else {
+//             ui_hide(ui_get_current_window_id());
+//         }
+//         init_intent(&it);
+//         it.name = "video_system";
+//         it.action = ACTION_SYSTEM_MAIN;
+//         start_app_async(&it, NULL, NULL);
+//         break;
+//     }
+//     return false;
+// }
+// REGISTER_UI_EVENT_HANDLER(HOME_BTN_SETTINGS)
+// .ontouch = system_setting_ontouch,
+// };
 static void file_browse_ok(void *p, int err)
 {
     puts("open file browser ok!!!\n");
@@ -467,7 +467,7 @@ static void file_browse_ok(void *p, int err)
 //     UI_ONTOUCH_DEBUG("**file_browse  ontouch**"); // 调试信息，表示文件浏览触摸事件处理开始
 //     struct intent it; // 定义 intent 结构体，用于表示启动应用的意图
 //     struct application *app; // 定义一个指向当前应用的指针
-//     switch (e->event) { 
+//     switch (e->event) {
 //     case ELM_EVENT_TOUCH_DOWN: // 触摸按下事件
 //         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
 //         // if (__this->onkey_sel) { // 如果有按键选择项，取消高亮
@@ -532,107 +532,107 @@ static int main_onchange(void *ctr, enum element_change_event e, void *arg)
 
     return false;
 }
-static int main_onkey(void *ctr, struct element_key_event *e)
-{
-     printf("e->event=%d  e->value=%d\n",e->event,e->value);
-    struct intent it;
-    struct application *app = get_current_app();
-    if (e->event == KEY_EVENT_LONG && e->value == KEY_POWER) {
-        ui_hide(ui_get_current_window_id());
-        sys_key_event_takeover(false, true);
-        return true;
-    }
-    if (e->event != KEY_EVENT_CLICK) {
-        return false;
-    }
-    switch (e->value) {
-    case KEY_UP:
-        if (__this->onkey_sel) {
-            ui_no_highlight_element_by_id(onkey_sel_item[__this->onkey_sel - 1]);
-            ui_no_highlight_element_by_id(onkey_sel_item1[__this->onkey_sel - 1]);
-        }
-        __this->onkey_sel --;
-        if (__this->onkey_sel < 1) {
-            __this->onkey_sel = 3;
-        }
-        ui_highlight_element_by_id(onkey_sel_item[__this->onkey_sel - 1]);
-        ui_highlight_element_by_id(onkey_sel_item1[__this->onkey_sel - 1]);
-        break;
-    case KEY_DOWN:
-        if (__this->onkey_sel) {
-            ui_no_highlight_element_by_id(onkey_sel_item[__this->onkey_sel - 1]);
-            ui_no_highlight_element_by_id(onkey_sel_item1[__this->onkey_sel - 1]);
-        }
-        __this->onkey_sel ++;
-        if (__this->onkey_sel > 3) {
-            __this->onkey_sel = 1;
-        }
-        ui_highlight_element_by_id(onkey_sel_item[__this->onkey_sel - 1]);
-        ui_highlight_element_by_id(onkey_sel_item1[__this->onkey_sel - 1]);
-        break;
-    case KEY_OK:
-        // if (__this->onkey_sel) {
-        //     struct intent it;
-        //     switch (__this->onkey_sel) {
-        //     case 1:
-        //         if (app) {
-        //             if (!strcmp(app->name, "video_rec")) {
-        //                 ui_hide(ui_get_current_window_id());
-        //                 ui_show(ID_WINDOW_VIDEO_REC);
-        //             }
-        //         } else {
-        //             ui_hide(ui_get_current_window_id());
-        //             init_intent(&it);
-        //             it.name = "video_rec";
-        //             it.action = ACTION_VIDEO_REC_CONTROL;
-        //             start_app_async(&it, NULL, NULL);
-        //         }
-        //         break;
-        //     case 2:
-        //         if (app) {
-        //             init_intent(&it);
-        //             it.name = app->name;
-        //             it.action = ACTION_BACK;
-        //             start_app_async(&it, app_action_back_ok, NULL);
-        //         } else {
-        //             ui_hide(ui_get_current_window_id());
-        //         }
-        //         sys_touch_event_disable();
-        //         init_intent(&it);
-        //         it.name = "video_dec";
-        //         it.action = ACTION_VIDEO_DEC_MAIN;
-        //         start_app_async(&it, file_browse_ok, NULL);
-        //         break;
-        //     case 3:
-        //         if (app) {
-        //             init_intent(&it);
-        //             it.name = app->name;
-        //             it.action = ACTION_BACK;
-        //             start_app_async(&it, app_action_back_ok, NULL);
-        //         } else {
-        //             ui_hide(ui_get_current_window_id());
-        //         }
-        //         init_intent(&it);
-        //         it.name = "video_system";
-        //         it.action = ACTION_SYSTEM_MAIN;
-        //         start_app(&it);
-        //         break;
-        //     }
-        //     return true;
-        // }
-        // break;
-    case KEY_MODE:
-        return true;
-        break;
-    default:
-        return false;
-    }
+// static int main_onkey(void *ctr, struct element_key_event *e)
+// {
+//      printf("e->event=%d  e->value=%d\n",e->event,e->value);
+//     struct intent it;
+//     struct application *app = get_current_app();
+//     if (e->event == KEY_EVENT_LONG && e->value == KEY_POWER) {
+//         ui_hide(ui_get_current_window_id());
+//         sys_key_event_takeover(false, true);
+//         return true;
+//     }
+//     if (e->event != KEY_EVENT_CLICK) {
+//         return false;
+//     }
+//     switch (e->value) {
+//     case KEY_UP:
+//         if (__this->onkey_sel) {
+//             ui_no_highlight_element_by_id(onkey_sel_item[__this->onkey_sel - 1]);
+//             ui_no_highlight_element_by_id(onkey_sel_item1[__this->onkey_sel - 1]);
+//         }
+//         __this->onkey_sel --;
+//         if (__this->onkey_sel < 1) {
+//             __this->onkey_sel = 3;
+//         }
+//         ui_highlight_element_by_id(onkey_sel_item[__this->onkey_sel - 1]);
+//         ui_highlight_element_by_id(onkey_sel_item1[__this->onkey_sel - 1]);
+//         break;
+//     case KEY_DOWN:
+//         if (__this->onkey_sel) {
+//             ui_no_highlight_element_by_id(onkey_sel_item[__this->onkey_sel - 1]);
+//             ui_no_highlight_element_by_id(onkey_sel_item1[__this->onkey_sel - 1]);
+//         }
+//         __this->onkey_sel ++;
+//         if (__this->onkey_sel > 3) {
+//             __this->onkey_sel = 1;
+//         }
+//         ui_highlight_element_by_id(onkey_sel_item[__this->onkey_sel - 1]);
+//         ui_highlight_element_by_id(onkey_sel_item1[__this->onkey_sel - 1]);
+//         break;
+//     // case KEY_OK:
+//         // if (__this->onkey_sel) {
+//         //     struct intent it;
+//         //     switch (__this->onkey_sel) {
+//         //     case 1:
+//         //         if (app) {
+//         //             if (!strcmp(app->name, "video_rec")) {
+//         //                 ui_hide(ui_get_current_window_id());
+//         //                 ui_show(ID_WINDOW_VIDEO_REC);
+//         //             }
+//         //         } else {
+//         //             ui_hide(ui_get_current_window_id());
+//         //             init_intent(&it);
+//         //             it.name = "video_rec";
+//         //             it.action = ACTION_VIDEO_REC_CONTROL;
+//         //             start_app_async(&it, NULL, NULL);
+//         //         }
+//         //         break;
+//         //     case 2:
+//         //         if (app) {
+//         //             init_intent(&it);
+//         //             it.name = app->name;
+//         //             it.action = ACTION_BACK;
+//         //             start_app_async(&it, app_action_back_ok, NULL);
+//         //         } else {
+//         //             ui_hide(ui_get_current_window_id());
+//         //         }
+//         //         sys_touch_event_disable();
+//         //         init_intent(&it);
+//         //         it.name = "video_dec";
+//         //         it.action = ACTION_VIDEO_DEC_MAIN;
+//         //         start_app_async(&it, file_browse_ok, NULL);
+//         //         break;
+//         //     case 3:
+//         //         if (app) {
+//         //             init_intent(&it);
+//         //             it.name = app->name;
+//         //             it.action = ACTION_BACK;
+//         //             start_app_async(&it, app_action_back_ok, NULL);
+//         //         } else {
+//         //             ui_hide(ui_get_current_window_id());
+//         //         }
+//         //         init_intent(&it);
+//         //         it.name = "video_system";
+//         //         it.action = ACTION_SYSTEM_MAIN;
+//         //         start_app(&it);
+//         //         break;
+//         //     }
+//         //     return true;
+//         // }
+//         // break;
+//     case KEY_MODE:
+//         return true;
+//         break;
+//     default:
+//         return false;
+//     }
 
-    return true;
-}
-REGISTER_UI_EVENT_HANDLER(HOME_WIN)
-.onchange = main_onchange,
- .onkey = main_onkey,
-};
+//     return true;
+// }
+// REGISTER_UI_EVENT_HANDLER(HOME_WIN)
+// .onchange = main_onchange,
+//  .onkey = main_onkey,
+// };
 
 #endif

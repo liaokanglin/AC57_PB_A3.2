@@ -939,44 +939,60 @@ int usb_connect(u32 state)
 {
     u8 err = 0;
 
+    // 检查并设置 USB 大容量存储设备
     if (state & USB_MASS_STORAGE) {
         err = set_usb_mass_storage();
         if (err) {
+            printk("Error: Failed to set USB Mass Storage, error code: %d\n", err);
             return err;
         }
     }
 
+    // 检查并设置 USB 摄像头设备
     if (state & USB_CAMERA) {
         err = set_usb_camera();
         if (err) {
+            printk("Error: Failed to set USB Camera, error code: %d\n", err);
             return err;
         }
     }
 
+    // 检查并设置 USB 麦克风设备
     if (state & USB_MIC) {
         err = set_usb_microphone();
         if (err) {
+            printk("Error: Failed to set USB Microphone, error code: %d\n", err);
             return err;
         }
     }
+
+    // 检查并设置 USB 扬声器设备
     if (state & USB_SPEAKER) {
         err = set_usb_speaker();
         if (err) {
+            printk("Error: Failed to set USB Speaker, error code: %d\n", err);
             return err;
         }
     }
+
+    // 检查并设置 USB CDC（通信设备类）设备
     if (state & USB_CDC) {
         err = set_usb_cdc(cdc_user_output);
         if (err) {
+            printk("Error: Failed to set USB CDC, error code: %d\n", err);
             return err;
         }
     }
 
+    // 设置 USB 设备挂载状态
     __this->state = USB_STATE_DEVICE_MOUNT;
+
+    // 暂停自动关机
     sys_power_auto_shutdown_pause();
 
-    return 0;
+    return 0;  // 返回 0，表示操作成功
 }
+
 
 int usb_disconnect(void)
 {

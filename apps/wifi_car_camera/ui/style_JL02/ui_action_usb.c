@@ -46,7 +46,7 @@ static int usb_page_onchange(void *ctr, enum element_change_event e, void *arg)
         break;
 
     case ON_CHANGE_RELEASE:  // 窗口释放（关闭）时
-        ui_hide(ID_WINDOW_MAIN_PAGE);  // 隐藏主页面
+//        ui_hide(ID_WINDOW_MAIN_PAGE);  // 隐藏主页面
         break;
 
     default:

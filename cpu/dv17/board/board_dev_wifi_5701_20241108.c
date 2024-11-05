@@ -31,18 +31,17 @@ extern int get_video2_state();
 
 
 
-// UART0_PLATFORM_DATA_BEGIN(uart0_data)
-// 	.baudrate = 460800,//115200,
-// 	/* .baudrate = 115200, */
-// 	 //.tx_pin = IO_PORTA_07,.rx_pin = IO_PORTA_08,
-// 	 /* .tx_pin = IO_PORTG_06,.rx_pin = IO_PORTG_07, */
-// 	  /* .tx_pin = IO_PORTH_12,.rx_pin = IO_PORTH_13, */
-// 	 /* .tx_pin = IO_PORTB_14,.rx_pin = IO_PORTB_15, */
-// 	.port = PORT_REMAP,
-// 	.output_channel = OUTPUT_CHANNEL0,
-// 	.tx_pin = IO_PORTE_02,
-// 	.flags = UART_DEBUG,
-// UART0_PLATFORM_DATA_END();
+UART0_PLATFORM_DATA_BEGIN(uart0_data)
+	.baudrate = 9600,//115200,
+	/* .baudrate = 115200, */
+	.port = PORTG_6_7,
+	.output_channel = OUTPUT_CHANNEL2,
+	.tx_pin = IO_PORTG_06,
+	// .flags = UART_DEBUG,
+     .max_continue_recv_cnt = 1024, 
+	 .idle_sys_clk_cnt = 500000, 
+	 .clk_src = LSB_CLK, 
+UART0_PLATFORM_DATA_END();
 
 /* UART0_PLATFORM_DATA_BEGIN(s_uart_data) */
 	/* .baudrate = 460800,//115200, */
@@ -1344,8 +1343,8 @@ REGISTER_DEVICES(device_table) = {
 
    { "extflash", &extflash_dev_ops, (void *)&extflash_data },
 
-//	{ "usb_cam0",  &usb_cam_dev_ops, (void *)&usb_camera0_data },
-//	{ "usb_cam1",  &usb_cam_dev_ops, (void *)&usb_camera1_data },
+	// { "usb_cam0",  &usb_cam_dev_ops, (void *)&usb_camera0_data },
+	// { "usb_cam1",  &usb_cam_dev_ops, (void *)&usb_camera1_data },
 
 #ifdef CONFIG_GSENSOR_ENABLE
 	{"gsensor", &gsensor_dev_ops, NULL},
@@ -1376,17 +1375,23 @@ REGISTER_DEVICES(device_table) = {
 #endif
 
 	{"uart1", &uart_dev_ops, (void *)&uart1_data},
+    {"uart0", &uart_dev_ops, (void *)&uart0_data},
 };
 
 // *INDENT-ON*
 
 
 #ifdef CONFIG_DEBUG_ENABLE
-
 void debug_uart_init()
 {
     uart_init(&uart1_data);
 }
+
+// void pro_uart_init()
+// {
+//     uart_init(&uart0_data);
+// }
+
 #endif
 
 #define ISP_XCLK_MAPOUT()   \

@@ -33,7 +33,7 @@ static int show_main_ui()
         return -1;
     }
 
-    req.show.id = ID_WINDOW_VIDEO_SYS;
+//    req.show.id = ID_WINDOW_VIDEO_SYS;
     server_request_async(__this->ui, UI_REQ_SHOW, &req);
 #endif
 
@@ -51,7 +51,7 @@ static void hide_main_ui()
 
     puts("hide_sys_main_ui\n");
 
-    req.hide.id = ID_WINDOW_VIDEO_SYS;
+//    req.hide.id = ID_WINDOW_VIDEO_SYS;
     server_request(__this->ui, UI_REQ_HIDE, &req);
 #endif
 }

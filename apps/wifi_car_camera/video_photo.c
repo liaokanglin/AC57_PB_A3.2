@@ -124,7 +124,7 @@ void video_photo_post_msg(const char *msg, ...)
     va_start(argptr, msg);
 
     if (__this->ui) {
-        req.msg.receiver = ID_WINDOW_VIDEO_TPH;
+//        req.msg.receiver = ID_WINDOW_VIDEO_TPH;
         req.msg.msg = msg;
         req.msg.exdata = argptr;
         server_request(__this->ui, UI_REQ_MSG, &req);
@@ -761,7 +761,7 @@ static int show_main_ui()
     if (!__this->ui) {
         return -EINVAL;
     }
-    req.show.id = ID_WINDOW_VIDEO_TPH;
+//    req.show.id = ID_WINDOW_VIDEO_TPH;
     server_request_async(__this->ui, UI_REQ_SHOW, &req);
 #endif
     return 0;
@@ -778,7 +778,7 @@ static void hide_main_ui()
     }
 
 
-    req.hide.id = ID_WINDOW_VIDEO_TPH;
+//    req.hide.id = ID_WINDOW_VIDEO_TPH;
     server_request(__this->ui, UI_REQ_HIDE, &req);
 #endif
 }

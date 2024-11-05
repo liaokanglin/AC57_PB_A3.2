@@ -22,9 +22,9 @@
 #define ACTION_VIDEO_TAKE_PHOTO         0x0000200f  // 视频拍照
 #define ACTION_VIDEO_REC_CONCTRL        0x00002010  // 控制视频录制（注意拼写错误，应为 "CONTROL"）
 #define ACTION_VIDEO_CYC_SAVEFILE       0x00002011  // 循环保存视频文件
-#define ACTION_VIDEO_REC_SWITCH_VIEW    0x00002012
-#define ACTION_REC_TAKE_PHOTO           0x00002013
-#define ACTION_REC_CAP_TAKE_PHOTO       0x00002014
+#define ACTION_VIDEO_REC_SWITCH_VIEW    0x00002012  //可能用于在视频记录过程中切换视图模式或摄像头。
+#define ACTION_REC_TAKE_PHOTO           0x00002013  //触发拍照的动作，通常在用户点击拍照按钮时调用。
+#define ACTION_REC_CAP_TAKE_PHOTO       0x00002014  //可能用于捕捉照片的特定状态或模式，比如在视频录制过程中同时进行拍照。
 
 #define ACTION_VIDEO_DEC_MAIN 			0x00004001  // 视频解码主动作
 #define ACTION_VIDEO_DEC_SET_CONFIG 	0x00004002  // 设置视频解码配置

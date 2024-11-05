@@ -60,57 +60,57 @@ int menu_page = 0;
 
 
 
-static int onkey_sel_item[3] = {
-    SYS_BTN_REC,
-    SYS_BTN_FILES,
-    SYS_BTN_HOME,
-};
-const int sel_pic2[2] = {
-    SYS_PIC_C2_1,
-    SYS_PIC_C2_2,
-};
-const int sel_pic3[3] = {
-    SYS_PIC_C3_1,
-    //SYS_PIC_C3_2,
-    SYS_PIC_C3_3,
-};
-const int sel_pic4[4] = {
-    SYS_PIC_C4_1,
-    SYS_PIC_C4_2,
-    SYS_PIC_C4_3,
-    SYS_PIC_C4_4,
-};
-const int sel_layout2[2] = {
-    SYS_LAY_C2_1,
-    SYS_LAY_C2_2,
-};
-const int sel_layout3[3] = {
-    SYS_LAY_C3_1,
-    SYS_LAY_C3_2,
-    SYS_LAY_C3_3,
-};
-const int sel_layout4[4] = {
-    SYS_LAY_C4_1,
-    SYS_LAY_C4_2,
-    SYS_LAY_C4_3,
-    SYS_LAY_C4_4,
-};
+// static int onkey_sel_item[3] = {
+//     // SYS_BTN_REC,
+//     // SYS_BTN_FILES,
+//     // SYS_BTN_HOME,
+// };
+// const int sel_pic2[2] = {
+//     SYS_PIC_C2_1,
+//     SYS_PIC_C2_2,
+// };
+// const int sel_pic3[3] = {
+//     SYS_PIC_C3_1,
+//     //SYS_PIC_C3_2,
+//     SYS_PIC_C3_3,
+// };
+// const int sel_pic4[4] = {
+//     SYS_PIC_C4_1,
+//     SYS_PIC_C4_2,
+//     SYS_PIC_C4_3,
+//     SYS_PIC_C4_4,
+// };
+// const int sel_layout2[2] = {
+//     SYS_LAY_C2_1,
+//     SYS_LAY_C2_2,
+// };
+// const int sel_layout3[3] = {
+//     SYS_LAY_C3_1,
+//     SYS_LAY_C3_2,
+//     SYS_LAY_C3_3,
+// };
+// const int sel_layout4[4] = {
+//     SYS_LAY_C4_1,
+//     SYS_LAY_C4_2,
+//     SYS_LAY_C4_3,
+//     SYS_LAY_C4_4,
+// };
 
-const int language_txt[13] = {
-    SYS_FORM_TXT_01,
-    SYS_FORM_TXT_02,
-    SYS_FORM_TXT_03,
-    SYS_FORM_TXT_04,
-    SYS_FORM_TXT_05,
-    SYS_FORM_TXT_06,
-    SYS_FORM_TXT_07,
-    SYS_FORM_TXT_08,
-    SYS_FORM_TXT_09,
-    SYS_FORM_TXT_10,
-    SYS_FORM_TXT_11,
-    SYS_FORM_TXT_12,
-    SYS_FORM_TXT_13,
-};
+// const int language_txt[13] = {
+//     SYS_FORM_TXT_01,
+//     SYS_FORM_TXT_02,
+//     SYS_FORM_TXT_03,
+//     SYS_FORM_TXT_04,
+//     SYS_FORM_TXT_05,
+//     SYS_FORM_TXT_06,
+//     SYS_FORM_TXT_07,
+//     SYS_FORM_TXT_08,
+//     SYS_FORM_TXT_09,
+//     SYS_FORM_TXT_10,
+//     SYS_FORM_TXT_11,
+//     SYS_FORM_TXT_12,
+//     SYS_FORM_TXT_13,
+// };
 
 const static int REC_SET_BTN_LANGUAGE[11] = {
     SYS_YY_C1_1,
@@ -125,77 +125,77 @@ const static int REC_SET_BTN_LANGUAGE[11] = {
     SYS_YY_C3_2,
     SYS_YY_C3_3,
 };
-const int cid_btn_id0[31] = {
-    SYS_BTN_CID_PRO_01,
-    SYS_BTN_CID_PRO_02,
-    SYS_BTN_CID_PRO_03,
-    SYS_BTN_CID_PRO_04,
-    SYS_BTN_CID_PRO_05,
-    SYS_BTN_CID_PRO_06,
-    SYS_BTN_CID_PRO_07,
-    SYS_BTN_CID_PRO_08,
-    SYS_BTN_CID_PRO_09,
-    SYS_BTN_CID_PRO_10,
-    SYS_BTN_CID_PRO_11,
-    SYS_BTN_CID_PRO_12,
-    SYS_BTN_CID_PRO_13,
-    SYS_BTN_CID_PRO_14,
-    SYS_BTN_CID_PRO_15,
-    SYS_BTN_CID_PRO_16,
-    SYS_BTN_CID_PRO_17,
-    SYS_BTN_CID_PRO_18,
-    SYS_BTN_CID_PRO_19,
-    SYS_BTN_CID_PRO_20,
-    SYS_BTN_CID_PRO_21,
-    SYS_BTN_CID_PRO_22,
-    SYS_BTN_CID_PRO_23,
-    SYS_BTN_CID_PRO_24,
-    SYS_BTN_CID_PRO_25,
-    SYS_BTN_CID_PRO_26,
-    SYS_BTN_CID_PRO_27,
-    SYS_BTN_CID_PRO_28,
-    SYS_BTN_CID_PRO_29,
-    SYS_BTN_CID_PRO_30,
-    SYS_BTN_CID_PRO_31
-};
-const int cid_btn_id1[36] = {
-    SYS_BTN_CID_KB_1,
-    SYS_BTN_CID_KB_2,
-    SYS_BTN_CID_KB_3,
-    SYS_BTN_CID_KB_4,
-    SYS_BTN_CID_KB_5,
-    SYS_BTN_CID_KB_6,
-    SYS_BTN_CID_KB_7,
-    SYS_BTN_CID_KB_8,
-    SYS_BTN_CID_KB_9,
-    SYS_BTN_CID_KB_0,
-    SYS_BTN_CID_KB_Q,
-    SYS_BTN_CID_KB_W,
-    SYS_BTN_CID_KB_E,
-    SYS_BTN_CID_KB_R,
-    SYS_BTN_CID_KB_T,
-    SYS_BTN_CID_KB_Y,
-    SYS_BTN_CID_KB_U,
-    SYS_BTN_CID_KB_I,
-    SYS_BTN_CID_KB_O,
-    SYS_BTN_CID_KB_P,
-    SYS_BTN_CID_KB_A,
-    SYS_BTN_CID_KB_S,
-    SYS_BTN_CID_KB_D,
-    SYS_BTN_CID_KB_F,
-    SYS_BTN_CID_KB_G,
-    SYS_BTN_CID_KB_H,
-    SYS_BTN_CID_KB_J,
-    SYS_BTN_CID_KB_K,
-    SYS_BTN_CID_KB_L,
-    SYS_BTN_CID_KB_Z,
-    SYS_BTN_CID_KB_X,
-    SYS_BTN_CID_KB_C,
-    SYS_BTN_CID_KB_V,
-    SYS_BTN_CID_KB_B,
-    SYS_BTN_CID_KB_N,
-    SYS_BTN_CID_KB_M,
-};
+// const int cid_btn_id0[31] = {
+//     SYS_BTN_CID_PRO_01,
+//     SYS_BTN_CID_PRO_02,
+//     SYS_BTN_CID_PRO_03,
+//     SYS_BTN_CID_PRO_04,
+//     SYS_BTN_CID_PRO_05,
+//     SYS_BTN_CID_PRO_06,
+//     SYS_BTN_CID_PRO_07,
+//     SYS_BTN_CID_PRO_08,
+//     SYS_BTN_CID_PRO_09,
+//     SYS_BTN_CID_PRO_10,
+//     SYS_BTN_CID_PRO_11,
+//     SYS_BTN_CID_PRO_12,
+//     SYS_BTN_CID_PRO_13,
+//     SYS_BTN_CID_PRO_14,
+//     SYS_BTN_CID_PRO_15,
+//     SYS_BTN_CID_PRO_16,
+//     SYS_BTN_CID_PRO_17,
+//     SYS_BTN_CID_PRO_18,
+//     SYS_BTN_CID_PRO_19,
+//     SYS_BTN_CID_PRO_20,
+//     SYS_BTN_CID_PRO_21,
+//     SYS_BTN_CID_PRO_22,
+//     SYS_BTN_CID_PRO_23,
+//     SYS_BTN_CID_PRO_24,
+//     SYS_BTN_CID_PRO_25,
+//     SYS_BTN_CID_PRO_26,
+//     SYS_BTN_CID_PRO_27,
+//     SYS_BTN_CID_PRO_28,
+//     SYS_BTN_CID_PRO_29,
+//     SYS_BTN_CID_PRO_30,
+//     SYS_BTN_CID_PRO_31
+// };
+// const int cid_btn_id1[36] = {
+//     SYS_BTN_CID_KB_1,
+//     SYS_BTN_CID_KB_2,
+//     SYS_BTN_CID_KB_3,
+//     SYS_BTN_CID_KB_4,
+//     SYS_BTN_CID_KB_5,
+//     SYS_BTN_CID_KB_6,
+//     SYS_BTN_CID_KB_7,
+//     SYS_BTN_CID_KB_8,
+//     SYS_BTN_CID_KB_9,
+//     SYS_BTN_CID_KB_0,
+//     SYS_BTN_CID_KB_Q,
+//     SYS_BTN_CID_KB_W,
+//     SYS_BTN_CID_KB_E,
+//     SYS_BTN_CID_KB_R,
+//     SYS_BTN_CID_KB_T,
+//     SYS_BTN_CID_KB_Y,
+//     SYS_BTN_CID_KB_U,
+//     SYS_BTN_CID_KB_I,
+//     SYS_BTN_CID_KB_O,
+//     SYS_BTN_CID_KB_P,
+//     SYS_BTN_CID_KB_A,
+//     SYS_BTN_CID_KB_S,
+//     SYS_BTN_CID_KB_D,
+//     SYS_BTN_CID_KB_F,
+//     SYS_BTN_CID_KB_G,
+//     SYS_BTN_CID_KB_H,
+//     SYS_BTN_CID_KB_J,
+//     SYS_BTN_CID_KB_K,
+//     SYS_BTN_CID_KB_L,
+//     SYS_BTN_CID_KB_Z,
+//     SYS_BTN_CID_KB_X,
+//     SYS_BTN_CID_KB_C,
+//     SYS_BTN_CID_KB_V,
+//     SYS_BTN_CID_KB_B,
+//     SYS_BTN_CID_KB_N,
+//     SYS_BTN_CID_KB_M,
+// };
 static void set_cid_onkey(u8 key_value);
 /************************************************************
                          系统设置
@@ -421,183 +421,183 @@ static void sys_menu_cid_save()
     db_flush();
 }
 
-static void sys_menu_cid_show()
-{
-    sys_menu_cid_get();
+// static void sys_menu_cid_show()
+// {
+//     sys_menu_cid_get();
 
-    ui_pic_show_image_by_id(SYS_PIC_CID_0, sys_menu_cid_status[0] + 1);
-    ui_pic_show_image_by_id(SYS_PIC_CID_1, sys_menu_cid_status[1] + 1);
-    ui_pic_show_image_by_id(SYS_PIC_CID_2, sys_menu_cid_status[2] + 1);
-    ui_pic_show_image_by_id(SYS_PIC_CID_3, sys_menu_cid_status[3] + 1);
-    ui_pic_show_image_by_id(SYS_PIC_CID_4, sys_menu_cid_status[4] + 1);
-    ui_pic_show_image_by_id(SYS_PIC_CID_5, sys_menu_cid_status[5] + 1);
-    ui_pic_show_image_by_id(SYS_PIC_CID_6, sys_menu_cid_status[6] + 1);
-    sys_menu_cid_setting = SYS_MENU_CID_PRO;
-}
-static void sys_menu_cid_toggle(void *p)
-{
-#ifndef CONFIG_VIDEO4_ENABLE
-    static u8 flag = 0;
-    static u8 last = SYS_MENU_CID_NONE;
-    if (flag) {
-        switch (sys_menu_cid_setting) {
-        case SYS_MENU_CID_NONE:
-            break;
-        case SYS_MENU_CID_PRO:
-            ui_pic_show_image_by_id(SYS_PIC_CID_0, 0);
-            break;
-        case SYS_MENU_CID_1:
-            ui_pic_show_image_by_id(SYS_PIC_CID_1, 0);
-            break;
-        case SYS_MENU_CID_2:
-            ui_pic_show_image_by_id(SYS_PIC_CID_2, 0);
-            break;
-        case SYS_MENU_CID_3:
-            ui_pic_show_image_by_id(SYS_PIC_CID_3, 0);
-            break;
-        case SYS_MENU_CID_4:
-            ui_pic_show_image_by_id(SYS_PIC_CID_4, 0);
-            break;
-        case SYS_MENU_CID_5:
-            ui_pic_show_image_by_id(SYS_PIC_CID_5, 0);
-            break;
-        case SYS_MENU_CID_6:
-            ui_pic_show_image_by_id(SYS_PIC_CID_6, 0);
-            break;
-        }
-    } else {
-        if (last != sys_menu_cid_setting) {
-            switch (last) {
-            case SYS_MENU_CID_NONE:
-                break;
-            case SYS_MENU_CID_PRO:
-                ui_pic_show_image_by_id(SYS_PIC_CID_0, sys_menu_cid_status[0] + 1);
-                break;
-            case SYS_MENU_CID_1:
-                ui_pic_show_image_by_id(SYS_PIC_CID_1, sys_menu_cid_status[1] + 1);
-                break;
-            case SYS_MENU_CID_2:
-                ui_pic_show_image_by_id(SYS_PIC_CID_2, sys_menu_cid_status[2] + 1);
-                break;
-            case SYS_MENU_CID_3:
-                ui_pic_show_image_by_id(SYS_PIC_CID_3, sys_menu_cid_status[3] + 1);
-                break;
-            case SYS_MENU_CID_4:
-                ui_pic_show_image_by_id(SYS_PIC_CID_4, sys_menu_cid_status[4] + 1);
-                break;
-            case SYS_MENU_CID_5:
-                ui_pic_show_image_by_id(SYS_PIC_CID_5, sys_menu_cid_status[5] + 1);
-                break;
-            case SYS_MENU_CID_6:
-                ui_pic_show_image_by_id(SYS_PIC_CID_6, sys_menu_cid_status[6] + 1);
-                break;
-            }
-        }
-        switch (sys_menu_cid_setting) {
-        case SYS_MENU_CID_NONE:
-            break;
-        case SYS_MENU_CID_PRO:
-            ui_pic_show_image_by_id(SYS_PIC_CID_0, sys_menu_cid_status[0] + 1);
-            break;
-        case SYS_MENU_CID_1:
-            ui_pic_show_image_by_id(SYS_PIC_CID_1, sys_menu_cid_status[1] + 1);
-            break;
-        case SYS_MENU_CID_2:
-            ui_pic_show_image_by_id(SYS_PIC_CID_2, sys_menu_cid_status[2] + 1);
-            break;
-        case SYS_MENU_CID_3:
-            ui_pic_show_image_by_id(SYS_PIC_CID_3, sys_menu_cid_status[3] + 1);
-            break;
-        case SYS_MENU_CID_4:
-            ui_pic_show_image_by_id(SYS_PIC_CID_4, sys_menu_cid_status[4] + 1);
-            break;
-        case SYS_MENU_CID_5:
-            ui_pic_show_image_by_id(SYS_PIC_CID_5, sys_menu_cid_status[5] + 1);
-            break;
-        case SYS_MENU_CID_6:
-            ui_pic_show_image_by_id(SYS_PIC_CID_6, sys_menu_cid_status[6] + 1);
-            break;
-        }
-    }
-    last = sys_menu_cid_setting;
-    flag = !flag;
-#endif
-}
-static void sys_menu_cid_set(u8 value)
-{
-    switch (sys_menu_cid_setting) {
-    case SYS_MENU_CID_PRO:
-        sys_menu_cid_status[0] = value;
-        break;
-    case SYS_MENU_CID_1:
-        sys_menu_cid_status[1] = value;
-        break;
-    case SYS_MENU_CID_2:
-        sys_menu_cid_status[2] = value;
-        break;
-    case SYS_MENU_CID_3:
-        sys_menu_cid_status[3] = value;
-        break;
-    case SYS_MENU_CID_4:
-        sys_menu_cid_status[4] = value;
-        break;
-    case SYS_MENU_CID_5:
-        sys_menu_cid_status[5] = value;
-        break;
-    case SYS_MENU_CID_6:
-        sys_menu_cid_status[6] = value;
-        break;
-    }
-}
-static void sys_menu_cid_selete(u8 item)
-{
-    if (item == sys_menu_cid_setting) {
-        return;
-    }
-    switch (item) {
-    case SYS_MENU_CID_PRO:
-        ui_hide(SYS_LAY_CID_KB);
-        ui_show(SYS_LAY_CID_PRO);
-        sys_menu_cid_setting = item;
-        break;
-    case SYS_MENU_CID_1:
-    case SYS_MENU_CID_2:
-    case SYS_MENU_CID_3:
-    case SYS_MENU_CID_4:
-    case SYS_MENU_CID_5:
-    case SYS_MENU_CID_6:
-        ui_hide(SYS_LAY_CID_PRO);
-        ui_show(SYS_LAY_CID_KB);
-        sys_menu_cid_setting = item;
-        break;
-    case SYS_MENU_CID_PREV:
-        sys_menu_cid_setting--;
-        if (sys_menu_cid_setting < SYS_MENU_CID_PRO) {
-            sys_menu_cid_setting = SYS_MENU_CID_6;
-        }
-        if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
-            ui_hide(SYS_LAY_CID_KB);
-            ui_show(SYS_LAY_CID_PRO);
-        } else {
-            ui_hide(SYS_LAY_CID_PRO);
-            ui_show(SYS_LAY_CID_KB);
-        }
-        break;
-    case SYS_MENU_CID_NEXT:
-        sys_menu_cid_setting++;
-        if (sys_menu_cid_setting > SYS_MENU_CID_6) {
-            sys_menu_cid_setting = SYS_MENU_CID_PRO;
-        }
-        if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
-            ui_hide(SYS_LAY_CID_KB);
-            ui_show(SYS_LAY_CID_PRO);
-        } else {
-            ui_hide(SYS_LAY_CID_PRO);
-            ui_show(SYS_LAY_CID_KB);
-        }
-        break;
-    }
-}
+//     // ui_pic_show_image_by_id(SYS_PIC_CID_0, sys_menu_cid_status[0] + 1);
+//     ui_pic_show_image_by_id(SYS_PIC_CID_1, sys_menu_cid_status[1] + 1);
+//     ui_pic_show_image_by_id(SYS_PIC_CID_2, sys_menu_cid_status[2] + 1);
+//     ui_pic_show_image_by_id(SYS_PIC_CID_3, sys_menu_cid_status[3] + 1);
+//     ui_pic_show_image_by_id(SYS_PIC_CID_4, sys_menu_cid_status[4] + 1);
+//     ui_pic_show_image_by_id(SYS_PIC_CID_5, sys_menu_cid_status[5] + 1);
+//     ui_pic_show_image_by_id(SYS_PIC_CID_6, sys_menu_cid_status[6] + 1);
+//     sys_menu_cid_setting = SYS_MENU_CID_PRO;
+// }
+// static void sys_menu_cid_toggle(void *p)
+// {
+// #ifndef CONFIG_VIDEO4_ENABLE
+//     static u8 flag = 0;
+//     static u8 last = SYS_MENU_CID_NONE;
+//     if (flag) {
+//         switch (sys_menu_cid_setting) {
+//         case SYS_MENU_CID_NONE:
+//             break;
+//         case SYS_MENU_CID_PRO:
+//             // ui_pic_show_image_by_id(SYS_PIC_CID_0, 0);
+//             break;
+//         case SYS_MENU_CID_1:
+//             ui_pic_show_image_by_id(SYS_PIC_CID_1, 0);
+//             break;
+//         case SYS_MENU_CID_2:
+//             ui_pic_show_image_by_id(SYS_PIC_CID_2, 0);
+//             break;
+//         case SYS_MENU_CID_3:
+//             ui_pic_show_image_by_id(SYS_PIC_CID_3, 0);
+//             break;
+//         case SYS_MENU_CID_4:
+//             ui_pic_show_image_by_id(SYS_PIC_CID_4, 0);
+//             break;
+//         case SYS_MENU_CID_5:
+//             ui_pic_show_image_by_id(SYS_PIC_CID_5, 0);
+//             break;
+//         case SYS_MENU_CID_6:
+//             ui_pic_show_image_by_id(SYS_PIC_CID_6, 0);
+//             break;
+//         }
+//     } else {
+//         if (last != sys_menu_cid_setting) {
+//             switch (last) {
+//             case SYS_MENU_CID_NONE:
+//                 break;
+//             case SYS_MENU_CID_PRO:
+//                 // ui_pic_show_image_by_id(SYS_PIC_CID_0, sys_menu_cid_status[0] + 1);
+//                 break;
+//             case SYS_MENU_CID_1:
+//                 ui_pic_show_image_by_id(SYS_PIC_CID_1, sys_menu_cid_status[1] + 1);
+//                 break;
+//             case SYS_MENU_CID_2:
+//                 ui_pic_show_image_by_id(SYS_PIC_CID_2, sys_menu_cid_status[2] + 1);
+//                 break;
+//             case SYS_MENU_CID_3:
+//                 ui_pic_show_image_by_id(SYS_PIC_CID_3, sys_menu_cid_status[3] + 1);
+//                 break;
+//             case SYS_MENU_CID_4:
+//                 ui_pic_show_image_by_id(SYS_PIC_CID_4, sys_menu_cid_status[4] + 1);
+//                 break;
+//             case SYS_MENU_CID_5:
+//                 ui_pic_show_image_by_id(SYS_PIC_CID_5, sys_menu_cid_status[5] + 1);
+//                 break;
+//             case SYS_MENU_CID_6:
+//                 ui_pic_show_image_by_id(SYS_PIC_CID_6, sys_menu_cid_status[6] + 1);
+//                 break;
+//             }
+//         }
+//         switch (sys_menu_cid_setting) {
+//         case SYS_MENU_CID_NONE:
+//             break;
+//         case SYS_MENU_CID_PRO:
+//             // ui_pic_show_image_by_id(SYS_PIC_CID_0, sys_menu_cid_status[0] + 1);
+//             break;
+//         case SYS_MENU_CID_1:
+//             ui_pic_show_image_by_id(SYS_PIC_CID_1, sys_menu_cid_status[1] + 1);
+//             break;
+//         case SYS_MENU_CID_2:
+//             ui_pic_show_image_by_id(SYS_PIC_CID_2, sys_menu_cid_status[2] + 1);
+//             break;
+//         case SYS_MENU_CID_3:
+//             ui_pic_show_image_by_id(SYS_PIC_CID_3, sys_menu_cid_status[3] + 1);
+//             break;
+//         case SYS_MENU_CID_4:
+//             ui_pic_show_image_by_id(SYS_PIC_CID_4, sys_menu_cid_status[4] + 1);
+//             break;
+//         case SYS_MENU_CID_5:
+//             ui_pic_show_image_by_id(SYS_PIC_CID_5, sys_menu_cid_status[5] + 1);
+//             break;
+//         case SYS_MENU_CID_6:
+//             ui_pic_show_image_by_id(SYS_PIC_CID_6, sys_menu_cid_status[6] + 1);
+//             break;
+//         }
+//     }
+//     last = sys_menu_cid_setting;
+//     flag = !flag;
+// #endif
+// }
+// static void sys_menu_cid_set(u8 value)
+// {
+//     switch (sys_menu_cid_setting) {
+//     case SYS_MENU_CID_PRO:
+//         sys_menu_cid_status[0] = value;
+//         break;
+//     case SYS_MENU_CID_1:
+//         sys_menu_cid_status[1] = value;
+//         break;
+//     case SYS_MENU_CID_2:
+//         sys_menu_cid_status[2] = value;
+//         break;
+//     case SYS_MENU_CID_3:
+//         sys_menu_cid_status[3] = value;
+//         break;
+//     case SYS_MENU_CID_4:
+//         sys_menu_cid_status[4] = value;
+//         break;
+//     case SYS_MENU_CID_5:
+//         sys_menu_cid_status[5] = value;
+//         break;
+//     case SYS_MENU_CID_6:
+//         sys_menu_cid_status[6] = value;
+//         break;
+//     }
+// }
+// static void sys_menu_cid_selete(u8 item)
+// {
+//     if (item == sys_menu_cid_setting) {
+//         return;
+//     }
+//     switch (item) {
+//     case SYS_MENU_CID_PRO:
+//         ui_hide(SYS_LAY_CID_KB);
+//         ui_show(SYS_LAY_CID_PRO);
+//         sys_menu_cid_setting = item;
+//         break;
+//     case SYS_MENU_CID_1:
+//     case SYS_MENU_CID_2:
+//     case SYS_MENU_CID_3:
+//     case SYS_MENU_CID_4:
+//     case SYS_MENU_CID_5:
+//     case SYS_MENU_CID_6:
+//         ui_hide(SYS_LAY_CID_PRO);
+//         ui_show(SYS_LAY_CID_KB);
+//         sys_menu_cid_setting = item;
+//         break;
+//     case SYS_MENU_CID_PREV:
+//         sys_menu_cid_setting--;
+//         if (sys_menu_cid_setting < SYS_MENU_CID_PRO) {
+//             sys_menu_cid_setting = SYS_MENU_CID_6;
+//         }
+//         if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
+//             ui_hide(SYS_LAY_CID_KB);
+//             ui_show(SYS_LAY_CID_PRO);
+//         } else {
+//             ui_hide(SYS_LAY_CID_PRO);
+//             ui_show(SYS_LAY_CID_KB);
+//         }
+//         break;
+//     case SYS_MENU_CID_NEXT:
+//         sys_menu_cid_setting++;
+//         if (sys_menu_cid_setting > SYS_MENU_CID_6) {
+//             sys_menu_cid_setting = SYS_MENU_CID_PRO;
+//         }
+//         if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
+//             ui_hide(SYS_LAY_CID_KB);
+//             ui_show(SYS_LAY_CID_PRO);
+//         } else {
+//             ui_hide(SYS_LAY_CID_PRO);
+//             ui_show(SYS_LAY_CID_KB);
+//         }
+//         break;
+//     }
+// }
 
 /*******************************************************************/
 /*                           格式化、默认设置
@@ -610,30 +610,30 @@ static void sys_warning_tick(void *_p)
     // 检查当前菜单状态是否为格式化，并且 SD 卡设备是否未连接
     if (__this->sys_menu_status == SYS_MENU_FORMAT && !dev_online(SDX_DEV)) {
         if (item < 0) {
-            ui_hide(SYS_BTN_WARNING_CONFIRM);  // 隐藏确认按钮
+            // ui_hide(SYS_BTN_WARNING_CONFIRM);  // 隐藏确认按钮
             btn_warning_show_f = 0;            // 设置按钮显示标志为 0
-            ui_show(SYS_PIC_WARNING_CONFIRM);  // 显示确认提示图片
+            // ui_show(SYS_PIC_WARNING_CONFIRM);  // 显示确认提示图片
         }
         (*p) = 5;  // 将计数器重置为 5
-        ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 2);  // 显示警告主体文本
-        ui_text_show_index_by_id(SYS_TXT_WARNING_CONFIRM, 0);  // 显示确认文本
+//        ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 2);  // 显示警告主体文本
+//        ui_text_show_index_by_id(SYS_TXT_WARNING_CONFIRM, 0);  // 显示确认文本
         return;  // 结束函数
     } else if (item == 5) {
-        ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 0);  // 显示初始警告主体文本
+//        ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 0);  // 显示初始警告主体文本
     }
 
     if (!item) {  // 如果计数器为 0
-        ui_hide(SYS_PIC_WARNING_CONFIRM);  // 隐藏确认提示图片
-        ui_show(SYS_BTN_WARNING_CONFIRM);  // 显示确认按钮
+        // ui_hide(SYS_PIC_WARNING_CONFIRM);  // 隐藏确认提示图片
+        // ui_show(SYS_BTN_WARNING_CONFIRM);  // 显示确认按钮
         btn_warning_show_f = 1;  // 设置按钮显示标志为 1
 
         // 如果当前菜单状态为重置
         if (__this->sys_menu_status == SYS_MENU_RESET) {
-            ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 1);  // 显示重置警告主体文本
+//            ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 1);  // 显示重置警告主体文本
         }
     }
 
-    ui_text_show_index_by_id(SYS_TXT_WARNING_CONFIRM, 5 - item);  // 显示剩余时间的确认文本
+//    ui_text_show_index_by_id(SYS_TXT_WARNING_CONFIRM, 5 - item);  // 显示剩余时间的确认文本
 
     if (*p >= 0) {  // 如果计数器未达到 0
         (*p)--;  // 计数器递减
@@ -678,13 +678,13 @@ static void set_format_reset_func(void)
 
     switch (__this->sys_menu_status) {
     case SYS_MENU_FORMAT:
-        ui_hide(SYS_BTN_WARNING_CONFIRM); // 隐藏确认警告按钮
-        ui_show(SYS_PIC_WARNING_CONFIRM); // 显示确认警告图片
-        ui_text_show_index_by_id(SYS_TXT_WARNING_CONFIRM, 5); // 显示警告确认文本
+        // ui_hide(SYS_BTN_WARNING_CONFIRM); // 隐藏确认警告按钮
+        // ui_show(SYS_PIC_WARNING_CONFIRM); // 显示确认警告图片
+//        ui_text_show_index_by_id(SYS_TXT_WARNING_CONFIRM, 5); // 显示警告确认文本
 
         if (storage_device_ready()) {
             menu_sys_format_set(1); // 如果存储设备准备就绪，则执行格式化操作
-            ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 3); // 显示“格式化中...”的文本
+//            ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 3); // 显示“格式化中...”的文本
         }
         break;
 
@@ -705,8 +705,8 @@ static void set_format_reset_func(void)
         __this->tv_mod      = index_of_table8(db_select("tvm"), TABLE(table_system_tv_mod));
 
         // 显示“恢复出厂设置完成”的文本
-        ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 7);
-        ui_text_show_index_by_id(SYS_TXT_WARNING_CONFIRM, 5); // 显示警告确认文本
+//        ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 7);
+//        ui_text_show_index_by_id(SYS_TXT_WARNING_CONFIRM, 5); // 显示警告确认文本
         break;
     }
 }
@@ -796,12 +796,12 @@ static void __sys_msg_hide(enum box_msg id)
     if (msg_show_id == id) {
         if (msg_show_f) {
             msg_show_f = 0;
-            ui_hide(SYS_LAY_MESSAGEBOX);
+            // ui_hide(SYS_LAY_MESSAGEBOX);
         }
     } else if (id == 0) { /* 没有指定ID，强制隐藏 */
         if (msg_show_f) {
             msg_show_f = 0;
-            ui_hide(SYS_LAY_MESSAGEBOX);
+            // ui_hide(SYS_LAY_MESSAGEBOX);
         }
     }
 }
@@ -820,8 +820,8 @@ static void __sys_msg_show(enum box_msg msg, u32 timeout_msec)
     if (msg == msg_show_id) {
         if (msg_show_f == 0) {
             msg_show_f = 1;
-            ui_show(SYS_LAY_MESSAGEBOX);
-            ui_text_show_index_by_id(SYS_TXT_MESSAGEBOX, msg - 1);
+            // ui_show(SYS_LAY_MESSAGEBOX);
+            // ui_text_show_index_by_id(SYS_TXT_MESSAGEBOX, msg - 1);
             if (t_id) {
                 sys_timeout_del(t_id);
                 t_id = 0;
@@ -834,9 +834,9 @@ static void __sys_msg_show(enum box_msg msg, u32 timeout_msec)
         msg_show_id = msg;
         if (msg_show_f == 0) {
             msg_show_f = 1;
-            ui_show(SYS_LAY_MESSAGEBOX);
+            // ui_show(SYS_LAY_MESSAGEBOX);
         }
-        ui_text_show_index_by_id(SYS_TXT_MESSAGEBOX, msg - 1);
+        // ui_text_show_index_by_id(SYS_TXT_MESSAGEBOX, msg - 1);
         if (t_id) {
             sys_timeout_del(t_id);
             t_id = 0;
@@ -853,299 +853,299 @@ static void __sys_msg_show(enum box_msg msg, u32 timeout_msec)
 /*                           菜单显示
 *******************************************************************/
 
-static void sys_menu_show(enum SYS_MENU item)
-{
-    switch (item) {
-    case SYS_MENU_LCDOFF:
-        __this->sys_menu_status = item;
-        ui_highlight_element_by_id(SYS_FORM_PIC_01);
-        ui_highlight_element_by_id(SYS_FORM_TXT_01);
-        ui_text_show_index_by_id(SYS_TXT_TITLE, 0);
-        ui_show(SYS_LAY_C4);
-        ui_text_show_index_by_id(SYS_TXT_C4_2, 0);
-        ui_text_show_index_by_id(SYS_TXT_C4_3, 0);
-        ui_text_show_index_by_id(SYS_TXT_C4_4, 0);
-        switch (__this->lcd_protect) {
-        case 0:
-            ui_show(SYS_PIC_C4_1);
-            break;
-        case 1:
-            ui_show(SYS_PIC_C4_2);
-            break;
-        case 2:
-            ui_show(SYS_PIC_C4_3);
-            break;
-        case 3:
-            ui_show(SYS_PIC_C4_4);
-            break;
-        }
-        break;
-    case SYS_MENU_AUTOOFF:
-        __this->sys_menu_status = item;
-        ui_highlight_element_by_id(SYS_FORM_PIC_02);
-        ui_highlight_element_by_id(SYS_FORM_TXT_02);
-        ui_text_show_index_by_id(SYS_TXT_TITLE, 1);
-        ui_show(SYS_LAY_C4);
-        ui_text_show_index_by_id(SYS_TXT_C4_2, 1);
-        ui_text_show_index_by_id(SYS_TXT_C4_3, 1);
-        ui_text_show_index_by_id(SYS_TXT_C4_4, 1);
-        switch (__this->auto_off) {
-        case 0:
-            ui_show(SYS_PIC_C4_1);
-            break;
-        case 1:
-            ui_show(SYS_PIC_C4_2);
-            break;
-        case 2:
-            ui_show(SYS_PIC_C4_3);
-            break;
-        case 3:
-            ui_show(SYS_PIC_C4_4);
-            break;
-        }
-        break;
-    case SYS_MENU_FREQUENCY:
-        __this->sys_menu_status = item;
-        ui_highlight_element_by_id(SYS_FORM_PIC_03);
-        ui_highlight_element_by_id(SYS_FORM_TXT_03);
-        ui_text_show_index_by_id(SYS_TXT_TITLE, 2);
-        ui_show(SYS_LAY_C2);
-        ui_text_show_index_by_id(SYS_TXT_C2_1, 0);
-        ui_text_show_index_by_id(SYS_TXT_C2_2, 0);
-        switch (__this->led_fre_hz) {
-        case 0:
-            ui_show(SYS_PIC_C2_1);
-            break;
-        case 1:
-            ui_show(SYS_PIC_C2_2);
-            break;
-        }
-        break;
-    case SYS_MENU_KEYVOICE:
-        __this->sys_menu_status = item;
-        ui_highlight_element_by_id(SYS_FORM_PIC_04);
-        ui_highlight_element_by_id(SYS_FORM_TXT_04);
-        ui_text_show_index_by_id(SYS_TXT_TITLE, 3);
-        ui_show(SYS_LAY_C2);
-        ui_text_show_index_by_id(SYS_TXT_C2_1, 1);
-        ui_text_show_index_by_id(SYS_TXT_C2_2, 1);
-        switch (__this->key_voice) {
-        case 0:
-            ui_show(SYS_PIC_C2_1);
-            break;
-        case 1:
-            ui_show(SYS_PIC_C2_2);
-            break;
-        }
-        break;
-    case SYS_MENU_LANGUAGE:  // 处理语言菜单项
-        __this->sys_menu_status = item;  // 更新系统菜单状态为当前项
-        ui_highlight_element_by_id(SYS_FORM_PIC_05);  // 高亮显示对应的图片控件
-        ui_highlight_element_by_id(SYS_FORM_TXT_05);  // 高亮显示对应的文本控件
-        ui_text_show_index_by_id(SYS_TXT_TITLE, 4);  // 显示第4个标题文本
-        ui_show(SYS_LAY_C3);  // 显示对应的语言布局
+// static void sys_menu_show(enum SYS_MENU item)
+// {
+//     switch (item) {
+//     case SYS_MENU_LCDOFF:
+//         __this->sys_menu_status = item;
+//         ui_highlight_element_by_id(SYS_FORM_PIC_01);
+//         ui_highlight_element_by_id(SYS_FORM_TXT_01);
+//         // ui_text_show_index_by_id(SYS_TXT_TITLE, 0);
+//         ui_show(SYS_LAY_C4);
+//         ui_text_show_index_by_id(SYS_TXT_C4_2, 0);
+//         ui_text_show_index_by_id(SYS_TXT_C4_3, 0);
+//         ui_text_show_index_by_id(SYS_TXT_C4_4, 0);
+//         switch (__this->lcd_protect) {
+//         case 0:
+//             ui_show(SYS_PIC_C4_1);
+//             break;
+//         case 1:
+//             ui_show(SYS_PIC_C4_2);
+//             break;
+//         case 2:
+//             ui_show(SYS_PIC_C4_3);
+//             break;
+//         case 3:
+//             ui_show(SYS_PIC_C4_4);
+//             break;
+//         }
+//         break;
+//     case SYS_MENU_AUTOOFF:
+//         __this->sys_menu_status = item;
+//         ui_highlight_element_by_id(SYS_FORM_PIC_02);
+//         ui_highlight_element_by_id(SYS_FORM_TXT_02);
+//         // ui_text_show_index_by_id(SYS_TXT_TITLE, 1);
+//         ui_show(SYS_LAY_C4);
+//         ui_text_show_index_by_id(SYS_TXT_C4_2, 1);
+//         ui_text_show_index_by_id(SYS_TXT_C4_3, 1);
+//         ui_text_show_index_by_id(SYS_TXT_C4_4, 1);
+//         switch (__this->auto_off) {
+//         case 0:
+//             ui_show(SYS_PIC_C4_1);
+//             break;
+//         case 1:
+//             ui_show(SYS_PIC_C4_2);
+//             break;
+//         case 2:
+//             ui_show(SYS_PIC_C4_3);
+//             break;
+//         case 3:
+//             ui_show(SYS_PIC_C4_4);
+//             break;
+//         }
+//         break;
+//     case SYS_MENU_FREQUENCY:
+//         __this->sys_menu_status = item;
+//         ui_highlight_element_by_id(SYS_FORM_PIC_03);
+//         ui_highlight_element_by_id(SYS_FORM_TXT_03);
+//         // ui_text_show_index_by_id(SYS_TXT_TITLE, 2);
+//         ui_show(SYS_LAY_C2);
+//         ui_text_show_index_by_id(SYS_TXT_C2_1, 0);
+//         ui_text_show_index_by_id(SYS_TXT_C2_2, 0);
+//         switch (__this->led_fre_hz) {
+//         case 0:
+//             ui_show(SYS_PIC_C2_1);
+//             break;
+//         case 1:
+//             ui_show(SYS_PIC_C2_2);
+//             break;
+//         }
+//         break;
+//     case SYS_MENU_KEYVOICE:
+//         __this->sys_menu_status = item;
+//         ui_highlight_element_by_id(SYS_FORM_PIC_04);
+//         ui_highlight_element_by_id(SYS_FORM_TXT_04);
+//         // ui_text_show_index_by_id(SYS_TXT_TITLE, 3);
+//         ui_show(SYS_LAY_C2);
+//         ui_text_show_index_by_id(SYS_TXT_C2_1, 1);
+//         ui_text_show_index_by_id(SYS_TXT_C2_2, 1);
+//         switch (__this->key_voice) {
+//         case 0:
+//             ui_show(SYS_PIC_C2_1);
+//             break;
+//         case 1:
+//             ui_show(SYS_PIC_C2_2);
+//             break;
+//         }
+//         break;
+//     case SYS_MENU_LANGUAGE:  // 处理语言菜单项
+//         __this->sys_menu_status = item;  // 更新系统菜单状态为当前项
+//         ui_highlight_element_by_id(SYS_FORM_PIC_05);  // 高亮显示对应的图片控件
+//         ui_highlight_element_by_id(SYS_FORM_TXT_05);  // 高亮显示对应的文本控件
+//         // ui_text_show_index_by_id(SYS_TXT_TITLE, 4);  // 显示第4个标题文本
+//         ui_show(SYS_LAY_C3);  // 显示对应的语言布局
 
-        switch (__this->language) {  // 根据当前的语言设置显示不同的图片
-        case 0:  // 如果语言设置为0，显示第一张语言图片
-            ui_show(SYS_PIC_C3_1);
-            break;
-        case 1:  // 如果语言设置为1，显示第二张语言图片
-            //ui_show(SYS_PIC_C3_2);
-            break;
-        case 2:  // 如果语言设置为2，显示第三张语言图片
-            ui_show(SYS_PIC_C3_3);
-            break;
-        }
-        break;
+//         switch (__this->language) {  // 根据当前的语言设置显示不同的图片
+//         case 0:  // 如果语言设置为0，显示第一张语言图片
+//             ui_show(SYS_PIC_C3_1);
+//             break;
+//         case 1:  // 如果语言设置为1，显示第二张语言图片
+//             //ui_show(SYS_PIC_C3_2);
+//             break;
+//         case 2:  // 如果语言设置为2，显示第三张语言图片
+//             ui_show(SYS_PIC_C3_3);
+//             break;
+//         }
+//         break;
 
-    case SYS_MENU_TVMODE:  // 处理电视模式菜单项
-        __this->sys_menu_status = item;
-        ui_highlight_element_by_id(SYS_FORM_PIC_06);
-        ui_highlight_element_by_id(SYS_FORM_TXT_06);
-        ui_text_show_index_by_id(SYS_TXT_TITLE, 5);
-        ui_show(SYS_LAY_C2);
-        ui_text_show_index_by_id(SYS_TXT_C2_1, 2);
-        ui_text_show_index_by_id(SYS_TXT_C2_2, 2);
-        switch (__this->tv_mod) {
-        case 0:
-            ui_show(SYS_PIC_C2_1);
-            break;
-        case 1:
-            ui_show(SYS_PIC_C2_2);
-            break;
-        }
-        break;
-    case SYS_MENU_DATETIME:
-//        __this->sys_menu_status = item;
-//        ui_highlight_element_by_id(SYS_FORM_PIC_07);
-//        ui_highlight_element_by_id(SYS_FORM_TXT_07);
-//        ui_text_show_index_by_id(SYS_TXT_TITLE, 6);
-//        ui_show(SYS_LAY_TIM);
-//        /* >>>>>>>>>>>>>显示当前时间 */
-//        /* sys_menu_tim_show(); */
-        break;
-    case SYS_MENU_CARNUM:
-        __this->sys_menu_status = item;
-        ui_highlight_element_by_id(SYS_FORM_PIC_08);
-        ui_highlight_element_by_id(SYS_FORM_TXT_08);
-        ui_text_show_index_by_id(SYS_TXT_TITLE, 7);
-        ui_show(SYS_LAY_CID);
-        /* >>>>>>>>>>>>>显示当前车牌，第一位闪烁 */
-        /* sys_menu_cid_show(); */
-        break;
-    case SYS_MENU_LANEDET:
-        __this->sys_menu_status = item;
-        ui_highlight_element_by_id(SYS_FORM_PIC_09);
-        ui_highlight_element_by_id(SYS_FORM_TXT_09);
-        ui_text_show_index_by_id(SYS_TXT_TITLE, 8);
-        ui_show(SYS_LAY_C2);
-        ui_text_show_index_by_id(SYS_TXT_C2_1, 1);
-        ui_text_show_index_by_id(SYS_TXT_C2_2, 1);
-        switch (__this->lane_det) {
-        case 0:
-            ui_show(SYS_PIC_C2_1);
-            break;
-        case 1:
-            ui_show(SYS_PIC_C2_2);
-            break;
-        }
-        break;
-    case SYS_MENU_HL_WARNNING:
-        __this->sys_menu_status = item;
-        ui_highlight_element_by_id(SYS_FORM_PIC_10);
-        ui_highlight_element_by_id(SYS_FORM_TXT_10);
-        ui_text_show_index_by_id(SYS_TXT_TITLE, 9);
-        ui_show(SYS_LAY_C2);
-        ui_text_show_index_by_id(SYS_TXT_C2_1, 1);
-        ui_text_show_index_by_id(SYS_TXT_C2_2, 1);
-        switch (__this->hl_warnning) {
-        case 0:
-            ui_show(SYS_PIC_C2_1);
-            break;
-        case 1:
-            ui_show(SYS_PIC_C2_2);
-            break;
-        }
-        break;
-        case SYS_MENU_FORMAT:  // 处理格式化菜单项
-            __this->sys_menu_status = item;  // 更新系统菜单状态为当前项
-            ui_highlight_element_by_id(SYS_FORM_PIC_11);  // 高亮显示图片控件
-            ui_highlight_element_by_id(SYS_FORM_TXT_11);  // 高亮显示文本控件
-            ui_text_show_index_by_id(SYS_TXT_TITLE, 10);  // 显示第10个标题文本
-            ui_show(SYS_LAY_WARNING);  // 显示警告层布局
+//     case SYS_MENU_TVMODE:  // 处理电视模式菜单项
+//         __this->sys_menu_status = item;
+//         ui_highlight_element_by_id(SYS_FORM_PIC_06);
+//         ui_highlight_element_by_id(SYS_FORM_TXT_06);
+//         // ui_text_show_index_by_id(SYS_TXT_TITLE, 5);
+//         ui_show(SYS_LAY_C2);
+//         ui_text_show_index_by_id(SYS_TXT_C2_1, 2);
+//         ui_text_show_index_by_id(SYS_TXT_C2_2, 2);
+//         switch (__this->tv_mod) {
+//         case 0:
+//             ui_show(SYS_PIC_C2_1);
+//             break;
+//         case 1:
+//             ui_show(SYS_PIC_C2_2);
+//             break;
+//         }
+//         break;
+//     case SYS_MENU_DATETIME:
+// //        __this->sys_menu_status = item;
+// //        ui_highlight_element_by_id(SYS_FORM_PIC_07);
+// //        ui_highlight_element_by_id(SYS_FORM_TXT_07);
+// //        ui_text_show_index_by_id(SYS_TXT_TITLE, 6);
+// //        ui_show(SYS_LAY_TIM);
+// //        /* >>>>>>>>>>>>>显示当前时间 */
+// //        /* sys_menu_tim_show(); */
+//         break;
+//     case SYS_MENU_CARNUM:
+//         __this->sys_menu_status = item;
+//         ui_highlight_element_by_id(SYS_FORM_PIC_08);
+//         ui_highlight_element_by_id(SYS_FORM_TXT_08);
+//         // ui_text_show_index_by_id(SYS_TXT_TITLE, 7);
+//         // ui_show(SYS_LAY_CID);
+//         /* >>>>>>>>>>>>>显示当前车牌，第一位闪烁 */
+//         /* sys_menu_cid_show(); */
+//         break;
+//     case SYS_MENU_LANEDET:
+//         __this->sys_menu_status = item;
+//         ui_highlight_element_by_id(SYS_FORM_PIC_09);
+//         ui_highlight_element_by_id(SYS_FORM_TXT_09);
+//         // ui_text_show_index_by_id(SYS_TXT_TITLE, 8);
+//         ui_show(SYS_LAY_C2);
+//         ui_text_show_index_by_id(SYS_TXT_C2_1, 1);
+//         ui_text_show_index_by_id(SYS_TXT_C2_2, 1);
+//         switch (__this->lane_det) {
+//         case 0:
+//             ui_show(SYS_PIC_C2_1);
+//             break;
+//         case 1:
+//             ui_show(SYS_PIC_C2_2);
+//             break;
+//         }
+//         break;
+//     case SYS_MENU_HL_WARNNING:
+//         __this->sys_menu_status = item;
+//         ui_highlight_element_by_id(SYS_FORM_PIC_10);
+//         ui_highlight_element_by_id(SYS_FORM_TXT_10);
+//         // ui_text_show_index_by_id(SYS_TXT_TITLE, 9);
+//         ui_show(SYS_LAY_C2);
+//         ui_text_show_index_by_id(SYS_TXT_C2_1, 1);
+//         ui_text_show_index_by_id(SYS_TXT_C2_2, 1);
+//         switch (__this->hl_warnning) {
+//         case 0:
+//             ui_show(SYS_PIC_C2_1);
+//             break;
+//         case 1:
+//             ui_show(SYS_PIC_C2_2);
+//             break;
+//         }
+//         break;
+//         case SYS_MENU_FORMAT:  // 处理格式化菜单项
+//             __this->sys_menu_status = item;  // 更新系统菜单状态为当前项
+//             ui_highlight_element_by_id(SYS_FORM_PIC_11);  // 高亮显示图片控件
+//             ui_highlight_element_by_id(SYS_FORM_TXT_11);  // 高亮显示文本控件
+//             // ui_text_show_index_by_id(SYS_TXT_TITLE, 10);  // 显示第10个标题文本
+//             // ui_show(SYS_LAY_WARNING);  // 显示警告层布局
 
-            if (dev_online(SDX_DEV)) {  // 如果设备在线，显示相应的警告信息
-                ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 0);  // 显示设备在线的警告文本
-            } else {  // 如果设备离线
-                ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 2);  // 显示设备离线的警告文本
-            }
+//             if (dev_online(SDX_DEV)) {  // 如果设备在线，显示相应的警告信息
+//                 ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 0);  // 显示设备在线的警告文本
+//             } else {  // 如果设备离线
+//                 ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 2);  // 显示设备离线的警告文本
+//             }
 
-            /* >>>>>>>>>>>> 倒计时五秒，隐藏SYS_PIC_WARNING_CONFIRM，显示SYS_BTN_WARNING_CONFIRM */
-            break;
+//             /* >>>>>>>>>>>> 倒计时五秒，隐藏SYS_PIC_WARNING_CONFIRM，显示SYS_BTN_WARNING_CONFIRM */
+//             break;
 
-        case SYS_MENU_RESET:  // 处理重置菜单项
+//         case SYS_MENU_RESET:  // 处理重置菜单项
 
-        __this->sys_menu_status = item;
-        ui_highlight_element_by_id(SYS_FORM_PIC_12);
-        ui_highlight_element_by_id(SYS_FORM_TXT_12);
-        ui_text_show_index_by_id(SYS_TXT_TITLE, 11);
-        ui_show(SYS_LAY_WARNING);
-        if (__this->reset_flag) {
-            ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 7);
-            ui_text_show_index_by_id(SYS_TXT_WARNING_CONFIRM, 5);
-        } else {
-            ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 1);
-        }
-        /* >>>>>>>>>>>>倒计时五秒，隐藏SYS_PIC_WARNING_CONFIRM,显示SYS_BTN_WARNING_CONFIRM */
-        break;
-    case SYS_MENU_VERSION:
-        __this->sys_menu_status = item;
-        ui_highlight_element_by_id(SYS_FORM_PIC_13);
-        ui_highlight_element_by_id(SYS_FORM_TXT_13);
-        ui_text_show_index_by_id(SYS_TXT_TITLE, 12);
-        ui_show(SYS_LAY_VERSION);
-        /* >>>>>>>>>>>>显示版本号 */
-        ui_text_set_str_by_id(SYS_TXT_VERSION, "ascii", "VERSION: 2.0.0 beta");
-        break;
-    default:
-        break;
-    }
-}
+//         __this->sys_menu_status = item;
+//         ui_highlight_element_by_id(SYS_FORM_PIC_12);
+//         ui_highlight_element_by_id(SYS_FORM_TXT_12);
+//         // ui_text_show_index_by_id(SYS_TXT_TITLE, 11);
+//         // ui_show(SYS_LAY_WARNING);
+//         if (__this->reset_flag) {
+//             ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 7);
+//             ui_text_show_index_by_id(SYS_TXT_WARNING_CONFIRM, 5);
+//         } else {
+//             ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 1);
+//         }
+//         /* >>>>>>>>>>>>倒计时五秒，隐藏SYS_PIC_WARNING_CONFIRM,显示SYS_BTN_WARNING_CONFIRM */
+//         break;
+//     case SYS_MENU_VERSION:
+//         __this->sys_menu_status = item;
+//         ui_highlight_element_by_id(SYS_FORM_PIC_13);
+//         ui_highlight_element_by_id(SYS_FORM_TXT_13);
+//         // ui_text_show_index_by_id(SYS_TXT_TITLE, 12);
+//         ui_show(SYS_LAY_VERSION);
+//         /* >>>>>>>>>>>>显示版本号 */
+//         ui_text_set_str_by_id(SYS_TXT_VERSION, "ascii", "VERSION: 2.0.0 beta");
+//         break;
+//     default:
+//         break;
+//     }
+// }
 
-static void sys_menu_hide()
-{
-    switch (__this->sys_menu_status) {
-    case SYS_MENU_LCDOFF:
-        ui_no_highlight_element_by_id(SYS_FORM_PIC_01);
-        ui_no_highlight_element_by_id(SYS_FORM_TXT_01);
-        ui_hide(SYS_LAY_C4);
-        break;
-    case SYS_MENU_AUTOOFF:
-        ui_no_highlight_element_by_id(SYS_FORM_PIC_02);
-        ui_no_highlight_element_by_id(SYS_FORM_TXT_02);
-        ui_hide(SYS_LAY_C4);
-        break;
-    case SYS_MENU_FREQUENCY:
-        ui_no_highlight_element_by_id(SYS_FORM_PIC_03);
-        ui_no_highlight_element_by_id(SYS_FORM_TXT_03);
-        ui_hide(SYS_LAY_C2);
-        break;
-    case SYS_MENU_KEYVOICE:
-        ui_no_highlight_element_by_id(SYS_FORM_PIC_04);
-        ui_no_highlight_element_by_id(SYS_FORM_TXT_04);
-        ui_hide(SYS_LAY_C2);
-        break;
-    case SYS_MENU_LANGUAGE:
-        ui_no_highlight_element_by_id(SYS_FORM_PIC_05);
-        ui_no_highlight_element_by_id(SYS_FORM_TXT_05);
-        ui_hide(SYS_LAY_C3);
-        break;
-    case SYS_MENU_TVMODE:
-        ui_no_highlight_element_by_id(SYS_FORM_PIC_06);
-        ui_no_highlight_element_by_id(SYS_FORM_TXT_06);
-        ui_hide(SYS_LAY_C2);
-        break;
-    case SYS_MENU_DATETIME:
-//        ui_no_highlight_element_by_id(SYS_FORM_PIC_07);
-//        ui_no_highlight_element_by_id(SYS_FORM_TXT_07);
-//        ui_hide(SYS_LAY_TIM);
-        break;
-    case SYS_MENU_CARNUM:
-        ui_no_highlight_element_by_id(SYS_FORM_PIC_08);
-        ui_no_highlight_element_by_id(SYS_FORM_TXT_08);
-        ui_hide(SYS_LAY_CID);
-        break;
-    case SYS_MENU_LANEDET:
-        ui_no_highlight_element_by_id(SYS_FORM_PIC_09);
-        ui_no_highlight_element_by_id(SYS_FORM_TXT_09);
-        ui_hide(SYS_LAY_C2);
-        break;
-    case SYS_MENU_HL_WARNNING:
-        ui_no_highlight_element_by_id(SYS_FORM_PIC_10);
-        ui_no_highlight_element_by_id(SYS_FORM_TXT_10);
-        ui_hide(SYS_LAY_C2);
-        break;
-    case SYS_MENU_FORMAT:
-        ui_no_highlight_element_by_id(SYS_FORM_PIC_11);
-        ui_no_highlight_element_by_id(SYS_FORM_TXT_11);
-        ui_hide(SYS_LAY_WARNING);
-        break;
-    case SYS_MENU_RESET:
-        ui_no_highlight_element_by_id(SYS_FORM_PIC_12);
-        ui_no_highlight_element_by_id(SYS_FORM_TXT_12);
-        ui_hide(SYS_LAY_WARNING);
-        __this->reset_flag = 0;
-        break;
-    case SYS_MENU_VERSION:
-        ui_no_highlight_element_by_id(SYS_FORM_PIC_13);
-        ui_no_highlight_element_by_id(SYS_FORM_TXT_13);
-        // ui_hide(SYS_LAY_VERSION);
-        break;
-    default:
-        __this->sys_menu_status = 0;
-        break;
-    }
-}
+// static void sys_menu_hide()
+// {
+//     switch (__this->sys_menu_status) {
+//     case SYS_MENU_LCDOFF:
+//         ui_no_highlight_element_by_id(SYS_FORM_PIC_01);
+//         ui_no_highlight_element_by_id(SYS_FORM_TXT_01);
+//         ui_hide(SYS_LAY_C4);
+//         break;
+//     case SYS_MENU_AUTOOFF:
+//         ui_no_highlight_element_by_id(SYS_FORM_PIC_02);
+//         ui_no_highlight_element_by_id(SYS_FORM_TXT_02);
+//         ui_hide(SYS_LAY_C4);
+//         break;
+//     case SYS_MENU_FREQUENCY:
+//         ui_no_highlight_element_by_id(SYS_FORM_PIC_03);
+//         ui_no_highlight_element_by_id(SYS_FORM_TXT_03);
+//         ui_hide(SYS_LAY_C2);
+//         break;
+//     case SYS_MENU_KEYVOICE:
+//         ui_no_highlight_element_by_id(SYS_FORM_PIC_04);
+//         ui_no_highlight_element_by_id(SYS_FORM_TXT_04);
+//         ui_hide(SYS_LAY_C2);
+//         break;
+//     case SYS_MENU_LANGUAGE:
+//         ui_no_highlight_element_by_id(SYS_FORM_PIC_05);
+//         ui_no_highlight_element_by_id(SYS_FORM_TXT_05);
+//         ui_hide(SYS_LAY_C3);
+//         break;
+//     case SYS_MENU_TVMODE:
+//         ui_no_highlight_element_by_id(SYS_FORM_PIC_06);
+//         ui_no_highlight_element_by_id(SYS_FORM_TXT_06);
+//         ui_hide(SYS_LAY_C2);
+//         break;
+//     case SYS_MENU_DATETIME:
+// //        ui_no_highlight_element_by_id(SYS_FORM_PIC_07);
+// //        ui_no_highlight_element_by_id(SYS_FORM_TXT_07);
+// //        ui_hide(SYS_LAY_TIM);
+//         break;
+//     case SYS_MENU_CARNUM:
+//         ui_no_highlight_element_by_id(SYS_FORM_PIC_08);
+//         ui_no_highlight_element_by_id(SYS_FORM_TXT_08);
+//         // ui_hide(SYS_LAY_CID);
+//         break;
+//     case SYS_MENU_LANEDET:
+//         ui_no_highlight_element_by_id(SYS_FORM_PIC_09);
+//         ui_no_highlight_element_by_id(SYS_FORM_TXT_09);
+//         ui_hide(SYS_LAY_C2);
+//         break;
+//     case SYS_MENU_HL_WARNNING:
+//         ui_no_highlight_element_by_id(SYS_FORM_PIC_10);
+//         ui_no_highlight_element_by_id(SYS_FORM_TXT_10);
+//         ui_hide(SYS_LAY_C2);
+//         break;
+//     case SYS_MENU_FORMAT:
+//         ui_no_highlight_element_by_id(SYS_FORM_PIC_11);
+//         ui_no_highlight_element_by_id(SYS_FORM_TXT_11);
+//         // ui_hide(SYS_LAY_WARNING);
+//         break;
+//     case SYS_MENU_RESET:
+//         ui_no_highlight_element_by_id(SYS_FORM_PIC_12);
+//         ui_no_highlight_element_by_id(SYS_FORM_TXT_12);
+//         // ui_hide(SYS_LAY_WARNING);
+//         __this->reset_flag = 0;
+//         break;
+//     case SYS_MENU_VERSION:
+//         ui_no_highlight_element_by_id(SYS_FORM_PIC_13);
+//         ui_no_highlight_element_by_id(SYS_FORM_TXT_13);
+//         // ui_hide(SYS_LAY_VERSION);
+//         break;
+//     default:
+//         __this->sys_menu_status = 0;
+//         break;
+//     }
+// }
 
 
 int sys_menu(int item)
@@ -1526,10 +1526,10 @@ void default_callback(void *priv, int err)
 {
     if (err) {
         printf("default err!!\n");
-        ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 8);
+//        ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 8);
     } else {
         printf("default success!!\n");
-        ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 7);
+//        ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 7);
     }
 }
 int menu_sys_default_set(u8 sel_item)
@@ -1549,112 +1549,112 @@ int menu_sys_version_set(u8 sel_item)
 }
 
 
-/***************************** 返回HOME按钮动作 ************************************/
-static int sys_backhome_ontouch(void *ctr, struct element_touch_event *e)
-{
-    UI_ONTOUCH_DEBUG("**sys back to home ontouch**");
-    struct intent it;
-    struct application *app;
-    switch (e->event) {
-    case ELM_EVENT_TOUCH_DOWN:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
-        break;
-    case ELM_EVENT_TOUCH_HOLD:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_HOLD\n");
-        break;
-    case ELM_EVENT_TOUCH_MOVE:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
-        break;
-    case ELM_EVENT_TOUCH_UP:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-        __this->page_exit = HOME_SW_EXIT;
-        init_intent(&it);
-        app = get_current_app();
-        if (app) {
-            it.name = "video_system";
-            it.action = ACTION_BACK;
-            start_app_async(&it, NULL, NULL); //不等待直接启动app
-        }
-        break;
-    }
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_HOME)
-.ontouch = sys_backhome_ontouch,
-};
+// /***************************** 返回HOME按钮动作 ************************************/
+// static int sys_backhome_ontouch(void *ctr, struct element_touch_event *e)
+// {
+//     UI_ONTOUCH_DEBUG("**sys back to home ontouch**");
+//     struct intent it;
+//     struct application *app;
+//     switch (e->event) {
+//     case ELM_EVENT_TOUCH_DOWN:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
+//         break;
+//     case ELM_EVENT_TOUCH_HOLD:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_HOLD\n");
+//         break;
+//     case ELM_EVENT_TOUCH_MOVE:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
+//         break;
+//     case ELM_EVENT_TOUCH_UP:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+//         __this->page_exit = HOME_SW_EXIT;
+//         init_intent(&it);
+//         app = get_current_app();
+//         if (app) {
+//             it.name = "video_system";
+//             it.action = ACTION_BACK;
+//             start_app_async(&it, NULL, NULL); //不等待直接启动app
+//         }
+//         break;
+//     }
+//     return false;
+// }
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_HOME)
+// .ontouch = sys_backhome_ontouch,
+// };
 
 /***************************** 返回REC按钮动作 ************************************/
-static int sys_to_rec_ontouch(void *ctr, struct element_touch_event *e)
-{
-    UI_ONTOUCH_DEBUG("**sys to rec ontouch**");
-    struct intent it;
-    struct application *app;
-    switch (e->event) {
-    case ELM_EVENT_TOUCH_DOWN:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
-        break;
-    case ELM_EVENT_TOUCH_HOLD:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_HOLD\n");
-        break;
-    case ELM_EVENT_TOUCH_MOVE:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
-        break;
-    case ELM_EVENT_TOUCH_UP:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-        init_intent(&it);
-        app = get_current_app();
-        if (app) {
-            __this->page_exit = MODE_SW_EXIT;
-            it.name = "video_system";
-            it.action = ACTION_BACK;
-            start_app_async(&it, NULL, NULL); //不等待直接启动app
+// static int sys_to_rec_ontouch(void *ctr, struct element_touch_event *e)
+// {
+//     UI_ONTOUCH_DEBUG("**sys to rec ontouch**");
+//     struct intent it;
+//     struct application *app;
+//     switch (e->event) {
+//     case ELM_EVENT_TOUCH_DOWN:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
+//         break;
+//     case ELM_EVENT_TOUCH_HOLD:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_HOLD\n");
+//         break;
+//     case ELM_EVENT_TOUCH_MOVE:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
+//         break;
+//     case ELM_EVENT_TOUCH_UP:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+//         init_intent(&it);
+//         app = get_current_app();
+//         if (app) {
+//             __this->page_exit = MODE_SW_EXIT;
+//             it.name = "video_system";
+//             it.action = ACTION_BACK;
+//             start_app_async(&it, NULL, NULL); //不等待直接启动app
 
-            it.name = "video_rec";
-            it.action = ACTION_VIDEO_REC_MAIN;
-            start_app_async(&it, NULL, NULL); //不等待直接启动app
-        }
-        break;
-    }
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_REC)
-.ontouch = sys_to_rec_ontouch,
-};
-static int sys_to_file_ontouch(void *ctr, struct element_touch_event *e)
-{
-    UI_ONTOUCH_DEBUG("**sys to file ontouch**");
-    struct intent it;
-    struct application *app;
-    switch (e->event) {
-    case ELM_EVENT_TOUCH_DOWN:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
-        break;
-    case ELM_EVENT_TOUCH_HOLD:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_HOLD\n");
-        break;
-    case ELM_EVENT_TOUCH_MOVE:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
-        break;
-    case ELM_EVENT_TOUCH_UP:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-        init_intent(&it);
-        app = get_current_app();
-        if (app) {
-            it.name = "video_system";
-            it.action = ACTION_BACK;
-            start_app_async(&it, NULL, NULL); //不等待直接启动app
+//             it.name = "video_rec";
+//             it.action = ACTION_VIDEO_REC_MAIN;
+//             start_app_async(&it, NULL, NULL); //不等待直接启动app
+//         }
+//         break;
+//     }
+//     return false;
+// }
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_REC)
+// .ontouch = sys_to_rec_ontouch,
+// };
+// static int sys_to_file_ontouch(void *ctr, struct element_touch_event *e)
+// {
+//     UI_ONTOUCH_DEBUG("**sys to file ontouch**");
+//     struct intent it;
+//     struct application *app;
+//     switch (e->event) {
+//     case ELM_EVENT_TOUCH_DOWN:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
+//         break;
+//     case ELM_EVENT_TOUCH_HOLD:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_HOLD\n");
+//         break;
+//     case ELM_EVENT_TOUCH_MOVE:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
+//         break;
+//     case ELM_EVENT_TOUCH_UP:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+//         init_intent(&it);
+//         app = get_current_app();
+//         if (app) {
+//             it.name = "video_system";
+//             it.action = ACTION_BACK;
+//             start_app_async(&it, NULL, NULL); //不等待直接启动app
 
-            it.name = "video_dec";
-            it.action = ACTION_VIDEO_DEC_MAIN;
-            start_app_async(&it, NULL, NULL); //不等待直接启动app
-        }
-        break;
-    }
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_FILES)
-.ontouch = sys_to_file_ontouch,
-};
+//             it.name = "video_dec";
+//             it.action = ACTION_VIDEO_DEC_MAIN;
+//             start_app_async(&it, NULL, NULL); //不等待直接启动app
+//         }
+//         break;
+//     }
+//     return false;
+// }
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_FILES)
+// .ontouch = sys_to_file_ontouch,
+// };
 
 /*
  * battery事件处理函数
@@ -1722,182 +1722,182 @@ static int highlight_no_cid_item(int p);
 
 
 /***************************** 系统菜单页面回调 ************************************/
-static int sys_page_onchange(void *ctr, enum element_change_event e, void *arg)
-{
-    struct window *window = (struct window *)ctr;
-    int err;
-    static u32 timer_handle = 0;
-    struct intent it;
-    static u16 id = 0;
-    switch (e) {
-    case ON_CHANGE_INIT:
-        sys_cur_mod = 4;
-        memset(__this, 0, sizeof(struct sys_menu_info));
-        __this->sys_menu_status = SYS_MENU_NONE;
-        __this->lcd_protect     = index_of_table16(db_select("pro"), TABLE(table_system_lcd_protect));
-        __this->auto_off        = index_of_table8(db_select("aff"), TABLE(table_system_auto_close));
-        __this->led_fre_hz      = index_of_table8(db_select("fre"), TABLE(table_system_led_fre));
-        __this->key_voice       = db_select("kvo");
-        __this->language        = index_of_table8(db_select("lag"), TABLE(table_system_language));
-        __this->tv_mod          = index_of_table8(db_select("tvm"), TABLE(table_system_tv_mod));
-        __this->vanish_line     = ((db_select("lan") >> 16) & 0x0000ffff) * LCD_DEV_HIGHT / 352;
-        __this->car_head_line   = (db_select("lan") & 0x0000ffff) * LCD_DEV_HIGHT / 352;
-        __this->lane_det        = !!db_select("lan");
-        __this->hl_warnning     = db_select("hlw");
-
-        if (lane_setting) {
-            lane_setting = 0;
-            ui_set_call(sys_menu, SYS_MENU_LANEDET);
-            __this->onkey_mod = 0;
-            __this->onkey_sel = SYS_MENU_LANEDET;
-        } else {
-            ui_set_call(sys_menu, 0);
-            __this->onkey_mod = 0;
-            __this->onkey_sel = 0;
-        }
-        sys_key_event_takeover(true, false);
-        break;
-    case ON_CHANGE_FIRST_SHOW:
-        __this->battery_val = sys_power_get_battery_persent();
-        /* u32 power_level = 0; */
-        /* dev_ioctl(fd, POWER_DET_GET_LEVEL, (u32)&power_level); */
-        /* __this->battery_val = power_level * 20; */
-        if (__this->battery_val > 100) {
-            __this->battery_val = 100;
-        }
-        __this->battery_char = (usb_is_charging() ? 1 : 0);
-        timer_handle = sys_timer_add(NULL, no_power_msg_box_timer, 1000);
-        id = register_sys_event_handler(SYS_DEVICE_EVENT | SYS_KEY_EVENT | SYS_TOUCH_EVENT, 200, 0, battery_event_handler);
-
-        break;
-    case ON_CHANGE_RELEASE:
-        unregister_sys_event_handler(id);
-        if (timer_handle) {
-            sys_timer_del(timer_handle);
-            timer_handle = 0;
-        }
-        if (__this->page_exit == HOME_SW_EXIT) {
-            ui_show(ID_WINDOW_MAIN_PAGE);
-        }
-        __sys_msg_hide(0);//强制隐藏消息框
-        break;
-    default:
-        return false;
-    }
-    return true;
-}
-REGISTER_UI_EVENT_HANDLER(ID_WINDOW_VIDEO_SYS)
-.onchange = sys_page_onchange,
- .ontouch = NULL,
-};
+//static int sys_page_onchange(void *ctr, enum element_change_event e, void *arg)
+//{
+//    struct window *window = (struct window *)ctr;
+//    int err;
+//    static u32 timer_handle = 0;
+//    struct intent it;
+//    static u16 id = 0;
+//    switch (e) {
+//    case ON_CHANGE_INIT:
+//        sys_cur_mod = 4;
+//        memset(__this, 0, sizeof(struct sys_menu_info));
+//        __this->sys_menu_status = SYS_MENU_NONE;
+//        __this->lcd_protect     = index_of_table16(db_select("pro"), TABLE(table_system_lcd_protect));
+//        __this->auto_off        = index_of_table8(db_select("aff"), TABLE(table_system_auto_close));
+//        __this->led_fre_hz      = index_of_table8(db_select("fre"), TABLE(table_system_led_fre));
+//        __this->key_voice       = db_select("kvo");
+//        __this->language        = index_of_table8(db_select("lag"), TABLE(table_system_language));
+//        __this->tv_mod          = index_of_table8(db_select("tvm"), TABLE(table_system_tv_mod));
+//        __this->vanish_line     = ((db_select("lan") >> 16) & 0x0000ffff) * LCD_DEV_HIGHT / 352;
+//        __this->car_head_line   = (db_select("lan") & 0x0000ffff) * LCD_DEV_HIGHT / 352;
+//        __this->lane_det        = !!db_select("lan");
+//        __this->hl_warnning     = db_select("hlw");
+//
+//        if (lane_setting) {
+//            lane_setting = 0;
+//            ui_set_call(sys_menu, SYS_MENU_LANEDET);
+//            __this->onkey_mod = 0;
+//            __this->onkey_sel = SYS_MENU_LANEDET;
+//        } else {
+//            ui_set_call(sys_menu, 0);
+//            __this->onkey_mod = 0;
+//            __this->onkey_sel = 0;
+//        }
+//        sys_key_event_takeover(true, false);
+//        break;
+//    case ON_CHANGE_FIRST_SHOW:
+//        __this->battery_val = sys_power_get_battery_persent();
+//        /* u32 power_level = 0; */
+//        /* dev_ioctl(fd, POWER_DET_GET_LEVEL, (u32)&power_level); */
+//        /* __this->battery_val = power_level * 20; */
+//        if (__this->battery_val > 100) {
+//            __this->battery_val = 100;
+//        }
+//        __this->battery_char = (usb_is_charging() ? 1 : 0);
+//        timer_handle = sys_timer_add(NULL, no_power_msg_box_timer, 1000);
+//        id = register_sys_event_handler(SYS_DEVICE_EVENT | SYS_KEY_EVENT | SYS_TOUCH_EVENT, 200, 0, battery_event_handler);
+//
+//        break;
+//    case ON_CHANGE_RELEASE:
+//        unregister_sys_event_handler(id);
+//        if (timer_handle) {
+//            sys_timer_del(timer_handle);
+//            timer_handle = 0;
+//        }
+//        if (__this->page_exit == HOME_SW_EXIT) {
+////            ui_show(ID_WINDOW_MAIN_PAGE);
+//        }
+//        __sys_msg_hide(0);//强制隐藏消息框
+//        break;
+//    default:
+//        return false;
+//    }
+//    return true;
+//}
+//REGISTER_UI_EVENT_HANDLER(ID_WINDOW_VIDEO_SYS)
+//.onchange = sys_page_onchange,
+// .ontouch = NULL,
+//};
 int language_set_highlight(int p)
 {
     if (__this->onkey_mod == 1) {
         if (__this->sys_menu_status == SYS_MENU_LANGUAGE) {
-            ui_highlight_element_by_id(sel_layout3[__this->language]);
+//            ui_highlight_element_by_id(sel_layout3[__this->language]);
         }
     }
     return 0;
 }
-/***************************** 第一次显示系统菜单 ************************************/
-static int sys_table_onchange(void *ctr, enum element_change_event e, void *arg)
-{
-    struct ui_grid *grid = (struct ui_grid *)ctr;
-    /* UI_ONTOUCH_DEBUG("\n***sys table onchange %d***\n",e); */
-    switch (e) {
-    case ON_CHANGE_INIT:
-        ui_grid_set_item(grid, -1);
-        grid->auto_hi = 0;
-        break;
-    case ON_CHANGE_TRY_OPEN_DC:
-        ui_core_element_on_focus(ui_core_get_element_by_id(SYS_WIN), true);
-        break;
-    case ON_CHANGE_FIRST_SHOW:
-        /* ui_set_call(sys_menu_show, __this->sys_menu_status); */
-        sys_menu_show(__this->sys_menu_status);//降低刷新效果
-        return true;
-        break;
-    case ON_CHANGE_SHOW_COMPLETED:
-        ui_set_call(language_set_highlight, 0);
-        break;
-    default:
-        return false;
-    }
-    return false;
-}
+// /***************************** 第一次显示系统菜单 ************************************/
+// static int sys_table_onchange(void *ctr, enum element_change_event e, void *arg)
+// {
+//     struct ui_grid *grid = (struct ui_grid *)ctr;
+//     /* UI_ONTOUCH_DEBUG("\n***sys table onchange %d***\n",e); */
+//     switch (e) {
+//     case ON_CHANGE_INIT:
+//         ui_grid_set_item(grid, -1);
+//         grid->auto_hi = 0;
+//         break;
+//     case ON_CHANGE_TRY_OPEN_DC:
+//         ui_core_element_on_focus(ui_core_get_element_by_id(SYS_WIN), true);
+//         break;
+//     case ON_CHANGE_FIRST_SHOW:
+//         /* ui_set_call(sys_menu_show, __this->sys_menu_status); */
+//         sys_menu_show(__this->sys_menu_status);//降低刷新效果
+//         return true;
+//         break;
+//     case ON_CHANGE_SHOW_COMPLETED:
+//         ui_set_call(language_set_highlight, 0);
+//         break;
+//     default:
+//         return false;
+//     }
+//     return false;
+// }
 
-/***************************** 选择系统菜单 ************************************/
-static int sys_table_ontouch(void *ctr, struct element_touch_event *e)
-{
-    UI_ONTOUCH_DEBUG("**sys setting table ontouch**");
-    int sel_item;
-    int i;
-    struct ui_grid *grid = (struct ui_grid *)ctr;
+// /***************************** 选择系统菜单 ************************************/
+// static int sys_table_ontouch(void *ctr, struct element_touch_event *e)
+// {
+//     UI_ONTOUCH_DEBUG("**sys setting table ontouch**");
+//     int sel_item;
+//     int i;
+//     struct ui_grid *grid = (struct ui_grid *)ctr;
 
-    switch (e->event) {
-    case ELM_EVENT_TOUCH_MOVE:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
-        return true;
-        break;
-    case ELM_EVENT_TOUCH_DOWN:
-        return false;
-        break;
-    case ELM_EVENT_TOUCH_UP:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-        sel_item = ui_grid_cur_item(grid);
-        printf("sel_item=%d\n", sel_item);
-        if (sel_item < 0 || sel_item > SYS_SETTING_ITEM - 1) {
-            printf("sel item=%d\n", sel_item);
-            break;
-        }
-        if (__this->onkey_mod == 2) {
-            ui_no_highlight_element_by_id(onkey_sel_item[mode_sel]);
-            mode_sel = 0;
-        } else if (__this->onkey_mod == 1) {
-            if (__this->onkey_sel == sel_item) {
-                if (__this->sys_menu_status == SYS_MENU_FORMAT || __this->sys_menu_status == SYS_MENU_RESET) {
-                    ui_no_highlight_element_by_id(SYS_BTN_WARNING_CONFIRM);
+//     switch (e->event) {
+//     case ELM_EVENT_TOUCH_MOVE:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
+//         return true;
+//         break;
+//     case ELM_EVENT_TOUCH_DOWN:
+//         return false;
+//         break;
+//     case ELM_EVENT_TOUCH_UP:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+//         sel_item = ui_grid_cur_item(grid);
+//         printf("sel_item=%d\n", sel_item);
+//         if (sel_item < 0 || sel_item > SYS_SETTING_ITEM - 1) {
+//             printf("sel item=%d\n", sel_item);
+//             break;
+//         }
+//         if (__this->onkey_mod == 2) {
+//             ui_no_highlight_element_by_id(onkey_sel_item[mode_sel]);
+//             mode_sel = 0;
+//         } else if (__this->onkey_mod == 1) {
+//             if (__this->onkey_sel == sel_item) {
+//                 if (__this->sys_menu_status == SYS_MENU_FORMAT || __this->sys_menu_status == SYS_MENU_RESET) {
+//                     // ui_no_highlight_element_by_id(SYS_BTN_WARNING_CONFIRM);
 
-                }  else if (__this->sys_menu_status == SYS_MENU_CARNUM) {
-                    if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
-                        ui_no_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
-                    } else {
-                        ui_no_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
-                        if (confirm_f) {
-                            confirm_f = 0;
-                            ui_no_highlight_element_by_id(SYS_BTN_CID_CONFIRM);
-                        }
-                    }
-                } else {
-                    switch (__this->sys_menu_status) {
-                    case SYS_MENU_LCDOFF:
-                    case SYS_MENU_AUTOOFF:
-                        ui_no_highlight_element_by_id(sel_layout4[cur_sel_item]);
-                        break;
-                    case SYS_MENU_FREQUENCY:
-                    case SYS_MENU_KEYVOICE:
-                    case SYS_MENU_TVMODE:
-                        ui_no_highlight_element_by_id(sel_layout2[cur_sel_item]);
-                        break;
-                    case SYS_MENU_LANGUAGE:
-                        ui_no_highlight_element_by_id(sel_layout3[cur_sel_item]);
-                        break;
-                    }
-                }
-            }
-        }
-        __this->onkey_sel = sel_item;
-        __this->onkey_mod = 0;
-        ui_set_call(sys_menu, sel_item);
+//                 }  else if (__this->sys_menu_status == SYS_MENU_CARNUM) {
+//                     if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
+//                         ui_no_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
+//                     } else {
+//                         ui_no_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
+//                         if (confirm_f) {
+//                             confirm_f = 0;
+//                             ui_no_highlight_element_by_id(SYS_BTN_CID_CONFIRM);
+//                         }
+//                     }
+//                 } else {
+//                     switch (__this->sys_menu_status) {
+//                     case SYS_MENU_LCDOFF:
+//                     case SYS_MENU_AUTOOFF:
+//                         ui_no_highlight_element_by_id(sel_layout4[cur_sel_item]);
+//                         break;
+//                     case SYS_MENU_FREQUENCY:
+//                     case SYS_MENU_KEYVOICE:
+//                     case SYS_MENU_TVMODE:
+//                         ui_no_highlight_element_by_id(sel_layout2[cur_sel_item]);
+//                         break;
+//                     case SYS_MENU_LANGUAGE:
+//                         ui_no_highlight_element_by_id(sel_layout3[cur_sel_item]);
+//                         break;
+//                     }
+//                 }
+//             }
+//         }
+//         __this->onkey_sel = sel_item;
+//         __this->onkey_mod = 0;
+//         ui_set_call(sys_menu, sel_item);
 
-        break;
-    }
-    return true;
-}
-REGISTER_UI_EVENT_HANDLER(SYS_FORM)
-.ontouch = sys_table_ontouch,
- .onchange = sys_table_onchange,
-};
+//         break;
+//     }
+//     return true;
+// }
+// REGISTER_UI_EVENT_HANDLER(SYS_FORM)
+// .ontouch = sys_table_ontouch,
+//  .onchange = sys_table_onchange,
+// };
 
 
 
@@ -2143,44 +2143,44 @@ REGISTER_UI_EVENT_HANDLER(SYS_MENU_DOWN)
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 /***************************** 显示车牌设置界面 ************************************/
-static int sys_cid_onchange(void *ctr, enum element_change_event e, void *arg)
-{
-    static int cid_timer = 0;
-    switch (e) {
-    case ON_CHANGE_FIRST_SHOW:
-        sys_menu_cid_show();
-        if (cid_timer) {
-            printf("CID_TIMER repeatedly add");
-            break;
-        }
-        cid_timer = sys_timer_add(NULL, sys_menu_cid_toggle, 500);
-        if (!cid_timer) {
-            UI_ONTOUCH_DEBUG("CID_TIMER add failed\n");
-        }
-        break;
-    case ON_CHANGE_RELEASE:
-        if (cid_timer) {
-            sys_timer_del(cid_timer);
-            cid_timer = 0;
-        }
-        break;
-    default:
-        return false;
-    }
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(SYS_LAY_CID)
-.onchange = sys_cid_onchange,
-};
+// static int sys_cid_onchange(void *ctr, enum element_change_event e, void *arg)
+// {
+//     static int cid_timer = 0;
+//     switch (e) {
+//     case ON_CHANGE_FIRST_SHOW:
+//         sys_menu_cid_show();
+//         if (cid_timer) {
+//             printf("CID_TIMER repeatedly add");
+//             break;
+//         }
+//         cid_timer = sys_timer_add(NULL, sys_menu_cid_toggle, 500);
+//         if (!cid_timer) {
+//             UI_ONTOUCH_DEBUG("CID_TIMER add failed\n");
+//         }
+//         break;
+//     case ON_CHANGE_RELEASE:
+//         if (cid_timer) {
+//             sys_timer_del(cid_timer);
+//             cid_timer = 0;
+//         }
+//         break;
+//     default:
+//         return false;
+//     }
+//     return false;
+// }
+// REGISTER_UI_EVENT_HANDLER(SYS_LAY_CID)
+// .onchange = sys_cid_onchange,
+// };
 
 /***************************** 车牌切换 ************************************/
 static int highlight_no_cid_item(int p)
 {
 #ifndef CONFIG_VIDEO4_ENABLE
     if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
-        ui_no_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
+//        ui_no_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
     } else {
-        ui_no_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
+//        ui_no_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
     }
     if (sys_menu_cid_setting == SYS_MENU_CID_1) {
         __this->cid_set_pos = 10;
@@ -2188,619 +2188,619 @@ static int highlight_no_cid_item(int p)
         __this->cid_set_pos = 0;
     }
     if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
-        ui_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
+//        ui_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
     } else {
-        ui_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
+//        ui_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
     }
 #endif
     return 0;
 }
-static int sys_cid_change(void *ctr, struct element_touch_event *e)
-{
-#ifndef CONFIG_VIDEO4_ENABLE
-    struct ui_pic *pic = (struct ui_pic *)ctr;
-    UI_ONTOUCH_DEBUG("**sys cid change ontouch**");
-    switch (e->event) {
-    case ELM_EVENT_TOUCH_DOWN:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
-        return true;
-        break;
-    case ELM_EVENT_TOUCH_UP:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-        switch (pic->elm.id) {
-        case SYS_PIC_CID_0:
-            sys_menu_cid_selete(SYS_MENU_CID_PRO);
-            break;
-        case SYS_PIC_CID_1:
-            sys_menu_cid_selete(SYS_MENU_CID_1);
-            break;
-        case SYS_PIC_CID_2:
-            sys_menu_cid_selete(SYS_MENU_CID_2);
-            break;
-        case SYS_PIC_CID_3:
-            sys_menu_cid_selete(SYS_MENU_CID_3);
-            break;
-        case SYS_PIC_CID_4:
-            sys_menu_cid_selete(SYS_MENU_CID_4);
-            break;
-        case SYS_PIC_CID_5:
-            sys_menu_cid_selete(SYS_MENU_CID_5);
-            break;
-        case SYS_PIC_CID_6:
-            sys_menu_cid_selete(SYS_MENU_CID_6);
-            break;
-        }
-        sys_menu_cid_toggle(NULL);
-        if (__this->onkey_mod == 1) {
-            ui_set_call(highlight_no_cid_item, 0);
-        }
-        break;
-    }
-#endif
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(SYS_PIC_CID_0)
-.ontouch = sys_cid_change,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_PIC_CID_1)
-.ontouch = sys_cid_change,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_PIC_CID_2)
-.ontouch = sys_cid_change,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_PIC_CID_3)
-.ontouch = sys_cid_change,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_PIC_CID_4)
-.ontouch = sys_cid_change,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_PIC_CID_5)
-.ontouch = sys_cid_change,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_PIC_CID_6)
-.ontouch = sys_cid_change,
-};
+// static int sys_cid_change(void *ctr, struct element_touch_event *e)
+// {
+// #ifndef CONFIG_VIDEO4_ENABLE
+//     struct ui_pic *pic = (struct ui_pic *)ctr;
+//     UI_ONTOUCH_DEBUG("**sys cid change ontouch**");
+//     switch (e->event) {
+//     case ELM_EVENT_TOUCH_DOWN:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
+//         return true;
+//         break;
+//     case ELM_EVENT_TOUCH_UP:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+//         switch (pic->elm.id) {
+//         // case SYS_PIC_CID_0:
+//         //     sys_menu_cid_selete(SYS_MENU_CID_PRO);
+//         //     break;
+//         case SYS_PIC_CID_1:
+//             sys_menu_cid_selete(SYS_MENU_CID_1);
+//             break;
+//         case SYS_PIC_CID_2:
+//             sys_menu_cid_selete(SYS_MENU_CID_2);
+//             break;
+//         case SYS_PIC_CID_3:
+//             sys_menu_cid_selete(SYS_MENU_CID_3);
+//             break;
+//         case SYS_PIC_CID_4:
+//             sys_menu_cid_selete(SYS_MENU_CID_4);
+//             break;
+//         case SYS_PIC_CID_5:
+//             sys_menu_cid_selete(SYS_MENU_CID_5);
+//             break;
+//         case SYS_PIC_CID_6:
+//             sys_menu_cid_selete(SYS_MENU_CID_6);
+//             break;
+//         }
+//         sys_menu_cid_toggle(NULL);
+//         if (__this->onkey_mod == 1) {
+//             ui_set_call(highlight_no_cid_item, 0);
+//         }
+//         break;
+//     }
+// #endif
+//     return false;
+// }
+// REGISTER_UI_EVENT_HANDLER(SYS_PIC_CID_0)
+// .ontouch = sys_cid_change,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_PIC_CID_1)
+// .ontouch = sys_cid_change,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_PIC_CID_2)
+// .ontouch = sys_cid_change,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_PIC_CID_3)
+// .ontouch = sys_cid_change,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_PIC_CID_4)
+// .ontouch = sys_cid_change,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_PIC_CID_5)
+// .ontouch = sys_cid_change,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_PIC_CID_6)
+// .ontouch = sys_cid_change,
+// };
 
-static int sys_cid_prev(void *ctr, struct element_touch_event *e)
-{
-#ifndef CONFIG_VIDEO4_ENABLE
-    UI_ONTOUCH_DEBUG("**sys cid change ontouch**");
-    switch (e->event) {
-    case ELM_EVENT_TOUCH_UP:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-        sys_menu_cid_selete(SYS_MENU_CID_PREV);
-        sys_menu_cid_toggle(NULL);
-        break;
-    }
-#endif
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PREV)
-.ontouch = sys_cid_prev,
-};
+// static int sys_cid_prev(void *ctr, struct element_touch_event *e)
+// {
+// #ifndef CONFIG_VIDEO4_ENABLE
+//     UI_ONTOUCH_DEBUG("**sys cid change ontouch**");
+//     switch (e->event) {
+//     case ELM_EVENT_TOUCH_UP:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+//         sys_menu_cid_selete(SYS_MENU_CID_PREV);
+//         sys_menu_cid_toggle(NULL);
+//         break;
+//     }
+// #endif
+//     return false;
+// }
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PREV)
+// .ontouch = sys_cid_prev,
+// };
 
-static int sys_cid_next(void *ctr, struct element_touch_event *e)
-{
-#ifndef CONFIG_VIDEO4_ENABLE
-    UI_ONTOUCH_DEBUG("**sys cid change ontouch**");
-    switch (e->event) {
-    case ELM_EVENT_TOUCH_UP:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-        sys_menu_cid_selete(SYS_MENU_CID_NEXT);
-        sys_menu_cid_toggle(NULL);
-        break;
-    }
-#endif
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_NEXT)
-.ontouch = sys_cid_next,
-};
+// static int sys_cid_next(void *ctr, struct element_touch_event *e)
+// {
+// #ifndef CONFIG_VIDEO4_ENABLE
+//     UI_ONTOUCH_DEBUG("**sys cid change ontouch**");
+//     switch (e->event) {
+//     case ELM_EVENT_TOUCH_UP:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+//         sys_menu_cid_selete(SYS_MENU_CID_NEXT);
+//         sys_menu_cid_toggle(NULL);
+//         break;
+//     }
+// #endif
+//     return false;
+// }
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_NEXT)
+// .ontouch = sys_cid_next,
+// };
 
-static int sys_cid_set_pro(void *ctr, struct element_touch_event *e)
-{
-#ifndef CONFIG_VIDEO4_ENABLE
-    struct button *btn = (struct button *)ctr;
-    const int btn_id[31] = {
-        SYS_BTN_CID_PRO_01,
-        SYS_BTN_CID_PRO_02,
-        SYS_BTN_CID_PRO_03,
-        SYS_BTN_CID_PRO_04,
-        SYS_BTN_CID_PRO_05,
-        SYS_BTN_CID_PRO_06,
-        SYS_BTN_CID_PRO_07,
-        SYS_BTN_CID_PRO_08,
-        SYS_BTN_CID_PRO_09,
-        SYS_BTN_CID_PRO_10,
-        SYS_BTN_CID_PRO_11,
-        SYS_BTN_CID_PRO_12,
-        SYS_BTN_CID_PRO_13,
-        SYS_BTN_CID_PRO_14,
-        SYS_BTN_CID_PRO_15,
-        SYS_BTN_CID_PRO_16,
-        SYS_BTN_CID_PRO_17,
-        SYS_BTN_CID_PRO_18,
-        SYS_BTN_CID_PRO_19,
-        SYS_BTN_CID_PRO_20,
-        SYS_BTN_CID_PRO_21,
-        SYS_BTN_CID_PRO_22,
-        SYS_BTN_CID_PRO_23,
-        SYS_BTN_CID_PRO_24,
-        SYS_BTN_CID_PRO_25,
-        SYS_BTN_CID_PRO_26,
-        SYS_BTN_CID_PRO_27,
-        SYS_BTN_CID_PRO_28,
-        SYS_BTN_CID_PRO_29,
-        SYS_BTN_CID_PRO_30,
-        SYS_BTN_CID_PRO_31
-    };
-    u8 i;
-    UI_ONTOUCH_DEBUG("**sys cid set pro ontouch**");
-    switch (e->event) {
-    case ELM_EVENT_TOUCH_UP:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-        for (i = 0; i < 31; i++) {
-            if (btn->elm.id == btn_id[i]) {
-                if (sys_menu_cid_status[0] != i) {
-                    sys_menu_cid_status[0] = i;
-                    sys_menu_cid_toggle(NULL);
-                }
-                break;
-            }
-        }
-        break;
-    }
-#endif
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_01)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_02)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_03)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_04)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_05)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_06)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_07)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_08)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_09)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_10)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_11)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_12)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_13)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_14)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_15)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_16)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_17)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_18)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_19)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_20)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_21)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_22)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_23)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_24)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_25)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_26)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_27)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_28)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_29)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_30)
-.ontouch = sys_cid_set_pro,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_31)
-.ontouch = sys_cid_set_pro,
-};
+// static int sys_cid_set_pro(void *ctr, struct element_touch_event *e)
+// {
+// #ifndef CONFIG_VIDEO4_ENABLE
+//     struct button *btn = (struct button *)ctr;
+//     const int btn_id[31] = {
+//         SYS_BTN_CID_PRO_01,
+//         SYS_BTN_CID_PRO_02,
+//         SYS_BTN_CID_PRO_03,
+//         SYS_BTN_CID_PRO_04,
+//         SYS_BTN_CID_PRO_05,
+//         SYS_BTN_CID_PRO_06,
+//         SYS_BTN_CID_PRO_07,
+//         SYS_BTN_CID_PRO_08,
+//         SYS_BTN_CID_PRO_09,
+//         SYS_BTN_CID_PRO_10,
+//         SYS_BTN_CID_PRO_11,
+//         SYS_BTN_CID_PRO_12,
+//         SYS_BTN_CID_PRO_13,
+//         SYS_BTN_CID_PRO_14,
+//         SYS_BTN_CID_PRO_15,
+//         SYS_BTN_CID_PRO_16,
+//         SYS_BTN_CID_PRO_17,
+//         SYS_BTN_CID_PRO_18,
+//         SYS_BTN_CID_PRO_19,
+//         SYS_BTN_CID_PRO_20,
+//         SYS_BTN_CID_PRO_21,
+//         SYS_BTN_CID_PRO_22,
+//         SYS_BTN_CID_PRO_23,
+//         SYS_BTN_CID_PRO_24,
+//         SYS_BTN_CID_PRO_25,
+//         SYS_BTN_CID_PRO_26,
+//         SYS_BTN_CID_PRO_27,
+//         SYS_BTN_CID_PRO_28,
+//         SYS_BTN_CID_PRO_29,
+//         SYS_BTN_CID_PRO_30,
+//         SYS_BTN_CID_PRO_31
+//     };
+//     u8 i;
+//     UI_ONTOUCH_DEBUG("**sys cid set pro ontouch**");
+//     switch (e->event) {
+//     case ELM_EVENT_TOUCH_UP:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+//         for (i = 0; i < 31; i++) {
+//             if (btn->elm.id == btn_id[i]) {
+//                 if (sys_menu_cid_status[0] != i) {
+//                     sys_menu_cid_status[0] = i;
+//                     sys_menu_cid_toggle(NULL);
+//                 }
+//                 break;
+//             }
+//         }
+//         break;
+//     }
+// #endif
+//     return false;
+// }
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_01)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_02)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_03)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_04)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_05)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_06)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_07)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_08)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_09)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_10)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_11)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_12)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_13)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_14)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_15)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_16)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_17)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_18)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_19)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_20)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_21)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_22)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_23)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_24)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_25)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_26)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_27)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_28)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_29)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_30)
+// .ontouch = sys_cid_set_pro,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_PRO_31)
+// .ontouch = sys_cid_set_pro,
+// };
 
-static int sys_cid_set(void *ctr, struct element_touch_event *e)
-{
-#ifndef CONFIG_VIDEO4_ENABLE
-    struct button *btn = (struct button *)ctr;
-    const int btn_id[36] = {
-        SYS_BTN_CID_KB_A,
-        SYS_BTN_CID_KB_B,
-        SYS_BTN_CID_KB_C,
-        SYS_BTN_CID_KB_D,
-        SYS_BTN_CID_KB_E,
-        SYS_BTN_CID_KB_F,
-        SYS_BTN_CID_KB_G,
-        SYS_BTN_CID_KB_H,
-        SYS_BTN_CID_KB_I,
-        SYS_BTN_CID_KB_J,
-        SYS_BTN_CID_KB_K,
-        SYS_BTN_CID_KB_L,
-        SYS_BTN_CID_KB_M,
-        SYS_BTN_CID_KB_N,
-        SYS_BTN_CID_KB_O,
-        SYS_BTN_CID_KB_P,
-        SYS_BTN_CID_KB_Q,
-        SYS_BTN_CID_KB_R,
-        SYS_BTN_CID_KB_S,
-        SYS_BTN_CID_KB_T,
-        SYS_BTN_CID_KB_U,
-        SYS_BTN_CID_KB_V,
-        SYS_BTN_CID_KB_W,
-        SYS_BTN_CID_KB_X,
-        SYS_BTN_CID_KB_Y,
-        SYS_BTN_CID_KB_Z,
-        SYS_BTN_CID_KB_0,
-        SYS_BTN_CID_KB_1,
-        SYS_BTN_CID_KB_2,
-        SYS_BTN_CID_KB_3,
-        SYS_BTN_CID_KB_4,
-        SYS_BTN_CID_KB_5,
-        SYS_BTN_CID_KB_6,
-        SYS_BTN_CID_KB_7,
-        SYS_BTN_CID_KB_8,
-        SYS_BTN_CID_KB_9
-    };
-    u8 i;
-    UI_ONTOUCH_DEBUG("**sys cid set pro ontouch**");
-    switch (e->event) {
-    case ELM_EVENT_TOUCH_UP:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-        for (i = 0; i < 36; i++) {
-            if (btn->elm.id == btn_id[i]) {
-                if (sys_menu_cid_setting == SYS_MENU_CID_1 && i >= 26) {
-                    break;
-                }
-                if (sys_menu_cid_status[sys_menu_cid_setting - 1] != i) {
-                    sys_menu_cid_status[sys_menu_cid_setting - 1] = i;
-                    sys_menu_cid_toggle(NULL);
-                }
-                break;
-            }
-        }
-        break;
-    }
-#endif
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_A)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_B)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_C)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_D)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_E)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_F)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_G)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_H)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_I)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_J)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_K)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_L)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_M)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_N)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_O)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_P)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_Q)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_R)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_S)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_T)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_U)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_V)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_W)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_X)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_Y)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_Z)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_1)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_2)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_3)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_4)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_5)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_6)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_7)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_8)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_9)
-.ontouch = sys_cid_set,
-};
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_0)
-.ontouch = sys_cid_set,
-};
+//static int sys_cid_set(void *ctr, struct element_touch_event *e)
+//{
+//#ifndef CONFIG_VIDEO4_ENABLE
+    // struct button *btn = (struct button *)ctr;
+    // const int btn_id[36] = {
+    //     SYS_BTN_CID_KB_A,
+    //     SYS_BTN_CID_KB_B,
+    //     SYS_BTN_CID_KB_C,
+    //     SYS_BTN_CID_KB_D,
+    //     SYS_BTN_CID_KB_E,
+    //     SYS_BTN_CID_KB_F,
+    //     SYS_BTN_CID_KB_G,
+    //     SYS_BTN_CID_KB_H,
+    //     SYS_BTN_CID_KB_I,
+    //     SYS_BTN_CID_KB_J,
+    //     SYS_BTN_CID_KB_K,
+    //     SYS_BTN_CID_KB_L,
+    //     SYS_BTN_CID_KB_M,
+    //     SYS_BTN_CID_KB_N,
+    //     SYS_BTN_CID_KB_O,
+    //     SYS_BTN_CID_KB_P,
+    //     SYS_BTN_CID_KB_Q,
+    //     SYS_BTN_CID_KB_R,
+    //     SYS_BTN_CID_KB_S,
+    //     SYS_BTN_CID_KB_T,
+    //     SYS_BTN_CID_KB_U,
+    //     SYS_BTN_CID_KB_V,
+    //     SYS_BTN_CID_KB_W,
+    //     SYS_BTN_CID_KB_X,
+    //     SYS_BTN_CID_KB_Y,
+    //     SYS_BTN_CID_KB_Z,
+    //     SYS_BTN_CID_KB_0,
+    //     SYS_BTN_CID_KB_1,
+    //     SYS_BTN_CID_KB_2,
+    //     SYS_BTN_CID_KB_3,
+    //     SYS_BTN_CID_KB_4,
+    //     SYS_BTN_CID_KB_5,
+    //     SYS_BTN_CID_KB_6,
+    //     SYS_BTN_CID_KB_7,
+    //     SYS_BTN_CID_KB_8,
+    //     SYS_BTN_CID_KB_9
+    // };
+//     u8 i;
+//     UI_ONTOUCH_DEBUG("**sys cid set pro ontouch**");
+//     switch (e->event) {
+//     case ELM_EVENT_TOUCH_UP:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+//         for (i = 0; i < 36; i++) {
+//             if (btn->elm.id == btn_id[i]) {
+//                 if (sys_menu_cid_setting == SYS_MENU_CID_1 && i >= 26) {
+//                     break;
+//                 }
+//                 if (sys_menu_cid_status[sys_menu_cid_setting - 1] != i) {
+//                     sys_menu_cid_status[sys_menu_cid_setting - 1] = i;
+//                     sys_menu_cid_toggle(NULL);
+//                 }
+//                 break;
+//             }
+//         }
+//         break;
+//     }
+// #endif
+//     return false;
+// }
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_A)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_B)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_C)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_D)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_E)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_F)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_G)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_H)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_I)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_J)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_K)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_L)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_M)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_N)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_O)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_P)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_Q)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_R)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_S)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_T)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_U)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_V)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_W)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_X)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_Y)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_Z)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_1)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_2)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_3)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_4)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_5)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_6)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_7)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_8)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_9)
+// .ontouch = sys_cid_set,
+// };
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_KB_0)
+// .ontouch = sys_cid_set,
+// };
 
 /***************************** 车牌确认修改 ************************************/
-static int sys_cid_confirm(void *ctr, struct element_touch_event *e)
-{
-#ifndef CONFIG_VIDEO4_ENABLE
-    UI_ONTOUCH_DEBUG("**sys cid confirm ontouch**");
-    switch (e->event) {
-    case ELM_EVENT_TOUCH_UP:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-        if (__this->onkey_mod == 1) {
-            if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
-                ui_no_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
-            } else if (confirm_f) {
-                confirm_f = 0;
-                ui_no_highlight_element_by_id(SYS_BTN_CID_CONFIRM);
-            } else {
-                ui_no_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
-            }
-        }
-        __this->cid_set_pos = 0;
-        __this->onkey_mod = 0;
-        sys_menu_cid_save();
-        break;
-    }
-#endif
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_CONFIRM)
-.ontouch = sys_cid_confirm,
-};
-static s8 cid_set_pos_remap(u8 pos)
-{
-    if (pos < 9) {
-        return 27 + pos;
-    }
-    switch (pos) {
-    case 9:
-        return 26;
-        break;
-    case 10:
-        return 16;
-        break;
-    case 11:
-        return 22;
-        break;
-    case 12:
-        return 4;
-        break;
-    case 13:
-        return 17;
-        break;
-    case 14:
-        return 19;
-        break;
-    case 15:
-        return 24;
-        break;
-    case 16:
-        return 20;
-        break;
-    case 17:
-        return 8;
-        break;
-    case 18:
-        return 14;
-        break;
-    case 19:
-        return 15;
-        break;
-    case 20:
-        return 0;
-        break;
-    case 21:
-        return 18;
-        break;
-    case 22:
-        return 3;
-        break;
-    case 23:
-        return 5;
-        break;
-    case 24:
-        return 6;
-        break;
-    case 25:
-        return 7;
-        break;
-    case 26:
-        return 9;
-        break;
-    case 27:
-        return 10;
-        break;
-    case 28:
-        return 11;
-        break;
-    case 29:
-        return 25;
-        break;
-    case 30:
-        return 23;
-        break;
-    case 31:
-        return 2;
-        break;
-    case 32:
-        return 21;
-        break;
-    case 33:
-        return 1;
-        break;
-    case 34:
-        return 13;
-        break;
-    case 35:
-        return 12;
-        break;
-    default:
-        break;
-    }
-    return -1;
-}
+//static int sys_cid_confirm(void *ctr, struct element_touch_event *e)
+//{
+//#ifndef CONFIG_VIDEO4_ENABLE
+//    UI_ONTOUCH_DEBUG("**sys cid confirm ontouch**");
+//    switch (e->event) {
+//    case ELM_EVENT_TOUCH_UP:
+//        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+//        if (__this->onkey_mod == 1) {
+//            if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
+//                ui_no_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
+//            } else if (confirm_f) {
+//                confirm_f = 0;
+//                ui_no_highlight_element_by_id(SYS_BTN_CID_CONFIRM);
+//            } else {
+//                ui_no_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
+//            }
+//        }
+//        __this->cid_set_pos = 0;
+//        __this->onkey_mod = 0;
+//        sys_menu_cid_save();
+//        break;
+//    }
+//#endif
+//    return false;
+//}
+//REGISTER_UI_EVENT_HANDLER(SYS_BTN_CID_CONFIRM)
+//.ontouch = sys_cid_confirm,
+//};
+//static s8 cid_set_pos_remap(u8 pos)
+//{
+//    if (pos < 9) {
+//        return 27 + pos;
+//    }
+//    switch (pos) {
+//    case 9:
+//        return 26;
+//        break;
+//    case 10:
+//        return 16;
+//        break;
+//    case 11:
+//        return 22;
+//        break;
+//    case 12:
+//        return 4;
+//        break;
+//    case 13:
+//        return 17;
+//        break;
+//    case 14:
+//        return 19;
+//        break;
+//    case 15:
+//        return 24;
+//        break;
+//    case 16:
+//        return 20;
+//        break;
+//    case 17:
+//        return 8;
+//        break;
+//    case 18:
+//        return 14;
+//        break;
+//    case 19:
+//        return 15;
+//        break;
+//    case 20:
+//        return 0;
+//        break;
+//    case 21:
+//        return 18;
+//        break;
+//    case 22:
+//        return 3;
+//        break;
+//    case 23:
+//        return 5;
+//        break;
+//    case 24:
+//        return 6;
+//        break;
+//    case 25:
+//        return 7;
+//        break;
+//    case 26:
+//        return 9;
+//        break;
+//    case 27:
+//        return 10;
+//        break;
+//    case 28:
+//        return 11;
+//        break;
+//    case 29:
+//        return 25;
+//        break;
+//    case 30:
+//        return 23;
+//        break;
+//    case 31:
+//        return 2;
+//        break;
+//    case 32:
+//        return 21;
+//        break;
+//    case 33:
+//        return 1;
+//        break;
+//    case 34:
+//        return 13;
+//        break;
+//    case 35:
+//        return 12;
+//        break;
+//    default:
+//        break;
+//    }
+//    return -1;
+//}
 
-static int highlight_cid_lay_item(int p)
-{
-    ui_no_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
-    if (sys_menu_cid_setting == SYS_MENU_CID_1) {
-        __this->cid_set_pos = 10;
-    } else {
-        __this->cid_set_pos = 0;
-    }
-    ui_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
-    return 0;
-
-}
-static void set_cid_onkey(u8 key_value)
-{
-    s8 remap_cid_selnum;
-    u8 sel_item_num;
-    u8 cur_cid_setting = 0;
-    if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
-        sel_item_num = ARRAY_SIZE(cid_btn_id0);
-        cur_cid_setting = SYS_MENU_CID_PRO;
-        confirm_f = 0;
-    } else {
-        sel_item_num = ARRAY_SIZE(cid_btn_id1);
-        cur_cid_setting = sys_menu_cid_setting;
-    }
-    switch (key_value) {
-    case KEY_DOWN:
-        if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
-            ui_no_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
-        } else {
-            ui_no_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
-        }
-        __this->cid_set_pos++;
-        if (__this->cid_set_pos >= sel_item_num) {
-            __this->cid_set_pos = 0;
-        }
-        if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
-            ui_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
-        } else {
-            ui_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
-        }
-        break;
-    case KEY_UP:
-        if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
-            ui_no_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
-        } else {
-            ui_no_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
-        }
-        if (__this->cid_set_pos == 0) {
-            __this->cid_set_pos = sel_item_num;
-        }
-        __this->cid_set_pos--;
-        if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
-            ui_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
-        } else {
-            ui_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
-        }
-        break;
-    case KEY_OK:
+//static int highlight_cid_lay_item(int p)
+//{
+//    ui_no_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
+//    if (sys_menu_cid_setting == SYS_MENU_CID_1) {
+//        __this->cid_set_pos = 10;
+//    } else {
+//        __this->cid_set_pos = 0;
+//    }
+//    ui_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
+//    return 0;
+//
+//}
+//static void set_cid_onkey(u8 key_value)
+//{
+//    s8 remap_cid_selnum;
+//    u8 sel_item_num;
+//    u8 cur_cid_setting = 0;
+//    if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
+//        sel_item_num = ARRAY_SIZE(cid_btn_id0);
+//        cur_cid_setting = SYS_MENU_CID_PRO;
+//        confirm_f = 0;
+//    } else {
+//        sel_item_num = ARRAY_SIZE(cid_btn_id1);
+//        cur_cid_setting = sys_menu_cid_setting;
+//    }
+//    switch (key_value) {
+//    case KEY_DOWN:
+//        if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
+//            ui_no_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
+//        } else {
+//            ui_no_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
+//        }
+//        __this->cid_set_pos++;
+//        if (__this->cid_set_pos >= sel_item_num) {
+//            __this->cid_set_pos = 0;
+//        }
+//        if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
+//            ui_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
+//        } else {
+//            ui_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
+//        }
+//        break;
+//    case KEY_UP:
+//        if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
+//            ui_no_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
+//        } else {
+//            ui_no_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
+//        }
+//        if (__this->cid_set_pos == 0) {
+//            __this->cid_set_pos = sel_item_num;
+//        }
+//        __this->cid_set_pos--;
+//        if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
+//            ui_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
+//        } else {
+//            ui_highlight_element_by_id(cid_btn_id1[__this->cid_set_pos]);
+//        }
+//        break;
+//    case KEY_OK:
         // if (confirm_f) {
         //     sys_menu_cid_save();
         //     ui_no_highlight_element_by_id(SYS_BTN_CID_CONFIRM);
@@ -2848,233 +2848,233 @@ static void set_cid_onkey(u8 key_value)
         // sys_menu_cid_toggle(NULL);
         // ui_set_call(highlight_cid_lay_item, 0);
         // break;
-    case KEY_MODE:
-        __this->onkey_mod = 0;
-        if (confirm_f) {
-            ui_no_highlight_element_by_id(SYS_BTN_CID_CONFIRM);
-            confirm_f = 0;
-        } else if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
-            ui_no_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
-        }
-        sys_menu_cid_selete(SYS_MENU_CID_PRO);
-        sys_menu_cid_toggle(NULL);
-        break;
-    }
-}
+//    case KEY_MODE:
+//        __this->onkey_mod = 0;
+//        if (confirm_f) {
+//            ui_no_highlight_element_by_id(SYS_BTN_CID_CONFIRM);
+//            confirm_f = 0;
+//        } else if (sys_menu_cid_setting == SYS_MENU_CID_PRO) {
+//            ui_no_highlight_element_by_id(cid_btn_id0[__this->cid_set_pos]);
+//        }
+//        sys_menu_cid_selete(SYS_MENU_CID_PRO);
+//        sys_menu_cid_toggle(NULL);
+//        break;
+//    }
+//}
 /***************************** 选择设置菜单 ************************************/
-static int sys_set2_onchange(void *ctr, enum element_change_event e, void *arg)
-{
-    struct ui_grid *grid = (struct ui_grid *)ctr;
+//static int sys_set2_onchange(void *ctr, enum element_change_event e, void *arg)
+//{
+//    struct ui_grid *grid = (struct ui_grid *)ctr;
+//
+//    switch (e) {
+//    case ON_CHANGE_INIT:
+//        ui_grid_set_item(grid, -1);
+//        grid->auto_hi = 0;
+//        break;
+//    case ON_CHANGE_FIRST_SHOW:
+//        return true;
+//        break;
+//    default:
+//        return false;
+//    }
+//    return false;
+//}
+//static int highlight_sel_item(int p)
+//{
+//    switch (__this->sys_menu_status) {
+//    case SYS_MENU_LCDOFF:
+//    case SYS_MENU_AUTOOFF:
+//        ui_highlight_element_by_id(sel_layout4[p]);
+//        break;
+//    case SYS_MENU_FREQUENCY:
+//    case SYS_MENU_KEYVOICE:
+//    case SYS_MENU_TVMODE:
+//    case SYS_MENU_LANEDET:
+//    case SYS_MENU_HL_WARNNING:
+//        ui_highlight_element_by_id(sel_layout2[p]);
+//        break;
+//    case SYS_MENU_LANGUAGE:
+//        ui_highlight_element_by_id(sel_layout3[p]);
+//        break;
+//    default:
+//        break;
+//    }
+//    return 0;
+//}
 
-    switch (e) {
-    case ON_CHANGE_INIT:
-        ui_grid_set_item(grid, -1);
-        grid->auto_hi = 0;
-        break;
-    case ON_CHANGE_FIRST_SHOW:
-        return true;
-        break;
-    default:
-        return false;
-    }
-    return false;
-}
-static int highlight_sel_item(int p)
-{
-    switch (__this->sys_menu_status) {
-    case SYS_MENU_LCDOFF:
-    case SYS_MENU_AUTOOFF:
-        ui_highlight_element_by_id(sel_layout4[p]);
-        break;
-    case SYS_MENU_FREQUENCY:
-    case SYS_MENU_KEYVOICE:
-    case SYS_MENU_TVMODE:
-    case SYS_MENU_LANEDET:
-    case SYS_MENU_HL_WARNNING:
-        ui_highlight_element_by_id(sel_layout2[p]);
-        break;
-    case SYS_MENU_LANGUAGE:
-        ui_highlight_element_by_id(sel_layout3[p]);
-        break;
-    default:
-        break;
-    }
-    return 0;
-}
+//static void open_set_lane_page(void *p, int err)
+//{
+//    struct intent it;
+//    lane_setting = 1;
+//    puts("\n =============car lane set =========\n");
+//    init_intent(&it);
+//    it.name = "video_rec";
+//    /* it.action = ACTION_VIDEO_REC_MAIN; */
+//    it.action = ACTION_VIDEO_REC_MAIN;
+//    it.data   = "lan_setting";
+//    start_app(&it);
+//}
+//static void close_set_lane_page(void *p, int err)
+//{
+//    struct intent it;
+//    int top = __this->vanish_line * 352 / LCD_DEV_HIGHT;
+//    int bottom = __this->car_head_line * 352 / LCD_DEV_HIGHT;
+//    puts("\n =============car lane set exit=========\n");
+//    init_intent(&it);
+//    it.name = "video_system";
+//    it.action = ACTION_SYSTEM_MAIN;
+//    start_app(&it);
+//    menu_lane_det_set(top << 16 | bottom);
+//    printf("lane set top=%d , bottom=%d\n", top, bottom);
+//}
 
-static void open_set_lane_page(void *p, int err)
-{
-    struct intent it;
-    lane_setting = 1;
-    puts("\n =============car lane set =========\n");
-    init_intent(&it);
-    it.name = "video_rec";
-    /* it.action = ACTION_VIDEO_REC_MAIN; */
-    it.action = ACTION_VIDEO_REC_MAIN;
-    it.data   = "lan_setting";
-    start_app(&it);
-}
-static void close_set_lane_page(void *p, int err)
-{
-    struct intent it;
-    int top = __this->vanish_line * 352 / LCD_DEV_HIGHT;
-    int bottom = __this->car_head_line * 352 / LCD_DEV_HIGHT;
-    puts("\n =============car lane set exit=========\n");
-    init_intent(&it);
-    it.name = "video_system";
-    it.action = ACTION_SYSTEM_MAIN;
-    start_app(&it);
-    menu_lane_det_set(top << 16 | bottom);
-    printf("lane set top=%d , bottom=%d\n", top, bottom);
-}
+// static int sys_set2_ontouch(void *ctr, struct element_touch_event *e)
+// {
+//     UI_ONTOUCH_DEBUG("**sys set2 ontouch**");
+//     int sel_item;
+//     struct ui_grid *grid = (struct ui_grid *)ctr;
 
-static int sys_set2_ontouch(void *ctr, struct element_touch_event *e)
-{
-    UI_ONTOUCH_DEBUG("**sys set2 ontouch**");
-    int sel_item;
-    struct ui_grid *grid = (struct ui_grid *)ctr;
+//     switch (e->event) {
+//     case ELM_EVENT_TOUCH_MOVE:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
+//         return true;
+//         break;
+//     case ELM_EVENT_TOUCH_DOWN:
+//         return false;
+//         break;
+//     case ELM_EVENT_TOUCH_UP:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+//         sel_item = ui_grid_cur_item(grid);
+//         if (sel_item < 0 || sel_item > 1) {
+//             break;
+//         }
+//         switch (__this->sys_menu_status) {
+//         case SYS_MENU_FREQUENCY:
+//             if (__this->onkey_mod == 0) {
+//                 if (sel_item == __this->led_fre_hz) {
+//                     break;
+//                 }
+//             }
+//             ui_hide(sel_pic2[__this->led_fre_hz]);
+//             if (__this->onkey_mod  == 1) {
+//                 ui_no_highlight_element_by_id(sel_layout2[cur_sel_item]);
+//             }
+//             menu_sys_led_fre_set(sel_item);
+//             ui_show(sel_pic2[sel_item]);
+//             if (__this->onkey_mod  == 1) {
+//                 ui_set_call(highlight_sel_item, sel_item);
+//             }
+//             cur_sel_item = __this->led_fre_hz;
+//             break;
+//         case SYS_MENU_KEYVOICE:
+//             if (__this->onkey_mod == 0) {
+//                 if (sel_item == __this->key_voice) {
+//                     break;
+//                 }
+//             }
+//             ui_hide(sel_pic2[__this->key_voice]);
+//             if (__this->onkey_mod  == 1) {
+//                 ui_no_highlight_element_by_id(sel_layout2[cur_sel_item]);
+//             }
+//             menu_sys_key_voice_set(sel_item);
+//             if (__this->onkey_mod  == 1) {
+//                 ui_set_call(highlight_sel_item, sel_item);
+//             }
+//             ui_show(sel_pic2[sel_item]);
+//             cur_sel_item = __this->key_voice;
+//             break;
+//         case SYS_MENU_TVMODE:
+//             if (__this->onkey_mod == 0) {
+//                 if (sel_item == __this->tv_mod) {
+//                     break;
+//                 }
+//             }
+//             ui_hide(sel_pic2[__this->tv_mod]);
+//             if (__this->onkey_mod  == 1) {
+//                 ui_no_highlight_element_by_id(sel_layout2[cur_sel_item]);
+//             }
+//             menu_sys_tv_mod_set(sel_item);
+//             if (__this->onkey_mod  == 1) {
+//                 ui_set_call(highlight_sel_item, sel_item);
+//             }
+//             ui_show(sel_pic2[sel_item]);
+//             cur_sel_item = __this->tv_mod;
+//             break;
+//         case SYS_MENU_LANEDET:
+// #ifndef CONFIG_VIDEO4_ENABLE
+//             if (sel_item == 1) {
+//                 struct intent it;
+//                 __this->lane_det = 1;
+//                 ui_hide(ui_get_current_window_id());
+//                 init_intent(&it);
+//                 it.name = "video_system";
+//                 it.action = ACTION_BACK;
+//                 start_app_async(&it, open_set_lane_page, NULL);
+//                 break;
+//             } else {
+//                 ui_hide(sel_pic2[__this->lane_det]);
+//                 if (__this->onkey_mod  == 1) {
+//                     ui_no_highlight_element_by_id(sel_layout2[cur_sel_item]);
+//                 }
+//                 menu_lane_det_set(0);
+//                 if (__this->onkey_mod  == 1) {
+//                     ui_set_call(highlight_sel_item, sel_item);
+//                 }
+//                 ui_show(sel_pic2[sel_item]);
+//                 cur_sel_item = __this->lane_det;
+//             }
+// #endif
+//             break;
+//         case SYS_MENU_HL_WARNNING:
+// #ifndef CONFIG_VIDEO4_ENABLE
+//             if (__this->onkey_mod == 0) {
+//                 if (sel_item == __this->hl_warnning) {
+//                     break;
+//                 }
+//             }
+//             ui_hide(sel_pic2[__this->hl_warnning]);
+//             if (__this->onkey_mod  == 1) {
+//                 ui_no_highlight_element_by_id(sel_layout2[cur_sel_item]);
+//             }
+//             menu_sys_hlight_warning_set(sel_item);
+//             if (__this->onkey_mod  == 1) {
+//                 ui_set_call(highlight_sel_item, sel_item);
+//             }
+//             ui_show(sel_pic2[sel_item]);
+//             cur_sel_item = __this->hl_warnning;
+// #endif
+//             break;
+//         }
+//         break;
+//     }
+//     return true;
+// }
+// REGISTER_UI_EVENT_HANDLER(SYS_LIST_C2)
+// .onchange = sys_set2_onchange,
+//  .ontouch = sys_set2_ontouch,
+// };
 
-    switch (e->event) {
-    case ELM_EVENT_TOUCH_MOVE:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
-        return true;
-        break;
-    case ELM_EVENT_TOUCH_DOWN:
-        return false;
-        break;
-    case ELM_EVENT_TOUCH_UP:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-        sel_item = ui_grid_cur_item(grid);
-        if (sel_item < 0 || sel_item > 1) {
-            break;
-        }
-        switch (__this->sys_menu_status) {
-        case SYS_MENU_FREQUENCY:
-            if (__this->onkey_mod == 0) {
-                if (sel_item == __this->led_fre_hz) {
-                    break;
-                }
-            }
-            ui_hide(sel_pic2[__this->led_fre_hz]);
-            if (__this->onkey_mod  == 1) {
-                ui_no_highlight_element_by_id(sel_layout2[cur_sel_item]);
-            }
-            menu_sys_led_fre_set(sel_item);
-            ui_show(sel_pic2[sel_item]);
-            if (__this->onkey_mod  == 1) {
-                ui_set_call(highlight_sel_item, sel_item);
-            }
-            cur_sel_item = __this->led_fre_hz;
-            break;
-        case SYS_MENU_KEYVOICE:
-            if (__this->onkey_mod == 0) {
-                if (sel_item == __this->key_voice) {
-                    break;
-                }
-            }
-            ui_hide(sel_pic2[__this->key_voice]);
-            if (__this->onkey_mod  == 1) {
-                ui_no_highlight_element_by_id(sel_layout2[cur_sel_item]);
-            }
-            menu_sys_key_voice_set(sel_item);
-            if (__this->onkey_mod  == 1) {
-                ui_set_call(highlight_sel_item, sel_item);
-            }
-            ui_show(sel_pic2[sel_item]);
-            cur_sel_item = __this->key_voice;
-            break;
-        case SYS_MENU_TVMODE:
-            if (__this->onkey_mod == 0) {
-                if (sel_item == __this->tv_mod) {
-                    break;
-                }
-            }
-            ui_hide(sel_pic2[__this->tv_mod]);
-            if (__this->onkey_mod  == 1) {
-                ui_no_highlight_element_by_id(sel_layout2[cur_sel_item]);
-            }
-            menu_sys_tv_mod_set(sel_item);
-            if (__this->onkey_mod  == 1) {
-                ui_set_call(highlight_sel_item, sel_item);
-            }
-            ui_show(sel_pic2[sel_item]);
-            cur_sel_item = __this->tv_mod;
-            break;
-        case SYS_MENU_LANEDET:
-#ifndef CONFIG_VIDEO4_ENABLE
-            if (sel_item == 1) {
-                struct intent it;
-                __this->lane_det = 1;
-                ui_hide(ui_get_current_window_id());
-                init_intent(&it);
-                it.name = "video_system";
-                it.action = ACTION_BACK;
-                start_app_async(&it, open_set_lane_page, NULL);
-                break;
-            } else {
-                ui_hide(sel_pic2[__this->lane_det]);
-                if (__this->onkey_mod  == 1) {
-                    ui_no_highlight_element_by_id(sel_layout2[cur_sel_item]);
-                }
-                menu_lane_det_set(0);
-                if (__this->onkey_mod  == 1) {
-                    ui_set_call(highlight_sel_item, sel_item);
-                }
-                ui_show(sel_pic2[sel_item]);
-                cur_sel_item = __this->lane_det;
-            }
-#endif
-            break;
-        case SYS_MENU_HL_WARNNING:
-#ifndef CONFIG_VIDEO4_ENABLE
-            if (__this->onkey_mod == 0) {
-                if (sel_item == __this->hl_warnning) {
-                    break;
-                }
-            }
-            ui_hide(sel_pic2[__this->hl_warnning]);
-            if (__this->onkey_mod  == 1) {
-                ui_no_highlight_element_by_id(sel_layout2[cur_sel_item]);
-            }
-            menu_sys_hlight_warning_set(sel_item);
-            if (__this->onkey_mod  == 1) {
-                ui_set_call(highlight_sel_item, sel_item);
-            }
-            ui_show(sel_pic2[sel_item]);
-            cur_sel_item = __this->hl_warnning;
-#endif
-            break;
-        }
-        break;
-    }
-    return true;
-}
-REGISTER_UI_EVENT_HANDLER(SYS_LIST_C2)
-.onchange = sys_set2_onchange,
- .ontouch = sys_set2_ontouch,
-};
-
-static int sys_set3_onchange(void *ctr, enum element_change_event e, void *arg)
-{
-    struct ui_grid *grid = (struct ui_grid *)ctr;  // 将传入的控件转换为 ui_grid 网格控件类型
-
-    switch (e) {
-    case ON_CHANGE_INIT:  // 当控件初始化时触发
-        ui_grid_set_item(grid, -1);  // 设置网格当前选中项为 -1，表示没有选中任何项
-        grid->auto_hi = 0;  // 禁用自动高亮功能
-        printf("initkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk\n");
-        break;
-
-    case ON_CHANGE_FIRST_SHOW:  // 当控件第一次显示时触发
-        return true;  // 返回 true，表示事件处理已完成
-        break;
-
-    default:  // 其他未处理的事件类型
-        return false;  // 返回 false，表示不处理该事件
-    }
-
-    return false;  // 默认返回 false，表示事件未处理
-}
+//static int sys_set3_onchange(void *ctr, enum element_change_event e, void *arg)
+//{
+//    struct ui_grid *grid = (struct ui_grid *)ctr;  // 将传入的控件转换为 ui_grid 网格控件类型
+//
+//    switch (e) {
+//    case ON_CHANGE_INIT:  // 当控件初始化时触发
+//        ui_grid_set_item(grid, -1);  // 设置网格当前选中项为 -1，表示没有选中任何项
+//        grid->auto_hi = 0;  // 禁用自动高亮功能
+//        printf("initkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk\n");
+//        break;
+//
+//    case ON_CHANGE_FIRST_SHOW:  // 当控件第一次显示时触发
+//        return true;  // 返回 true，表示事件处理已完成
+//        break;
+//
+//    default:  // 其他未处理的事件类型
+//        return false;  // 返回 false，表示不处理该事件
+//    }
+//
+//    return false;  // 默认返回 false，表示事件未处理
+//}
 
 // static int sys_set3_ontouch(void *ctr, struct element_touch_event *e)
 // {
@@ -3140,15 +3140,14 @@ static int sys_yy0_ontouch(void *ctr, struct element_touch_event *e)
         break;
     case ELM_EVENT_TOUCH_UP:  // 处理触摸抬起事件
         ui_show(SYS_YY_0);  // 显示当前布局
-            }
 
+    }
 
     return true;  // 返回 true，表示事件处理完成
 }
 
-// 注册触摸事件处理程序
+ //注册触摸事件处理程序
 REGISTER_UI_EVENT_HANDLER(SYS_YY_WIN)
-// .onchange = sys_set3_onchange,  // 设置改变事件处理程序
 .ontouch = sys_yy0_ontouch,    // 设置触摸事件处理程序
 };
 
@@ -3354,616 +3353,616 @@ static int sys_set4_onchange(void *ctr, enum element_change_event e, void *arg)
     return false; // 默认返回 false，表示事件未处理
 }
 
-static int sys_set4_ontouch(void *ctr, struct element_touch_event *e)
-{
-    // 输出调试信息，表示触摸事件的处理函数被调用
-    UI_ONTOUCH_DEBUG("**sys set ontouch**");
-    int sel_item; // 记录当前选中的项目
-    struct ui_grid *grid = (struct ui_grid *)ctr; // 将传入的控件指针转换为 ui_grid 类型
-
-    switch (e->event) {
-    case ELM_EVENT_TOUCH_MOVE:
-        // 当触摸事件是“移动”时，输出调试信息并返回 true，表示事件已处理
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
-        return true; // 返回 true 表示事件已处理
-        break;
-    case ELM_EVENT_TOUCH_DOWN:
-        // 当触摸事件是“按下”时，直接返回 false，不处理此事件
-        return false;
-        break;
-    case ELM_EVENT_TOUCH_UP:
-        // 当触摸事件是“抬起”时，输出调试信息并处理相应的逻辑
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-        sel_item = ui_grid_cur_item(grid); // 获取当前选中的项的索引
-
-        // 检查选中的项是否在有效范围内
-        if (sel_item < 0 || sel_item > 3) {
-            break; // 如果不在有效范围内，直接返回
-        }
-
-        // 根据当前的系统菜单状态执行相应的操作
-        switch (__this->sys_menu_status) {
-        case SYS_MENU_LCDOFF:
-            // 如果当前菜单状态是“LCD 关屏”
-            if (__this->onkey_mod == 0) {
-                // 如果 onkey_mod 为 0，表示没有特殊的选择模式
-                if (sel_item == __this->lcd_protect) {
-                    // 如果选择的项与当前设置项相同，直接返回
-                    break;
-                }
-            }
-            // 隐藏当前的 LCD 保护设置图标
-            ui_hide(sel_pic4[__this->lcd_protect]);
-            if (__this->onkey_mod == 1) {
-                // 如果 onkey_mod 为 1，表示有特殊的选择模式
-                // 取消高亮当前选择的项
-                ui_no_highlight_element_by_id(sel_layout4[cur_sel_item]);
-            }
-            // 更新 LCD 保护设置
-            menu_sys_lcd_pro_set(sel_item);
-            if (__this->onkey_mod == 1) {
-                // 如果 onkey_mod 为 1，设置新的高亮项
-                ui_set_call(highlight_sel_item, sel_item);
-            }
-            // 显示新的 LCD 保护设置图标
-            ui_show(sel_pic4[sel_item]);
-            // 更新当前选择的项
-            cur_sel_item = __this->lcd_protect;
-            break;
-        case SYS_MENU_AUTOOFF:
-            // 如果当前菜单状态是“自动关屏”
-            if (__this->onkey_mod == 0) {
-                // 如果 onkey_mod 为 0，表示没有特殊的选择模式
-                if (sel_item == __this->auto_off) {
-                    // 如果选择的项与当前设置项相同，直接返回
-                    break;
-                }
-            }
-            // 隐藏当前的自动关屏设置图标
-            ui_hide(sel_pic4[__this->auto_off]);
-            if (__this->onkey_mod == 1) {
-                // 如果 onkey_mod 为 1，表示有特殊的选择模式
-                // 取消高亮当前选择的项
-                ui_no_highlight_element_by_id(sel_layout4[cur_sel_item]);
-            }
-            // 更新自动关屏设置
-            menu_sys_auto_off_set(sel_item);//////0
-            if (__this->onkey_mod == 1) {
-                // 如果 onkey_mod 为 1，设置新的高亮项
-                ui_set_call(highlight_sel_item, sel_item);
-            }
-            // 显示新的自动关屏设置图标
-            ui_show(sel_pic4[sel_item]);
-            // 更新当前选择的项
-            cur_sel_item = __this->auto_off;
-            break;
-        }
-        break;
-    }
-    return true; // 返回 true 表示事件已处理
-}
-
-// 注册触摸事件处理函数和其他相关事件处理函数
-REGISTER_UI_EVENT_HANDLER(SYS_LIST_C4)
-    .onchange = sys_set4_onchange,  // 注册 onchange 事件处理函数
-    .ontouch = sys_set4_ontouch,    // 注册 ontouch 事件处理函数
-};
-
-
-/***************************** 格式化、默认设置菜单 ************************************/
-static int sys_warning_onchange(void *ctr, enum element_change_event e, void *arg)
-{
-    static int warning_timer = 0;         // 定义一个静态变量用于存储警告定时器
-    static int timer_countdown = 4;       // 定义倒计时初始值为4秒
-    switch (e) {                          // 根据传入的事件类型进行不同处理
-    case ON_CHANGE_FIRST_SHOW:            // 当控件首次显示时触发的事件
-        timer_countdown = 4;              // 将倒计时重置为4秒
-        if (warning_timer) {              // 如果定时器已经存在
-            UI_ONTOUCH_DEBUG("WARNING_TIMER repeatedly add"); // 打印重复添加定时器的调试信息
-            break;                        // 跳出，避免重复添加定时器
-        }
-        if (__this->sys_menu_status == SYS_MENU_RESET && __this->reset_flag) {
-            break;                        // 如果系统菜单状态为重置并且重置标志存在，跳出
-        }
-        warning_timer = sys_timer_add(&timer_countdown, sys_warning_tick, 1000); // 添加一个定时器，每秒触发一次 sys_warning_tick 函数
-        if (!warning_timer) {             // 如果定时器添加失败
-            UI_ONTOUCH_DEBUG("WARNING_TIMER add failed\n"); // 打印定时器添加失败的调试信息
-        }
-        break;
-    case ON_CHANGE_RELEASE:               // 当控件释放时触发的事件
-        if (warning_timer) {              // 如果定时器存在
-            sys_timer_del(warning_timer); // 删除定时器
-            UI_ONTOUCH_DEBUG("WARNING_TIMER del\n"); // 打印定时器删除的调试信息
-            warning_timer = 0;            // 将定时器变量重置为0
-            btn_warning_show_f = 0;       // 重置警告显示标志
-        }
-        break;
-    default:
-        return false;                     // 如果事件类型不是期望的，返回 false
-    }
-    return false;                         // 默认返回 false
-}
-
-// 注册 UI 事件处理函数，绑定到 SYS_TXT_WARNING_BODY 控件
-REGISTER_UI_EVENT_HANDLER(SYS_TXT_WARNING_BODY)
-.onchange = sys_warning_onchange,
-};
+//static int sys_set4_ontouch(void *ctr, struct element_touch_event *e)
+//{
+//    // 输出调试信息，表示触摸事件的处理函数被调用
+//    UI_ONTOUCH_DEBUG("**sys set ontouch**");
+//    int sel_item; // 记录当前选中的项目
+//    struct ui_grid *grid = (struct ui_grid *)ctr; // 将传入的控件指针转换为 ui_grid 类型
+//
+//    switch (e->event) {
+//    case ELM_EVENT_TOUCH_MOVE:
+//        // 当触摸事件是“移动”时，输出调试信息并返回 true，表示事件已处理
+//        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
+//        return true; // 返回 true 表示事件已处理
+//        break;
+//    case ELM_EVENT_TOUCH_DOWN:
+//        // 当触摸事件是“按下”时，直接返回 false，不处理此事件
+//        return false;
+//        break;
+//    case ELM_EVENT_TOUCH_UP:
+//        // 当触摸事件是“抬起”时，输出调试信息并处理相应的逻辑
+//        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+//        sel_item = ui_grid_cur_item(grid); // 获取当前选中的项的索引
+//
+//        // 检查选中的项是否在有效范围内
+//        if (sel_item < 0 || sel_item > 3) {
+//            break; // 如果不在有效范围内，直接返回
+//        }
+//
+//        // 根据当前的系统菜单状态执行相应的操作
+//        switch (__this->sys_menu_status) {
+//        case SYS_MENU_LCDOFF:
+//            // 如果当前菜单状态是“LCD 关屏”
+//            if (__this->onkey_mod == 0) {
+//                // 如果 onkey_mod 为 0，表示没有特殊的选择模式
+//                if (sel_item == __this->lcd_protect) {
+//                    // 如果选择的项与当前设置项相同，直接返回
+//                    break;
+//                }
+//            }
+//            // 隐藏当前的 LCD 保护设置图标
+////            ui_hide(sel_pic4[__this->lcd_protect]);
+//            if (__this->onkey_mod == 1) {
+//                // 如果 onkey_mod 为 1，表示有特殊的选择模式
+//                // 取消高亮当前选择的项
+////                ui_no_highlight_element_by_id(sel_layout4[cur_sel_item]);
+//            }
+//            // 更新 LCD 保护设置
+//            menu_sys_lcd_pro_set(sel_item);
+//            if (__this->onkey_mod == 1) {
+//                // 如果 onkey_mod 为 1，设置新的高亮项
+////                ui_set_call(highlight_sel_item, sel_item);
+//            }
+//            // 显示新的 LCD 保护设置图标
+////            ui_show(sel_pic4[sel_item]);
+//            // 更新当前选择的项
+//            cur_sel_item = __this->lcd_protect;
+//            break;
+//        case SYS_MENU_AUTOOFF:
+//            // 如果当前菜单状态是“自动关屏”
+//            if (__this->onkey_mod == 0) {
+//                // 如果 onkey_mod 为 0，表示没有特殊的选择模式
+//                if (sel_item == __this->auto_off) {
+//                    // 如果选择的项与当前设置项相同，直接返回
+//                    break;
+//                }
+//            }
+//            // 隐藏当前的自动关屏设置图标
+////            ui_hide(sel_pic4[__this->auto_off]);
+//            if (__this->onkey_mod == 1) {
+//                // 如果 onkey_mod 为 1，表示有特殊的选择模式
+//                // 取消高亮当前选择的项
+////                ui_no_highlight_element_by_id(sel_layout4[cur_sel_item]);
+//            }
+//            // 更新自动关屏设置
+//            menu_sys_auto_off_set(sel_item);//////0
+//            if (__this->onkey_mod == 1) {
+//                // 如果 onkey_mod 为 1，设置新的高亮项
+////                ui_set_call(highlight_sel_item, sel_item);
+//            }
+//            // 显示新的自动关屏设置图标
+////            ui_show(sel_pic4[sel_item]);
+//            // 更新当前选择的项
+//            cur_sel_item = __this->auto_off;
+//            break;
+//        }
+//        break;
+//    }
+//    return true; // 返回 true 表示事件已处理
+//}
+//
+//// 注册触摸事件处理函数和其他相关事件处理函数
+//REGISTER_UI_EVENT_HANDLER(SYS_LIST_C4)
+//    .onchange = sys_set4_onchange,  // 注册 onchange 事件处理函数
+//    .ontouch = sys_set4_ontouch,    // 注册 ontouch 事件处理函数
+//};
 
 
-
-
-static int sys_warning_confirm_ontouch(void *ctr, struct element_touch_event *e)
-{
-    int err;
-    struct intent it;
-    UI_ONTOUCH_DEBUG("**sys warning confirm ontouch**");
-    switch (e->event) {
-    case ELM_EVENT_TOUCH_UP:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-
-        ui_set_call(set_format_reset_func, 0);
-        /* btn_warning_show_f = 0; */
-        /* switch (__this->sys_menu_status) { */
-        /* case SYS_MENU_FORMAT: */
-        /* if (dev_online(SDX_DEV)) { */
-        /* menu_sys_format_set(1); */
-        /* ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 3); */
-        /* } */
-        /* break; */
-        /* case SYS_MENU_RESET: */
-        /* menu_sys_default_set(1); */
-        /* sys_fun_restore(); */
-        /* __this->reset_flag = 1; */
-        /* ui_hide(SYS_LAY); */
-        /* ui_show(SYS_LAY); */
-        /* __this->lcd_protect = index_of_table16(db_select("pro"), TABLE(table_system_lcd_protect)); */
-        /* __this->auto_off    = index_of_table8(db_select("aff"), TABLE(table_system_auto_close)); */
-        /* __this->led_fre_hz  = index_of_table8(db_select("fre"), TABLE(table_system_led_fre)); */
-        /* __this->key_voice   = db_select("kvo"); */
-        /* __this->language    = index_of_table8(db_select("lag"), TABLE(table_system_language)); */
-        /* __this->tv_mod      = index_of_table8(db_select("tvm"), TABLE(table_system_tv_mod)); */
-        /* __this->vanish_line    = ((db_select("lan") >> 16) & 0x0000ffff) * LCD_DEV_HIGHT / 352; */
-        /* __this->car_head_line = (db_select("lan") & 0x0000ffff) * LCD_DEV_HIGHT / 352; */
-        /* __this->lane_det    = !!db_select("lan"); */
-        /* __this->hl_warnning = db_select("hlw"); */
-        /* ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 7); */
-
-        /* break; */
-        /* } */
-        /* if (__this->onkey_mod == 1) { */
-        /* ui_no_highlight_element_by_id(SYS_BTN_WARNING_CONFIRM); */
-        /* } */
-        break;
-    }
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(SYS_BTN_WARNING_CONFIRM)
-.ontouch = sys_warning_confirm_ontouch,
-};
+///***************************** 格式化、默认设置菜单 ************************************/
+//static int sys_warning_onchange(void *ctr, enum element_change_event e, void *arg)
+//{
+//    static int warning_timer = 0;         // 定义一个静态变量用于存储警告定时器
+//    static int timer_countdown = 4;       // 定义倒计时初始值为4秒
+//    switch (e) {                          // 根据传入的事件类型进行不同处理
+//    case ON_CHANGE_FIRST_SHOW:            // 当控件首次显示时触发的事件
+//        timer_countdown = 4;              // 将倒计时重置为4秒
+//        if (warning_timer) {              // 如果定时器已经存在
+//            UI_ONTOUCH_DEBUG("WARNING_TIMER repeatedly add"); // 打印重复添加定时器的调试信息
+//            break;                        // 跳出，避免重复添加定时器
+//        }
+//        if (__this->sys_menu_status == SYS_MENU_RESET && __this->reset_flag) {
+//            break;                        // 如果系统菜单状态为重置并且重置标志存在，跳出
+//        }
+//        warning_timer = sys_timer_add(&timer_countdown, sys_warning_tick, 1000); // 添加一个定时器，每秒触发一次 sys_warning_tick 函数
+//        if (!warning_timer) {             // 如果定时器添加失败
+//            UI_ONTOUCH_DEBUG("WARNING_TIMER add failed\n"); // 打印定时器添加失败的调试信息
+//        }
+//        break;
+//    case ON_CHANGE_RELEASE:               // 当控件释放时触发的事件
+//        if (warning_timer) {              // 如果定时器存在
+//            sys_timer_del(warning_timer); // 删除定时器
+//            UI_ONTOUCH_DEBUG("WARNING_TIMER del\n"); // 打印定时器删除的调试信息
+//            warning_timer = 0;            // 将定时器变量重置为0
+//            btn_warning_show_f = 0;       // 重置警告显示标志
+//        }
+//        break;
+//    default:
+//        return false;                     // 如果事件类型不是期望的，返回 false
+//    }
+//    return false;                         // 默认返回 false
+//}
+//
+//// 注册 UI 事件处理函数，绑定到 SYS_TXT_WARNING_BODY 控件
+//REGISTER_UI_EVENT_HANDLER(SYS_TXT_WARNING_BODY)
+//.onchange = sys_warning_onchange,
+//};
 
 
 
-static int sys_onkey(void *ctr, struct element_key_event *e)
-{
-    struct intent it;
-    static u8 child_item_sel = 0;
-    static u8 child_item_num = 0;
-    if (e->event == KEY_EVENT_LONG && e->value == KEY_POWER) {
-        ui_hide(ui_get_current_window_id());
-        sys_key_event_takeover(false, true);
-        return true;
-    }
 
-    if (e->event != KEY_EVENT_CLICK) {
-        return false;
-    }
-    if (__this->onkey_mod == 0) {
-        switch (e->value) {
-        case KEY_DOWN:
-            __this->onkey_sel++;
-            if (__this->onkey_sel > SYS_SETTING_ITEM - 1) {
-                __this->onkey_sel = 0;
-            }
-            ui_set_call(sys_menu, __this->onkey_sel);
-            break;
-        case KEY_UP:
-            if (__this->onkey_sel == 0) {
-                __this->onkey_sel = SYS_SETTING_ITEM;
-            }
-            __this->onkey_sel--;
-            ui_set_call(sys_menu, __this->onkey_sel);
-            break;
-        case KEY_OK:
-//             if (__this->sys_menu_status == SYS_MENU_VERSION) {
-//                 break;
-// #ifdef CONFIG_VIDEO4_ENABLE
-//             } else if (__this->sys_menu_status == SYS_MENU_HL_WARNNING ||
-//                        __this->sys_menu_status == SYS_MENU_LANEDET ||
-//                        __this->sys_menu_status == SYS_MENU_CARNUM) {
-//                 break;
-// #endif
-//             } else if (__this->sys_menu_status == SYS_MENU_FORMAT || __this->sys_menu_status == SYS_MENU_RESET) {
-//                 if (btn_warning_show_f == 0) {
-//                     break;
-//                 }
-//                 ui_highlight_element_by_id(SYS_BTN_WARNING_CONFIRM);
-//             } else if (__this->sys_menu_status == SYS_MENU_CARNUM) {
-//                 ui_set_call(highlight_no_cid_item, 0);
+// static int sys_warning_confirm_ontouch(void *ctr, struct element_touch_event *e)
+// {
+//     int err;
+//     struct intent it;
+//     UI_ONTOUCH_DEBUG("**sys warning confirm ontouch**");
+//     switch (e->event) {
+//     case ELM_EVENT_TOUCH_UP:
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+
+//         ui_set_call(set_format_reset_func, 0);
+//         /* btn_warning_show_f = 0; */
+//         /* switch (__this->sys_menu_status) { */
+//         /* case SYS_MENU_FORMAT: */
+//         /* if (dev_online(SDX_DEV)) { */
+//         /* menu_sys_format_set(1); */
+//         /* ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 3); */
+//         /* } */
+//         /* break; */
+//         /* case SYS_MENU_RESET: */
+//         /* menu_sys_default_set(1); */
+//         /* sys_fun_restore(); */
+//         /* __this->reset_flag = 1; */
+//         /* ui_hide(SYS_LAY); */
+//         /* ui_show(SYS_LAY); */
+//         /* __this->lcd_protect = index_of_table16(db_select("pro"), TABLE(table_system_lcd_protect)); */
+//         /* __this->auto_off    = index_of_table8(db_select("aff"), TABLE(table_system_auto_close)); */
+//         /* __this->led_fre_hz  = index_of_table8(db_select("fre"), TABLE(table_system_led_fre)); */
+//         /* __this->key_voice   = db_select("kvo"); */
+//         /* __this->language    = index_of_table8(db_select("lag"), TABLE(table_system_language)); */
+//         /* __this->tv_mod      = index_of_table8(db_select("tvm"), TABLE(table_system_tv_mod)); */
+//         /* __this->vanish_line    = ((db_select("lan") >> 16) & 0x0000ffff) * LCD_DEV_HIGHT / 352; */
+//         /* __this->car_head_line = (db_select("lan") & 0x0000ffff) * LCD_DEV_HIGHT / 352; */
+//         /* __this->lane_det    = !!db_select("lan"); */
+//         /* __this->hl_warnning = db_select("hlw"); */
+//         /* ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 7); */
+
+//         /* break; */
+//         /* } */
+//         /* if (__this->onkey_mod == 1) { */
+//         /* ui_no_highlight_element_by_id(SYS_BTN_WARNING_CONFIRM); */
+//         /* } */
+//         break;
+//     }
+//     return false;
+// }
+// REGISTER_UI_EVENT_HANDLER(SYS_BTN_WARNING_CONFIRM)
+// .ontouch = sys_warning_confirm_ontouch,
+// };
+
+
+
+// static int sys_onkey(void *ctr, struct element_key_event *e)
+// {
+//     struct intent it;
+//     static u8 child_item_sel = 0;
+//     static u8 child_item_num = 0;
+//     if (e->event == KEY_EVENT_LONG && e->value == KEY_POWER) {
+//         ui_hide(ui_get_current_window_id());
+//         sys_key_event_takeover(false, true);
+//         return true;
+//     }
+
+//     if (e->event != KEY_EVENT_CLICK) {
+//         return false;
+//     }
+//     if (__this->onkey_mod == 0) {
+//         switch (e->value) {
+//         case KEY_DOWN:
+//             __this->onkey_sel++;
+//             if (__this->onkey_sel > SYS_SETTING_ITEM - 1) {
+//                 __this->onkey_sel = 0;
 //             }
-//             __this->onkey_mod = 1;
-//             child_item_sel = 0;
-//             __this->time_set_pos = SYS_MENU_TIME_YEAR;
-//             child_item_num = get_child_item_num(__this->sys_menu_status);
+//             ui_set_call(sys_menu, __this->onkey_sel);
+//             break;
+//         case KEY_UP:
+//             if (__this->onkey_sel == 0) {
+//                 __this->onkey_sel = SYS_SETTING_ITEM;
+//             }
+//             __this->onkey_sel--;
+//             ui_set_call(sys_menu, __this->onkey_sel);
+//             break;
+//         case KEY_OK:
+// //             if (__this->sys_menu_status == SYS_MENU_VERSION) {
+// //                 break;
+// // #ifdef CONFIG_VIDEO4_ENABLE
+// //             } else if (__this->sys_menu_status == SYS_MENU_HL_WARNNING ||
+// //                        __this->sys_menu_status == SYS_MENU_LANEDET ||
+// //                        __this->sys_menu_status == SYS_MENU_CARNUM) {
+// //                 break;
+// // #endif
+// //             } else if (__this->sys_menu_status == SYS_MENU_FORMAT || __this->sys_menu_status == SYS_MENU_RESET) {
+// //                 if (btn_warning_show_f == 0) {
+// //                     break;
+// //                 }
+// //                 ui_highlight_element_by_id(SYS_BTN_WARNING_CONFIRM);
+// //             } else if (__this->sys_menu_status == SYS_MENU_CARNUM) {
+// //                 ui_set_call(highlight_no_cid_item, 0);
+// //             }
+// //             __this->onkey_mod = 1;
+// //             child_item_sel = 0;
+// //             __this->time_set_pos = SYS_MENU_TIME_YEAR;
+// //             child_item_num = get_child_item_num(__this->sys_menu_status);
+// //             switch (__this->sys_menu_status) {
+// //             case SYS_MENU_LCDOFF:
+// //                 ui_highlight_element_by_id(sel_layout4[__this->lcd_protect]);
+// //                 cur_sel_item = __this->lcd_protect;
+// //                 break;
+// //             case SYS_MENU_AUTOOFF:
+// //                 ui_highlight_element_by_id(sel_layout4[__this->auto_off]);
+// //                 cur_sel_item = __this->auto_off;
+// //                 break;
+// //             case SYS_MENU_FREQUENCY:
+// //                 ui_highlight_element_by_id(sel_layout2[__this->led_fre_hz]);
+// //                 cur_sel_item = __this->led_fre_hz;
+// //                 break;
+// //             case SYS_MENU_KEYVOICE:
+// //                 ui_highlight_element_by_id(sel_layout2[__this->key_voice]);
+// //                 cur_sel_item = __this->key_voice;
+// //                 break;
+// //             case SYS_MENU_HL_WARNNING:
+// //                 ui_highlight_element_by_id(sel_layout2[__this->hl_warnning]);
+// //                 cur_sel_item = __this->hl_warnning;
+// //                 break;
+// //             case SYS_MENU_LANEDET:
+// //                 ui_highlight_element_by_id(sel_layout2[__this->lane_det]);
+// //                 cur_sel_item = __this->lane_det;
+// //                 break;
+// //             case SYS_MENU_LANGUAGE:
+// //                 ui_highlight_element_by_id(sel_layout3[__this->language]);
+// //                 cur_sel_item = __this->language;
+// //                 break;
+// //             case SYS_MENU_TVMODE:
+// //                 ui_highlight_element_by_id(sel_layout2[__this->tv_mod]);
+// //                 cur_sel_item = __this->tv_mod;
+// //                 break;
+// //             }
+// //             break;
+//         case KEY_MODE:
+//             __this->onkey_mod = 2;
+//             mode_sel = 0;
+//             ui_highlight_element_by_id(SYS_BTN_REC);
+//             break;
+//         default:
+//             break;
+//         }
+//     } else if (__this->onkey_mod == 1) {
+//         switch (e->value) {
+//         case KEY_DOWN:
 //             switch (__this->sys_menu_status) {
 //             case SYS_MENU_LCDOFF:
-//                 ui_highlight_element_by_id(sel_layout4[__this->lcd_protect]);
-//                 cur_sel_item = __this->lcd_protect;
-//                 break;
 //             case SYS_MENU_AUTOOFF:
-//                 ui_highlight_element_by_id(sel_layout4[__this->auto_off]);
-//                 cur_sel_item = __this->auto_off;
+//                 child_item_sel = cur_sel_item;
+//                 ui_no_highlight_element_by_id(sel_layout4[child_item_sel]);
+//                 child_item_sel++;
+//                 if (child_item_sel >= child_item_num) {
+//                     child_item_sel = 0;
+//                 }
+//                 ui_highlight_element_by_id(sel_layout4[child_item_sel]);
+//                 cur_sel_item = child_item_sel;
 //                 break;
 //             case SYS_MENU_FREQUENCY:
-//                 ui_highlight_element_by_id(sel_layout2[__this->led_fre_hz]);
-//                 cur_sel_item = __this->led_fre_hz;
-//                 break;
 //             case SYS_MENU_KEYVOICE:
-//                 ui_highlight_element_by_id(sel_layout2[__this->key_voice]);
-//                 cur_sel_item = __this->key_voice;
-//                 break;
+//             case SYS_MENU_TVMODE:
+// #ifndef CONFIG_VIDEO4_ENABLE
 //             case SYS_MENU_HL_WARNNING:
-//                 ui_highlight_element_by_id(sel_layout2[__this->hl_warnning]);
-//                 cur_sel_item = __this->hl_warnning;
-//                 break;
 //             case SYS_MENU_LANEDET:
-//                 ui_highlight_element_by_id(sel_layout2[__this->lane_det]);
-//                 cur_sel_item = __this->lane_det;
+// #endif
+//                 child_item_sel = cur_sel_item;
+//                 ui_no_highlight_element_by_id(sel_layout2[child_item_sel]);
+//                 child_item_sel++;
+//                 if (child_item_sel >= child_item_num) {
+//                     child_item_sel = 0;
+//                 }
+//                 ui_highlight_element_by_id(sel_layout2[child_item_sel]);
+//                 cur_sel_item = child_item_sel;
 //                 break;
 //             case SYS_MENU_LANGUAGE:
-//                 ui_highlight_element_by_id(sel_layout3[__this->language]);
-//                 cur_sel_item = __this->language;
+//                 child_item_sel = cur_sel_item;
+//                 ui_no_highlight_element_by_id(sel_layout3[child_item_sel]);
+//                 child_item_sel++;
+//                 if (child_item_sel >= child_item_num) {
+//                     child_item_sel = 0;
+//                 }
+//                 ui_highlight_element_by_id(sel_layout3[child_item_sel]);
+//                 cur_sel_item = child_item_sel;
 //                 break;
-//             case SYS_MENU_TVMODE:
-//                 ui_highlight_element_by_id(sel_layout2[__this->tv_mod]);
-//                 cur_sel_item = __this->tv_mod;
+//             case SYS_MENU_DATETIME:
+// //                sys_menu_tim_change(__this->time_set_pos, 1);
+// //                sys_menu_tim_change(SYS_MENU_TIME_SET, 0);
 //                 break;
+// #ifndef CONFIG_VIDEO4_ENABLE
+//             case SYS_MENU_CARNUM:
+//                 set_cid_onkey(KEY_DOWN);
+//                 break;
+// #endif
 //             }
 //             break;
-        case KEY_MODE:
-            __this->onkey_mod = 2;
-            mode_sel = 0;
-            ui_highlight_element_by_id(SYS_BTN_REC);
-            break;
-        default:
-            break;
-        }
-    } else if (__this->onkey_mod == 1) {
-        switch (e->value) {
-        case KEY_DOWN:
-            switch (__this->sys_menu_status) {
-            case SYS_MENU_LCDOFF:
-            case SYS_MENU_AUTOOFF:
-                child_item_sel = cur_sel_item;
-                ui_no_highlight_element_by_id(sel_layout4[child_item_sel]);
-                child_item_sel++;
-                if (child_item_sel >= child_item_num) {
-                    child_item_sel = 0;
-                }
-                ui_highlight_element_by_id(sel_layout4[child_item_sel]);
-                cur_sel_item = child_item_sel;
-                break;
-            case SYS_MENU_FREQUENCY:
-            case SYS_MENU_KEYVOICE:
-            case SYS_MENU_TVMODE:
-#ifndef CONFIG_VIDEO4_ENABLE
-            case SYS_MENU_HL_WARNNING:
-            case SYS_MENU_LANEDET:
-#endif
-                child_item_sel = cur_sel_item;
-                ui_no_highlight_element_by_id(sel_layout2[child_item_sel]);
-                child_item_sel++;
-                if (child_item_sel >= child_item_num) {
-                    child_item_sel = 0;
-                }
-                ui_highlight_element_by_id(sel_layout2[child_item_sel]);
-                cur_sel_item = child_item_sel;
-                break;
-            case SYS_MENU_LANGUAGE:
-                child_item_sel = cur_sel_item;
-                ui_no_highlight_element_by_id(sel_layout3[child_item_sel]);
-                child_item_sel++;
-                if (child_item_sel >= child_item_num) {
-                    child_item_sel = 0;
-                }
-                ui_highlight_element_by_id(sel_layout3[child_item_sel]);
-                cur_sel_item = child_item_sel;
-                break;
-            case SYS_MENU_DATETIME:
-//                sys_menu_tim_change(__this->time_set_pos, 1);
-//                sys_menu_tim_change(SYS_MENU_TIME_SET, 0);
-                break;
-#ifndef CONFIG_VIDEO4_ENABLE
-            case SYS_MENU_CARNUM:
-                set_cid_onkey(KEY_DOWN);
-                break;
-#endif
-            }
-            break;
-        case KEY_UP:
-            switch (__this->sys_menu_status) {
-            case SYS_MENU_LCDOFF:
-            case SYS_MENU_AUTOOFF:
-                child_item_sel = cur_sel_item;
-                ui_no_highlight_element_by_id(sel_layout4[child_item_sel]);
-                if (child_item_sel == 0) {
-                    child_item_sel = child_item_num;
-                }
-                child_item_sel--;
-                ui_highlight_element_by_id(sel_layout4[child_item_sel]);
-                cur_sel_item = child_item_sel;
-                break;
-            case SYS_MENU_FREQUENCY:
-            case SYS_MENU_KEYVOICE:
-            case SYS_MENU_TVMODE:
-#ifndef CONFIG_VIDEO4_ENABLE
-            case SYS_MENU_HL_WARNNING:
-            case SYS_MENU_LANEDET:
-#endif
-                child_item_sel = cur_sel_item;
-                ui_no_highlight_element_by_id(sel_layout2[child_item_sel]);
-                if (child_item_sel == 0) {
-                    child_item_sel = child_item_num;
-                }
-                child_item_sel--;
-                ui_highlight_element_by_id(sel_layout2[child_item_sel]);
-                cur_sel_item = child_item_sel;
-                break;
-            case SYS_MENU_LANGUAGE:
-                child_item_sel = cur_sel_item;
-                ui_no_highlight_element_by_id(sel_layout3[child_item_sel]);
-                if (child_item_sel == 0) {
-                    child_item_sel = child_item_num;
-                }
-                child_item_sel--;
-                ui_highlight_element_by_id(sel_layout3[child_item_sel]);
-                cur_sel_item = child_item_sel;
-                break;
-            case SYS_MENU_DATETIME:
-//                sys_menu_tim_change(__this->time_set_pos, -1);
-//                sys_menu_tim_change(SYS_MENU_TIME_SET, 0);
-                break;
-#ifndef CONFIG_VIDEO4_ENABLE
-            case SYS_MENU_CARNUM:
-                set_cid_onkey(KEY_UP);
-                break;
-#endif
-            }
-            break;
-        case KEY_OK:
+//         case KEY_UP:
+//             switch (__this->sys_menu_status) {
+//             case SYS_MENU_LCDOFF:
+//             case SYS_MENU_AUTOOFF:
+//                 child_item_sel = cur_sel_item;
+//                 ui_no_highlight_element_by_id(sel_layout4[child_item_sel]);
+//                 if (child_item_sel == 0) {
+//                     child_item_sel = child_item_num;
+//                 }
+//                 child_item_sel--;
+//                 ui_highlight_element_by_id(sel_layout4[child_item_sel]);
+//                 cur_sel_item = child_item_sel;
+//                 break;
+//             case SYS_MENU_FREQUENCY:
+//             case SYS_MENU_KEYVOICE:
+//             case SYS_MENU_TVMODE:
+// #ifndef CONFIG_VIDEO4_ENABLE
+//             case SYS_MENU_HL_WARNNING:
+//             case SYS_MENU_LANEDET:
+// #endif
+//                 child_item_sel = cur_sel_item;
+//                 ui_no_highlight_element_by_id(sel_layout2[child_item_sel]);
+//                 if (child_item_sel == 0) {
+//                     child_item_sel = child_item_num;
+//                 }
+//                 child_item_sel--;
+//                 ui_highlight_element_by_id(sel_layout2[child_item_sel]);
+//                 cur_sel_item = child_item_sel;
+//                 break;
+//             case SYS_MENU_LANGUAGE:
+//                 child_item_sel = cur_sel_item;
+//                 ui_no_highlight_element_by_id(sel_layout3[child_item_sel]);
+//                 if (child_item_sel == 0) {
+//                     child_item_sel = child_item_num;
+//                 }
+//                 child_item_sel--;
+//                 ui_highlight_element_by_id(sel_layout3[child_item_sel]);
+//                 cur_sel_item = child_item_sel;
+//                 break;
+//             case SYS_MENU_DATETIME:
+// //                sys_menu_tim_change(__this->time_set_pos, -1);
+// //                sys_menu_tim_change(SYS_MENU_TIME_SET, 0);
+//                 break;
+// #ifndef CONFIG_VIDEO4_ENABLE
+//             case SYS_MENU_CARNUM:
+//                 set_cid_onkey(KEY_UP);
+//                 break;
+// #endif
+//             }
+//             break;
+//         case KEY_OK:
+// //             if (__this->sys_menu_status == SYS_MENU_FORMAT || __this->sys_menu_status == SYS_MENU_RESET) {
+// //                 ui_no_highlight_element_by_id(SYS_BTN_WARNING_CONFIRM);
+// //                 if (child_item_sel == 0) {
+// //                     ui_set_call(set_format_reset_func, 0);
+// //                 }
+// //                 __this->onkey_mod = 0;
+// // #ifndef CONFIG_VIDEO4_ENABLE
+// //             } else if (__this->sys_menu_status == SYS_MENU_CARNUM) {
+// //                 set_cid_onkey(KEY_OK);
+// //                 break;
+// // #endif
+// //             } else {
+// //                 switch (__this->sys_menu_status) {
+// //                 case SYS_MENU_LCDOFF:
+// //                     if (__this->lcd_protect != cur_sel_item) {
+// //                         ui_hide(sel_pic4[__this->lcd_protect]);
+// //                         menu_sys_lcd_pro_set(cur_sel_item);
+// //                         ui_show(sel_pic4[cur_sel_item]);
+// //                     }
+// //                     break;
+// //                 case SYS_MENU_AUTOOFF:
+// //                     if (__this->auto_off != cur_sel_item) {
+// //                         ui_hide(sel_pic4[__this->auto_off]);
+// //                         menu_sys_auto_off_set(cur_sel_item);
+// //                         ui_show(sel_pic4[cur_sel_item]);
+// //                     }
+// //                     break;
+// //                 case SYS_MENU_FREQUENCY:
+// //                     if (__this->led_fre_hz != cur_sel_item) {
+// //                         ui_hide(sel_pic2[__this->led_fre_hz]);
+// //                         menu_sys_led_fre_set(cur_sel_item);
+// //                         ui_show(sel_pic2[cur_sel_item]);
+// //                     }
+// //                     break;
+// //                 case SYS_MENU_KEYVOICE:
+// //                     if (__this->key_voice != cur_sel_item) {
+// //                         ui_hide(sel_pic2[__this->key_voice]);
+// //                         menu_sys_key_voice_set(cur_sel_item);
+// //                         ui_show(sel_pic2[cur_sel_item]);
+// //                     }
+// //                     break;
+// //                 case SYS_MENU_HL_WARNNING:
+// // #ifndef CONFIG_VIDEO4_ENABLE
+// //                     if (__this->hl_warnning != cur_sel_item) {
+// //                         ui_hide(sel_pic2[__this->hl_warnning]);
+// //                         menu_sys_hlight_warning_set(cur_sel_item);
+// //                         ui_show(sel_pic2[cur_sel_item]);
+// //                     }
+// // #endif
+// //                     break;
+// //                 case SYS_MENU_LANEDET:
+// // #ifndef CONFIG_VIDEO4_ENABLE
+// //                     if (cur_sel_item == 0 && __this->lane_det != cur_sel_item) {
+// //                         ui_hide(sel_pic2[__this->lane_det]);
+// //                         menu_lane_det_set(0);
+// //                         ui_show(sel_pic2[cur_sel_item]);
+// //                     } else if (cur_sel_item == 1) {
+// //                         //打开车道设置界面
+// //                         __this->lane_det = 1;
+// //                         ui_hide(ui_get_current_window_id());
+// //                         init_intent(&it);
+// //                         it.name = "video_system";
+// //                         it.action = ACTION_BACK;
+// //                         start_app_async(&it, open_set_lane_page, NULL);
+// //                     }
+// // #endif
+// //                     break;
+// //                 case SYS_MENU_TVMODE:
+// //                     if (__this->tv_mod != cur_sel_item) {
+// //                         ui_hide(sel_pic2[__this->tv_mod]);
+// //                         menu_sys_tv_mod_set(cur_sel_item);
+// //                         ui_show(sel_pic2[cur_sel_item]);
+// //                     }
+// //                     break;
+// //                 case SYS_MENU_LANGUAGE:
+// //                     if (__this->language != cur_sel_item) {
+// //                         menu_sys_language_set(cur_sel_item);
+// //                         ui_hide(SYS_LAY);
+// //                         ui_show(SYS_LAY);
+// //                     }
+// //                     break;
+// //                 }
+// //             }
+// //             break;
+//         case KEY_MODE:
 //             if (__this->sys_menu_status == SYS_MENU_FORMAT || __this->sys_menu_status == SYS_MENU_RESET) {
 //                 ui_no_highlight_element_by_id(SYS_BTN_WARNING_CONFIRM);
-//                 if (child_item_sel == 0) {
-//                     ui_set_call(set_format_reset_func, 0);
-//                 }
-//                 __this->onkey_mod = 0;
-// #ifndef CONFIG_VIDEO4_ENABLE
-//             } else if (__this->sys_menu_status == SYS_MENU_CARNUM) {
-//                 set_cid_onkey(KEY_OK);
+//             }
+
+//             if (__this->sys_menu_status == SYS_MENU_CARNUM) {
+//                 set_cid_onkey(KEY_MODE);
 //                 break;
-// #endif
-//             } else {
-//                 switch (__this->sys_menu_status) {
-//                 case SYS_MENU_LCDOFF:
-//                     if (__this->lcd_protect != cur_sel_item) {
-//                         ui_hide(sel_pic4[__this->lcd_protect]);
-//                         menu_sys_lcd_pro_set(cur_sel_item);
-//                         ui_show(sel_pic4[cur_sel_item]);
-//                     }
-//                     break;
-//                 case SYS_MENU_AUTOOFF:
-//                     if (__this->auto_off != cur_sel_item) {
-//                         ui_hide(sel_pic4[__this->auto_off]);
-//                         menu_sys_auto_off_set(cur_sel_item);
-//                         ui_show(sel_pic4[cur_sel_item]);
-//                     }
-//                     break;
-//                 case SYS_MENU_FREQUENCY:
-//                     if (__this->led_fre_hz != cur_sel_item) {
-//                         ui_hide(sel_pic2[__this->led_fre_hz]);
-//                         menu_sys_led_fre_set(cur_sel_item);
-//                         ui_show(sel_pic2[cur_sel_item]);
-//                     }
-//                     break;
-//                 case SYS_MENU_KEYVOICE:
-//                     if (__this->key_voice != cur_sel_item) {
-//                         ui_hide(sel_pic2[__this->key_voice]);
-//                         menu_sys_key_voice_set(cur_sel_item);
-//                         ui_show(sel_pic2[cur_sel_item]);
-//                     }
-//                     break;
-//                 case SYS_MENU_HL_WARNNING:
-// #ifndef CONFIG_VIDEO4_ENABLE
-//                     if (__this->hl_warnning != cur_sel_item) {
-//                         ui_hide(sel_pic2[__this->hl_warnning]);
-//                         menu_sys_hlight_warning_set(cur_sel_item);
-//                         ui_show(sel_pic2[cur_sel_item]);
-//                     }
-// #endif
-//                     break;
-//                 case SYS_MENU_LANEDET:
-// #ifndef CONFIG_VIDEO4_ENABLE
-//                     if (cur_sel_item == 0 && __this->lane_det != cur_sel_item) {
-//                         ui_hide(sel_pic2[__this->lane_det]);
-//                         menu_lane_det_set(0);
-//                         ui_show(sel_pic2[cur_sel_item]);
-//                     } else if (cur_sel_item == 1) {
-//                         //打开车道设置界面
-//                         __this->lane_det = 1;
-//                         ui_hide(ui_get_current_window_id());
-//                         init_intent(&it);
-//                         it.name = "video_system";
-//                         it.action = ACTION_BACK;
-//                         start_app_async(&it, open_set_lane_page, NULL);
-//                     }
-// #endif
-//                     break;
-//                 case SYS_MENU_TVMODE:
-//                     if (__this->tv_mod != cur_sel_item) {
-//                         ui_hide(sel_pic2[__this->tv_mod]);
-//                         menu_sys_tv_mod_set(cur_sel_item);
-//                         ui_show(sel_pic2[cur_sel_item]);
-//                     }
-//                     break;
-//                 case SYS_MENU_LANGUAGE:
-//                     if (__this->language != cur_sel_item) {
-//                         menu_sys_language_set(cur_sel_item);
-//                         ui_hide(SYS_LAY);
-//                         ui_show(SYS_LAY);
-//                     }
-//                     break;
-//                 }
+//             }
+//             __this->onkey_mod = 0;
+//             switch (__this->sys_menu_status) {
+//             case SYS_MENU_LCDOFF:
+//             case SYS_MENU_AUTOOFF:
+//                 ui_no_highlight_element_by_id(sel_layout4[cur_sel_item]);
+//                 break;
+//             case SYS_MENU_FREQUENCY:
+//             case SYS_MENU_KEYVOICE:
+//             case SYS_MENU_TVMODE:
+//             case SYS_MENU_LANEDET:
+//             case SYS_MENU_HL_WARNNING:
+//                 ui_no_highlight_element_by_id(sel_layout2[cur_sel_item]);
+//                 break;
+//             case SYS_MENU_LANGUAGE:
+//                 ui_no_highlight_element_by_id(sel_layout3[cur_sel_item]);
+//                 break;
 //             }
 //             break;
-        case KEY_MODE:
-            if (__this->sys_menu_status == SYS_MENU_FORMAT || __this->sys_menu_status == SYS_MENU_RESET) {
-                ui_no_highlight_element_by_id(SYS_BTN_WARNING_CONFIRM);
-            }
+//         }
 
-            if (__this->sys_menu_status == SYS_MENU_CARNUM) {
-                set_cid_onkey(KEY_MODE);
-                break;
-            }
-            __this->onkey_mod = 0;
-            switch (__this->sys_menu_status) {
-            case SYS_MENU_LCDOFF:
-            case SYS_MENU_AUTOOFF:
-                ui_no_highlight_element_by_id(sel_layout4[cur_sel_item]);
-                break;
-            case SYS_MENU_FREQUENCY:
-            case SYS_MENU_KEYVOICE:
-            case SYS_MENU_TVMODE:
-            case SYS_MENU_LANEDET:
-            case SYS_MENU_HL_WARNNING:
-                ui_no_highlight_element_by_id(sel_layout2[cur_sel_item]);
-                break;
-            case SYS_MENU_LANGUAGE:
-                ui_no_highlight_element_by_id(sel_layout3[cur_sel_item]);
-                break;
-            }
-            break;
-        }
+//     } else if (__this->onkey_mod == 2) {
+//         switch (e->value) {
+//         case KEY_OK:
+//             // init_intent(&it);
+//             // if (mode_sel == ARRAY_SIZE(onkey_sel_item) - 1) {
+//             //     __this->page_exit = HOME_SW_EXIT;
+//             // } else {
+//             //     __this->page_exit = MODE_SW_EXIT;
+//             // }
+//             // it.name = "video_system";
+//             // it.action = ACTION_BACK;
+//             // start_app_async(&it, NULL, NULL); //不等待直接启动app
+//             // if (mode_sel == 0) {
+//             //     it.name = "video_rec";
+//             //     it.action = ACTION_VIDEO_REC_MAIN;
+//             //     start_app_async(&it, NULL, NULL); //不等待直接启动app
+//             // } else if (mode_sel == 1) {
+//             //     it.name = "video_dec";
+//             //     it.action = ACTION_VIDEO_DEC_MAIN;
+//             //     start_app_async(&it, NULL, NULL); //不等待直接启动app
+//             // }
+//             // break;
+//         case KEY_DOWN:
+//             ui_no_highlight_element_by_id(onkey_sel_item[mode_sel]);
+//             mode_sel++;
+//             if (mode_sel > ARRAY_SIZE(onkey_sel_item) - 1) {
+//                 mode_sel = 0;
+//             }
+//             ui_highlight_element_by_id(onkey_sel_item[mode_sel]);
+//             break;
+//         case KEY_UP:
+//             ui_no_highlight_element_by_id(onkey_sel_item[mode_sel]);
+//             if (mode_sel == 0) {
+//                 mode_sel = ARRAY_SIZE(onkey_sel_item);
+//             }
+//             mode_sel--;
+//             ui_highlight_element_by_id(onkey_sel_item[mode_sel]);
+//             break;
+//         case KEY_MODE:
+//             ui_no_highlight_element_by_id(onkey_sel_item[mode_sel]);
+//             __this->onkey_mod = 0;
+//             break;
 
-    } else if (__this->onkey_mod == 2) {
-        switch (e->value) {
-        case KEY_OK:
-            // init_intent(&it);
-            // if (mode_sel == ARRAY_SIZE(onkey_sel_item) - 1) {
-            //     __this->page_exit = HOME_SW_EXIT;
-            // } else {
-            //     __this->page_exit = MODE_SW_EXIT;
-            // }
-            // it.name = "video_system";
-            // it.action = ACTION_BACK;
-            // start_app_async(&it, NULL, NULL); //不等待直接启动app
-            // if (mode_sel == 0) {
-            //     it.name = "video_rec";
-            //     it.action = ACTION_VIDEO_REC_MAIN;
-            //     start_app_async(&it, NULL, NULL); //不等待直接启动app
-            // } else if (mode_sel == 1) {
-            //     it.name = "video_dec";
-            //     it.action = ACTION_VIDEO_DEC_MAIN;
-            //     start_app_async(&it, NULL, NULL); //不等待直接启动app
-            // }
-            // break;
-        case KEY_DOWN:
-            ui_no_highlight_element_by_id(onkey_sel_item[mode_sel]);
-            mode_sel++;
-            if (mode_sel > ARRAY_SIZE(onkey_sel_item) - 1) {
-                mode_sel = 0;
-            }
-            ui_highlight_element_by_id(onkey_sel_item[mode_sel]);
-            break;
-        case KEY_UP:
-            ui_no_highlight_element_by_id(onkey_sel_item[mode_sel]);
-            if (mode_sel == 0) {
-                mode_sel = ARRAY_SIZE(onkey_sel_item);
-            }
-            mode_sel--;
-            ui_highlight_element_by_id(onkey_sel_item[mode_sel]);
-            break;
-        case KEY_MODE:
-            ui_no_highlight_element_by_id(onkey_sel_item[mode_sel]);
-            __this->onkey_mod = 0;
-            break;
-
-        }
-    }
-    return true;
-}
-REGISTER_UI_EVENT_HANDLER(SYS_WIN)
-.onkey = sys_onkey,
-};
+//         }
+//     }
+//     return true;
+// }
+// REGISTER_UI_EVENT_HANDLER(SYS_WIN)
+// .onkey = sys_onkey,
+// };
 
 
 
-static int lane_set_txt_top_onchange(void *ctr, enum element_change_event e, void *arg)
-{
-    struct draw_context *dc = (struct draw_context *)arg;
-
-    switch (e) {
-    case ON_CHANGE_INIT:
-        __this->vanish_line = ((db_select("lan") >> 16) & 0x0000ffff) * LCD_DEV_HIGHT / 352;
-        __this->car_head_line = (db_select("lan") & 0x0000ffff) * LCD_DEV_HIGHT / 352;
-        if (__this->vanish_line < 20) {
-            __this->vanish_line = 20;
-        }
-        if (__this->car_head_line > LCD_DEV_HIGHT - 20 || __this->car_head_line < __this->vanish_line + 30) {
-            __this->car_head_line = LCD_DEV_HIGHT - 20 ;
-        }
-
-        break;
-    case ON_CHANGE_SHOW:
-        dc->rect.top = __this->vanish_line;
-        dc->draw.top = dc->rect.top;
-        break;
-    default:
-        return false;
-    }
-
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(LANE_TXT_TOP)
-.onchange = lane_set_txt_top_onchange,
-};
-static int lane_set_txt_bottom_onchange(void *ctr, enum element_change_event e, void *arg)
-{
-    struct draw_context *dc = (struct draw_context *)arg;
-
-    switch (e) {
-    case ON_CHANGE_INIT:
-        __this->vanish_line = ((db_select("lan") >> 16) & 0x0000ffff) * LCD_DEV_HIGHT / 352;
-        __this->car_head_line = (db_select("lan") & 0x0000ffff) * LCD_DEV_HIGHT / 352;
-        if (__this->vanish_line < 20) {
-            __this->vanish_line = 20;
-        }
-        if (__this->car_head_line > LCD_DEV_HIGHT - 20 || __this->car_head_line < __this->vanish_line + 30) {
-            __this->car_head_line = LCD_DEV_HIGHT - 20;
-        }
-
-        break;
-    case ON_CHANGE_SHOW:
-        dc->rect.top = __this->car_head_line - 22;
-        dc->draw.top = dc->rect.top;
-        break;
-    default:
-        return false;
-    }
-
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(LANE_TXT_BOTTOM)
-.onchange = lane_set_txt_bottom_onchange,
-};
+//static int lane_set_txt_top_onchange(void *ctr, enum element_change_event e, void *arg)
+//{
+//    struct draw_context *dc = (struct draw_context *)arg;
+//
+//    switch (e) {
+//    case ON_CHANGE_INIT:
+//        __this->vanish_line = ((db_select("lan") >> 16) & 0x0000ffff) * LCD_DEV_HIGHT / 352;
+//        __this->car_head_line = (db_select("lan") & 0x0000ffff) * LCD_DEV_HIGHT / 352;
+//        if (__this->vanish_line < 20) {
+//            __this->vanish_line = 20;
+//        }
+//        if (__this->car_head_line > LCD_DEV_HIGHT - 20 || __this->car_head_line < __this->vanish_line + 30) {
+//            __this->car_head_line = LCD_DEV_HIGHT - 20 ;
+//        }
+//
+//        break;
+//    case ON_CHANGE_SHOW:
+//        dc->rect.top = __this->vanish_line;
+//        dc->draw.top = dc->rect.top;
+//        break;
+//    default:
+//        return false;
+//    }
+//
+//    return false;
+//}
+//REGISTER_UI_EVENT_HANDLER(LANE_TXT_TOP)
+//.onchange = lane_set_txt_top_onchange,
+//};
+//static int lane_set_txt_bottom_onchange(void *ctr, enum element_change_event e, void *arg)
+//{
+//    struct draw_context *dc = (struct draw_context *)arg;
+//
+//    switch (e) {
+//    case ON_CHANGE_INIT:
+//        __this->vanish_line = ((db_select("lan") >> 16) & 0x0000ffff) * LCD_DEV_HIGHT / 352;
+//        __this->car_head_line = (db_select("lan") & 0x0000ffff) * LCD_DEV_HIGHT / 352;
+//        if (__this->vanish_line < 20) {
+//            __this->vanish_line = 20;
+//        }
+//        if (__this->car_head_line > LCD_DEV_HIGHT - 20 || __this->car_head_line < __this->vanish_line + 30) {
+//            __this->car_head_line = LCD_DEV_HIGHT - 20;
+//        }
+//
+//        break;
+//    case ON_CHANGE_SHOW:
+//        dc->rect.top = __this->car_head_line - 22;
+//        dc->draw.top = dc->rect.top;
+//        break;
+//    default:
+//        return false;
+//    }
+//
+//    return false;
+//}
+//REGISTER_UI_EVENT_HANDLER(LANE_TXT_BOTTOM)
+//.onchange = lane_set_txt_bottom_onchange,
+//};
 
 
 static char lane_set_arg[128];
@@ -4027,13 +4026,13 @@ static int lane_set_ontouch(void *ctr, struct element_touch_event *e)
             } else {
                 __this->vanish_line = y;
             }
-            if (tmp != __this->vanish_line) {
-                UI_ONTOUCH_DEBUG("TOP : %3d\n", __this->vanish_line);
-                ui_hide(LANE_TXT_TOP);
-                ui_show(LANE_TXT_TOP);
+            // if (tmp != __this->vanish_line) {
+////                UI_ONTOUCH_DEBUG("TOP : %3d\n", __this->vanish_line);
+//                ui_hide(LANE_TXT_TOP);
+//                ui_show(LANE_TXT_TOP);
 
                 //vanish_y
-            }
+            // }
         } else if (lane_move == 2) {
             tmp = __this->car_head_line;
             if (y >= LCD_DEV_HIGHT - 20) {
@@ -4045,8 +4044,8 @@ static int lane_set_ontouch(void *ctr, struct element_touch_event *e)
             }
             if (tmp != __this->car_head_line) {
                 UI_ONTOUCH_DEBUG("BOTTOM : %3d\n", __this->vanish_line);
-                ui_hide(LANE_TXT_BOTTOM);
-                ui_show(LANE_TXT_BOTTOM);
+//                ui_hide(LANE_TXT_BOTTOM);
+//                ui_show(LANE_TXT_BOTTOM);
                 //car_head_y
             }
         } else {
@@ -4067,218 +4066,218 @@ static int lane_set_ontouch(void *ctr, struct element_touch_event *e)
     }
     return false;
 }
-static int lane_set_onkey(void *ctr, struct element_key_event *e)
-{
+//static int lane_set_onkey(void *ctr, struct element_key_event *e)
+//{
+//
+//    if (e->event == KEY_EVENT_LONG && e->value == KEY_POWER) {
+//        ui_hide(ui_get_current_window_id());
+//        sys_key_event_takeover(false, true);
+//        return true;
+//    }
+//
+//    if (e->event == KEY_EVENT_CLICK) {
+//        if (__this->onkey_mod == 3) {
+//            switch (e->value) {
+//            case KEY_DOWN:
+//                if (__this->onkey_sel == 0) {
+//                    if (!lane_move) {
+//                        send_lane_det_setting_msg("lane_set_close", 0);
+//                        lane_move = 3;
+//                    }
+//                    if (lane_move == 3) {
+//                        if (__this->vanish_line > __this->car_head_line - 30) {
+//                            __this->vanish_line = __this->car_head_line - 30;
+//                        } else {
+//                            __this->vanish_line += 1;
+//                        }
+////                        ui_hide(LANE_TXT_TOP);
+////                        ui_show(LANE_TXT_TOP);
+//                    }
+//                } else if (__this->onkey_sel == 1) {
+//                    if (!lane_move) {
+//                        send_lane_det_setting_msg("lane_set_close", 0);
+//                        lane_move = 3;
+//                    }
+//                    if (lane_move == 3) {
+//                        if (__this->car_head_line >= LCD_DEV_HIGHT - 20) {
+//                            __this->car_head_line = LCD_DEV_HIGHT - 20;
+//                        } else {
+//                            __this->car_head_line += 1;
+//                        }
+////                        ui_hide(LANE_TXT_BOTTOM);
+////                        ui_show(LANE_TXT_BOTTOM);
+//                    }
+//                }
+//                break;
+//            case KEY_UP:
+//                if (__this->onkey_sel == 0) {
+//                    if (!lane_move) {
+//                        send_lane_det_setting_msg("lane_set_close", 0);
+//                        lane_move = 3;
+//                    }
+//                    if (lane_move == 3) {
+//                        if (__this->vanish_line <= 30) {
+//                            __this->vanish_line = 30;
+//                        } else {
+//                            __this->vanish_line -= 1;
+//                        }
+////                        ui_hide(LANE_TXT_TOP);
+////                        ui_show(LANE_TXT_TOP);
+//                    }
+//                } else if (__this->onkey_sel == 1) {
+//                    if (!lane_move) {
+//                        send_lane_det_setting_msg("lane_set_close", 0);
+//                        lane_move = 3;
+//                    }
+//                    if (lane_move == 3) {
+//                        if (__this->car_head_line < __this->vanish_line + 30) {
+//                            __this->car_head_line = __this->vanish_line + 30;
+//                        } else {
+//                            __this->car_head_line -= 1;
+//                        }
+////                        ui_hide(LANE_TXT_BOTTOM);
+////                        ui_show(LANE_TXT_BOTTOM);
+//                    }
+//                }
+//                break;
+//            case KEY_OK:
+//                // if (__this->onkey_sel == 2) {
+//                //     struct intent it;
+//                //     ui_hide(ui_get_current_window_id());
+//                //     init_intent(&it);
+//                //     it.name = "video_rec";
+//                //     it.action = ACTION_BACK;
+//                //     start_app_async(&it, close_set_lane_page, NULL);
+//                // } else {
+//                //     if (lane_move == 3) {
+//                //         int top = __this->vanish_line * 352 / LCD_DEV_HIGHT;
+//                //         int bottom = __this->car_head_line * 352 / LCD_DEV_HIGHT;
+//                //         printf("top=%d\n", top);
+//                //         printf("bottom=%d\n", bottom);
+//
+//                //         send_lane_det_setting_msg("lane_set_open", top << 16 | bottom);
+//                //         __this->onkey_sel = !__this->onkey_sel;
+//                //         lane_move = 0;
+//                //     }
+//                // }
+//                // break;
+//            case KEY_MODE:
+//                if (__this->onkey_sel == 2) {
+////                    ui_no_highlight_element_by_id(LANE_BTN_RETURN);
+//                    __this->onkey_sel = 0;
+//                    if (lane_move == 3) {
+//                        lane_move = 0;
+//                    }
+//                } else {
+////                    ui_highlight_element_by_id(LANE_BTN_RETURN);
+//                    __this->onkey_sel = 2;
+//                    if (lane_move == 3) {
+//                        int top = __this->vanish_line * 352 / LCD_DEV_HIGHT;
+//                        int bottom = __this->car_head_line * 352 / LCD_DEV_HIGHT;
+//                        printf("top=%d\n", top);
+//                        printf("bottom=%d\n", bottom);
+//                        send_lane_det_setting_msg("lane_set_open", top << 16 | bottom);
+//                        lane_move = 0;
+//                    }
+//                }
+//                break;
+//            }
+//        }
+//    } else if (e->event == KEY_EVENT_HOLD) {
+//        if (__this->onkey_mod == 3) {
+//            switch (e->value) {
+//            case KEY_DOWN:
+//                if (__this->onkey_sel == 0) {
+//                    if (!lane_move) {
+//                        send_lane_det_setting_msg("lane_set_close", 0);
+//                        lane_move = 3;
+//                    }
+//                    if (lane_move == 3) {
+//                        if (__this->vanish_line > __this->car_head_line - 20) {
+//                            __this->vanish_line = __this->car_head_line - 30;
+//                        } else {
+//                            __this->vanish_line += 10;
+//                        }
+////                        ui_hide(LANE_TXT_TOP);
+////                        ui_show(LANE_TXT_TOP);
+//                    }
+//                } else if (__this->onkey_sel == 1) {
+//                    if (!lane_move) {
+//                        send_lane_det_setting_msg("lane_set_close", 0);
+//                        lane_move = 3;
+//                    }
+//                    if (lane_move == 3) {
+//                        if (__this->car_head_line >= 450) {
+//                            __this->car_head_line = LCD_DEV_HIGHT - 20;
+//                        } else {
+//                            __this->car_head_line += 10;
+//                        }
+////                        ui_hide(LANE_TXT_BOTTOM);
+////                        ui_show(LANE_TXT_BOTTOM);
+//                    }
+//                }
+//                break;
+//            case KEY_UP:
+//                if (__this->onkey_sel == 0) {
+//                    if (!lane_move) {
+//                        send_lane_det_setting_msg("lane_set_close", 0);
+//                        lane_move = 3;
+//                    }
+//                    if (lane_move == 3) {
+//                        if (__this->vanish_line <= 30) {
+//                            __this->vanish_line = 20;
+//                        } else {
+//                            __this->vanish_line -= 10;
+//                        }
+////                        ui_hide(LANE_TXT_TOP);
+////                        ui_show(LANE_TXT_TOP);
+//                    }
+//                } else if (__this->onkey_sel == 1) {
+//                    if (!lane_move) {
+//                        send_lane_det_setting_msg("lane_set_close", 0);
+//                        lane_move = 3;
+//                    }
+//                    if (lane_move == 3) {
+//                        if (__this->car_head_line < __this->vanish_line + 40) {
+//                            __this->car_head_line = __this->vanish_line + 30;
+//                        } else {
+//                            __this->car_head_line -= 10;
+//                        }
+////                        ui_hide(LANE_TXT_BOTTOM);
+////                        ui_show(LANE_TXT_BOTTOM);
+//                    }
+//                }
+//                break;
+//            }
+//        }
+//    }
+//    return false;
+//
+//}
+//REGISTER_UI_EVENT_HANDLER(LANE_LAY)
+//.onchange = lane_set_onchange,
+// .ontouch = lane_set_ontouch,
+//  .onkey = lane_set_onkey,
+//};
 
-    if (e->event == KEY_EVENT_LONG && e->value == KEY_POWER) {
-        ui_hide(ui_get_current_window_id());
-        sys_key_event_takeover(false, true);
-        return true;
-    }
-
-    if (e->event == KEY_EVENT_CLICK) {
-        if (__this->onkey_mod == 3) {
-            switch (e->value) {
-            case KEY_DOWN:
-                if (__this->onkey_sel == 0) {
-                    if (!lane_move) {
-                        send_lane_det_setting_msg("lane_set_close", 0);
-                        lane_move = 3;
-                    }
-                    if (lane_move == 3) {
-                        if (__this->vanish_line > __this->car_head_line - 30) {
-                            __this->vanish_line = __this->car_head_line - 30;
-                        } else {
-                            __this->vanish_line += 1;
-                        }
-                        ui_hide(LANE_TXT_TOP);
-                        ui_show(LANE_TXT_TOP);
-                    }
-                } else if (__this->onkey_sel == 1) {
-                    if (!lane_move) {
-                        send_lane_det_setting_msg("lane_set_close", 0);
-                        lane_move = 3;
-                    }
-                    if (lane_move == 3) {
-                        if (__this->car_head_line >= LCD_DEV_HIGHT - 20) {
-                            __this->car_head_line = LCD_DEV_HIGHT - 20;
-                        } else {
-                            __this->car_head_line += 1;
-                        }
-                        ui_hide(LANE_TXT_BOTTOM);
-                        ui_show(LANE_TXT_BOTTOM);
-                    }
-                }
-                break;
-            case KEY_UP:
-                if (__this->onkey_sel == 0) {
-                    if (!lane_move) {
-                        send_lane_det_setting_msg("lane_set_close", 0);
-                        lane_move = 3;
-                    }
-                    if (lane_move == 3) {
-                        if (__this->vanish_line <= 30) {
-                            __this->vanish_line = 30;
-                        } else {
-                            __this->vanish_line -= 1;
-                        }
-                        ui_hide(LANE_TXT_TOP);
-                        ui_show(LANE_TXT_TOP);
-                    }
-                } else if (__this->onkey_sel == 1) {
-                    if (!lane_move) {
-                        send_lane_det_setting_msg("lane_set_close", 0);
-                        lane_move = 3;
-                    }
-                    if (lane_move == 3) {
-                        if (__this->car_head_line < __this->vanish_line + 30) {
-                            __this->car_head_line = __this->vanish_line + 30;
-                        } else {
-                            __this->car_head_line -= 1;
-                        }
-                        ui_hide(LANE_TXT_BOTTOM);
-                        ui_show(LANE_TXT_BOTTOM);
-                    }
-                }
-                break;
-            case KEY_OK:
-                // if (__this->onkey_sel == 2) {
-                //     struct intent it;
-                //     ui_hide(ui_get_current_window_id());
-                //     init_intent(&it);
-                //     it.name = "video_rec";
-                //     it.action = ACTION_BACK;
-                //     start_app_async(&it, close_set_lane_page, NULL);
-                // } else {
-                //     if (lane_move == 3) {
-                //         int top = __this->vanish_line * 352 / LCD_DEV_HIGHT;
-                //         int bottom = __this->car_head_line * 352 / LCD_DEV_HIGHT;
-                //         printf("top=%d\n", top);
-                //         printf("bottom=%d\n", bottom);
-
-                //         send_lane_det_setting_msg("lane_set_open", top << 16 | bottom);
-                //         __this->onkey_sel = !__this->onkey_sel;
-                //         lane_move = 0;
-                //     }
-                // }
-                // break;
-            case KEY_MODE:
-                if (__this->onkey_sel == 2) {
-                    ui_no_highlight_element_by_id(LANE_BTN_RETURN);
-                    __this->onkey_sel = 0;
-                    if (lane_move == 3) {
-                        lane_move = 0;
-                    }
-                } else {
-                    ui_highlight_element_by_id(LANE_BTN_RETURN);
-                    __this->onkey_sel = 2;
-                    if (lane_move == 3) {
-                        int top = __this->vanish_line * 352 / LCD_DEV_HIGHT;
-                        int bottom = __this->car_head_line * 352 / LCD_DEV_HIGHT;
-                        printf("top=%d\n", top);
-                        printf("bottom=%d\n", bottom);
-                        send_lane_det_setting_msg("lane_set_open", top << 16 | bottom);
-                        lane_move = 0;
-                    }
-                }
-                break;
-            }
-        }
-    } else if (e->event == KEY_EVENT_HOLD) {
-        if (__this->onkey_mod == 3) {
-            switch (e->value) {
-            case KEY_DOWN:
-                if (__this->onkey_sel == 0) {
-                    if (!lane_move) {
-                        send_lane_det_setting_msg("lane_set_close", 0);
-                        lane_move = 3;
-                    }
-                    if (lane_move == 3) {
-                        if (__this->vanish_line > __this->car_head_line - 20) {
-                            __this->vanish_line = __this->car_head_line - 30;
-                        } else {
-                            __this->vanish_line += 10;
-                        }
-                        ui_hide(LANE_TXT_TOP);
-                        ui_show(LANE_TXT_TOP);
-                    }
-                } else if (__this->onkey_sel == 1) {
-                    if (!lane_move) {
-                        send_lane_det_setting_msg("lane_set_close", 0);
-                        lane_move = 3;
-                    }
-                    if (lane_move == 3) {
-                        if (__this->car_head_line >= 450) {
-                            __this->car_head_line = LCD_DEV_HIGHT - 20;
-                        } else {
-                            __this->car_head_line += 10;
-                        }
-                        ui_hide(LANE_TXT_BOTTOM);
-                        ui_show(LANE_TXT_BOTTOM);
-                    }
-                }
-                break;
-            case KEY_UP:
-                if (__this->onkey_sel == 0) {
-                    if (!lane_move) {
-                        send_lane_det_setting_msg("lane_set_close", 0);
-                        lane_move = 3;
-                    }
-                    if (lane_move == 3) {
-                        if (__this->vanish_line <= 30) {
-                            __this->vanish_line = 20;
-                        } else {
-                            __this->vanish_line -= 10;
-                        }
-                        ui_hide(LANE_TXT_TOP);
-                        ui_show(LANE_TXT_TOP);
-                    }
-                } else if (__this->onkey_sel == 1) {
-                    if (!lane_move) {
-                        send_lane_det_setting_msg("lane_set_close", 0);
-                        lane_move = 3;
-                    }
-                    if (lane_move == 3) {
-                        if (__this->car_head_line < __this->vanish_line + 40) {
-                            __this->car_head_line = __this->vanish_line + 30;
-                        } else {
-                            __this->car_head_line -= 10;
-                        }
-                        ui_hide(LANE_TXT_BOTTOM);
-                        ui_show(LANE_TXT_BOTTOM);
-                    }
-                }
-                break;
-            }
-        }
-    }
-    return false;
-
-}
-REGISTER_UI_EVENT_HANDLER(LANE_LAY)
-.onchange = lane_set_onchange,
- .ontouch = lane_set_ontouch,
-  .onkey = lane_set_onkey,
-};
-
-static int lane_return_ontouch(void *ctr, struct element_touch_event *e)
-{
-    UI_ONTOUCH_DEBUG("**lane return ontouch**");
-    switch (e->event) {
-    case ELM_EVENT_TOUCH_UP:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-        struct intent it;
-        ui_hide(ui_get_current_window_id());
-        init_intent(&it);
-        it.name = "video_rec";
-        it.action = ACTION_BACK;
-        start_app_async(&it, close_set_lane_page, NULL);
-        break;
-    }
-    return false;
-}
-REGISTER_UI_EVENT_HANDLER(LANE_BTN_RETURN)
-.ontouch = lane_return_ontouch,
-};
+//static int lane_return_ontouch(void *ctr, struct element_touch_event *e)
+//{
+//    UI_ONTOUCH_DEBUG("**lane return ontouch**");
+//    switch (e->event) {
+//    case ELM_EVENT_TOUCH_UP:
+//        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+//        struct intent it;
+//        ui_hide(ui_get_current_window_id());
+//        init_intent(&it);
+//        it.name = "video_rec";
+//        it.action = ACTION_BACK;
+//        start_app_async(&it, close_set_lane_page, NULL);
+//        break;
+//    }
+//    return false;
+//}
+//REGISTER_UI_EVENT_HANDLER(LANE_BTN_RETURN)
+//.ontouch = lane_return_ontouch,
+//};
 
 #endif

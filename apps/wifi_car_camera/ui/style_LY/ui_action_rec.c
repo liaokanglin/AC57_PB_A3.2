@@ -1254,22 +1254,22 @@ static int video_menu_rec_onkey(void *ctr, struct element_key_event *e)
     struct intent it;
     static int sel_item = 0;
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
-        ASSERT(sel_item < (sizeof(video_menu_rec_table) / sizeof(int)));
-#ifdef CONFIG_VIDEO4_ENABLE
-        if (sel_item != MENU_RES_REC &&
-            sel_item != MENU_TWO_REC &&
-            sel_item != MENU_GAP_REC &&
-            sel_item != MENU_HDR_REC &&
-            sel_item != MENU_EXP_REC &&
-            sel_item != MENU_MOTD_REC &&
-            sel_item != MENU_NUM_REC &&
-            sel_item != MENU_FLIG_REC)
-#endif
-            ui_show(video_menu_rec_table[sel_item]);
+//     case KEY_OK:
+//         sel_item = ui_grid_cur_item(grid);
+//         ASSERT(sel_item < (sizeof(video_menu_rec_table) / sizeof(int)));
+// #ifdef CONFIG_VIDEO4_ENABLE
+//         if (sel_item != MENU_RES_REC &&
+//             sel_item != MENU_TWO_REC &&
+//             sel_item != MENU_GAP_REC &&
+//             sel_item != MENU_HDR_REC &&
+//             sel_item != MENU_EXP_REC &&
+//             sel_item != MENU_MOTD_REC &&
+//             sel_item != MENU_NUM_REC &&
+//             sel_item != MENU_FLIG_REC)
+// #endif
+//             ui_show(video_menu_rec_table[sel_item]);
 
-        break;
+//         break;
     case KEY_DOWN:
         return FALSE;
         /*
@@ -1338,22 +1338,22 @@ static int menu_res_onkey(void *ctr, struct element_key_event *e)
     int sel_item = 0;
     int err;
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_rec";
-        it.action = ACTION_VIDEO_REC_SET_CONFIG;
-        it.data = "res";
-        it.exdata = table_video_resolution[sel_item];
-        err = start_app(&it);
-        if (err) {
-            printf("res onkey err! %d\n", err);
-            break;
-        }
-        ui_hide(LAYOUT_MN_RES_REC);
+    //     init_intent(&it);
+    //     it.name	= "video_rec";
+    //     it.action = ACTION_VIDEO_REC_SET_CONFIG;
+    //     it.data = "res";
+    //     it.exdata = table_video_resolution[sel_item];
+    //     err = start_app(&it);
+    //     if (err) {
+    //         printf("res onkey err! %d\n", err);
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_RES_REC);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return false;
 
@@ -1409,22 +1409,22 @@ static int menu_double_route_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_rec";
-        it.action = ACTION_VIDEO_REC_SET_CONFIG;
-        it.data = "two";
-        it.exdata = sel_item;
-        err = start_app(&it);
-        if (err) {
-            printf("two onkey err! %d\n", err);
-            break;
-        }
-        ui_hide(LAYOUT_MN_TWO_REC);
+    //     init_intent(&it);
+    //     it.name	= "video_rec";
+    //     it.action = ACTION_VIDEO_REC_SET_CONFIG;
+    //     it.data = "two";
+    //     it.exdata = sel_item;
+    //     err = start_app(&it);
+    //     if (err) {
+    //         printf("two onkey err! %d\n", err);
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_TWO_REC);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return false;
 
@@ -1483,22 +1483,22 @@ static int menu_cyc_rec_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_rec";
-        it.action = ACTION_VIDEO_REC_SET_CONFIG;
-        it.data = "cyc";
-        it.exdata = table_video_cycle[sel_item];
-        err = start_app(&it);
-        if (err) {
-            printf("cyc onkey err! %d\n", err);
-            break;
-        }
-        ui_hide(LAYOUT_MN_CYC_REC);
+    //     init_intent(&it);
+    //     it.name	= "video_rec";
+    //     it.action = ACTION_VIDEO_REC_SET_CONFIG;
+    //     it.data = "cyc";
+    //     it.exdata = table_video_cycle[sel_item];
+    //     err = start_app(&it);
+    //     if (err) {
+    //         printf("cyc onkey err! %d\n", err);
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_CYC_REC);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return false;
 
@@ -1558,22 +1558,22 @@ static int menu_gap_rec_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_rec";
-        it.action = ACTION_VIDEO_REC_SET_CONFIG;
-        it.data = "gap";
-        it.exdata = table_video_gap[sel_item];
-        err = start_app(&it);
-        if (err) {
-            printf("gap onkey err! %d\n", err);
-            break;
-        }
-        ui_hide(LAYOUT_MN_GAP_REC);
+    //     init_intent(&it);
+    //     it.name	= "video_rec";
+    //     it.action = ACTION_VIDEO_REC_SET_CONFIG;
+    //     it.data = "gap";
+    //     it.exdata = table_video_gap[sel_item];
+    //     err = start_app(&it);
+    //     if (err) {
+    //         printf("gap onkey err! %d\n", err);
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_GAP_REC);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return false;
 
@@ -1630,22 +1630,22 @@ static int menu_wdr_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_rec";
-        it.action = ACTION_VIDEO_REC_SET_CONFIG;
-        it.data = "wdr";
-        it.exdata = sel_item;
-        err = start_app(&it);
-        if (err) {
-            printf("wdr onkey err! %d\n", err);
-            break;
-        }
-        ui_hide(LAYOUT_MN_HDR_REC);
+    //     init_intent(&it);
+    //     it.name	= "video_rec";
+    //     it.action = ACTION_VIDEO_REC_SET_CONFIG;
+    //     it.data = "wdr";
+    //     it.exdata = sel_item;
+    //     err = start_app(&it);
+    //     if (err) {
+    //         printf("wdr onkey err! %d\n", err);
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_HDR_REC);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return false;
 
@@ -1706,22 +1706,22 @@ static int menu_exposure_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_rec";
-        it.action = ACTION_VIDEO_REC_SET_CONFIG;
-        it.data = "exp";
-        it.exdata = table_video_exposure[sel_item];
-        err = start_app(&it);
-        if (err) {
-            printf("exp onkey err! %d\n", err);
-            break;
-        }
-        ui_hide(LAYOUT_MN_EXP_REC);
+    //     init_intent(&it);
+    //     it.name	= "video_rec";
+    //     it.action = ACTION_VIDEO_REC_SET_CONFIG;
+    //     it.data = "exp";
+    //     it.exdata = table_video_exposure[sel_item];
+    //     err = start_app(&it);
+    //     if (err) {
+    //         printf("exp onkey err! %d\n", err);
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_EXP_REC);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return false;
 
@@ -1779,22 +1779,22 @@ static int menu_motdet_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_rec";
-        it.action = ACTION_VIDEO_REC_SET_CONFIG;
-        it.data = "mot";
-        it.exdata = sel_item;
-        err = start_app(&it);
-        if (err) {
-            printf("mot onkey err! %d\n", err);
-            break;
-        }
-        ui_hide(LAYOUT_MN_MOTD_REC);
+    //     init_intent(&it);
+    //     it.name	= "video_rec";
+    //     it.action = ACTION_VIDEO_REC_SET_CONFIG;
+    //     it.data = "mot";
+    //     it.exdata = sel_item;
+    //     err = start_app(&it);
+    //     if (err) {
+    //         printf("mot onkey err! %d\n", err);
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_MOTD_REC);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return false;
 
@@ -1855,22 +1855,22 @@ static int menu_audio_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_rec";
-        it.action = ACTION_VIDEO_REC_SET_CONFIG;
-        it.data = "mic";
-        it.exdata = sel_item;
-        err = start_app(&it);
-        if (err) {
-            printf("audio onkey err! %d\n", err);
-            break;
-        }
-        ui_hide(LAYOUT_MN_MIC_REC);
+    //     init_intent(&it);
+    //     it.name	= "video_rec";
+    //     it.action = ACTION_VIDEO_REC_SET_CONFIG;
+    //     it.data = "mic";
+    //     it.exdata = sel_item;
+    //     err = start_app(&it);
+    //     if (err) {
+    //         printf("audio onkey err! %d\n", err);
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_MIC_REC);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return false;
 
@@ -1927,22 +1927,22 @@ static int menu_date_label_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_rec";
-        it.action = ACTION_VIDEO_REC_SET_CONFIG;
-        it.data = "dat";
-        it.exdata = sel_item;
-        err = start_app(&it);
-        if (err) {
-            printf("date label onkey err! %d\n", err);
-            break;
-        }
-        ui_hide(LAYOUT_MN_LABEL_REC);
+    //     init_intent(&it);
+    //     it.name	= "video_rec";
+    //     it.action = ACTION_VIDEO_REC_SET_CONFIG;
+    //     it.data = "dat";
+    //     it.exdata = sel_item;
+    //     err = start_app(&it);
+    //     if (err) {
+    //         printf("date label onkey err! %d\n", err);
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_LABEL_REC);
 
-        break;
+        // break;
     case KEY_DOWN:
         return false;
 
@@ -2002,22 +2002,22 @@ static int menu_gravity_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_rec";
-        it.action = ACTION_VIDEO_REC_SET_CONFIG;
-        it.data = "gra";
-        it.exdata = table_video_gravity[sel_item];
-        err = start_app(&it);
-        if (err) {
-            printf("gravity onkey err! %d\n", err);
-            break;
-        }
-        ui_hide(LAYOUT_MN_GRAV_REC);
+    //     init_intent(&it);
+    //     it.name	= "video_rec";
+    //     it.action = ACTION_VIDEO_REC_SET_CONFIG;
+    //     it.data = "gra";
+    //     it.exdata = table_video_gravity[sel_item];
+    //     err = start_app(&it);
+    //     if (err) {
+    //         printf("gravity onkey err! %d\n", err);
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_GRAV_REC);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -2075,22 +2075,22 @@ static int menu_parking_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_rec";
-        it.action = ACTION_VIDEO_REC_SET_CONFIG;
-        it.data = "par";
-        it.exdata = sel_item;
-        err = start_app(&it);
-        if (err) {
-            printf("park onkey err! %d\n", err);
-            break;
-        }
-        ui_hide(LAYOUT_MN_PARK_REC);
+    //     init_intent(&it);
+    //     it.name	= "video_rec";
+    //     it.action = ACTION_VIDEO_REC_SET_CONFIG;
+    //     it.data = "par";
+    //     it.exdata = sel_item;
+    //     err = start_app(&it);
+    //     if (err) {
+    //         printf("park onkey err! %d\n", err);
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_PARK_REC);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -2148,26 +2148,26 @@ static int menu_car_num_onkey(void *ctr, struct element_key_event *e)
     const char *str;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_rec";
-        it.action = ACTION_VIDEO_REC_SET_CONFIG;
-        it.data = "num";
-        it.exdata = sel_item;
-        err = start_app(&it);
-        if (err) {
-            printf("res car num err! %d\n", err);
-            break;
-        }
+    //     init_intent(&it);
+    //     it.name	= "video_rec";
+    //     it.action = ACTION_VIDEO_REC_SET_CONFIG;
+    //     it.data = "num";
+    //     it.exdata = sel_item;
+    //     err = start_app(&it);
+    //     if (err) {
+    //         printf("res car num err! %d\n", err);
+    //         break;
+    //     }
 
-        ui_hide(LAYOUT_MN_NUM_REC);
-        if (sel_item) {
-            ui_show(LAYOUT_MN_CARNUM_SET_REC);
-        }
+    //     ui_hide(LAYOUT_MN_NUM_REC);
+    //     if (sel_item) {
+    //         ui_show(LAYOUT_MN_CARNUM_SET_REC);
+    //     }
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -2223,23 +2223,23 @@ static int menu_lane_onkey(void *ctr, struct element_key_event *e)
     const char *str;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
-        if (sel_item == 0) {
-            menu_lane_det_set(0);
-            ui_hide(LAYOUT_MN_LANE_REC);
-        } else {
-            struct intent it;
-            ui_hide(ui_get_current_window_id());
-            rec_exit_menu_post();
-            init_intent(&it);
-            it.name = "video_rec";
-            it.action = ACTION_BACK;
-            start_app_async(&it, open_set_lane_page, NULL);
-            break;
-        }
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
+    //     if (sel_item == 0) {
+    //         menu_lane_det_set(0);
+    //         ui_hide(LAYOUT_MN_LANE_REC);
+    //     } else {
+    //         struct intent it;
+    //         ui_hide(ui_get_current_window_id());
+    //         rec_exit_menu_post();
+    //         init_intent(&it);
+    //         it.name = "video_rec";
+    //         it.action = ACTION_BACK;
+    //         start_app_async(&it, open_set_lane_page, NULL);
+    //         break;
+    //     }
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -2295,23 +2295,23 @@ static int menu_flig_onkey(void *ctr, struct element_key_event *e)
     const char *str;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_rec";
-        it.action = ACTION_VIDEO_REC_SET_CONFIG;
-        it.data = "hlw";
-        it.exdata = sel_item;
-        err = start_app(&it);
-        if (err) {
-            printf("head light warning err! %d\n", err);
-            break;
-        }
+    //     init_intent(&it);
+    //     it.name	= "video_rec";
+    //     it.action = ACTION_VIDEO_REC_SET_CONFIG;
+    //     it.data = "hlw";
+    //     it.exdata = sel_item;
+    //     err = start_app(&it);
+    //     if (err) {
+    //         printf("head light warning err! %d\n", err);
+    //         break;
+    //     }
 
-        ui_hide(LAYOUT_MN_FLIG_REC);
+    //     ui_hide(LAYOUT_MN_FLIG_REC);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -2623,10 +2623,10 @@ static int menu_layout_car_num_set_onkey(void *ctr, struct element_key_event *e)
     const char *str;
 
     switch (e->value) {
-    case KEY_OK:
-        __car_num_switch(DIR_NEXT, NULL);
+    // case KEY_OK:
+    //     __car_num_switch(DIR_NEXT, NULL);
 
-        break;
+    //     break;
     case KEY_DOWN:
         __car_num_set_value(MOD_ADD, 0);
         return FALSE;
@@ -2916,18 +2916,18 @@ static int menu_lane_set_onkey(void *ctr, struct element_key_event *e)
             ui_show(TEXT_LANE_BOTTOM);
         }
         break;
-    case KEY_OK:
-        if (lane_set_flag & 0x02) {
-            lane_set_flag &= 0x01;
-            int top = __this->vanish_line * 352 / LCD_DEV_HIGHT;
-            int bottom = __this->car_head_line * 352 / LCD_DEV_HIGHT;
-            menu_lane_det_set(top << 16 | bottom);
-            printf("lane set top=%d , bottom=%d\n", top, bottom);
+    // case KEY_OK:
+    //     if (lane_set_flag & 0x02) {
+    //         lane_set_flag &= 0x01;
+    //         int top = __this->vanish_line * 352 / LCD_DEV_HIGHT;
+    //         int bottom = __this->car_head_line * 352 / LCD_DEV_HIGHT;
+    //         menu_lane_det_set(top << 16 | bottom);
+    //         printf("lane set top=%d , bottom=%d\n", top, bottom);
 
-            send_lane_det_setting_msg("lane_set_open", top << 16 | bottom);
-        }
-        lane_set_flag = !lane_set_flag;
-        break;
+    //         send_lane_det_setting_msg("lane_set_open", top << 16 | bottom);
+    //     }
+    //     lane_set_flag = !lane_set_flag;
+    //     break;
     case KEY_MODE:
         if (lane_set_flag & 0x02 || lane_set_flag == 0) {
             int top = __this->vanish_line * 352 / LCD_DEV_HIGHT;

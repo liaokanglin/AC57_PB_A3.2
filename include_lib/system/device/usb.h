@@ -442,15 +442,16 @@ struct usb_host_user_ops {
 #define     IOCTL_SET_CUR_LUN        1008
 
 struct usb_platform_data {
-    u32 id;
-    u32 ctl_irq_int;
-    u32 online_check_cnt;
-    u32 offline_check_cnt;
-    u32 isr_priority;
-    u32 host_ot;
-    u32 host_speed;
-    u32 slave_ot;
+    u32 id;                   // USB 设备的唯一标识符
+    u32 ctl_irq_int;          // 控制器中断请求号
+    u32 online_check_cnt;     // USB 设备在线检查次数
+    u32 offline_check_cnt;    // USB 设备离线检查次数
+    u32 isr_priority;         // 中断服务例程的优先级
+    u32 host_ot;              // 主机 OTG 设置
+    u32 host_speed;           // 主机的速度（如 USB 2.0，USB 3.0 等）
+    u32 slave_ot;             // 从机 OTG 设置
 };
+
 #define USB_PLATFORM_DATA_BEGIN(data) \
     static const struct usb_platform_data data = {\
 

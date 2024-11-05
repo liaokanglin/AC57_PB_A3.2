@@ -458,20 +458,20 @@ static int menu_sys_onkey(void *_grid, struct element_key_event *e)
     struct ui_grid *grid = (struct ui_grid *)_grid;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
-        ASSERT(sel_item < (sizeof(menu_sys_items) / sizeof(int)));
-        if (menu_sys_items[sel_item] == LAYOUT_MN_FORMAT_SYS) {
-            if (dev_online(SDX_DEV) == false && storage_device_ready() == 0) {
-                printf("format sd offline !\n");
-                __sys_msg_show(BOX_MSG_INSERT_SD, 2000);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
+    //     ASSERT(sel_item < (sizeof(menu_sys_items) / sizeof(int)));
+    //     if (menu_sys_items[sel_item] == LAYOUT_MN_FORMAT_SYS) {
+    //         if (dev_online(SDX_DEV) == false && storage_device_ready() == 0) {
+    //             printf("format sd offline !\n");
+    //             __sys_msg_show(BOX_MSG_INSERT_SD, 2000);
 
-                return TRUE;
-            }
-        }
-        ui_show(menu_sys_items[sel_item]);
+    //             return TRUE;
+    //         }
+    //     }
+    //     ui_show(menu_sys_items[sel_item]);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -529,13 +529,13 @@ static int menu_lcd_pro_onkey(void *_grid, struct element_key_event *e)
     struct ui_grid *grid = (struct ui_grid *)_grid;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
-        menu_sys_lcd_pro_set(sel_item);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
+    //     menu_sys_lcd_pro_set(sel_item);
 
-        ui_hide(LAYOUT_MN_LCD_SYS);
+    //     ui_hide(LAYOUT_MN_LCD_SYS);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -593,13 +593,13 @@ static int menu_auto_off_onkey(void *ctr, struct element_key_event *e)
     struct ui_grid *grid = (struct ui_grid *)ctr;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
-        menu_sys_auto_off_set(sel_item);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
+    //     menu_sys_auto_off_set(sel_item);
 
-        ui_hide(LAYOUT_MN_AUTOF_SYS);
+    //     ui_hide(LAYOUT_MN_AUTOF_SYS);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -673,13 +673,13 @@ static int menu_led_hz_onkey(void *ctr, struct element_key_event *e)
     struct ui_grid *grid = (struct ui_grid *)ctr;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
-        menu_sys_led_fre_set(sel_item);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
+    //     menu_sys_led_fre_set(sel_item);
 
-        ui_hide(LAYOUT_MN_HZ_SYS);
+    //     ui_hide(LAYOUT_MN_HZ_SYS);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -733,13 +733,13 @@ static int menu_key_voice_onkey(void *ctr, struct element_key_event *e)
     struct ui_grid *grid = (struct ui_grid *)ctr;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
-        menu_sys_key_voice_set(sel_item);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
+    //     menu_sys_key_voice_set(sel_item);
 
-        ui_hide(LAYOUT_MN_KEYV_SYS);
+    //     ui_hide(LAYOUT_MN_KEYV_SYS);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -798,14 +798,14 @@ static int menu_language_onkey(void *ctr, struct element_key_event *e)
     struct ui_grid *grid = (struct ui_grid *)ctr;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
-        menu_sys_language_set(sel_item);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
+    //     menu_sys_language_set(sel_item);
 
-        ui_hide(LAYOUT_MN_LANG_SYS);
-        ui_show(VLIST_MENU_SYS);
+    //     ui_hide(LAYOUT_MN_LANG_SYS);
+    //     ui_show(VLIST_MENU_SYS);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -1231,13 +1231,13 @@ static int menu_tv_onkey(void *ctr, struct element_key_event *e)
     int sel_item = 0;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
-        menu_sys_tv_mod_set(sel_item);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
+    //     menu_sys_tv_mod_set(sel_item);
 
-        ui_hide(LAYOUT_MN_TV_SYS);
+    //     ui_hide(LAYOUT_MN_TV_SYS);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -1280,13 +1280,13 @@ static int menu_format_onkey(void *ctr, struct element_key_event *e)
     int sel_item = 0;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
-        menu_sys_format_set(sel_item);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
+    //     menu_sys_format_set(sel_item);
 
-        ui_hide(LAYOUT_MN_FORMAT_SYS);
+    //     ui_hide(LAYOUT_MN_FORMAT_SYS);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -1329,19 +1329,19 @@ static int menu_default_onkey(void *ctr, struct element_key_event *e)
     int sel_item = 0;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
-        if (sel_item) {
-            it.name	= "video_system";
-            it.action = ACTION_SYSTEM_SET_CONFIG;
-            it.data = "def";
-            __sys_msg_show(BOX_MSG_DEFAULTING, 1000);
-            start_app_async(&it, NULL, NULL);
-        }
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
+    //     if (sel_item) {
+    //         it.name	= "video_system";
+    //         it.action = ACTION_SYSTEM_SET_CONFIG;
+    //         it.data = "def";
+    //         __sys_msg_show(BOX_MSG_DEFAULTING, 1000);
+    //         start_app_async(&it, NULL, NULL);
+    //     }
 
-        ui_hide(LAYOUT_MN_DEFAULT_SYS);
+    //     ui_hide(LAYOUT_MN_DEFAULT_SYS);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -1405,9 +1405,9 @@ static int menu_version_onchange(void *ctr, enum element_change_event e, void *a
 static int menu_version_onkey(void *ctr, struct element_key_event *e)
 {
     switch (e->value) {
-    case KEY_OK:
-        ui_hide(LAYOUT_MN_VERSION_SYS);
-        break;
+    // case KEY_OK:
+    //     ui_hide(LAYOUT_MN_VERSION_SYS);
+    //     break;
     case KEY_DOWN:
         return FALSE;
 

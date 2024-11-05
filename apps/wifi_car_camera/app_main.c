@@ -222,15 +222,16 @@ static void switch_lcd()
 
     ui_platform_init();
     if (app) {
-        it.name = app->name;
+        it.name = app->name;  // 将传入的应用程序名称赋值给it结构体的name成员
+        // 根据应用程序名称设置相应的操作
         if (!strcmp(app->name, "video_rec")) {
-            it.action = ACTION_VIDEO_REC_MAIN;
+            it.action = ACTION_VIDEO_REC_MAIN;  // 如果应用是视频录制，设置动作为视频录制主界面
         } else if (!strcmp(app->name, "video_dec")) {
-            it.action = ACTION_VIDEO_DEC_MAIN;
+            it.action = ACTION_VIDEO_DEC_MAIN;  // 如果应用是视频解码，设置动作为视频解码主界面
         } else if (!strcmp(app->name, "video_photo")) {
-            it.action = ACTION_PHOTO_TAKE_MAIN;
+            it.action = ACTION_PHOTO_TAKE_MAIN; // 如果应用是拍照，设置动作为拍照主界面
         }
-        start_app(&it);
+        start_app(&it);  // 启动指定的应用程序
     }
 }
 #endif
@@ -251,30 +252,30 @@ static int main_key_event_handler(struct key_event *key)
             break;
 #endif
 
-        case KEY_MODE:
-            init_intent(&it);
-            app = get_current_app();
+        // case KEY_MODE:
+        //     init_intent(&it);
+        //     app = get_current_app();
 
-            if (app) {
-                if (!strcmp(app->name, "usb_app")) {
-                    break;
-                }
-                it.action = ACTION_BACK;
-                start_app(&it);
+        //     if (app) {
+        //         if (!strcmp(app->name, "usb_app")) {
+        //             break;
+        //         }
+        //         it.action = ACTION_BACK;
+        //         start_app(&it);
 
-                if (!strcmp(app->name, "video_rec")) {
-                    it.name = "video_photo";
-                    it.action = ACTION_PHOTO_TAKE_MAIN;
-                } else if (!strcmp(app->name, "video_photo")) {
-                    it.name = "video_dec";
-                    it.action = ACTION_VIDEO_DEC_MAIN;
-                } else if (!strcmp(app->name, "video_dec")) {
-                    it.name = "video_rec";
-                    it.action = ACTION_VIDEO_REC_MAIN;
-                }
-                start_app(&it);
-            }
-            break;
+        //         if (!strcmp(app->name, "video_rec")) {
+        //             it.name = "video_photo";
+        //             it.action = ACTION_PHOTO_TAKE_MAIN;
+        //         } else if (!strcmp(app->name, "video_photo")) {
+        //             it.name = "video_dec";
+        //             it.action = ACTION_VIDEO_DEC_MAIN;
+        //         } else if (!strcmp(app->name, "video_dec")) {
+        //             it.name = "video_rec";
+        //             it.action = ACTION_VIDEO_REC_MAIN;
+        //         }
+        //         start_app(&it);
+        //     }
+        //     break;
         default:
             return false;
         }
@@ -370,17 +371,17 @@ static int main_dev_event_handler(struct sys_event *event)
                 start_app(&it);
             }
 #ifdef CONFIG_UI_STYLE_JL02_ENABLE
-            else if (!app) { //主界面进入usb界面
-                union uireq req;
-                struct server *ui;
-                ui = server_open("ui_server", NULL);
-                req.hide.id = ID_WINDOW_MAIN_PAGE;
-                server_request(ui, UI_REQ_HIDE, &req); /* 隐藏主界面ui */
+            // else if (!app) { //主界面进入usb界面
+            //     union uireq req;
+            //     struct server *ui;
+            //     ui = server_open("ui_server", NULL);
+            //     req.hide.id = ID_WINDOW_MAIN_PAGE;
+            //     server_request(ui, UI_REQ_HIDE, &req); /* 隐藏主界面ui */
 
-                it.name = "usb_app";
-                it.action = ACTION_USB_SLAVE_MAIN;
-                start_app(&it);
-            }
+            //     it.name = "usb_app";
+            //     it.action = ACTION_USB_SLAVE_MAIN;
+            //     start_app(&it);
+            // }
 #endif
 #ifdef CONFIG_PARK_ENABLE
             if (get_parking_status()) {
@@ -886,13 +887,11 @@ static void sys_file_video_repair_user(u8 mode)//0:时间排序  1:序号排序
 /*
  * 应用程序主函数
  */
-extern void imb_layer_disp();
-// extern pwm_backlight_init();
-// extern pwm_duty_cycle();
+// extern void spec_uart_test_thread(void *priv);
+extern int spec_uart_test_main(void);
 /* #define DAC_TEST_ENABLE */
 /* #define ADC_TEST_ENABLE */
 extern void change_camera_config();
-//extern pwm_mult_output_init();
 extern void camera_display_init();
 void app_main()
 {
@@ -911,7 +910,6 @@ void app_main()
     //     sys_power_poweroff(0);
     //     return;  // 如果未按下电源键，直接返回
     // }
-    //pwm_mult_output_init();
     printf("app_main\n");             // 打印 "app_main" 字符串，调试信息
     printf("%s %s-%s\n", __FUNCTION__, __DATE__, __TIME__);  // 打印当前函数名称、编译日期和时间
 #ifdef MULTI_LCD_EN
@@ -950,7 +948,9 @@ void app_main()
 
     mount_sd_to_fs(SDX_DEV);
 
-
+    // spec_uart_init();
+    // uart_send_function(NULL);
+    spec_uart_test_main();
     /* dv17_dac_test(); */
 #ifdef DAC_TEST_ENABLE
     extern void key_voice_start(int id);
@@ -1057,10 +1057,6 @@ void app_main()
     sys_power_low_voltage_shutdown(755, 3);					//低电关机电压/时间
     // sys_power_charger_off_shutdown(10, 1);					//拔电关机时间/能否取消
 
-
-    // pwm_duty_cycle(50);
-    // pwm_backlight_init();//////////////////////////////////////////////////////////
-
     init_intent(&it);
     it.name = "video_system";
     it.action = ACTION_SYSTEM_MAIN;
@@ -1130,8 +1126,10 @@ void app_main()
     //extern void peripheral_verify_fun();
     //peripheral_verify_fun();
     /* dv17_dac_test(); */
-    change_camera_config(db_select("sxt"));
+    // change_camera_config(db_select("sxt"));
 
+    db_update("aro", 0);
+    db_flush();
         // u32 *flag = imd_dmm_get_update_flags();
         // *flag |= BIT(SET_Y_GAIN);
         // printf("Flag pointer value: %p\n", (void *)flag); // 打印指针地址

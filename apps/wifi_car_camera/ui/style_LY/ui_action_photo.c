@@ -1026,19 +1026,19 @@ static int tph_menu_tph_onkey(void *ctr, struct element_key_event *e)
     struct intent it;
     static int sel_item = 0;
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
-        ASSERT(sel_item < (sizeof(tph_menu_tph_table) / sizeof(int)));
-#ifdef CONFIG_VIDEO4_ENABLE
-        if (sel_item != MENU_ACU_TPH &&
-            sel_item != MENU_WBL_TPH &&
-            sel_item != MENU_COLOR_TPH &&
-            sel_item != MENU_ISO_TPH &&
-            sel_item != MENU_EXP_TPH)
-#endif
-            ui_show(tph_menu_tph_table[sel_item]);
+//     case KEY_OK:
+//         sel_item = ui_grid_cur_item(grid);
+//         ASSERT(sel_item < (sizeof(tph_menu_tph_table) / sizeof(int)));
+// #ifdef CONFIG_VIDEO4_ENABLE
+//         if (sel_item != MENU_ACU_TPH &&
+//             sel_item != MENU_WBL_TPH &&
+//             sel_item != MENU_COLOR_TPH &&
+//             sel_item != MENU_ISO_TPH &&
+//             sel_item != MENU_EXP_TPH)
+// #endif
+//             ui_show(tph_menu_tph_table[sel_item]);
 
-        break;
+//         break;
     case KEY_DOWN:
         return FALSE;
 
@@ -1097,21 +1097,21 @@ static int menu_tph_method_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_photo";
-        it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
-        it.data = "phm";
-        it.exdata = table_photo_delay_mode_camera0[sel_item];
-        err = start_app(&it);
-        if (err) {
-            break;
-        }
-        ui_hide(LAYOUT_MN_DELAY_TPH);
+    //     init_intent(&it);
+    //     it.name	= "video_photo";
+    //     it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
+    //     it.data = "phm";
+    //     it.exdata = table_photo_delay_mode_camera0[sel_item];
+    //     err = start_app(&it);
+    //     if (err) {
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_DELAY_TPH);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -1170,21 +1170,21 @@ static int menu_res_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_photo";
-        it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
-        it.data = "pres";
-        it.exdata = table_photo_res_camera0[sel_item];
-        err = start_app(&it);
-        if (err) {
-            break;
-        }
-        ui_hide(LAYOUT_MN_RES_TPH);
+    //     init_intent(&it);
+    //     it.name	= "video_photo";
+    //     it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
+    //     it.data = "pres";
+    //     it.exdata = table_photo_res_camera0[sel_item];
+    //     err = start_app(&it);
+    //     if (err) {
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_RES_TPH);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return false;
 
@@ -1241,21 +1241,21 @@ static int menu_repeat_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_photo";
-        it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
-        it.data = "cyt";
-        it.exdata = sel_item;
-        err = start_app(&it);
-        if (err) {
-            break;
-        }
-        ui_hide(LAYOUT_MN_REPEAT_TPH);
+    //     init_intent(&it);
+    //     it.name	= "video_photo";
+    //     it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
+    //     it.data = "cyt";
+    //     it.exdata = sel_item;
+    //     err = start_app(&it);
+    //     if (err) {
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_REPEAT_TPH);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -1314,21 +1314,21 @@ static int menu_quality_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_photo";
-        it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
-        it.data = "qua";
-        it.exdata = table_photo_quality_camera0[sel_item];
-        err = start_app(&it);
-        if (err) {
-            break;
-        }
-        ui_hide(LAYOUT_MN_QUA_TPH);
+    //     init_intent(&it);
+    //     it.name	= "video_photo";
+    //     it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
+    //     it.data = "qua";
+    //     it.exdata = table_photo_quality_camera0[sel_item];
+    //     err = start_app(&it);
+    //     if (err) {
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_QUA_TPH);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -1387,21 +1387,21 @@ static int menu_acutance_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_photo";
-        it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
-        it.data = "acu";
-        it.exdata = table_photo_acutance_camera0[sel_item];
-        err = start_app(&it);
-        if (err) {
-            break;
-        }
-        ui_hide(LAYOUT_MN_ACU_TPH);
+    //     init_intent(&it);
+    //     it.name	= "video_photo";
+    //     it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
+    //     it.data = "acu";
+    //     it.exdata = table_photo_acutance_camera0[sel_item];
+    //     err = start_app(&it);
+    //     if (err) {
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_ACU_TPH);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -1459,21 +1459,21 @@ static int menu_wbl_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_photo";
-        it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
-        it.data = "wbl";
-        it.exdata = table_photo_white_balance_camera0[sel_item];
-        err = start_app(&it);
-        if (err) {
-            break;
-        }
-        ui_hide(LAYOUT_MN_WBL_TPH);
+    //     init_intent(&it);
+    //     it.name	= "video_photo";
+    //     it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
+    //     it.data = "wbl";
+    //     it.exdata = table_photo_white_balance_camera0[sel_item];
+    //     err = start_app(&it);
+    //     if (err) {
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_WBL_TPH);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -1532,21 +1532,21 @@ static int menu_color_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_photo";
-        it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
-        it.data = "col";
-        it.exdata = table_photo_color_camera0[sel_item];
-        err = start_app(&it);
-        if (err) {
-            break;
-        }
-        ui_hide(LAYOUT_MN_COLOR_TPH);
+    //     init_intent(&it);
+    //     it.name	= "video_photo";
+    //     it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
+    //     it.data = "col";
+    //     it.exdata = table_photo_color_camera0[sel_item];
+    //     err = start_app(&it);
+    //     if (err) {
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_COLOR_TPH);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return FALSE;
 
@@ -1606,21 +1606,21 @@ static int menu_iso_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_photo";
-        it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
-        it.data = "iso";
-        it.exdata = table_photo_iso_camera0[sel_item];
-        err = start_app(&it);
-        if (err) {
-            break;
-        }
-        ui_hide(LAYOUT_MN_ISO_TPH);
+    //     init_intent(&it);
+    //     it.name	= "video_photo";
+    //     it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
+    //     it.data = "iso";
+    //     it.exdata = table_photo_iso_camera0[sel_item];
+    //     err = start_app(&it);
+    //     if (err) {
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_ISO_TPH);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return false;
 
@@ -1680,21 +1680,21 @@ static int menu_exposure_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_photo";
-        it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
-        it.data = "pexp";
-        it.exdata = table_photo_exposure_camera0[sel_item];
-        err = start_app(&it);
-        if (err) {
-            break;
-        }
-        ui_hide(LAYOUT_MN_EXP_TPH);
+    //     init_intent(&it);
+    //     it.name	= "video_photo";
+    //     it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
+    //     it.data = "pexp";
+    //     it.exdata = table_photo_exposure_camera0[sel_item];
+    //     err = start_app(&it);
+    //     if (err) {
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_EXP_TPH);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return false;
 
@@ -1752,21 +1752,21 @@ static int menu_hand_shake_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_photo";
-        it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
-        it.data = "sok";
-        it.exdata = sel_item;
-        err = start_app(&it);
-        if (err) {
-            break;
-        }
-        ui_hide(LAYOUT_MN_SHAKE_TPH);
+    //     init_intent(&it);
+    //     it.name	= "video_photo";
+    //     it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
+    //     it.data = "sok";
+    //     it.exdata = sel_item;
+    //     err = start_app(&it);
+    //     if (err) {
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_SHAKE_TPH);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return false;
 
@@ -1824,19 +1824,19 @@ static int menu_quick_scan_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
-        init_intent(&it);
-        it.name	= "video_photo";
-        it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
-        it.data = "sca";
-        it.exdata = table_photo_quick_scan_camera0[sel_item];
-        err = start_app(&it);
-        if (err) {
-            break;
-        }
-        ui_hide(LAYOUT_MN_SCAN_TPH);
-        break;
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
+    //     init_intent(&it);
+    //     it.name	= "video_photo";
+    //     it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
+    //     it.data = "sca";
+    //     it.exdata = table_photo_quick_scan_camera0[sel_item];
+    //     err = start_app(&it);
+    //     if (err) {
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_SCAN_TPH);
+    //     break;
     case KEY_DOWN:
         return false;
 
@@ -1892,21 +1892,21 @@ static int menu_date_label_onkey(void *ctr, struct element_key_event *e)
     int err;
 
     switch (e->value) {
-    case KEY_OK:
-        sel_item = ui_grid_cur_item(grid);
+    // case KEY_OK:
+    //     sel_item = ui_grid_cur_item(grid);
 
-        init_intent(&it);
-        it.name	= "video_photo";
-        it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
-        it.data = "pdat";
-        it.exdata = sel_item;
-        err = start_app(&it);
-        if (err) {
-            break;
-        }
-        ui_hide(LAYOUT_MN_LABEL_TPH);
+    //     init_intent(&it);
+    //     it.name	= "video_photo";
+    //     it.action = ACTION_PHOTO_TAKE_SET_CONFIG;
+    //     it.data = "pdat";
+    //     it.exdata = sel_item;
+    //     err = start_app(&it);
+    //     if (err) {
+    //         break;
+    //     }
+    //     ui_hide(LAYOUT_MN_LABEL_TPH);
 
-        break;
+    //     break;
     case KEY_DOWN:
         return false;
 

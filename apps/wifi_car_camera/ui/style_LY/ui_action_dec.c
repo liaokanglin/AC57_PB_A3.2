@@ -825,60 +825,60 @@ static int browser_onkey(void *ctr, struct element_key_event *e)
                 __this->if_in_bro = 0;
             }
             break;
-        case KEY_OK:
-            if (_file_num == 0) {
-                log_d("no file\n");
-                return true;
-            }
-            printf("item=%d \n", __this->item);
-            ui_file_browser_get_file_attrs(_browser, __this->item, &attrs); //获取文件属性
-            if (attrs.ftype == UI_FTYPE_DIR) {
-                //进入文件夹
-                if (__this->path == 0) {
-                    log_e("DIR ERR\n");
-                    return false;
-                }
-                strcat(__this->path, attrs.fname);
-                int len = strlen(__this->path);
-                __this->path[len] = '/';
-                __this->path[len + 1] = '\0';
+//         case KEY_OK:
+//             if (_file_num == 0) {
+//                 log_d("no file\n");
+//                 return true;
+//             }
+//             printf("item=%d \n", __this->item);
+//             ui_file_browser_get_file_attrs(_browser, __this->item, &attrs); //获取文件属性
+//             if (attrs.ftype == UI_FTYPE_DIR) {
+//                 //进入文件夹
+//                 if (__this->path == 0) {
+//                     log_e("DIR ERR\n");
+//                     return false;
+//                 }
+//                 strcat(__this->path, attrs.fname);
+//                 int len = strlen(__this->path);
+//                 __this->path[len] = '/';
+//                 __this->path[len + 1] = '\0';
 
-                printf("path=%s\n", __this->path);
-#ifdef CONFIG_EMR_DIR_ENABLE
-                if (strcmp(__this->path, CONFIG_DEC_PATH_1) == 0
-                    || strcmp(__this->path, CONFIG_DEC_PATH_2) == 0
-                    || strcmp(__this->path, CONFIG_DEC_PATH_3) == 0) {
-                    log_d("dec_path");
-                    ui_file_browser_set_dir_by_id(BROWSER, __this->path, "-tMOVJPGAVI -st -r");
-                } else {
-                    ui_file_browser_set_dir_by_id(BROWSER, __this->path, "-tMOVJPGAVI -st -d");
-                }
-#else
-                ui_file_browser_set_dir_by_id(BROWSER, __this->path, "-tMOVJPGAVI -st -d");
-#endif
+//                 printf("path=%s\n", __this->path);
+// #ifdef CONFIG_EMR_DIR_ENABLE
+//                 if (strcmp(__this->path, CONFIG_DEC_PATH_1) == 0
+//                     || strcmp(__this->path, CONFIG_DEC_PATH_2) == 0
+//                     || strcmp(__this->path, CONFIG_DEC_PATH_3) == 0) {
+//                     log_d("dec_path");
+//                     ui_file_browser_set_dir_by_id(BROWSER, __this->path, "-tMOVJPGAVI -st -r");
+//                 } else {
+//                     ui_file_browser_set_dir_by_id(BROWSER, __this->path, "-tMOVJPGAVI -st -d");
+//                 }
+// #else
+//                 ui_file_browser_set_dir_by_id(BROWSER, __this->path, "-tMOVJPGAVI -st -d");
+// #endif
 
-                ui_text_set_str_by_id(TEXT_PATH_BROWSER, "ascii", __this->path + sizeof(CONFIG_ROOT_PATH) - 1);
-                __this->if_in_bro = 1;
-                return true;
-            } else if (attrs.ftype == UI_FTYPE_IMAGE || attrs.ftype == UI_FTYPE_VIDEO) {
-                //播放文件
-                printf("path=%s, num=%d\n", __this->path, attrs.file_num);
-                if (attrs.attr.attr & F_ATTR_RO) {
-                    __this->is_lock = 1;
-                } else {
-                    __this->is_lock = 0;
-                }
-                FILE *fp = ui_file_browser_open_file(_browser, __this->item);
-                __this->sum_time.sec = 0;
-                __this->sum_time.min = 0;
-                __this->sum_time.hour = 0;
-                ui_hide(LAYER_BROWSER);
-                ui_show(LAYER_UP_REP);
-                ui_set_call(browser_open_file, (int)fp);
-                __this->if_in_bro = 0;
-                return true;
-            }
-            break;
+//                 ui_text_set_str_by_id(TEXT_PATH_BROWSER, "ascii", __this->path + sizeof(CONFIG_ROOT_PATH) - 1);
+//                 __this->if_in_bro = 1;
+//                 return true;
+//             } else if (attrs.ftype == UI_FTYPE_IMAGE || attrs.ftype == UI_FTYPE_VIDEO) {
+//                 //播放文件
+//                 printf("path=%s, num=%d\n", __this->path, attrs.file_num);
+//                 if (attrs.attr.attr & F_ATTR_RO) {
+//                     __this->is_lock = 1;
+//                 } else {
+//                     __this->is_lock = 0;
+//                 }
+//                 FILE *fp = ui_file_browser_open_file(_browser, __this->item);
+//                 __this->sum_time.sec = 0;
+//                 __this->sum_time.min = 0;
+//                 __this->sum_time.hour = 0;
+//                 ui_hide(LAYER_BROWSER);
+//                 ui_show(LAYER_UP_REP);
+//                 ui_set_call(browser_open_file, (int)fp);
+//                 __this->if_in_bro = 0;
+//                 return true;
+//             }
+//             break;
         case KEY_MENU:
             if (_file_num == 0) {
                 log_d("no file\n");
@@ -952,12 +952,12 @@ static int replay_onkey(void *ctr, struct element_key_event *e)
             start_app(&it);
             ui_show(LAYER_BROWSER);
             return true;
-        case KEY_OK:
-            init_intent(&it);
-            it.name = "video_dec";
-            it.action = ACTION_VIDEO_DEC_CONTROL;
-            start_app(&it);
-            return true;
+        // case KEY_OK:
+        //     init_intent(&it);
+        //     it.name = "video_dec";
+        //     it.action = ACTION_VIDEO_DEC_CONTROL;
+        //     start_app(&it);
+        //     return true;
         case KEY_UP:
         case KEY_DOWN:
             if (__this->if_in_rep) {
@@ -1013,11 +1013,11 @@ static int menu_rep_rep_onkey(void *ctr, struct element_key_event *e)
     switch (e->event) {
     case KEY_EVENT_CLICK:
         switch (e->value) {
-        case KEY_OK:
-            sel_item = ui_grid_cur_item(grid);
-            ASSERT(sel_item < (sizeof(menu_rep_list_items) / sizeof(int)));
-            ui_show(menu_rep_list_items[sel_item]);
-            break;
+        // case KEY_OK:
+        //     sel_item = ui_grid_cur_item(grid);
+        //     ASSERT(sel_item < (sizeof(menu_rep_list_items) / sizeof(int)));
+        //     ui_show(menu_rep_list_items[sel_item]);
+        //     break;
         case KEY_DOWN:
             return FALSE;
             break;
@@ -1064,11 +1064,11 @@ static int menu_del_rep_onkey(void *ctr, struct element_key_event *e)
     switch (e->event) {
     case ELM_EVENT_KEY_CLICK:
         switch (e->value) {
-        case KEY_OK:
-            sel_item = ui_grid_cur_item(grid);
-            ASSERT(sel_item < (sizeof(menu_del_list_items) / sizeof(int)));
-            ui_show(menu_del_list_items[sel_item]);
-            break;
+        // case KEY_OK:
+        //     sel_item = ui_grid_cur_item(grid);
+        //     ASSERT(sel_item < (sizeof(menu_del_list_items) / sizeof(int)));
+        //     ui_show(menu_del_list_items[sel_item]);
+        //     break;
         case KEY_DOWN:
             return FALSE;
             break;
@@ -1114,80 +1114,80 @@ static int menu_lock_rep_onkey(void *ctr, struct element_key_event *e)
     switch (e->event) {
     case ELM_EVENT_KEY_CLICK:
         switch (e->value) {
-        case KEY_OK:
-            sel_item = ui_grid_cur_item(grid);
-            if (sel_item == 0) {
-#ifdef CONFIG_FILE_PREVIEW_ENABLE
-                if (__this->if_in_bro) {
-                    fget_attr(__this->cur_file, &attrs);
-                    attrs |= F_ATTR_RO;
-                    fset_attr(__this->cur_file, attrs);
-#ifdef CONFIG_EMR_DIR_ENABLE
-                    strcpy(move_path, __this->path);
-                    strcat(move_path, CONFIG_EMR_REC_DIR);
-                    printf("move to %s\n", move_path + sizeof(CONFIG_ROOT_PATH) - 1);
-                    err = fmove(__this->cur_file, move_path + sizeof(CONFIG_ROOT_PATH) - 1, NULL, 0);
-                    if (err) {
-                        log_e("move err");
-                        fclose(__this->cur_file);
-                    }
-#else
-                    fclose(__this->cur_file);
-#endif
-                    __this->cur_file = 0;
-                    rep_exit_menu_post();
-                    break;
-                } else {
-                    it.data = "lock:cur";
-                }
-#else
-                it.data = "lock:cur";
-#endif
-            } else if (sel_item == 1) {
-#ifdef CONFIG_FILE_PREVIEW_ENABLE
-                if (__this->if_in_bro) {
-                    fget_attr(__this->cur_file, &attrs);
-                    attrs &= ~F_ATTR_RO;
-                    fset_attr(__this->cur_file, attrs);
-#ifdef CONFIG_EMR_DIR_ENABLE
-                    printf("move to %s\n", __this->path + sizeof(CONFIG_ROOT_PATH) - 1);
-                    err = fmove(__this->cur_file, __this->path + sizeof(CONFIG_ROOT_PATH) - 1, NULL, 0);
-                    if (err) {
-                        log_e("move err");
-                        fclose(__this->cur_file);
-                    }
-#else
-                    fclose(__this->cur_file);
-#endif
-                    __this->cur_file = 0;
-                    rep_exit_menu_post();
-                    break;
-                } else {
-                    it.data = "unlock:cur";
-                }
-#else
-                it.data = "unlock:cur";
-#endif
-            } else if (sel_item == 2) {
-                it.data = "lock:all";
-#ifdef CONFIG_FILE_PREVIEW_ENABLE
-                it.exdata = (int)__this->path;
-#endif
-                __this->is_lock = 1;
-            } else if (sel_item == 3) {
-                it.data = "unlock:all";
-#ifdef CONFIG_FILE_PREVIEW_ENABLE
-                it.exdata = (int)__this->path;
-#endif
-                __this->is_lock = 0;
-            }
-            it.name	= "video_dec";
-            it.action = ACTION_VIDEO_DEC_SET_CONFIG;
-            start_app(&it);
-            rep_exit_menu_post();
-            ui_hide(LAYOUT_MN_LOCK_REP);
-            sys_key_event_takeover(false, false);
-            break;
+//         case KEY_OK:
+//             sel_item = ui_grid_cur_item(grid);
+//             if (sel_item == 0) {
+// #ifdef CONFIG_FILE_PREVIEW_ENABLE
+//                 if (__this->if_in_bro) {
+//                     fget_attr(__this->cur_file, &attrs);
+//                     attrs |= F_ATTR_RO;
+//                     fset_attr(__this->cur_file, attrs);
+// #ifdef CONFIG_EMR_DIR_ENABLE
+//                     strcpy(move_path, __this->path);
+//                     strcat(move_path, CONFIG_EMR_REC_DIR);
+//                     printf("move to %s\n", move_path + sizeof(CONFIG_ROOT_PATH) - 1);
+//                     err = fmove(__this->cur_file, move_path + sizeof(CONFIG_ROOT_PATH) - 1, NULL, 0);
+//                     if (err) {
+//                         log_e("move err");
+//                         fclose(__this->cur_file);
+//                     }
+// #else
+//                     fclose(__this->cur_file);
+// #endif
+//                     __this->cur_file = 0;
+//                     rep_exit_menu_post();
+//                     break;
+//                 } else {
+//                     it.data = "lock:cur";
+//                 }
+// #else
+//                 it.data = "lock:cur";
+// #endif
+//             } else if (sel_item == 1) {
+// #ifdef CONFIG_FILE_PREVIEW_ENABLE
+//                 if (__this->if_in_bro) {
+//                     fget_attr(__this->cur_file, &attrs);
+//                     attrs &= ~F_ATTR_RO;
+//                     fset_attr(__this->cur_file, attrs);
+// #ifdef CONFIG_EMR_DIR_ENABLE
+//                     printf("move to %s\n", __this->path + sizeof(CONFIG_ROOT_PATH) - 1);
+//                     err = fmove(__this->cur_file, __this->path + sizeof(CONFIG_ROOT_PATH) - 1, NULL, 0);
+//                     if (err) {
+//                         log_e("move err");
+//                         fclose(__this->cur_file);
+//                     }
+// #else
+//                     fclose(__this->cur_file);
+// #endif
+//                     __this->cur_file = 0;
+//                     rep_exit_menu_post();
+//                     break;
+//                 } else {
+//                     it.data = "unlock:cur";
+//                 }
+// #else
+//                 it.data = "unlock:cur";
+// #endif
+//             } else if (sel_item == 2) {
+//                 it.data = "lock:all";
+// #ifdef CONFIG_FILE_PREVIEW_ENABLE
+//                 it.exdata = (int)__this->path;
+// #endif
+//                 __this->is_lock = 1;
+//             } else if (sel_item == 3) {
+//                 it.data = "unlock:all";
+// #ifdef CONFIG_FILE_PREVIEW_ENABLE
+//                 it.exdata = (int)__this->path;
+// #endif
+//                 __this->is_lock = 0;
+//             }
+//             it.name	= "video_dec";
+//             it.action = ACTION_VIDEO_DEC_SET_CONFIG;
+//             start_app(&it);
+//             rep_exit_menu_post();
+//             ui_hide(LAYOUT_MN_LOCK_REP);
+//             sys_key_event_takeover(false, false);
+//             break;
         case KEY_DOWN:
             return FALSE;
             break;
@@ -1229,23 +1229,23 @@ static int menu_ppt_rep_onkey(void *ctr, struct element_key_event *e)
     switch (e->event) {
     case ELM_EVENT_KEY_CLICK:
         switch (e->value) {
-        case KEY_OK:
-            sel_item = ui_grid_cur_item(grid);
+        // case KEY_OK:
+        //     sel_item = ui_grid_cur_item(grid);
 
-            ASSERT(sel_item < ARRAY_SIZE(table_ppt_sec));
+        //     ASSERT(sel_item < ARRAY_SIZE(table_ppt_sec));
 
-            init_intent(&it);
-            it.name	= "video_dec";
-            it.action = ACTION_VIDEO_DEC_SET_CONFIG;
-            it.data = table_ppt_sec[sel_item];
-            err = start_app(&it);
-            if (err) {
-                break;
-            }
-            ui_hide(LAYER_MENU_REP);
-            ui_hide(LAYER_UP_REP);
-            __this->ppt = true;
-            break;
+        //     init_intent(&it);
+        //     it.name	= "video_dec";
+        //     it.action = ACTION_VIDEO_DEC_SET_CONFIG;
+        //     it.data = table_ppt_sec[sel_item];
+        //     err = start_app(&it);
+        //     if (err) {
+        //         break;
+        //     }
+        //     ui_hide(LAYER_MENU_REP);
+        //     ui_hide(LAYER_UP_REP);
+        //     __this->ppt = true;
+        //     break;
         case KEY_DOWN:
             return FALSE;
             break;
@@ -1314,38 +1314,38 @@ static int menu_delcur_rep_onkey(void *ctr, struct element_key_event *e)
     switch (e->event) {
     case ELM_EVENT_KEY_CLICK:
         switch (e->value) {
-        case KEY_OK:
-            sel_item = ui_grid_cur_item(grid);
-            if (sel_item == 1) {
-#ifdef CONFIG_FILE_PREVIEW_ENABLE
-                if (__this->if_in_bro) {
-                    fget_attr(__this->cur_file, &attrs);
-                    if (attrs & F_ATTR_RO) {
-                        log_d("locked file");
-                        __dec_msg_show(BOX_MSG_LOCKED_FILE, 2000);
-                    } else {
-                        fdelete(__this->cur_file);
-                        __this->cur_file = 0;
-                        rep_exit_menu_post();
-                    }
-                } else {
-                    it.name	= "video_dec";
-                    it.action = ACTION_VIDEO_DEC_SET_CONFIG;
-                    it.data = "del:cur";
-                    start_app_async(&it, del_file_callback, NULL);
-                }
-#else
-                it.name	= "video_dec";
-                it.action = ACTION_VIDEO_DEC_SET_CONFIG;
-                it.data = "del:cur";
-                start_app_async(&it, del_file_callback, NULL);
+//         case KEY_OK:
+//             sel_item = ui_grid_cur_item(grid);
+//             if (sel_item == 1) {
+// #ifdef CONFIG_FILE_PREVIEW_ENABLE
+//                 if (__this->if_in_bro) {
+//                     fget_attr(__this->cur_file, &attrs);
+//                     if (attrs & F_ATTR_RO) {
+//                         log_d("locked file");
+//                         __dec_msg_show(BOX_MSG_LOCKED_FILE, 2000);
+//                     } else {
+//                         fdelete(__this->cur_file);
+//                         __this->cur_file = 0;
+//                         rep_exit_menu_post();
+//                     }
+//                 } else {
+//                     it.name	= "video_dec";
+//                     it.action = ACTION_VIDEO_DEC_SET_CONFIG;
+//                     it.data = "del:cur";
+//                     start_app_async(&it, del_file_callback, NULL);
+//                 }
+// #else
+//                 it.name	= "video_dec";
+//                 it.action = ACTION_VIDEO_DEC_SET_CONFIG;
+//                 it.data = "del:cur";
+//                 start_app_async(&it, del_file_callback, NULL);
 
-                __dec_msg_show(BOX_MSG_DEL_CUR, 0);
-#endif
-            }
-            ui_hide(LAYOUT_MN_DEL_CUR_REP);
-            ui_hide(LAYOUT_MN_DEL_REP);
-            break;
+//                 __dec_msg_show(BOX_MSG_DEL_CUR, 0);
+// #endif
+//             }
+//             ui_hide(LAYOUT_MN_DEL_CUR_REP);
+//             ui_hide(LAYOUT_MN_DEL_REP);
+//             break;
         case KEY_DOWN:
             return FALSE;
             break;
@@ -1412,22 +1412,22 @@ static int menu_delall_rep_onkey(void *ctr, struct element_key_event *e)
     switch (e->event) {
     case ELM_EVENT_KEY_CLICK:
         switch (e->value) {
-        case KEY_OK:
-            sel_item = ui_grid_cur_item(grid);
-            if (sel_item == 1) {
-                it.name	= "video_dec";
-                it.action = ACTION_VIDEO_DEC_SET_CONFIG;
-                it.data = "del:all";
-#ifdef CONFIG_FILE_PREVIEW_ENABLE
-                it.exdata = (int)__this->path;
-#endif
-                sys_key_event_disable();
-                start_app_async(&it, del_all_file_ok, NULL);
-                __dec_msg_show(BOX_MSG_DEL_ALL, 0);
-            }
-            ui_hide(LAYOUT_MN_DEL_ALL_REP);
-            ui_hide(LAYOUT_MN_DEL_REP);
-            break;
+//         case KEY_OK:
+//             sel_item = ui_grid_cur_item(grid);
+//             if (sel_item == 1) {
+//                 it.name	= "video_dec";
+//                 it.action = ACTION_VIDEO_DEC_SET_CONFIG;
+//                 it.data = "del:all";
+// #ifdef CONFIG_FILE_PREVIEW_ENABLE
+//                 it.exdata = (int)__this->path;
+// #endif
+//                 sys_key_event_disable();
+//                 start_app_async(&it, del_all_file_ok, NULL);
+//                 __dec_msg_show(BOX_MSG_DEL_ALL, 0);
+//             }
+//             ui_hide(LAYOUT_MN_DEL_ALL_REP);
+//             ui_hide(LAYOUT_MN_DEL_REP);
+//             break;
         case KEY_DOWN:
             return FALSE;
             break;
