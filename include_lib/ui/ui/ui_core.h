@@ -45,10 +45,10 @@ enum {
 };
 
 enum {
-    ELM_EVENT_TOUCH_DOWN,
-    ELM_EVENT_TOUCH_MOVE,
-    ELM_EVENT_TOUCH_HOLD,
-    ELM_EVENT_TOUCH_UP,
+    ELM_EVENT_TOUCH_DOWN,  // 触摸按下事件
+    ELM_EVENT_TOUCH_MOVE,  // 触摸移动事件
+    ELM_EVENT_TOUCH_HOLD,  // 触摸保持（长按）事件
+    ELM_EVENT_TOUCH_UP,    // 触摸松开事件
 };
 
 

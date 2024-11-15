@@ -619,7 +619,7 @@ int dec_open_file()
     __this->req.dec.left 	= 0;
     __this->req.dec.top 	= 0;
     __this->req.dec.width 	= 1200;// 0;
-    __this->req.dec.height 	= 734;// 0;
+    __this->req.dec.height 	= 800;// 0;
 #elif (defined CONFIG_UI_STYLE_LY_LONGSCREEN_ENABLE)
     /*根据屏比例缩放显示*/
     /* __this->req.dec.left 	= 0; */
@@ -653,7 +653,7 @@ int dec_open_file()
     __this->req.dec.pctl = NULL;
 
     //是否打开镜像
-     __this->req.dec.mirror = 1; 
+     __this->req.dec.mirror = 0; 
     //是否打开IMC抗锯齿
     __this->req.dec.jaggy = 0;
 
@@ -925,11 +925,12 @@ static int state_machine(struct application *app, enum app_state state, struct i
         }
 #endif
         break;
-    case APP_STA_DESTROY:
-        if (__this->video_dec) {
-            server_close(__this->video_dec);
-            __this->video_dec = NULL;
-        }
+case APP_STA_DESTROY:  // 应用状态为销毁时
+    if (__this->video_dec) {  // 如果存在视频解码服务
+        server_close(__this->video_dec);  // 关闭视频解码服务
+        __this->video_dec = NULL;  // 将视频解码服务指针置为空
+    }
+
 
 #ifdef CONFIG_UI_ENABLE
         {

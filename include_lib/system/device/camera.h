@@ -22,38 +22,42 @@
 #define CSI2_X3_LANE    3
 #define CSI2_X4_LANE    4
 
+// 定义相机平台数据结构
 struct camera_platform_data {
-    u8 xclk_gpio;
-    u8 reset_gpio;
-    u8 pwdn_gpio;
-    u8 power_value;
-    u32 interface;
-    bool (*online_detect)();
-    union {
-        struct {
-            u32 pclk_gpio;
-            u32 hsync_gpio;
-            u32 vsync_gpio;
-            u32 io_function_sel;
-            u32 data_gpio[10];
-        } dvp;
-        struct {
-            u8 data_lane_num;
-            u8 clk_rmap;
-            u8 clk_inv;
-            u8 d0_rmap;
-            u8 d0_inv;
-            u8 d1_rmap;
-            u8 d1_inv;
-            u8 d2_rmap;
-            u8 d2_inv;
-            u8 d3_rmap;
-            u8 d3_inv;
-            u8 tval_hstt;
-            u8 tval_stto;
-        } csi2;
+    u8 xclk_gpio;        // 外部时钟信号 (xclk) 引脚
+    u8 reset_gpio;       // 重置引脚 (用于重置相机)
+    u8 pwdn_gpio;        // 电源关闭引脚 (用于关闭相机电源)
+    u8 power_value;      // 电源控制值 (表示电源电压等)
+    u32 interface;       // 接口类型 (例如 DVP 或 CSI2)
+    bool (*online_detect)();  // 函数指针，检查相机是否在线的函数
+
+    union {  // 使用联合体，根据不同接口类型的设置包含不同字段
+        struct {  // DVP接口相关的配置
+            u32 pclk_gpio;    // 像素时钟 (PCLK) 引脚
+            u32 hsync_gpio;   // 行同步信号 (HSYNC) 引脚
+            u32 vsync_gpio;   // 垂直同步信号 (VSYNC) 引脚
+            u32 io_function_sel;  // I/O功能选择（可能用于配置信号类型或方向）
+            u32 data_gpio[10]; // 数据引脚数组（最多10个数据引脚）
+        } dvp;  // DVP（数字视频接口）配置
+
+        struct {  // CSI2接口相关的配置
+            u8 data_lane_num;   // 数据通道数（通常为4或2）
+            u8 clk_rmap;         // 时钟信号映射（配置时钟信号的GPIO引脚）
+            u8 clk_inv;          // 时钟信号是否反转（用于时钟信号的反向逻辑）
+            u8 d0_rmap;          // 数据通道0的引脚映射
+            u8 d0_inv;           // 数据通道0信号是否反转
+            u8 d1_rmap;          // 数据通道1的引脚映射
+            u8 d1_inv;           // 数据通道1信号是否反转
+            u8 d2_rmap;          // 数据通道2的引脚映射
+            u8 d2_inv;           // 数据通道2信号是否反转
+            u8 d3_rmap;          // 数据通道3的引脚映射
+            u8 d3_inv;           // 数据通道3信号是否反转
+            u8 tval_hstt;        // 高速数据起始时钟周期（用于CSI2协议中的数据时序）
+            u8 tval_stto;        // 数据稳定结束时钟周期（用于CSI2协议中的数据时序）
+        } csi2;  // CSI2（摄像头串行接口2）配置
     };
 };
+
 
 struct camera_device_info {
     u16 fps;

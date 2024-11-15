@@ -711,36 +711,7 @@ static void set_format_reset_func(void)
     }
 }
 
-/***************************** 格式化SD卡 ************************************/
-static int toggle_NO_ontouch(void *ctr, struct element_touch_event *e)
-{
-    struct ui_pic *pic = (struct ui_pic *)ctr; // 获取图标控件的指针
 
-    UI_ONTOUCH_DEBUG("**toggle gimbal ontouch**");
-
-    switch (e->event) {
-    case ELM_EVENT_TOUCH_DOWN:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
-        break;
-    case ELM_EVENT_TOUCH_HOLD:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_HOLD\n");
-        break;
-    case ELM_EVENT_TOUCH_MOVE:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
-        break;
-    case ELM_EVENT_TOUCH_UP:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-            ui_show(SYS_SD_NO); // 显示格式化界面
-            // ui_highlight_element_by_id(ENC_BTN_NO); // 设置图标为开启按钮
-            // menu_sys_format_set(1); // 如果存储设备准备就绪，则执行格式化操作
-            // ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 3); // 显示“格式化中...”的文本
-            // printf("SDSDSDSDSDSDSDDDDDDDDDDDDDDDDDDDDDDDDDDD\n");
-    }
-    return 0; // 返回1表示事件处理完成
-}
-REGISTER_UI_EVENT_HANDLER(ENC_BTN_NO)
-.ontouch = toggle_NO_ontouch,
-};
 
 static int toggle_SDNO_ontouch(void *ctr, struct element_touch_event *e)
 {

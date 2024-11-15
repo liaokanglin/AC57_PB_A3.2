@@ -550,9 +550,9 @@ static void audio_dec_irq_handler(void *priv, void *data, int len)
 
 static void key_event_handler(struct sys_event *e)
 {
-    if (!db_select("kvo")) {
-        return;
-    }
+    // if (!db_select("kvo")) {
+    //     return;
+    // }
     if (kvoice_disable) {
         return;
     }
@@ -598,9 +598,9 @@ SYS_EVENT_HANDLER(SYS_KEY_EVENT | SYS_TOUCH_EVENT, key_event_handler, 3);
 void key_voice_start(int id)
 {
     printf("==============key_voice_start id = %d\n", id);
-    if (!db_select("kvo")) {
-        return;
-    }
+    // if (!db_select("kvo")) {
+    //     return;
+    // }
     if (kvoice_disable) {
         return;
     }

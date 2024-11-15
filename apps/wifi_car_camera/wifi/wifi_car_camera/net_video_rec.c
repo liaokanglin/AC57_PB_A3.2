@@ -328,37 +328,47 @@ int video_rec_finish_notify(char *path)
 {
     int err = 0;
 
+    // 如果出现视频录制错误，则直接返回，不再处理
     if (__this_net->video_rec_err) {
-        __this_net->video_rec_err = FALSE;
-        return 0;
+        __this_net->video_rec_err = FALSE;  // 重置录制错误标志
+        return 0;  // 返回0，表示没有发生错误
     }
-    os_mutex_pend(&net_vdrec_mutex, 0);
-    FILE_LIST_ADD(0, (const char *)path, 0);
-    os_mutex_post(&net_vdrec_mutex);
-    return err;
+
+    os_mutex_pend(&net_vdrec_mutex, 0);  // 获取互斥锁，防止并发操作
+    FILE_LIST_ADD(0, (const char *)path, 0);  // 将文件路径添加到文件列表
+    os_mutex_post(&net_vdrec_mutex);  // 释放互斥锁
+
+    return err;  // 返回成功，错误代码为0
 }
+
 int video_rec_delect_notify(FILE *fd, int id)
 {
     int err = 0;
+
+    // 如果出现视频录制错误，则直接返回，不再处理
     if (__this_net->video_rec_err) {
-        __this_net->video_rec_err = FALSE;
-        return 0;
-    }
-#ifdef CONFIG_ENABLE_VLIST
-    char *delect_path;
-    os_mutex_pend(&net_vdrec_mutex, 0);
-    char *path = video_rec_finish_get_name(fd, id, 0);
-    if (path == NULL) {
-        os_mutex_post(&net_vdrec_mutex);
-        return -1;
+        __this_net->video_rec_err = FALSE;  // 重置录制错误标志
+        return 0;  // 返回0，表示没有发生错误
     }
 
-    FILE_DELETE((const char *)path, 0);
-    os_mutex_post(&net_vdrec_mutex);
+#ifdef CONFIG_ENABLE_VLIST
+    char *delect_path;  // 用于存储删除的路径
+    os_mutex_pend(&net_vdrec_mutex, 0);  // 获取互斥锁，防止并发操作
+
+    // 获取录制完成后的视频文件路径
+    char *path = video_rec_finish_get_name(fd, id, 0);
+    if (path == NULL) {  // 如果路径为空，表示获取文件路径失败
+        os_mutex_post(&net_vdrec_mutex);  // 释放互斥锁
+        return -1;  // 返回错误代码，表示获取路径失败
+    }
+
+    FILE_DELETE((const char *)path, 0);  // 删除文件
+    os_mutex_post(&net_vdrec_mutex);  // 释放互斥锁
 #endif
 
-    return err;
+    return err;  // 返回成功，错误代码为0
 }
+
 
 int video_rec_err_notify(const char *method)
 {
@@ -386,11 +396,12 @@ int video_rec_start_notify(void)
 }
 int video_rec_all_stop_notify(void)
 {
-    int err = 0;
-    net_vd_msg[0] = NET_VIDREC_STA_STOP;
-    err = os_taskq_post_msg(NET_VIDEO_REC_SERVER_NAME, 1, (int)net_vd_msg);
-    return err;
+    int err = 0;  // 定义一个整数变量err，用于存储函数的返回值
+    net_vd_msg[0] = NET_VIDREC_STA_STOP;  // 设置net_vd_msg的第一个元素为NET_VIDREC_STA_STOP，表示停止视频录制的状态
+    err = os_taskq_post_msg(NET_VIDEO_REC_SERVER_NAME, 1, (int)net_vd_msg);  // 发送停止视频录制的消息到NET_VIDEO_REC_SERVER_NAME任务队列
+    return err;  // 返回消息发送的结果
 }
+
 void net_video_rec_status_notify(void)
 {
     char buf[128];
@@ -1867,7 +1878,7 @@ static int net_video_rec_state_machine(struct application *app, enum app_state s
 
     switch (state) {
     case APP_STA_START:
-        if (!it) {
+        if (!it) { // 如果 intent 为空，跳过处理
             break;
         }
         switch (it->action) {
@@ -1875,30 +1886,29 @@ static int net_video_rec_state_machine(struct application *app, enum app_state s
             break;
         case ACTION_VIDEO_TAKE_PHOTO:
             printf("----ACTION_VIDEO_TAKE_PHOTO----\n\n");
-            net_video_rec_take_photo(NULL);
+            net_video_rec_take_photo(NULL);  // 调用函数进行拍照
             break;
         case ACTION_VIDEO_REC_CONCTRL:
             printf("----ACTION_VIDEO_REC_CONCTRL-----\n\n");
-            err = net_video_rec_control(0);
+            err = net_video_rec_control(0);  // 控制视频录制，可能是暂停、停止等操作
             break;
 
         case ACTION_VIDEO_REC_GET_APP_STATUS:
             printf("----ACTION_VIDEO_REC_GET_APP_STATUS-----\n\n");
-            video_rec_get_app_status(it);
+            video_rec_get_app_status(it);  // 获取视频录制应用的状态
             break;
 
         case ACTION_VIDEO_REC_GET_PATH:
             /*printf("----ACTION_VIDEO_REC_GET_PATHL-----\n\n");*/
-            video_rec_get_path(it);
-        case ACTION_VIDEO0_OPEN_RT_STREAM:
+            video_rec_get_path(it);  // 获取视频录制保存路径
+            break;
 
+        case ACTION_VIDEO0_OPEN_RT_STREAM:
             printf("----ACTION_VIDEO0_OPEN_RT_STREAM-----\n\n");
             __this_net->fbuf_fcnt = 0;
             __this_net->fbuf_ffil = 0;
 
-
-
-            err = net_rt_video0_open(it);
+            err = net_rt_video0_open(it);  // 打开视频流0
             sprintf(buf, "format:%d,w:%d,h:%d,fps:%d,rate:%d"
                     , __this_net->net_videoreq[0].rec.format
                     , __this_net->net_videoreq[0].rec.width
@@ -1906,12 +1916,13 @@ static int net_video_rec_state_machine(struct application *app, enum app_state s
                     , __this_net->net_videoreq[0].rec.real_fps
                     , VIDEO_REC_AUDIO_SAMPLE_RATE);
             printf("<<<<<<< : %s\n\n\n\n\n", buf);
+
             if (err) {
                 printf("ACTION_VIDEO0_OPEN_RT_STREAM err!!!\n\n");
-                CTP_CMD_COMBINED(NULL, CTP_RT_OPEN_FAIL, "OPEN_RT_STREAM", "NOTIFY", CTP_RT_OPEN_FAIL_MSG);
+                CTP_CMD_COMBINED(NULL, CTP_RT_OPEN_FAIL, "OPEN_RT_STREAM", "NOTIFY", CTP_RT_OPEN_FAIL_MSG); // 打开视频流失败通知
             } else {
                 if (CTP_CMD_COMBINED(NULL, CTP_NO_ERR, "OPEN_RT_STREAM", "NOTIFY", buf)) {
-                    CTP_CMD_COMBINED(NULL, CTP_NO_ERR, "OPEN_RT_STREAM", "NOTIFY", buf);
+                    CTP_CMD_COMBINED(NULL, CTP_NO_ERR, "OPEN_RT_STREAM", "NOTIFY", buf); // 成功打开流通知
                 }
                 printf("CTP NOTIFY VIDEO0 OK\n\n");
             }
@@ -1921,7 +1932,7 @@ static int net_video_rec_state_machine(struct application *app, enum app_state s
             printf("----ACTION_VIDEO1_OPEN_RT_STREAM----\n\n");
             __this_net->fbuf_fcnt = 0;
             __this_net->fbuf_ffil = 0;
-            err = net_rt_video1_open(it);
+            err = net_rt_video1_open(it);  // 打开视频流1
             sprintf(buf, "format:%d,w:%d,h:%d,fps:%d,rate:%d"
                     , __this_net->net_videoreq[1].rec.format
                     , __this_net->net_videoreq[1].rec.width
@@ -1929,125 +1940,127 @@ static int net_video_rec_state_machine(struct application *app, enum app_state s
                     , __this_net->net_videoreq[1].rec.real_fps
                     , VIDEO_REC_AUDIO_SAMPLE_RATE);
             printf("<<<<<<< : %s\n\n\n\n\n", buf);
+
             if (err) {
                 printf("ACTION_VIDEO1_OPEN_RT_STREAM err!!!\n\n");
-                CTP_CMD_COMBINED(NULL, CTP_RT_OPEN_FAIL, "OPEN_PULL_RT_STREAM", "NOTIFY", CTP_RT_OPEN_FAIL_MSG);
+                CTP_CMD_COMBINED(NULL, CTP_RT_OPEN_FAIL, "OPEN_PULL_RT_STREAM", "NOTIFY", CTP_RT_OPEN_FAIL_MSG); // 打开视频流失败通知
             } else {
-                CTP_CMD_COMBINED(NULL, CTP_NO_ERR, "OPEN_PULL_RT_STREAM", "NOTIFY", buf);
+                CTP_CMD_COMBINED(NULL, CTP_NO_ERR, "OPEN_PULL_RT_STREAM", "NOTIFY", buf); // 成功打开流通知
                 printf("CTP NOTIFY VIDEO1 OK\n\n");
             }
             break;
 
         case ACTION_VIDEO0_CLOSE_RT_STREAM:
             printf("---ACTION_VIDEO0_CLOSE_RT_STREAM---\n\n");
-            err = net_rt_video0_stop(it);
+            err = net_rt_video0_stop(it);  // 停止视频流0
             if (err) {
                 printf("ACTION_VIDEO_CLOE_RT_STREAM err!!!\n\n");
-                strcpy(buf, "status:0");
+                strcpy(buf, "status:0");  // 错误状态
             } else {
-                strcpy(buf, "status:1");
+                strcpy(buf, "status:1");  // 成功状态
             }
-            CTP_CMD_COMBINED(NULL, CTP_NO_ERR, "CLOSE_RT_STREAM", "NOTIFY", buf);
+            CTP_CMD_COMBINED(NULL, CTP_NO_ERR, "CLOSE_RT_STREAM", "NOTIFY", buf);  // 发送关闭流通知
             printf("CTP NOTIFY VIDEO0 OK\n\n");
-            __this_net->fbuf_fcnt = 0;
-            __this_net->fbuf_ffil = 0;
+            __this_net->fbuf_fcnt = 0;  // 清空帧缓冲计数
+            __this_net->fbuf_ffil = 0;  // 清空帧缓冲已填充计数
             break;
 
         case ACTION_VIDEO1_CLOSE_RT_STREAM:
             printf("---ACTION_VIDEO1_CLOSE_RT_STREAM---\n\n");
-            err =  net_rt_video1_stop(it);
+            err = net_rt_video1_stop(it);  // 停止视频流1
             if (err) {
                 printf("ACTION_VIDE1_CLOE_RT_STREAM err!!!\n\n");
-                strcpy(buf, "status:0");
+                strcpy(buf, "status:0");  // 错误状态
             } else {
-                strcpy(buf, "status:1");
+                strcpy(buf, "status:1");  // 成功状态
             }
 
-            CTP_CMD_COMBINED(NULL, CTP_NO_ERR, "CLOSE_PULL_RT_STREAM", "NOTIFY", buf);
+            CTP_CMD_COMBINED(NULL, CTP_NO_ERR, "CLOSE_PULL_RT_STREAM", "NOTIFY", buf);  // 发送关闭流通知
             printf("CTP NOTIFY VIDEO1 OK\n\n");
-            __this_net->fbuf_fcnt = 0;
-            __this_net->fbuf_ffil = 0;
+            __this_net->fbuf_fcnt = 0;  // 清空帧缓冲计数
+            __this_net->fbuf_ffil = 0;  // 清空帧缓冲已填充计数
             break;
+
         case ACTION_VIDEO_CYC_SAVEFILE:
 #if 0
-            video_cyc_file(0);
+            video_cyc_file(0);  // 循环保存文件（已注释掉）
 #if defined CONFIG_VIDEO1_ENABLE
-            video_cyc_file(1);
+            video_cyc_file(1);  // 循环保存文件（已注释掉）
 #endif
 #if defined CONFIG_VIDEO3_ENABLE
-            video_cyc_file(2);
+            video_cyc_file(2);  // 循环保存文件（已注释掉）
 #endif
 #endif
-            strcpy(buf, "status:1");
-            CTP_CMD_COMBINED(NULL, CTP_NO_ERR, "VIDEO_CYC_SAVEFILE", "NOTIFY", buf);
+            strcpy(buf, "status:1");  // 循环保存文件成功状态
+            CTP_CMD_COMBINED(NULL, CTP_NO_ERR, "VIDEO_CYC_SAVEFILE", "NOTIFY", buf);  // 发送循环保存文件通知
             break;
 
 #ifdef CONFIG_NET_SCR
         case ACTION_NET_SCR_REC_OPEN:
             printf("%s ACTION_NET_SCR_REC_OPEN\n", __func__);
-            extern int net_video_disp_stop(int id);
-            extern int net_hide_main_ui(void);
-            net_video_disp_stop(0);
-            net_hide_main_ui();
+            extern int net_video_disp_stop(int id);  // 停止网络视频显示
+            extern int net_hide_main_ui(void);  // 隐藏主界面
+            net_video_disp_stop(0);  // 停止显示
+            net_hide_main_ui();  // 隐藏主界面
             break;
 
         case ACTION_NET_SCR_REC_CLOSE:
             printf("%s ACTION_NET_SCR_REC_CLOSE\n", __func__);
-            extern int net_video_disp_start(int id);
-            extern int net_show_main_ui(void);
-            net_video_disp_start(0);
-            net_show_main_ui();
+            extern int net_video_disp_start(int id);  // 启动网络视频显示
+            extern int net_show_main_ui(void);  // 显示主界面
+            net_video_disp_start(0);  // 启动显示
+            net_show_main_ui();  // 显示主界面
             break;
 #endif
         }
 
         break;
     case APP_STA_STOP:
-        puts("\n[MSG] net_video_rec APP_STA_STOP\n");
+        puts("\n[MSG] net_video_rec APP_STA_STOP\n");  // 输出应用停止状态消息
         break;
     case APP_STA_DESTROY:
-        puts("\n[MSG] net_video_rec APP_STA_DESTROY\n");
+        puts("\n[MSG] net_video_rec APP_STA_DESTROY\n");  // 输出应用销毁状态消息
         break;
-
     }
 
-    return err;
+    return err;  // 返回错误码（如果有）
 }
 
 static void net_video_rec_ioctl(u32 argv)
 {
-    char buf[128];
-    u32 *pargv = (u32 *)argv;
-    u32 type = (u32)pargv[0];
-    char *path = (char *)pargv[1];
+    char buf[128];  // 定义一个字符缓冲区
+    u32 *pargv = (u32 *)argv;  // 将输入参数转换为指向u32类型的指针
+    u32 type = (u32)pargv[0];  // 获取类型参数
+    char *path = (char *)pargv[1];  // 获取路径参数
 
     /*printf("%s type : %d , %s \n\n", __func__, type, path);*/
     switch (type) {
-    case NET_VIDREC_STA_STOP:
+    case NET_VIDREC_STA_STOP:  // 停止网络视频录制状态
         puts("\n NET_VIDREC_STA_STOP\n");
         if (__this_net->net_state == VIDREC_STA_START || __this_net->net_state1 == VIDREC_STA_START) {
-            net_video_rec_stop(1);
+            net_video_rec_stop(1);  // 停止网络视频录制
         }
-        if (__this_strm->state == VIDREC_STA_START) {
+        if (__this_strm->state == VIDREC_STA_START) {  // 如果流的状态为开始
             printf("\n strm_video_rec_close 1\n");
-            extern int strm_video_rec_close2(void);
-            strm_video_rec_close2();
+            extern int strm_video_rec_close2(void);  // 声明外部函数
+            strm_video_rec_close2();  // 关闭流视频录制
             printf("\n strm_video_rec_close 2\n");
         }
-        net_video_rec_free_buf();
-        extern void strm_video_rec_free_buf(void);
-        strm_video_rec_free_buf();
-        __this_net->is_open = FALSE;
-        __this_strm->is_open = FALSE;
+        net_video_rec_free_buf();  // 释放网络视频录制的缓冲区
+        extern void strm_video_rec_free_buf(void);  // 声明外部函数
+        strm_video_rec_free_buf();  // 释放流视频录制的缓冲区
+        __this_net->is_open = FALSE;  // 设置网络录制标志为关闭
+        __this_strm->is_open = FALSE;  // 设置流录制标志为关闭
         break;
-    case NET_VIDREC_STATE_NOTIFY:
-        sprintf(buf, "status:%d", ((__this->state == VIDREC_STA_START) ? 1 : 0));
-        CTP_CMD_COMBINED(NULL, CTP_NO_ERR, "VIDEO_CTRL", "NOTIFY", buf);
+    case NET_VIDREC_STATE_NOTIFY:  // 网络视频录制状态通知
+        sprintf(buf, "status:%d", ((__this->state == VIDREC_STA_START) ? 1 : 0));  // 格式化状态信息
+        CTP_CMD_COMBINED(NULL, CTP_NO_ERR, "VIDEO_CTRL", "NOTIFY", buf);  // 发送状态通知
         break;
     default :
-        return ;
+        return ;  // 默认情况下直接返回
     }
 }
+
 
 static int net_video_rec_device_event_handler(struct sys_event *event)
 {

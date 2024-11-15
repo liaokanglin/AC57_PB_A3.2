@@ -17,38 +17,7 @@ extern struct video_system_hdl sys_handler;
 extern int sys_cur_mod;  /* 1:rec, 2:tph, 3:dec, 4:audio, 5:music */
 #define __this 	(&sys_handler)
 
-// 对比度寄存器配置
-// void imd_contrast_effects_cfg(int parm)
-// {
-//     // 获取颜色调整结构体
-//     struct color_correct *cca = imd_dmm_get_color_adj();
 
-//     // 设置 Y 增益
-//     cca->y_gain = parm;
-//     printf("设置 Y 增益为: %d\n", parm); // 调试日志，输出 Y 增益
-
-//     // 可选：如果需要根据 'parm' 设置 U 和 V 增益，取消注释并修改逻辑
-//     /*
-//     cca->u_gain = parm; 
-//     cca->v_gain = parm;
-//     printf("设置 U 增益为: %d\n", cca->u_gain); // 调试日志，输出 U 增益
-//     printf("设置 V 增益为: %d\n", cca->v_gain); // 调试日志，输出 V 增益
-//     */
-
-//     // 获取更新标志
-//     u32 *flag = imd_dmm_get_update_flags();
-    
-//     // 更新标志
-//     *flag |= BIT(SET_Y_GAIN);
-//     printf("设置 Y 增益后标志: 0x%X\n", *flag); // 打印更新后的标志值
-
-//     // 如果需要更新 U 和 V 增益的标志，取消注释
-//     /*
-//     *flag |= BIT(SET_U_GAIN);
-//     *flag |= BIT(SET_V_GAIN);
-//     printf("设置 U 和 V 增益后标志: 0x%X\n", *flag); // 打印更新后的标志值
-//     */
-// }
 
 // 全局变量来存储原始的 Y、U、V 增益
 struct color_correct original_cca;
@@ -58,7 +27,6 @@ bool is_original_saved = false; // 标志位，判断是否保存了原始值
 #define UPDATE_FLAG(flag, bit) \
     do { \
         *(flag) |= BIT(bit); \
-        printf("更新标志: %s, 新标志值: 0x%X\n", #bit, *(flag)); \
     } while (0) 
 
 void imd_contrast_effects_cfg(int parm)
@@ -70,7 +38,7 @@ void imd_contrast_effects_cfg(int parm)
     if (!is_original_saved) {
         original_cca = *cca;  // 保存当前的 Y、U、V 增益值
         is_original_saved = true;  // 标志位设为 true，表示已保存
-        printf("保存原始增益 -> Y: %d, U: %d, V: %d\n", original_cca.y_gain, original_cca.u_gain, original_cca.v_gain);
+        // printf("保存原始增益 -> Y: %d, U: %d, V: %d\n", original_cca.y_gain, original_cca.u_gain, original_cca.v_gain);
     }
     
     // 设置新的 Y、U、V 增益（这里假设 parm 是统一的增益值）
@@ -79,7 +47,7 @@ void imd_contrast_effects_cfg(int parm)
     // cca->v_gain = parm;
 
     // 输出调试日志
-    printf("设置增益 -> Y: %d, U: %d, V: %d\n", cca->y_gain, cca->u_gain, cca->v_gain);
+    // printf("设置增益 -> Y: %d, U: %d, V: %d\n", cca->y_gain, cca->u_gain, cca->v_gain);
 
     // 获取更新标志
     u32 *flag = imd_dmm_get_update_flags();
@@ -90,35 +58,6 @@ void imd_contrast_effects_cfg(int parm)
     // UPDATE_FLAG(flag, SET_V_GAIN);
 }
 
-// // 恢复原始增益值的函数
-// void restore_original_contrast()
-// {
-//     // 获取颜色调整结构体
-//     struct color_correct *cca = imd_dmm_get_color_adj();
-
-//     // 恢复 Y、U、V 增益到原始值
-//     cca->y_gain = original_cca.y_gain;
-//     cca->u_gain = original_cca.u_gain;
-//     cca->v_gain = original_cca.v_gain;
-
-//     // 输出调试日志
-//     printf("恢复到原始增益 -> Y: %d, U: %d, V: %d\n", cca->y_gain, cca->u_gain, cca->v_gain);
-
-//     // 获取更新标志
-//     u32 *flag = imd_dmm_get_update_flags();
-
-//     // 更新标志位
-//     UPDATE_FLAG(flag, SET_Y_GAIN);
-//     UPDATE_FLAG(flag, SET_U_GAIN);
-//     UPDATE_FLAG(flag, SET_V_GAIN);
-// }
-
-
-// 饱和度寄存器配置
-// 定义标志位
-// #define SET_R_GAIN      0x01  // 标志位：设置 R 增益
-// #define SET_G_GAIN      0x02  // 标志位：设置 G 增益
-// #define SET_B_GAIN      0x03  // 标志位：设置 B 增益
 
 // 全局变量存储原始 R、G、B 增益
 struct color_correct original_saturation;
@@ -134,7 +73,7 @@ void imd_saturation_effects_cfg(int parm)
     if (!is_saturation_saved) {
         original_saturation = *cca;  // 保存当前的 R、G、B 增益
         is_saturation_saved = true;  // 标志位设为 true，表示已保存
-        printf("保存原始饱和度增益 -> R: %d, G: %d, B: %d\n", original_saturation.r_gain, original_saturation.g_gain, original_saturation.b_gain);
+        // printf("保存原始饱和度增益 -> R: %d, G: %d, B: %d\n", original_saturation.r_gain, original_saturation.g_gain, original_saturation.b_gain);
     }
 
     // 设置新的 R、G、B 增益（假设 parm 是统一的饱和度增益值）
@@ -177,33 +116,7 @@ void imd_saturation_effects_cfg(int parm)
     *flag |= BIT(SET_B_GAIN);
 }
 
-// // 恢复饱和度到原始状态的函数
-// void restore_original_saturation()
-// {
-//     // 获取颜色调整结构体
-//     struct color_correct *cca = imd_dmm_get_color_adj();
 
-//     // 恢复 R、G、B 增益到原始值
-//     cca->r_gain = original_saturation.r_gain;
-//     cca->g_gain = original_saturation.g_gain;
-//     cca->b_gain = original_saturation.b_gain;
-
-//     // 输出调试日志
-//     printf("恢复到原始饱和度增益 -> R: %d, G: %d, B: %d\n", cca->r_gain, cca->g_gain, cca->b_gain);
-
-//     // 获取更新标志
-//     u32 *flag = imd_dmm_get_update_flags();
-
-//     // 更新 R、G、B 增益标志位
-//     *flag |= BIT(SET_R_GAIN);
-//     *flag |= BIT(SET_G_GAIN);
-//     *flag |= BIT(SET_B_GAIN);
-
-//     // 打印更新后的标志
-//     printf("恢复 R、G、B 增益后标志: 0x%X\n", *flag);
-// }
-
-// 定义操作类型，用于区分是恢复饱和度还是对比度
 
 // 通用恢复函数
 void restore_original_settings(restore_type type)
@@ -215,28 +128,29 @@ void restore_original_settings(restore_type type)
     u32 *flag = imd_dmm_get_update_flags();
 
     // 根据传入的类型恢复增益值
-    if (type == RESTORE_SATURATION) {
+    if (type == RESTORE_SATURATION && is_saturation_saved ==1) {
         // 恢复 R、G、B 增益到原始值
         cca->r_gain = original_saturation.r_gain;
         cca->g_gain = original_saturation.g_gain;
         cca->b_gain = original_saturation.b_gain;
 
         // 打印调试日志
-        printf("恢复到原始饱和度增益 -> R: %d, G: %d, B: %d\n", cca->r_gain, cca->g_gain, cca->b_gain);
+        // printf("恢复到原始饱和度增益 -> R: %d, G: %d, B: %d\n", cca->r_gain, cca->g_gain, cca->b_gain);
 
         // 更新 R、G、B 增益标志
         *flag |= BIT(SET_R_GAIN);
         *flag |= BIT(SET_G_GAIN);
         *flag |= BIT(SET_B_GAIN);
 
-    } else if (type == RESTORE_CONTRAST) {
+    } 
+     if (type == RESTORE_CONTRAST && is_original_saved == 1) {
         // 恢复 Y、U、V 增益到原始值
         cca->y_gain = original_cca.y_gain;
         cca->u_gain = original_cca.u_gain;
         cca->v_gain = original_cca.v_gain;
 
         // 打印调试日志
-        printf("恢复到原始对比度增益 -> Y: %d, U: %d, V: %d\n", cca->y_gain, cca->u_gain, cca->v_gain);
+        // printf("恢复到原始对比度增益 -> Y: %d, U: %d, V: %d\n", cca->y_gain, cca->u_gain, cca->v_gain);
 
         // 更新 Y、U、V 增益标志
         *flag |= BIT(SET_Y_GAIN);
@@ -245,7 +159,7 @@ void restore_original_settings(restore_type type)
     }
 
     // 打印更新后的标志
-    printf("恢复增益后标志: 0x%X\n", *flag);
+    // printf("恢复增益后标志: 0x%X\n", *flag);
 }
 
 
@@ -376,15 +290,15 @@ void sys_fun_restore()
 
 
 //修改时间
-void set_rtc_default_time(struct sys_time *t)
-{
-    t->year=2024;
-    t->month=8;
-    t->day=8;
-    t->hour=0;
-    t->min=0;
-    t->sec=0;
-}
+// void set_rtc_default_time(struct sys_time *t)
+// {
+//     t->year=2024;
+//     t->month=8;
+//     t->day=8;
+//     t->hour=0;
+//     t->min=0;
+//     t->sec=0;
+// }
 
 
 

@@ -14,13 +14,14 @@
 
 
 enum app_state {
-    APP_STA_CREATE,
-    APP_STA_START,
-    APP_STA_PAUSE,
-    APP_STA_RESUME,
-    APP_STA_STOP,
-    APP_STA_DESTROY,
+    APP_STA_CREATE,  // 创建状态
+    APP_STA_START,   // 启动状态
+    APP_STA_PAUSE,   // 暂停状态
+    APP_STA_RESUME,  // 恢复状态
+    APP_STA_STOP,    // 停止状态
+    APP_STA_DESTROY, // 销毁状态
 };
+
 
 struct application;
 
@@ -69,9 +70,10 @@ void register_app_event_handler(int (*handler)(struct sys_event *));
 struct application *get_current_app();
 
 
-int start_app(struct intent *it);
+int start_app(struct intent *it);  // 同步启动指定应用程序，传入意图结构体参数，返回启动状态
 
-int start_app_async(struct intent *it, void (*callback)(void *p, int err), void *p);
+int start_app_async(struct intent *it, void (*callback)(void *p, int err), void *p);  // 异步启动指定应用程序，传入意图结构体、回调函数和用户数据指针，启动结束后通过回调通知
+
 
 
 

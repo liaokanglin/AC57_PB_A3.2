@@ -1633,29 +1633,29 @@ static void no_power_msg_box_timer(void *priv)
 
 //     switch (e) {
 //     case ON_CHANGE_FIRST_SHOW: /* 在此获取默认隐藏的图标的状态并显示 */
-// #ifdef CONFIG_VIDEO4_ENABLE
+// // #ifdef CONFIG_VIDEO4_ENABLE
 //         av_in_statu = 1;
 //         ui_show(TPH_BTN_SWITCH);
-// #else
-//         if (dev_online("uvc") || dev_online("video1.*")) {
-//             av_in_statu = 1;
-//             ui_show(TPH_BTN_SWITCH);
-//         }
-// #endif
-//         if (__this->camera[0].tph_delay != 0) {
-//             ui_pic_show_image_by_id(TPH_PIC_DELAY, __this->camera[0].tph_delay - 1);
-//         }
-//         printf("\n__this->camera[0].res===%d\n", __this->camera[0].resolution);
-//         ui_pic_show_image_by_id(TPH_PIC_RESOLUTION, __this->camera[0].resolution);
-//         ui_pic_show_image_by_id(TPH_PIC_QUALITY, 2 - __this->camera[0].quality);
-//         ui_pic_show_image_by_id(TPH_PIC_WB, __this->camera[0].white_balance);
-//         ui_pic_show_image_by_id(TPH_PIC_ISO, __this->camera[0].iso);
-//         if (__this->camera[0].hand_shake != 0) {
-//             ui_show(TPH_PIC_HS);
-//         }
-//         if (__this->camera[0].repeat != 0) {
-//             ui_show(TPH_PIC_TRIPLE);
-//         }
+// // #else
+// //         if (dev_online("uvc") || dev_online("video1.*")) {
+// //             av_in_statu = 1;
+// //             ui_show(TPH_BTN_SWITCH);
+// //         }
+// // #endif
+// //         if (__this->camera[0].tph_delay != 0) {
+// //             ui_pic_show_image_by_id(TPH_PIC_DELAY, __this->camera[0].tph_delay - 1);
+// //         }
+// //         printf("\n__this->camera[0].res===%d\n", __this->camera[0].resolution);
+// //         ui_pic_show_image_by_id(TPH_PIC_RESOLUTION, __this->camera[0].resolution);
+// //         ui_pic_show_image_by_id(TPH_PIC_QUALITY, 2 - __this->camera[0].quality);
+// //         ui_pic_show_image_by_id(TPH_PIC_WB, __this->camera[0].white_balance);
+// //         ui_pic_show_image_by_id(TPH_PIC_ISO, __this->camera[0].iso);
+// //         if (__this->camera[0].hand_shake != 0) {
+// //             ui_show(TPH_PIC_HS);
+// //         }
+// //         if (__this->camera[0].repeat != 0) {
+// //             ui_show(TPH_PIC_TRIPLE);
+// //         }
 
 //         if (storage_device_ready() == 0) {
 //             // ui_show(TPH_PIC_SD);

@@ -46,26 +46,26 @@ void spec_uart_test_thread(void *priv)
 
     dev_ioctl(uart_dev_handle, UART_START, (int)0);  // 启动串口
 
-    while (1) {
-#if 0
-        int ret;
-        char c;
-        ret = spec_uart_recv(&c, sizeof(c));  // 接收一个字符
-        if (ret > 0) {
-            if (c == 'a') {
-                cpu_reset();  // 如果接收到字符 'a'，重置 CPU
-            }
-        }
-#endif
+//     while (1) {
+// #if 0
+//         int ret;
+//         char c;
+//         ret = spec_uart_recv(&c, sizeof(c));  // 接收一个字符
+//         if (ret > 0) {
+//             if (c == 'a') {
+//                 cpu_reset();  // 如果接收到字符 'a'，重置 CPU
+//             }
+//         }
+// #endif
 
-#if 1
-        // char buf[200];  // 定义发送缓冲区
-        // strcpy(buf, "spec_uart_test\n");  // 将测试信息复制到缓冲区
-        // spec_uart_send(buf, strlen(buf));  // 发送测试信息
-#endif
+// #if 1
+//         // char buf[200];  // 定义发送缓冲区
+//         // strcpy(buf, "spec_uart_test\n");  // 将测试信息复制到缓冲区
+//         // spec_uart_send(buf, strlen(buf));  // 发送测试信息
+// #endif
 
-        os_time_dly(100);  // 延迟100毫秒
-    }
+//         // os_time_dly(100);  // 延迟100毫秒
+//     }
 }
 
 /// 串口测试线程初始化

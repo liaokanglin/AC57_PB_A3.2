@@ -20,8 +20,8 @@
 
 #define ADKEY_PLATFORM_DATA_END() \
 	.base_cnt 	= 4,  \
-	.long_cnt 	= 75, \
-	.hold_cnt 	= 90, \
+	.long_cnt 	= 60, \
+	.hold_cnt 	= 75, \
 };
 
 

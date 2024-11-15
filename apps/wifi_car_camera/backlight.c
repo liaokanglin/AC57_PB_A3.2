@@ -147,7 +147,7 @@ void pwm_ch0_backlight_init(u8 backlight_io)
 
             //前照灯1设置
             pwm_data.pwm_ch = PWMCH7;  //IR红外 PWM_PORTG端口的通道0, 对应引脚PG8
-            pwm_data.freq = 1800;  //1000;//1k
+            pwm_data.freq = 55000;  //1000;//1k
             ret = dev_ioctl(pwm_dev_handle, PWM_SET_FREQ, (u32)&pwm_data);
 
             pwm_data.pwm_ch = PWMCH7;
@@ -165,7 +165,7 @@ void pwm_ch0_backlight_init(u8 backlight_io)
 
             //前照灯2设置
             pwm_data.pwm_ch = PWMCH6;  //IR红外 PWM_PORTG端口的通道0, 对应引脚PG8
-            pwm_data.freq = 1800;  //1000;//1k
+            pwm_data.freq = 55000;  //1000;//1k
             ret = dev_ioctl(pwm_dev_handle, PWM_SET_FREQ, (u32)&pwm_data);
 
             pwm_data.pwm_ch = PWMCH6;

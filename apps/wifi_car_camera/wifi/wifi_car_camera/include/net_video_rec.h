@@ -15,14 +15,15 @@
 
 
 enum NET_VIDEO_REC_STA {
-    NET_VIDREC_NO_ERR = 0,
-    NET_VIDREC_REQ_ERR = 0xA0,
-    NET_VIDREC_STA_START,
-    NET_VIDREC_STA_STOP,
-    NET_VIDREC_ADD_NOTIFY,
-    NET_VIDREC_DELECT_NOTIFY,
-    NET_VIDREC_STATE_NOTIFY,
+    NET_VIDREC_NO_ERR = 0,          // 无错误
+    NET_VIDREC_REQ_ERR = 0xA0,      // 请求错误
+    NET_VIDREC_STA_START,           // 视频录制开始
+    NET_VIDREC_STA_STOP,            // 视频录制停止
+    NET_VIDREC_ADD_NOTIFY,          // 添加通知
+    NET_VIDREC_DELECT_NOTIFY,       // 删除通知
+    NET_VIDREC_STATE_NOTIFY,        // 状态通知
 };
+
 
 
 struct _remote {

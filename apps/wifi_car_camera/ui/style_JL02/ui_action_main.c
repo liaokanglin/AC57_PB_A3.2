@@ -22,7 +22,7 @@ struct main_page_info {
 };
 static int onkey_sel_item[3] = {
     // HOME_BTN_RECORDER,
-    HOME_BTN_FILE,
+//    HOME_BTN_FILE,
     // HOME_BTN_SETTINGS,
 };
 static int onkey_sel_item1[3] = {

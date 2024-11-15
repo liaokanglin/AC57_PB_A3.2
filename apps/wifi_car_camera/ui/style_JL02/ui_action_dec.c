@@ -116,27 +116,30 @@ enum eFILE_DIALOG {
     UNLOCK_ALL,
 };
 enum eONKEY_MOD {
-    ONKEY_MOD_NORMAL = 0,
-    ONKEY_MOD_NORMAL_TOOL,
-    ONKEY_MOD_NORMAL_DIR,
-    ONKEY_MOD_EDIT,
-    ONKEY_MOD_EDIT_TOOL,
-    ONKEY_MOD_EDIT_DIALOG,
-    ONKEY_MOD_PLAY,
-    ONKEY_MOD_PLAY_TOOL,
-    ONKEY_MOD_PLAY_DIALOG,
+    ONKEY_MOD_NORMAL = 0,          // 普通模式：默认的操作模式，通常用于基本操作或导航。
+    ONKEY_MOD_NORMAL_TOOL,        // 普通工具模式：可能用于普通模式下的工具操作，比如调出工具菜单等。
+    ONKEY_MOD_NORMAL_DIR,         // 普通目录模式：表示在普通模式下操作目录（比如文件浏览、文件夹浏览等）。
+    ONKEY_MOD_EDIT,               // 编辑模式：用于文本或数据的编辑操作，例如进入编辑状态进行修改。
+    ONKEY_MOD_EDIT_TOOL,          // 编辑工具模式：在编辑模式下，使用工具类功能，例如工具栏、快捷操作等。
+    ONKEY_MOD_EDIT_DIALOG,        // 编辑对话框模式：表示在编辑过程中，弹出了一个对话框用于输入或修改。
+    ONKEY_MOD_PLAY,               // 播放模式：用于播放音频、视频或其他多媒体内容。
+    ONKEY_MOD_PLAY_TOOL,          // 播放工具模式：在播放模式下，使用工具或控制播放的功能，比如暂停、快进、音量调整等。
+    ONKEY_MOD_PLAY_DIALOG,        // 播放对话框模式：播放过程中弹出的对话框，可能用于设置或选项调整。
 };
+
 enum eFILE_MSG {
-    //数字越小，优先级越高，高优先级的消息能替换低优先级消息的提示(需UI布局工具修改对应的顺序)
-    FILE_MSG_NONE = 0,
-    FILE_MSG_POWER_OFF,
-    FILE_MSG_NO_POWER,
-    FILE_MSG_NO_FILE,
-    FILE_MSG_DEL_FILE,
-    FILE_MSG_UNLOCK_FILE,
-    FILE_MSG_LOCK_FILE,
-    FILE_MSG_LOCKED_FILE,
+    // 数字越小，优先级越高，高优先级的消息能够替换低优先级消息的提示
+    // 这需要 UI 布局工具修改对应的消息显示顺序
+    FILE_MSG_NONE = 0,           // 无消息
+    FILE_MSG_POWER_OFF,         // 电源关闭
+    FILE_MSG_NO_POWER,          // 电量不足
+    FILE_MSG_NO_FILE,           // 没有文件
+    FILE_MSG_DEL_FILE,          // 文件删除
+    FILE_MSG_UNLOCK_FILE,       // 解锁文件
+    FILE_MSG_LOCK_FILE,         // 锁定文件
+    FILE_MSG_LOCKED_FILE,       // 文件已锁定
 };
+
 enum eDEC_MSG {
     //数字越小，优先级越高，高优先级的消息能替换低优先级消息的提示
     DEC_MSG_NONE = 0,
@@ -263,9 +266,11 @@ static int hide_file_dialog(void)
 }
 static int browser_set_dir(int p)
 {
+    // 设置文件浏览器的当前目录路径
     ui_file_browser_set_dir_by_id(FILE_FORM_BRO, __this->cur_path, cTYPE[__this->type]);
     return 0;
 }
+
 static void back_to_normal_mode(void)
 {
     int i;
@@ -273,7 +278,7 @@ static void back_to_normal_mode(void)
     ui_hide(file_edit_tool[1]); // 隐藏编辑工具栏中的第二个工具
     ui_show(file_tool_type[__this->type]); // 显示当前类型对应的工具
     ui_hide(FILE_BTN_DELETE); // 隐藏删除按钮
-    // ui_show(FILE_BTN_HOME); // 显示主页按钮
+    ui_show(FILE_BTN_HOME); // 显示主页按钮
     __this->edit = 0; // 退出编辑模式
     __this->onkey_sel = 0; // 取消按键选择状态
     __this->onkey_mod = ONKEY_MOD_NORMAL; // 将按键模式设置为正常模式
@@ -320,23 +325,23 @@ static void goto_next_path(char *path, char *name)
 
 int open_file(int p)
 {
-
     struct intent it;
     FILE *fp = ui_file_browser_open_file(__this->browser, p);
     if (fp) {
         printf("sel=%d\n", __this->onkey_sel - 1);
-        ui_hide(FILE_WIN);
-        init_intent(&it);
-        it.name = "video_dec";
-        it.action = ACTION_VIDEO_DEC_OPEN_FILE;
-        it.data = (const char *)fp;
-        it.exdata = (int)__this->cur_path;
-        start_app_async(&it, NULL, NULL);
-        __this->onkey_mod = ONKEY_MOD_PLAY;
-        ui_show(DEC_WIN);
+        ui_hide(FILE_WIN);  // 隐藏文件窗口
+        init_intent(&it);  // 初始化意图结构体
+        it.name = "video_dec";  // 设置意图的名称为 "video_dec"
+        it.action = ACTION_VIDEO_DEC_OPEN_FILE;  // 设置意图的动作为打开视频文件
+        it.data = (const char *)fp;  // 设置意图的数据指向文件指针
+        it.exdata = (int)__this->cur_path;  // 设置意图的扩展数据为当前路径
+        start_app_async(&it, NULL, NULL);  // 异步启动应用程序
+        __this->onkey_mod = ONKEY_MOD_PLAY;  // 设置按键模式为播放模式
+        ui_show(DEC_WIN);  // 显示解码窗口
     }
     return 0;
 }
+
 static u8 is_dir_protect(u8 *dir_path)
 {
     u8 cur_path[128];
@@ -472,17 +477,31 @@ static int del_sel_file(int del_dir)
 static void del_all_file_ok(void *p, int err)
 {
     int i;
+    
+    // 如果删除操作成功，打印删除成功信息
     if (err == 0) {
         puts("---del_all_file_ok\n");
     } else {
+        // 如果删除失败，打印失败信息和错误码
         printf("---del_file_faild: %d\n", err);
     }
+
+    // 恢复到正常模式
     back_to_normal_mode();
+
+    // 隐藏删除文件的提示消息
     file_msg_hide(FILE_MSG_DEL_FILE);
+
+    // 显示文件浏览器中的所有文件项
     ui_file_browser_set_all_item_visible(__this->browser);
+
+    // 重新设置当前目录路径
     ui_file_browser_set_dir_by_id(FILE_FORM_BRO, __this->cur_path, cTYPE[__this->type]);
+
+    // 启用触摸事件
     sys_touch_event_enable();
 }
+
 static void unlock_all_file_ok(void *p, int err)
 {
     int i, file_num;
@@ -732,13 +751,14 @@ static int rep_no_file_handler(const char *type, u32 args)
 {
     struct intent it;
     int cur_page;
-    printf("rep_no_file_handler.\n");
-    __this->no_file = 1;
-    ui_hide(DEC_WIN);
-    ui_show(FILE_WIN);
+    printf("rep_no_file_handler.\n"); // 打印处理器调用的调试信息
+    __this->no_file = 1; // 设置 no_file 标志为 1，表示没有文件
+    ui_hide(DEC_WIN); // 隐藏解码窗口
+    ui_show(FILE_WIN); // 显示文件窗口
 
     return 0;
 }
+
 static int rep_file_err_handler(const char *type, u32 args)
 {
     puts("rep_file_err_handler \n");
@@ -758,50 +778,56 @@ static int rep_file_err_handler(const char *type, u32 args)
 }
 static void sd_event_handler(struct sys_event *event, void *priv)
 {
-    puts("sd_event_handler\n");
+    puts("sd_event_handler\n");  // 输出调试信息，标识事件处理函数被调用
+
+    // 判断事件涉及的设备是否为 sd0、sd1 或 sd2
     if (!strcmp(event->arg, "sd0") || !strcmp(event->arg, "sd1") || !strcmp(event->arg, "sd2")) {
-        switch (event->u.dev.event) {
-        case DEVICE_EVENT_IN:
-            puts("dev event online\n");
-            file_msg_hide(FILE_MSG_NO_FILE);
-            strcpy(__this->cur_path, CONFIG_DEC_ROOT_PATH);
-            if (__this->onkey_mod == ONKEY_MOD_NORMAL) {
-                __this->onkey_sel = 0;
+        switch (event->u.dev.event) {  // 根据事件类型执行不同的操作
+        case DEVICE_EVENT_IN:  // 设备插入事件
+            puts("dev event online\n");  // 输出调试信息，设备插入
+            file_msg_hide(FILE_MSG_NO_FILE);  // 隐藏“没有文件”信息
+            strcpy(__this->cur_path, CONFIG_DEC_ROOT_PATH);  // 设置当前路径为根目录
+            if (__this->onkey_mod == ONKEY_MOD_NORMAL) {  // 判断是否为普通模式
+                __this->onkey_sel = 0;  // 设置选中的文件为0
             }
-            ui_show(FILE_FORM_LAY);
+            ui_show(FILE_FORM_LAY);  // 显示文件操作界面
             break;
-        case DEVICE_EVENT_OUT:
-            puts("dev event offline\n");
-            ui_hide(FILE_FORM_LAY);
-            if (__this->file_dialog) {
-                hide_file_dialog();
+
+        case DEVICE_EVENT_OUT:  // 设备拔出事件
+            puts("dev event offline\n");  // 输出调试信息，设备拔出
+            ui_hide(FILE_FORM_LAY);  // 隐藏文件操作界面
+            if (__this->file_dialog) {  // 如果文件对话框存在
+                hide_file_dialog();  // 隐藏文件对话框
             }
-            file_msg_show(FILE_MSG_NO_FILE);
-            //页数清0
-            strcpy(__this->page_cur, "0");
-            strcpy(__this->page_tol, "0");
-            ui_text_set_str_by_id(FILE_TXT_PAGE_CUR, "ascii", __this->page_cur);
-            ui_text_set_str_by_id(FILE_TXT_PAGE_TOL, "ascii", __this->page_tol);
-            if (__this->edit) {
-                back_to_normal_mode();
+            file_msg_show(FILE_MSG_NO_FILE);  // 显示“没有文件”信息
+            // 页数清0
+            strcpy(__this->page_cur, "0");  // 设置当前页为0
+            strcpy(__this->page_tol, "0");  // 设置总页数为0
+            ui_text_set_str_by_id(FILE_TXT_PAGE_CUR, "ascii", __this->page_cur);  // 更新当前页数显示
+            ui_text_set_str_by_id(FILE_TXT_PAGE_TOL, "ascii", __this->page_tol);  // 更新总页数显示
+            if (__this->edit) {  // 如果当前处于编辑模式
+                back_to_normal_mode();  // 切换回正常模式
             }
             break;
-        default:
+
+        default:  // 如果事件类型不匹配
             break;
         }
     }
 }
+
 static void del_file_callback(void *priv, int err)
 {
     /* printf("del_file_callback: err=%d\n", err); */
-    if (err == 0) {
-        puts("---del_file_ok\n");
-        ui_hide(DEC_WIN);
-        ui_show(FILE_WIN);
-    } else {
-        printf("---del_file_faild: %d\n", err);
+    if (err == 0) { // 如果删除文件操作成功
+        puts("---del_file_ok\n"); // 打印删除成功的提示信息
+        ui_hide(DEC_WIN); // 隐藏解码窗口
+        ui_show(FILE_WIN); // 显示文件窗口
+    } else { // 如果删除文件操作失败
+        printf("---del_file_faild: %d\n", err); // 打印失败的错误码
     }
 }
+
 static const struct uimsg_handl rep_msg_handler[] = {
     { "fname",     rep_file_name_handler     },
     /* { "fnum",      rep_file_number_handler   }, */
@@ -829,71 +855,90 @@ static void cfun_table_normal(int p)
 {
     struct ui_file_attrs attrs;
 
+    // 获取指定索引 p 对应的文件或目录的属性
+    ui_file_browser_get_file_attrs(__this->browser, p, &attrs); 
 
-    ui_file_browser_get_file_attrs(__this->browser, p, &attrs); //获取文件属性
+    // 如果该项是一个目录
     if (attrs.ftype == UI_FTYPE_DIR) {
+        // 更新到下一路径，路径名为当前路径加上该目录名
         goto_next_path(__this->cur_path, attrs.fname);
+        // 设置文件浏览器的目录为更新后的路径
         ui_file_browser_set_dir_by_id(FILE_FORM_BRO, __this->cur_path, cTYPE[__this->type]);
+        // 将选择的项重置为第一个项目
         __this->onkey_sel = 1;
+        // 取消高亮当前被选中的元素
         ui_no_highlight_element((struct element *)ui_file_browser_get_child_by_id(__this->browser, p, FILE_FORM_VID));
+        // 高亮新的第一个元素
         ui_highlight_element((struct element *)ui_file_browser_get_child_by_id(__this->browser, 0, FILE_FORM_VID));
-        return;
+        return; // 结束函数执行
     }
 
-    __this->onkey_mod = ONKEY_MOD_PLAY;
-    __this->onkey_sel = p + 1;
+    // 如果该项是一个普通文件
+    __this->onkey_mod = ONKEY_MOD_PLAY; // 设置按键模式为播放模式
+    __this->onkey_sel = p + 1; // 将选中的项设置为当前项的索引加一
 
+    // 判断文件是否为只读属性
     if (attrs.attr.attr & F_ATTR_RO) {
-        __this->is_lock = 1;
+        __this->is_lock = 1; // 如果是只读文件，锁定状态为 1
     } else {
-        __this->is_lock = 0;
+        __this->is_lock = 0; // 否则锁定状态为 0
     }
+
+    // 设置回调函数，调用 open_file 函数并传入当前索引 p
     ui_set_call(open_file, p);
 }
+
 static void cfun_table_edit(int p)
 {
     int i;
     struct ui_file_attrs attrs;
 
+    // 高亮当前选择的文件项
     ui_highlight_element((struct element *)ui_file_browser_get_child_by_id(__this->browser, p, FILE_FORM_VID));
-    __this->onkey_mod = ONKEY_MOD_EDIT;
-    __this->onkey_sel = p + 1;
+    __this->onkey_mod = ONKEY_MOD_EDIT; // 切换到编辑模式
+    __this->onkey_sel = p + 1; // 设置当前选择项为 p + 1
 
+    // 切换文件选择状态
     if (__this->edit_sel[p]) {
-        __this->edit_sel[p] = 0;
+        __this->edit_sel[p] = 0; // 取消选择
         ui_no_highlight_element((struct element *)ui_file_browser_get_child_by_id(__this->browser, p, FILE_FORM_PIC_SEL));
     } else {
-        __this->edit_sel[p] = 1;
+        __this->edit_sel[p] = 1; // 选择当前文件
         ui_highlight_element((struct element *)ui_file_browser_get_child_by_id(__this->browser, p, FILE_FORM_PIC_SEL));
     }
+
+    // 检查是否有文件可锁定/解锁，更新锁定按钮的显示
     if (file_edit_tool[1] != FILE_BTN_LOCK) {
+        // 如果按钮不是锁定按钮，遍历所有文件
         for (i = 0; i < __this->file_num; i++) {
-            if (__this->edit_sel[i]) {
-                ui_file_browser_get_file_attrs(__this->browser, i, &attrs);
-                if ((attrs.attr.attr & F_ATTR_RO) == 0) {
-                    ui_hide(FILE_BTN_UNLOCK);
-                    ui_show(FILE_BTN_LOCK);
-                    file_edit_tool[1] = FILE_BTN_LOCK;
+            if (__this->edit_sel[i]) {  // 如果当前文件被选中
+                ui_file_browser_get_file_attrs(__this->browser, i, &attrs); // 获取文件属性
+                if ((attrs.attr.attr & F_ATTR_RO) == 0) {  // 如果文件不是只读的
+                    ui_hide(FILE_BTN_UNLOCK);  // 隐藏解锁按钮
+                    ui_show(FILE_BTN_LOCK);    // 显示锁定按钮
+                    file_edit_tool[1] = FILE_BTN_LOCK;  // 设置为锁定按钮
                     break;
                 }
             }
         }
     } else {
+        // 如果当前按钮是锁定按钮，遍历所有文件
         for (i = 0; i < __this->file_num; i++) {
-            if (__this->edit_sel[i]) {
-                ui_file_browser_get_file_attrs(__this->browser, i, &attrs);
-                if ((attrs.attr.attr & F_ATTR_RO) == 0) {
+            if (__this->edit_sel[i]) {  // 如果当前文件被选中
+                ui_file_browser_get_file_attrs(__this->browser, i, &attrs);  // 获取文件属性
+                if ((attrs.attr.attr & F_ATTR_RO) == 0) {  // 如果文件不是只读的
                     break;
                 }
             }
         }
-        if (i >= __this->file_num) {
-            ui_hide(FILE_BTN_LOCK);
-            ui_show(FILE_BTN_UNLOCK);
-            file_edit_tool[1] = FILE_BTN_UNLOCK;
+        if (i >= __this->file_num) {  // 如果没有文件可以解锁
+            ui_hide(FILE_BTN_LOCK);  // 隐藏锁定按钮
+            ui_show(FILE_BTN_UNLOCK);  // 显示解锁按钮
+            file_edit_tool[1] = FILE_BTN_UNLOCK;  // 设置为解锁按钮
         }
     }
 }
+
 static void cfun_file_home()
 {
     struct intent it;
@@ -901,7 +946,8 @@ static void cfun_file_home()
     init_intent(&it);
     app = get_current_app();
     if (app) {
-        it.name = "video_dec";
+        it.name = app->name;
+        // it.name = "video_dec";
         it.action = ACTION_BACK;
         start_app_async(&it, NULL, NULL); //不等待直接启动app
     }
@@ -916,20 +962,29 @@ static void cfun_file_home()
 
 static void cfun_file_back()
 {
+    // 判断当前路径是否为根路径（CONFIG_DEC_ROOT_PATH），如果是，则返回到主目录
     if (!strcmp(__this->cur_path, CONFIG_DEC_ROOT_PATH)) {
-        cfun_file_home();
-        return;
+        cfun_file_home();  // 调用函数返回到主目录
+        return;  // 返回，结束函数执行
     }
-    if (__this->no_file) {
-        file_msg_hide(FILE_MSG_NO_FILE);
-        ui_show(FILE_FORM_BRO);
-        __this->no_file = 0;
-    }
-    ui_file_browser_set_all_item_visible(__this->browser);
-    return_prev_path(__this->cur_path);
-    ui_file_browser_set_dir_by_id(FILE_FORM_BRO, __this->cur_path, cTYPE[__this->type]);
 
+    // 如果当前没有文件，则隐藏没有文件的消息，显示浏览器界面，并重置没有文件的标志
+    if (__this->no_file) {
+        file_msg_hide(FILE_MSG_NO_FILE);  // 隐藏没有文件的提示消息
+        ui_show(FILE_FORM_BRO);  // 显示文件浏览器界面
+        __this->no_file = 0;  // 重置“没有文件”标志为0，表示当前有文件
+    }
+
+    // 设置浏览器的所有项目可见
+    ui_file_browser_set_all_item_visible(__this->browser);
+
+    // 返回上一级目录路径
+    return_prev_path(__this->cur_path);
+
+    // 根据当前路径（cur_path）和类型（type）设置文件浏览器的显示内容
+    ui_file_browser_set_dir_by_id(FILE_FORM_BRO, __this->cur_path, cTYPE[__this->type]);
 }
+
 
 static void cfun_file_next()
 {
@@ -1000,7 +1055,7 @@ static void cfun_file_edit()
         ui_hide(file_tool_type[__this->type]);
 
         // 隐藏“主页”按钮
-        // ui_hide(FILE_BTN_HOME);
+        ui_hide(FILE_BTN_HOME);
 
         // 显示“解锁”按钮
         ui_show(FILE_BTN_UNLOCK);
@@ -1321,15 +1376,16 @@ static void cfun_dec_delete()
 static void cfun_dec_return()
 {
     struct intent it;
-    if (__this->if_in_rep == 0) {
-        ui_hide(DEC_WIN);
-        init_intent(&it);
-        it.name = "video_dec";
-        it.action = ACTION_VIDEO_DEC_CUR_PAGE;
-        start_app(&it);
-        ui_show(FILE_WIN);
+    if (__this->if_in_rep == 0) { // 判断是否处于特殊状态（例如重复或其他模式），如果是 0 表示不是
+        ui_hide(DEC_WIN); // 隐藏解码窗口
+        init_intent(&it); // 初始化意图结构体
+        it.name = "video_dec"; // 设置意图名称为 "video_dec"
+        it.action = ACTION_VIDEO_DEC_CUR_PAGE; // 设置意图的动作为获取当前页面
+        start_app(&it); // 启动指定的应用或操作
+        ui_show(FILE_WIN); // 显示文件窗口
     }
 }
+
 static void cfun_dec_dialog()
 {
     struct intent it;
@@ -1523,23 +1579,25 @@ REGISTER_UI_EVENT_HANDLER(DEC_LAY_MESSAGEBOX)
 static int dec_right_tool_onchange(void *ctr, enum element_change_event e, void *arg)
 {
     switch (e) {
-    case ON_CHANGE_FIRST_SHOW:
-        if (__this->type == eTYPE_PHOTO) {
-            ui_hide(FILE_BTN_PHOTO);
-            ui_show(FILE_BTN_LOCK);
-        } else if (__this->type == eTYPE_LOCK) {
-            ui_hide(FILE_BTN_PHOTO);
-            ui_show(FILE_BTN_VIDEO);
+    case ON_CHANGE_FIRST_SHOW:  // 如果是第一次显示
+        if (__this->type == eTYPE_PHOTO) { // 如果当前类型是照片
+            ui_hide(FILE_BTN_PHOTO); // 隐藏照片按钮
+            ui_show(FILE_BTN_LOCK);  // 显示锁定按钮
+        } else if (__this->type == eTYPE_LOCK) { // 如果当前类型是锁定
+            ui_hide(FILE_BTN_PHOTO); // 隐藏照片按钮
+            ui_show(FILE_BTN_VIDEO); // 显示视频按钮
         }
         break;
     default:
-        return false;
+        return false;  // 其他情况下返回 false
     }
-    return false;
+    return false;  // 返回 false，表示没有其他事件需要处理
 }
+
 REGISTER_UI_EVENT_HANDLER(FILE_LAY_TOOL)
-.onchange = dec_right_tool_onchange,
+.onchange = dec_right_tool_onchange,  // 注册 onchange 事件处理函数
 };
+
 
 
 static int file_browse_table_onchange(void *ctr, enum element_change_event e, void *arg)
@@ -1601,59 +1659,60 @@ static int file_browse_table_onchange(void *ctr, enum element_change_event e, vo
 static int file_browse_table_ontouch(void *ctr, struct element_touch_event *e)
 {
     UI_ONTOUCH_DEBUG("**file_browse table ontouch**");
-    u8 select_grid = ui_grid_cur_item(__this->browser->grid);
+    u8 select_grid = ui_grid_cur_item(__this->browser->grid); // 获取当前选中的网格项
     int i;
     switch (e->event) {
     case ELM_EVENT_TOUCH_MOVE:
         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
-        return true;
+        return true; // 触摸移动事件处理
         break;
     case ELM_EVENT_TOUCH_DOWN:
-        return false;
+        return false; // 触摸按下事件，未作处理，直接返回 false
         break;
     case ELM_EVENT_TOUCH_UP:
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n"); // 触摸抬起事件
         if (__this->no_file || select_grid >= __this->file_num) {
-            break;
+            break; // 如果没有文件或者选中的网格超出文件数，则退出
         }
-        if (__this->edit) {
-            if (__this->onkey_mod == ONKEY_MOD_EDIT) {
+        if (__this->edit) { // 编辑模式
+            if (__this->onkey_mod == ONKEY_MOD_EDIT) { // 如果按键模式为编辑
                 if (__this->onkey_sel) {
-                    ui_no_highlight_element((struct element *)ui_file_browser_get_child_by_id(__this->browser, __this->onkey_sel - 1, FILE_FORM_VID));
+                    ui_no_highlight_element((struct element *)ui_file_browser_get_child_by_id(__this->browser, __this->onkey_sel - 1, FILE_FORM_VID)); // 取消高亮显示
                 }
-            } else if (__this->onkey_mod == ONKEY_MOD_EDIT_TOOL) {
+            } else if (__this->onkey_mod == ONKEY_MOD_EDIT_TOOL) { // 如果按键模式为编辑工具
                 if (__this->onkey_sel > 1) {
-                    ui_no_highlight_element_by_id(file_tool[__this->onkey_sel - 1]);
+                    ui_no_highlight_element_by_id(file_tool[__this->onkey_sel - 1]); // 取消工具栏的高亮显示
                 }
             }
-            __this->onkey_sel = 0;
-            cfun_table_edit(select_grid);
-        } else {
-
-            if (__this->onkey_mod == ONKEY_MOD_NORMAL) {
+            __this->onkey_sel = 0; // 重置选择
+            cfun_table_edit(select_grid); // 调用编辑模式函数
+        } else { // 普通模式
+            if (__this->onkey_mod == ONKEY_MOD_NORMAL) { // 普通模式
                 if (__this->onkey_sel) {
-                    ui_no_highlight_element((struct element *)ui_file_browser_get_child_by_id(__this->browser, __this->onkey_sel - 1, FILE_FORM_VID));
+                    ui_no_highlight_element((struct element *)ui_file_browser_get_child_by_id(__this->browser, __this->onkey_sel - 1, FILE_FORM_VID)); // 取消高亮显示
                 }
-            } else if (__this->onkey_mod == ONKEY_MOD_NORMAL_TOOL) {
+            } else if (__this->onkey_mod == ONKEY_MOD_NORMAL_TOOL) { // 工具模式
                 if (__this->onkey_sel > 1) {
-                    ui_no_highlight_element_by_id(file_tool[__this->onkey_sel - 1]);
+                    ui_no_highlight_element_by_id(file_tool[__this->onkey_sel - 1]); // 取消工具的高亮显示
                 }
-            } else if (__this->onkey_mod == ONKEY_MOD_NORMAL_DIR) {
+            } else if (__this->onkey_mod == ONKEY_MOD_NORMAL_DIR) { // 目录模式
                 if (__this->onkey_sel) {
-                    ui_no_highlight_element_by_id(file_tool_dir[__this->onkey_sel - 1]);
+                    ui_no_highlight_element_by_id(file_tool_dir[__this->onkey_sel - 1]); // 取消目录工具的高亮显示
                 }
             }
-            __this->onkey_sel = 0;
-            cfun_table_normal(select_grid);
+            __this->onkey_sel = 0; // 重置选择
+            cfun_table_normal(select_grid); // 调用普通模式函数
         }
         break;
     }
-    return true;
+    return true; // 触摸事件处理结束
 }
+
 REGISTER_UI_EVENT_HANDLER(FILE_FORM_BRO)
-.onchange = file_browse_table_onchange,
- .ontouch = file_browse_table_ontouch,
+.onchange = file_browse_table_onchange, // 注册 onChange 事件处理
+.ontouch = file_browse_table_ontouch,   // 注册 onTouch 事件处理
 };
+
 
 static int file_browse_down_ontouch(void *ctr, struct element_touch_event *e)
 {
@@ -1717,39 +1776,47 @@ static int dec_edit_ontouch(void *ctr, struct element_touch_event *e)
     switch (e->event) {
     case ELM_EVENT_TOUCH_DOWN:
         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
-        return true;
+        return true;  // 触摸按下事件，直接返回 true，表示该事件被处理
         break;
     case ELM_EVENT_TOUCH_UP:
         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-        if (!dev_online(SDX_DEV)) {
+        
+        if (!dev_online(SDX_DEV)) {  // 如果设备未连接，跳过后续处理
             break;
         }
 
+        // 根据当前按键模式（`onkey_mod`）处理不同的操作
         if (__this->onkey_mod == ONKEY_MOD_NORMAL || __this->onkey_mod == ONKEY_MOD_EDIT) {
+            // 如果当前处于普通模式或编辑模式，取消当前选择项的高亮显示
             if (__this->onkey_sel) {
                 ui_no_highlight_element((struct element *)ui_file_browser_get_child_by_id(__this->browser, __this->onkey_sel - 1, FILE_FORM_VID));
             }
         } else if (__this->onkey_mod == ONKEY_MOD_NORMAL_TOOL) {
+            // 如果当前处于工具模式，取消当前工具项的高亮显示
             if (__this->onkey_sel) {
                 ui_no_highlight_element_by_id(file_tool[__this->onkey_sel - 1]);
             }
         } else if (__this->onkey_mod == ONKEY_MOD_NORMAL_DIR) {
+            // 如果当前处于目录模式，取消当前目录工具项的高亮显示
             if (__this->onkey_sel) {
                 ui_no_highlight_element_by_id(file_tool_dir[__this->onkey_sel - 1]);
             }
         } else if (__this->onkey_mod == ONKEY_MOD_EDIT_TOOL) {
+            // 如果当前处于编辑工具模式，取消当前编辑工具项的高亮显示
             if (__this->onkey_sel) {
                 ui_no_highlight_element_by_id(file_edit_tool[__this->onkey_sel - 1]);
             }
         }
-        __this->onkey_sel = 0;
-        cfun_file_edit();
+        
+        __this->onkey_sel = 0;  // 重置当前选择项
+        cfun_file_edit();  // 调用文件编辑函数，执行实际的编辑操作
         break;
     }
-    return false;
+    return false;  // 默认返回 false，表示未处理其他事件
 }
+
 REGISTER_UI_EVENT_HANDLER(FILE_BTN_EDIT)
-.ontouch = dec_edit_ontouch,
+.ontouch = dec_edit_ontouch,  // 注册触摸事件处理函数
 };
 
 // static int dec_home_ontouch(void *ctr, struct element_touch_event *e)
@@ -1794,7 +1861,7 @@ static int dec_home_ontouch(void *ctr, struct element_touch_event *e)
     }
     return false;
 }
-REGISTER_UI_EVENT_HANDLER(FILE_BTN_HOME)
+REGISTER_UI_EVENT_HANDLER(FILE_BTN_HOME)//返回录像界面
 .ontouch = dec_home_ontouch,
 };
 
@@ -1810,7 +1877,7 @@ static int dec_photo_ontouch(void *ctr, struct element_touch_event *e)
     }
     return false;
 }
-REGISTER_UI_EVENT_HANDLER(FILE_BTN_PHOTO)
+REGISTER_UI_EVENT_HANDLER(FILE_BTN_PHOTO)//进入照片按钮
 .ontouch = dec_photo_ontouch,
 };
 
@@ -1889,7 +1956,7 @@ static int dec_delete_ontouch(void *ctr, struct element_touch_event *e)
     }
     return false;
 }
-REGISTER_UI_EVENT_HANDLER(FILE_BTN_DELETE)
+REGISTER_UI_EVENT_HANDLER(FILE_BTN_DELETE)//删除文件按钮
 .ontouch = dec_delete_ontouch,
 };
 
@@ -1923,7 +1990,7 @@ static int dec_video_ontouch(void *ctr, struct element_touch_event *e)
     }
     return false;
 }
-REGISTER_UI_EVENT_HANDLER(FILE_BTN_VIDEO)
+REGISTER_UI_EVENT_HANDLER(FILE_BTN_VIDEO)//进入录像界面按钮
 .ontouch = dec_video_ontouch,
 };
 
@@ -2190,38 +2257,42 @@ REGISTER_UI_EVENT_HANDLER(DEC_BTN_DELETE_DELETE)
 
 static int file_onchange(void *ctr, enum element_change_event e, void *arg)
 {
-    switch (e) {
-    case ON_CHANGE_FIRST_SHOW:
-        sys_key_event_takeover(true, false);
-        __this->onkey_mod = ONKEY_MOD_NORMAL;
-        __this->file_msg = FILE_MSG_NONE;
-        __this->dec_show_status = 0;
+    switch (e) {  // 根据不同的事件类型执行不同的操作
+    case ON_CHANGE_FIRST_SHOW:  // 窗口首次显示时触发的事件
+        sys_key_event_takeover(true, false);  // 接管按键事件，开始处理按键输入
+        __this->onkey_mod = ONKEY_MOD_NORMAL;  // 设置当前按键模式为普通模式
+        __this->file_msg = FILE_MSG_NONE;  // 重置文件消息
+        __this->dec_show_status = 0;  // 重置解码显示状态
         break;
-    case ON_CHANGE_SHOW_COMPLETED:
-        ui_core_element_on_focus(ui_core_get_element_by_id(FILE_WIN), true);
-        if (!storage_device_ready()) {
-            puts("no sd card!\n");
-            ui_hide(FILE_FORM_LAY);
+
+    case ON_CHANGE_SHOW_COMPLETED:  // 窗口显示完成时触发的事件
+        ui_core_element_on_focus(ui_core_get_element_by_id(FILE_WIN), true);  // 获取文件窗口元素并设置为聚焦状态
+        if (!storage_device_ready()) {  // 判断存储设备是否准备好（是否有 SD 卡）
+            puts("no sd card!\n");  // 如果没有 SD 卡，输出提示信息
+            ui_hide(FILE_FORM_LAY);  // 隐藏文件表单界面
         }
         break;
-    case ON_CHANGE_RELEASE:
-    case ON_CHANGE_HIDE:
-        if (__this->file_msg) {
-            if (__this->file_msg_timer) {
-                sys_timeout_del(__this->file_msg_timer);
-                __this->file_msg_timer = 0;
-                __this->file_timerout_msg = FILE_MSG_NONE;
+
+    case ON_CHANGE_RELEASE:  // 窗口释放时触发的事件
+    case ON_CHANGE_HIDE:  // 窗口隐藏时触发的事件
+        if (__this->file_msg) {  // 如果有文件消息
+            if (__this->file_msg_timer) {  // 如果定时器存在
+                sys_timeout_del(__this->file_msg_timer);  // 删除定时器
+                __this->file_msg_timer = 0;  // 重置定时器
+                __this->file_timerout_msg = FILE_MSG_NONE;  // 重置超时消息
             }
-            file_msg_hide(__this->file_msg);
+            file_msg_hide(__this->file_msg);  // 隐藏当前的文件消息
         }
-        ui_core_element_on_focus(ui_core_get_element_by_id(FILE_WIN), false);
+        ui_core_element_on_focus(ui_core_get_element_by_id(FILE_WIN), false);  // 取消文件窗口元素的聚焦状态
         break;
-    default:
+
+    default:  // 其他事件类型不处理
         return false;
     }
 
     return false;
 }
+
 static int file_onkey(void *ctr, struct element_key_event *e)
 {
     struct intent it;
@@ -2230,7 +2301,7 @@ static int file_onkey(void *ctr, struct element_key_event *e)
     FILE *fp;
     if (e->event == KEY_EVENT_LONG && e->value == KEY_POWER) {
         ui_hide(ui_get_current_window_id());
-        sys_key_event_takeover(false, true);
+        sys_key_event_takeover(false, true);           
         return true;
     }
 

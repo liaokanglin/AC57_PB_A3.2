@@ -476,7 +476,8 @@ static void adc_scan_process(void)
     // printf("ldo_vbg_scan.value = %d, ldoin_scan.value = %d, battery_scan.value = %d\n", ldo_vbg_scan.value, ldoin_scan.value, battery_scan.value);
 }
 
-
+// extern unsigned char camera_is_charging();
+// extern unsigned char usb_is_charging();
 static int get_battery_voltage()
 {
     static u16 in_val = 0;       // 电池输入电压的ADC值
@@ -527,7 +528,8 @@ static int get_battery_voltage()
     //  printf("%d : %d : %d \n", in_val, refer_val, val); 
     //  printf("%d ", battery_cnt_1); 
     //  printf("0x%x\n", val); 
-
+    // printf("Camera charging status: %d\n", camera_is_charging());
+    // printf("usb_is_charging status: %d\n", usb_is_charging());
     return val;  // 返回计算得到的电池电压值
 }
 
@@ -594,4 +596,9 @@ REGISTER_SYS_POWER_HAL_OPS(sys_power) = {
     .get_battery_voltage = get_battery_voltage, // 获取电池电压
     .charger_online = charger_online,      // 检查充电器是否连接
 };
+
+
+
+
+
 

@@ -660,10 +660,10 @@ const static u8 init_cmd_list[] = {
 
 REGISTER_MIPI_DEVICE_BEGIN(mipi_dev_t) = {
     .info = {
-        .xres 			= LCD_DEV_WIDTH,
-        .yres 			= LCD_DEV_HIGHT,
-        .target_xres 	 = LCD_DEV_WIDTH,
-        .target_yres 	 = LCD_DEV_HIGHT,
+        .xres 			= 1280,//LCD_DEV_WIDTH,
+        .yres 			= 800,//LCD_DEV_HIGHT,
+        .target_xres 	 = 1280,//LCD_DEV_WIDTH,
+        .target_yres 	 = 800,//LCD_DEV_HIGHT,
         .buf_addr 		= LCD_DEV_BUF,
         .buf_num 		= LCD_DEV_BNUM,
         .sample         = LCD_DEV_SAMPLE,
@@ -792,6 +792,7 @@ static void mipi_backlight_ctrl(void *_data, u8 on)
 }
 
 REGISTER_LCD_DEVICE_DRIVE(dev)  = {
+    .logo = "ek79030_v2",
     .type = LCD_MIPI,
     .dev  = &mipi_dev_t,
     .init = dsi_vdo_mipi_init,

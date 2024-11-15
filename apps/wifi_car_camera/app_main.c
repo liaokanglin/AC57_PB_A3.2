@@ -192,90 +192,113 @@ static void power_off_play_end(void *_ui)
 }
 #endif
 
-#ifdef MULTI_LCD_EN
+// #ifdef MULTI_LCD_EN
 extern int ui_platform_init();
-static void switch_lcd()
+int printfa()  {
+    printf("printfa\n");
+}
+ void switch_lcd()
 {
     struct intent it;
     struct application *app;
     static u8 sw = 0;
 
+    // 获取当前 LCD 设备句柄
     void *lcd_dev = lcd_get_cur_hdl();
+    //打印当前LCD设备句柄
+    printf("lcd_dev:%x\n",lcd_dev);
+    // 获取当前运行的应用程序
     app = get_current_app();
+
+    // 初始化 intent 结构体
     init_intent(&it);
+    printf("switch_lcd0\n");
+    // 如果有当前应用，进行返回操作
+    //打印当前app的name
+    printf("app name:%s\n",app->name); 
     if (app) {
         it.name = app->name;
         it.action = ACTION_BACK;
         start_app(&it);
     }
-
+    printf("switch_lcd1\n");
+    // 如果当前有 LCD 设备，关闭它
     if (lcd_dev) {
         dev_close(lcd_dev);
     }
 
+    // 根据 sw 的值选择不同的 LCD 设备
     if (sw == 0) {
-        lcd_dev = dev_open("lcd", "avout");
+        lcd_dev = dev_open("lcd", "avout");  // 打开 avout LCD 设备
     } else {
-        lcd_dev = dev_open("lcd", "ili8961");
+        lcd_dev = dev_open("lcd", "ek79030_v2");  // 打开 ili8961 LCD 设备
     }
+
+    // 切换 sw 的值
     sw = !sw;
 
+    // 初始化平台 UI
     ui_platform_init();
     if (app) {
-        it.name = app->name;  // 将传入的应用程序名称赋值给it结构体的name成员
-        // 根据应用程序名称设置相应的操作
+        it.name = app->name;
         if (!strcmp(app->name, "video_rec")) {
-            it.action = ACTION_VIDEO_REC_MAIN;  // 如果应用是视频录制，设置动作为视频录制主界面
-        } else if (!strcmp(app->name, "video_dec")) {
-            it.action = ACTION_VIDEO_DEC_MAIN;  // 如果应用是视频解码，设置动作为视频解码主界面
+            it.action = ACTION_VIDEO_REC_MAIN;
+        } 
+        else if (!strcmp(app->name, "video_dec")) {
+            it.action = ACTION_VIDEO_DEC_MAIN;
         } else if (!strcmp(app->name, "video_photo")) {
-            it.action = ACTION_PHOTO_TAKE_MAIN; // 如果应用是拍照，设置动作为拍照主界面
+            it.action = ACTION_PHOTO_TAKE_MAIN;
         }
-        start_app(&it);  // 启动指定的应用程序
+        start_app(&it);
     }
+    printf("switch_lcdowwwww\n");
 }
-#endif
+
+// #endif
 
 
 
 static int main_key_event_handler(struct key_event *key)
 {
+    printf("main_key_event_handlerqqqqqqqqqqqqqqqqqqqqqq\n");
     struct intent it;
     struct application *app;
 
     switch (key->event) {
     case KEY_EVENT_CLICK:
         switch (key->value) {
-#ifdef MULTI_LCD_EN
+// #ifdef MULTI_LCD_EN
         case KEY_F1:
+        printf("switch lcd\n");
             switch_lcd();/*双屏切换*/
+            printf("switch lcd2\n");
+        break;
+// #endif
+
+        case KEY_MODE:
+            init_intent(&it);
+            app = get_current_app();
+
+            if (app) {
+                if (!strcmp(app->name, "usb_app")) {
+                    break;
+                }
+                it.action = ACTION_BACK;
+                start_app(&it);
+
+                if (!strcmp(app->name, "video_rec")) {
+                    it.name = "video_photo";
+                    it.action = ACTION_PHOTO_TAKE_MAIN;
+                } else if (!strcmp(app->name, "video_photo")) {
+                    it.name = "video_dec";
+                    it.action = ACTION_VIDEO_DEC_MAIN;
+                } else if (!strcmp(app->name, "video_dec")) {
+                    it.name = "video_rec";
+                    it.action = ACTION_VIDEO_REC_MAIN;
+                }
+                start_app(&it);
+            }
             break;
-#endif
-
-        // case KEY_MODE:
-        //     init_intent(&it);
-        //     app = get_current_app();
-
-        //     if (app) {
-        //         if (!strcmp(app->name, "usb_app")) {
-        //             break;
-        //         }
-        //         it.action = ACTION_BACK;
-        //         start_app(&it);
-
-        //         if (!strcmp(app->name, "video_rec")) {
-        //             it.name = "video_photo";
-        //             it.action = ACTION_PHOTO_TAKE_MAIN;
-        //         } else if (!strcmp(app->name, "video_photo")) {
-        //             it.name = "video_dec";
-        //             it.action = ACTION_VIDEO_DEC_MAIN;
-        //         } else if (!strcmp(app->name, "video_dec")) {
-        //             it.name = "video_rec";
-        //             it.action = ACTION_VIDEO_REC_MAIN;
-        //         }
-        //         start_app(&it);
-        //     }
-        //     break;
         default:
             return false;
         }
@@ -371,17 +394,17 @@ static int main_dev_event_handler(struct sys_event *event)
                 start_app(&it);
             }
 #ifdef CONFIG_UI_STYLE_JL02_ENABLE
-            // else if (!app) { //主界面进入usb界面
-            //     union uireq req;
-            //     struct server *ui;
-            //     ui = server_open("ui_server", NULL);
-            //     req.hide.id = ID_WINDOW_MAIN_PAGE;
-            //     server_request(ui, UI_REQ_HIDE, &req); /* 隐藏主界面ui */
+            else if (!app) { //主界面进入usb界面
+                union uireq req;
+                struct server *ui;
+                ui = server_open("ui_server", NULL);
+                //req.hide.id = ID_WINDOW_MAIN_PAGE;
+                //server_request(ui, UI_REQ_HIDE, &req); /* 隐藏主界面ui */
 
-            //     it.name = "usb_app";
-            //     it.action = ACTION_USB_SLAVE_MAIN;
-            //     start_app(&it);
-            // }
+                it.name = "usb_app";
+                it.action = ACTION_USB_SLAVE_MAIN;
+                start_app(&it);
+            }
 #endif
 #ifdef CONFIG_PARK_ENABLE
             if (get_parking_status()) {
@@ -573,26 +596,33 @@ static int main_net_event_hander(struct sys_event *event)
  */
 void app_default_event_handler(struct sys_event *event)
 {
+
+    // 根据事件类型进行处理
     switch (event->type) {
-    case SYS_KEY_EVENT:
-        main_key_event_handler(&event->u.key);
+    case SYS_KEY_EVENT:  // 键盘事件
+        main_key_event_handler(&event->u.key);  // 处理键盘事件
         break;
-    case SYS_TOUCH_EVENT:
+
+    case SYS_TOUCH_EVENT:  // 触摸事件
+        // 目前不处理触摸事件，但可以在此扩展处理逻辑
         break;
-    case SYS_DEVICE_EVENT:
-        main_dev_event_handler(event);
+
+    case SYS_DEVICE_EVENT:  // 设备事件
+        main_dev_event_handler(event);  // 处理设备事件
         break;
-#if (APP_CASE == __WIFI_CAR_CAMERA__)
-    case SYS_NET_EVENT:
-        main_net_event_hander(event);
+
+#if (APP_CASE == __WIFI_CAR_CAMERA__)  // 如果定义了 __WIFI_CAR_CAMERA__，则处理网络事件
+    case SYS_NET_EVENT:  // 网络事件
+        main_net_event_hander(event);  // 处理网络事件
         break;
 #endif
 
     default:
-        ASSERT(0, "unknow event type: %s\n", __func__);
+        ASSERT(0, "unknow event type: %s\n", __func__);  // 未知事件类型，触发断言
         break;
     }
 }
+
 
 #ifdef RTOS_STACK_CHECK_ENABLE
 static void rtos_stack_check_func(void *p)
@@ -798,7 +828,13 @@ void scanning_ahd_signal()
 {
     video1_state=valid_vin1_signal();
     video2_state=valid_vin2_signal();
-//    printf(">>video1_state=%d\n",video1_state);
+    // printf("video1_state=%d\n video2_state=%d\n",get_video1_state(),get_video2_state());
+    // if(get_video1_state() == 0 && get_video2_state() == 0){ //如果视频都没有打开，则进入视频播放模式
+    //     db_update("sxt",1);
+    //     db_flush();
+    // }
+//     printf(">>video1_state=%d\n",video1_state);
+//    printf(">>video2_state=%d\n",video2_state);
 }
 const char *repair_path[4][3] = {
     { CONFIG_REC_PATH_0, "-tMOVAVI -st" ,"-tMOVAVI -sn" },
@@ -891,6 +927,7 @@ static void sys_file_video_repair_user(u8 mode)//0:时间排序  1:序号排序
 extern int spec_uart_test_main(void);
 /* #define DAC_TEST_ENABLE */
 /* #define ADC_TEST_ENABLE */
+extern avout_is_charging();
 extern void change_camera_config();
 extern void camera_display_init();
 void app_main()
@@ -902,7 +939,7 @@ void app_main()
     /* LDO_CON &=~(0xFF << 4); */
     /* LDO_CON |= BIT(4) | BIT(8) | (1 << 5) | (2 << 9); */
     /* delay(10000); */
-
+    // change_camera_config(db_select("sxt"));
     sys_power_low_voltage_shutdown(755, 0);  // 调用系统电压检测功能，参数 380 表示最低允许电压为 3.8V，0 表示立即关机
     // // 检查电源键是否被按下
     // if (!read_power_key()) {
@@ -912,11 +949,22 @@ void app_main()
     // }
     printf("app_main\n");             // 打印 "app_main" 字符串，调试信息
     printf("%s %s-%s\n", __FUNCTION__, __DATE__, __TIME__);  // 打印当前函数名称、编译日期和时间
-#ifdef MULTI_LCD_EN
+    
+
+
+
+// #ifdef MULTI_LCD_EN
+#if 1
     void *lcd_dev = dev_open("lcd", "ek79030_v2");
-    /* void *lcd_dev = dev_open("lcd", "lcd_480x272_8bits"); */
-    lcd_set_cur_hdl(lcd_dev);
+#else
+    void *lcd_dev = dev_open("lcd", "lcd_avout");
 #endif
+    if (lcd_dev==NULL) {
+        puts("lcd_dev == NULL");
+    }
+    lcd_set_cur_hdl(lcd_dev);
+    /* void *lcd_dev = dev_open("lcd", "lcd_480x272_8bits"); */
+// #endif
 #ifdef DISP_TEST
     /* lcd_disp_test(); */
     /* imb_layer_disp(); */
@@ -1126,10 +1174,13 @@ void app_main()
     //extern void peripheral_verify_fun();
     //peripheral_verify_fun();
     /* dv17_dac_test(); */
-    // change_camera_config(db_select("sxt"));
+
 
     db_update("aro", 0);
     db_flush();
+    db_update("wfo",1);
+    db_flush();
+    
         // u32 *flag = imd_dmm_get_update_flags();
         // *flag |= BIT(SET_Y_GAIN);
         // printf("Flag pointer value: %p\n", (void *)flag); // 打印指针地址

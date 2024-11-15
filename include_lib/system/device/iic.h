@@ -9,19 +9,19 @@
 
 
 
-#define IIC_IOCTL_TX_START_BIT 				_IOW('I', 0,  0)
-#define IIC_IOCTL_TX_WITH_START_BIT 		_IOW('I', 1,  1)
-#define IIC_IOCTL_TX_STOP_BIT 				_IOW('I', 2,  1)
-#define IIC_IOCTL_TX 						_IOW('I', 3,  8)
-#define IIC_IOCTL_TX_WITH_STOP_BIT 			_IOW('I', 4,  9)
-#define IIC_IOCTL_RX 						_IOR('I', 5,  8)
-#define IIC_IOCTL_RX_WITH_STOP_BIT 			_IOR('I', 6,  9)
-#define IIC_IOCTL_RX_WITH_NOACK 			_IOR('I', 7,  9)
-#define IIC_IOCTL_RX_WITH_ACK 				_IOR('I', 8,  9)
-#define IIC_IOCTL_SET_NORMAT_RATE 			_IOW('I', 9,  0)
+#define IIC_IOCTL_TX_START_BIT 				_IOW('I', 0,  0)  // 发送带起始位的I2C传输命令
+#define IIC_IOCTL_TX_WITH_START_BIT 		_IOW('I', 1,  1)  // 发送带起始位的I2C写命令
+#define IIC_IOCTL_TX_STOP_BIT 				_IOW('I', 2,  1)  // 发送停止位的I2C写命令
+#define IIC_IOCTL_TX 						_IOW('I', 3,  8)  // 发送一个字节的数据到I2C设备
+#define IIC_IOCTL_TX_WITH_STOP_BIT 			_IOW('I', 4,  9)  // 发送带停止位的I2C写命令
+#define IIC_IOCTL_RX 						_IOR('I', 5,  8)  // 从I2C设备读取一个字节的数据
+#define IIC_IOCTL_RX_WITH_STOP_BIT 			_IOR('I', 6,  9)  // 从I2C设备读取数据并包含停止位
+#define IIC_IOCTL_RX_WITH_NOACK 			_IOR('I', 7,  9)  // 从I2C设备读取数据并不发送ACK
+#define IIC_IOCTL_RX_WITH_ACK 				_IOR('I', 8,  9)  // 从I2C设备读取数据并要求ACK确认
+#define IIC_IOCTL_SET_NORMAT_RATE 			_IOW('I', 9,  0)  // 设置I2C设备的正常传输速率
+#define IIC_IOCTL_START 					_IOW('I', 10,  0)  // 启动I2C通信
+#define IIC_IOCTL_STOP 						_IOW('I', 11,  0)  // 停止I2C通信
 
-#define IIC_IOCTL_START 					_IOW('I', 10,  0)
-#define IIC_IOCTL_STOP 						_IOW('I', 11,  0)
 
 
 struct iic_device;

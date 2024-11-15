@@ -9,7 +9,7 @@
 #define tp2865_1080P
 static u8 tp2865_res=3;
 static u8 avin_fps();
-
+extern unsigned char camera_is_charging();
 static u32 reset_gpio[5] = {-1, -1};
 
 //0xB8
@@ -31,76 +31,90 @@ typedef struct {
 
 void wrtp2865KReg(u16 regID, u16 regDat)
 {
-    u8 ret = 1;
+    u8 ret = 1;  // 默认设置返回值为1，表示成功，若发生错误则改为0
 
+    // 开始I2C通信
     dev_ioctl(iic, IIC_IOCTL_START, 0);
 
+    // 发送写命令（WRCMD），并检查是否成功
     if (dev_ioctl(iic, IIC_IOCTL_TX_WITH_START_BIT, WRCMD)) {
-        ret = 0;
-        goto __wend;
+        ret = 0;  // 如果发送失败，将ret设置为0，表示发生错误
+        goto __wend;  // 跳转到错误处理部分
     }
 
+    // 延时50ms，给设备一定时间来处理命令
     delay(50);
 
+    // 发送寄存器ID（regID）
     if (dev_ioctl(iic, IIC_IOCTL_TX, regID)) {
-        ret = 0;
-        goto __wend;
+        ret = 0;  // 如果发送失败，将ret设置为0，表示发生错误
+        goto __wend;  // 跳转到错误处理部分
     }
 
+    // 延时50ms，给设备时间来处理寄存器ID
     delay(50);
 
+    // 发送寄存器数据（regDat）
     if (dev_ioctl(iic, IIC_IOCTL_TX_WITH_STOP_BIT, regDat)) {
-        ret = 0;
-        goto __wend;
+        ret = 0;  // 如果发送失败，将ret设置为0，表示发生错误
+        goto __wend;  // 跳转到错误处理部分
     }
 
 __wend:
+    // 如果发生错误，打印错误信息
     if (ret == 0) {
         log_e("iic w err!!!\n");
     }
 
+    // 停止I2C通信
     dev_ioctl(iic, IIC_IOCTL_STOP, 0);
-    /* return ret; */
+    /* return ret;  // 如果需要返回ret值，可以取消注释这行 */
 }
+
 
 unsigned char rdtp2865KReg(u16 regID, unsigned char *regDat)
 {
-    u8 ret = 1;
+    u8 ret = 1;  // 初始化返回值为1，表示默认成功
 
-    dev_ioctl(iic, IIC_IOCTL_START, 0);
+    dev_ioctl(iic, IIC_IOCTL_START, 0);  // 启动I2C通信
 
+    // 发送带起始位的写命令
     if (dev_ioctl(iic, IIC_IOCTL_TX_WITH_START_BIT, WRCMD)) {
-        ret = 0;
-        goto __rend;
+        ret = 0;  // 如果写命令失败，设置返回值为0
+        goto __rend;  // 跳转到错误处理代码
     }
 
-    delay(50);
+    delay(50);  // 等待50ms
 
+    // 发送寄存器ID
     if (dev_ioctl(iic, IIC_IOCTL_TX_WITH_STOP_BIT, regID)) {
-        ret = 0;
-        goto __rend;
+        ret = 0;  // 如果发送寄存器ID失败，设置返回值为0
+        goto __rend;  // 跳转到错误处理代码
     }
 
-    delay(50);
+    delay(50);  // 等待50ms
 
-
+    // 发送带起始位的读取命令
     if (dev_ioctl(iic, IIC_IOCTL_TX_WITH_START_BIT, RDCMD)) {
-        ret = 0;
-        goto __rend;
+        ret = 0;  // 如果发送读取命令失败，设置返回值为0
+        goto __rend;  // 跳转到错误处理代码
     }
 
-    delay(50);
+    delay(50);  // 等待50ms
 
-    dev_ioctl(iic, IIC_IOCTL_RX_WITH_STOP_BIT, (u32)regDat);
+    // 读取数据并存入regDat指向的内存
+    dev_ioctl(iic, IIC_IOCTL_RX_WITH_STOP_BIT, (u32)regDat);  // 从I2C设备读取数据到寄存器
 
 __rend:
-    if (ret == 0) {
-        log_e("iic r err!!!\n");
+    if (ret == 0) {  // 如果发生错误
+        log_e("iic r err!!!\n");  // 打印错误信息
     }
 
-    dev_ioctl(iic, IIC_IOCTL_STOP, 0);
-    return ret;
+    dev_ioctl(iic, IIC_IOCTL_STOP, 0);  // 停止I2C通信
+
+    return ret;  // 返回操作结果，0表示失败，1表示成功
 }
+
 extern void delay_2ms(int cnt);
 #define delay2ms(t) delay_2ms(t)
 void tp2865_reset(u8 isp_dev)
@@ -166,16 +180,17 @@ s32 tp2865_check(u8 isp_dev, u32 _reset_gpio, u32 _power_gpio)
 {
     log_i("\n========p2865 check %d\n", isp_dev);
 
-    if (isp_dev == ISP_DEV_0) {
-        log_i("a0\n");
-        return -1;
+    if (isp_dev == ISP_DEV_0) {  // 如果当前ISP设备为ISP_DEV_0
+    log_i("a0\n");  // 打印日志 "a0"
+    return -1;  // 返回-1，表示错误或特殊情况
     }
 
-    if(cur_sensor_type != 0xff){
-        if((isp_dev == ISP_DEV_1) || (isp_dev == ISP_DEV_2)){
-            return 0;
+    if(cur_sensor_type != 0xff){  // 如果当前传感器类型不等于0xff
+        if((isp_dev == ISP_DEV_1) || (isp_dev == ISP_DEV_2)){  // 如果ISP设备是ISP_DEV_1或ISP_DEV_2
+            return 0;  // 返回0，表示操作成功或者继续执行
         }
     }
+
 
     /* if (isp_dev == ISP_DEV_1) { */
     /* return -1; */
@@ -292,29 +307,28 @@ void tp2865_bwhite_color_switch(u8 channel,u8 enable)//channel:0:port1数据   1
 s32 tp2865_set_output_size(u16 *width, u16 *height, u8 *freq)
 {
     /*
-        if (avin_fps()) {
-            *freq = 25;
-            g_pn_status = tp2865K_PSTA;
+        if (avin_fps()) {  // 检查输入的帧率，如果有帧率信息
+            *freq = 25;  // 设置频率为25
+            g_pn_status = tp2865K_PSTA;  // 设置状态为tp2865K_PSTA
         } else {
-            *freq = 30;
-            g_pn_status = tp2865K_NSTA;
+            *freq = 30;  // 如果没有帧率信息，设置频率为30
+            g_pn_status = tp2865K_NSTA;  // 设置状态为tp2865K_NSTA
         }
     */
 
-    if(db_select("reg")==1){
-        *freq = 25;
-        *width = 1280;
-        *height = 720;
-    }else{
-        *freq = 25;
-        *width = 1920;
-        *height = 1080;
+    if(db_select("reg")==1) {  // 如果数据库中“reg”值为1
+        *freq = 25;  // 设置频率为25
+        *width = 1280;  // 设置宽度为1280
+        *height = 720;  // 设置高度为720
+    } else {  // 如果数据库中“reg”值不是1（即为0）
+        *freq = 25;  // 设置频率为25
+        *width = 1920;  // 设置宽度为1920
+        *height = 1080;  // 设置高度为1080
     }
 
-
-
-    return 0;
+    return 0;  // 返回0，表示操作成功
 }
+
 
 static u8 avin_valid_signal()
 {
@@ -324,45 +338,53 @@ static u8 avin_valid_signal()
 
 #if 0//def tp2865_1080P
     /* wrtp2865KReg(0xff, 0x00); */
-    for (j = 0; j < 3; j++) {
-        rdtp2865KReg(0x01, &LockStatus);
-        rdtp2865KReg(0x03, &DetVideo);
+    for (j = 0; j < 3; j++) {  // 循环3次进行视频信号检测
+        rdtp2865KReg(0x01, &LockStatus);  // 读取寄存器0x01的状态到LockStatus
+        rdtp2865KReg(0x03, &DetVideo);   // 读取寄存器0x03的状态到DetVideo
 
-        printf("\n DetVideo====%x, LockStatus====%x\n ", DetVideo, LockStatus);
+        printf("\n DetVideo====%x, LockStatus====%x\n ", DetVideo, LockStatus); // 打印读取到的信号状态
+
+        // 检查LockStatus的第3位是否为1，且DetVideo的低三位是否为0x07
+        // 这表明视频信号锁定正常并且视频类型有效
         if ((LockStatus & BIT(3)) && (DetVideo & 0x07) != 0x07) {
-            return 1;
+            return 1;  // 如果不满足条件，返回1，表示信号无效
         }
-        delay2ms(5);
+        delay2ms(5);  // 延时5毫秒，等待信号稳定
     }
-    return 0;
+    return 0;  // 如果经过3次检查后条件仍然不满足，则返回0，表示信号无效
 #endif
 
 
 #if 1//def tp2865_720P
-    wrtp2865KReg(0x40, 0x00);
-    for (j = 0; j < 3; j++) {
-        rdtp2865KReg(0x01, &LockStatus);
-        rdtp2865KReg(0x03, &DetVideo);
+    wrtp2865KReg(0x40, 0x00);  // 向寄存器0x40写入0x00，配置设备为720P模式
+    for (j = 0; j < 3; j++) {  // 循环3次，尝试读取设备状态
+        rdtp2865KReg(0x01, &LockStatus);  // 读取寄存器0x01的状态到LockStatus
+        rdtp2865KReg(0x03, &DetVideo);   // 读取寄存器0x03的状态到DetVideo
 
-        printf("\n DetVideo====%x, LockStatus====%x\n ", DetVideo, LockStatus);
+        printf("\n DetVideo====%x, LockStatus====%x\n ", DetVideo, LockStatus);  // 打印读取到的信号状态
+
+        // 检查DetVideo的低三位是否为0x07，表示视频信号锁定且有效
         if ((DetVideo & 0x07) != 0x07) {
-            return 1;
+            return 1;  // 如果低三位不等于0x07，表示信号无效，返回1
         }
-        delay2ms(5);
+        delay2ms(5);  // 延时5毫秒，等待信号稳定
     }
-    return 0;
+    return 0;  // 如果3次检查后仍未满足条件，返回0，表示信号无效
 
-    wrtp2865KReg(0x40, 0x00);
-    for (j = 0; j < 3; j++) {
-        rdtp2865KReg(0x01, &LockStatus);
+    // 向寄存器0x40写入0x00进行设备初始化
+    wrtp2865KReg(0x40, 0x00);  // 配置寄存器
+    for (j = 0; j < 3; j++) {  // 循环检查3次
+        rdtp2865KReg(0x01, &LockStatus);  // 读取锁定状态
+        // 检查LockStatus的第6位和第5位是否都为1
         if ((LockStatus & 0x60) == 0X60) {
-            return 1;
+            return 1;  // 如果锁定状态符合预期，返回1，表示信号有效
         }
-        os_time_dly(20);
+        os_time_dly(20);  // 延时20毫秒，等待设备响应
     }
-    return 0;
+    return 0;  // 如果3次检查后仍未满足条件，返回0，表示信号无效
 #endif
 }
+
 
 static int wait_signal_valid()
 {
@@ -771,40 +793,48 @@ const tp2865_init_regs_t HDA_1080_REG_INIT[] = {
 
 void tp2865_dump_iic_read()
 {
-    u16 i = 0;
-    u8 page = 0;
-    u8 status = 0;
+    u16 i = 0;      // 循环计数器，遍历寄存器地址
+    u8 page = 0;    // 当前的页码
+    u8 status = 0;  // 存储读取的寄存器值
 
-    page = 0;
-    wrtp2865KReg(0x40, page);
-    printf("\n\n>>>>>>>>>>>>>>>page %d\n",page);
-    for(i=0;i<=0xff;i++){
-        rdtp2865KReg(i, &status);
-        printf("0x%02X read: 0x%02X\n",i,status);
+    page = 0;  // 设置初始页码为 0
+    wrtp2865KReg(0x40, page);  // 向寄存器 0x40 写入当前页码
+    printf("\n\n>>>>>>>>>>>>>>>page %d\n", page);  // 打印当前页码
+
+    // 读取并打印当前页的所有寄存器值
+    for(i = 0; i <= 0xff; i++) {  // 遍历所有 0x00 到 0xFF 的寄存器地址
+        rdtp2865KReg(i, &status);  // 读取寄存器 i 的值到 status 中
+        printf("0x%02X read: 0x%02X\n", i, status);  // 打印寄存器地址和对应的值
     }
 
-    page = 1;
-    wrtp2865KReg(0x40, page);
-    printf("\n\n>>>>>>>>>>>>>>>page %d\n",page);
-    for(i=0;i<=0xff;i++){
-        rdtp2865KReg(i, &status);
-        printf("0x%02X read: 0x%02X\n",i,status);
+    page = 1;  // 设置页码为 1
+    wrtp2865KReg(0x40, page);  // 向寄存器 0x40 写入页码 1
+    printf("\n\n>>>>>>>>>>>>>>>page %d\n", page);  // 打印当前页码
+
+    // 读取并打印当前页的所有寄存器值
+    for(i = 0; i <= 0xff; i++) {
+        rdtp2865KReg(i, &status);  // 读取寄存器 i 的值到 status 中
+        printf("0x%02X read: 0x%02X\n", i, status);  // 打印寄存器地址和对应的值
     }
 
-    page = 4;
-    wrtp2865KReg(0x40, page);
-    printf("\n\n>>>>>>>>>>>>>>>page %d\n",page);
-    for(i=0;i<=0xff;i++){
-        rdtp2865KReg(i, &status);
-        printf("0x%02X read: 0x%02X\n",i,status);
+    page = 4;  // 设置页码为 4
+    wrtp2865KReg(0x40, page);  // 向寄存器 0x40 写入页码 4
+    printf("\n\n>>>>>>>>>>>>>>>page %d\n", page);  // 打印当前页码
+
+    // 读取并打印当前页的所有寄存器值
+    for(i = 0; i <= 0xff; i++) {
+        rdtp2865KReg(i, &status);  // 读取寄存器 i 的值到 status 中
+        printf("0x%02X read: 0x%02X\n", i, status);  // 打印寄存器地址和对应的值
     }
 
-    page = 8;
-    wrtp2865KReg(0x40, page);
-    printf("\n\n>>>>>>>>>>>>>>>page %d\n",page);
-    for(i=0;i<=0xff;i++){
-        rdtp2865KReg(i, &status);
-        printf("0x%02X read: 0x%02X\n",i,status);
+    page = 8;  // 设置页码为 8
+    wrtp2865KReg(0x40, page);  // 向寄存器 0x40 写入页码 8
+    printf("\n\n>>>>>>>>>>>>>>>page %d\n", page);  // 打印当前页码
+
+    // 读取并打印当前页的所有寄存器值
+    for(i = 0; i <= 0xff; i++) {
+        rdtp2865KReg(i, &status);  // 读取寄存器 i 的值到 status 中
+        printf("0x%02X read: 0x%02X\n", i, status);  // 打印寄存器地址和对应的值
     }
 }
 
@@ -812,52 +842,56 @@ void tp2865_dump_iic_read()
 void tp2865_dump_timeout(void *priv)
 {
     int flag = 0;
-    static u8 cnt = 0;
-    static u32 num = 0;
+    static u8 cnt = 0;  // 计数器，用于切换操作
+    static u32 num = 0; // 计数器，用于超时计数
 
-    flag = (int)priv;
-    if (flag) {
-        tp2865_dump_iic_read();
-        return;
+    flag = (int)priv;  // 获取传入的标志参数
+    if (flag) {  // 如果 flag 为非零，表示需要进行 I2C 数据读取
+        tp2865_dump_iic_read();  // 调用函数进行 I2C 数据读取
+        return;  // 读取后返回
     }
 
-    num++;
+    num++;  // 每次函数调用，超时计数增加
 
-    printf("==========tp2865_dump_timeout : %d , %d\n", cnt, num);
+    printf("==========tp2865_dump_timeout : %d , %d\n", cnt, num);  // 输出当前的 cnt 和 num 值
 
+    // 每隔21次超时，进行切换摄像头操作
     if ((num % 21) != 20) {
-        return;
+        return;  // 如果没有达到21次，直接返回，不进行摄像头切换
     }
 
-    puts(">>>>>>>>>>>>switch camram\n");
+    puts(">>>>>>>>>>>>switch camram\n");  // 输出切换摄像头的提示信息
 
-    wrtp2865KReg(0x40, 0x04);
-    if (cnt == 0) {
-        cnt = 1;
-        wrtp2865KReg(0xf6, 0x11);
-        printf("0x%02X write : 0x%02X\n", 0xf6, 0x11);
-        wrtp2865KReg(0xf7, 0x00);
-        printf("0x%02X write : 0x%02X\n", 0xf7, 0x00);
-    } else if (cnt == 1) {
-        cnt = 2;
-        wrtp2865KReg(0xf6, 0x11);
-        printf("0x%02X write : 0x%02X\n", 0xf6, 0x11);
-        wrtp2865KReg(0xf7, 0x11);
-        printf("0x%02X write : 0x%02X\n", 0xf7, 0x11);
-    } else if (cnt == 2) {
-        cnt = 3;
-        wrtp2865KReg(0xf6, 0x00);
-        printf("0x%02X write : 0x%02X\n", 0xf6, 0x00);
-        wrtp2865KReg(0xf7, 0x00);
-        printf("0x%02X write : 0x%02X\n", 0xf7, 0x00);
-    } else if (cnt == 3) {
-        cnt = 0;
-        wrtp2865KReg(0xf6, 0x00);
-        printf("0x%02X write : 0x%02X\n", 0xf6, 0x00);
-        wrtp2865KReg(0xf7, 0x11);
-        printf("0x%02X write : 0x%02X\n", 0xf7, 0x11);
+    wrtp2865KReg(0x40, 0x04);  // 向寄存器0x40写入0x04，可能用于切换操作
+
+    // 根据 cnt 的值来控制不同的操作，循环切换不同的配置
+    if (cnt == 0) {  // 当 cnt 为 0 时，进行第一次配置
+        cnt = 1;  // 更新 cnt 为 1
+        wrtp2865KReg(0xf6, 0x11);  // 向寄存器 0xf6 写入 0x11
+        printf("0x%02X write : 0x%02X\n", 0xf6, 0x11);  // 输出写入操作的寄存器和数据
+        wrtp2865KReg(0xf7, 0x00);  // 向寄存器 0xf7 写入 0x00
+        printf("0x%02X write : 0x%02X\n", 0xf7, 0x00);  // 输出写入操作的寄存器和数据
+    } else if (cnt == 1) {  // 当 cnt 为 1 时，进行第二次配置
+        cnt = 2;  // 更新 cnt 为 2
+        wrtp2865KReg(0xf6, 0x11);  // 向寄存器 0xf6 写入 0x11
+        printf("0x%02X write : 0x%02X\n", 0xf6, 0x11);  // 输出写入操作的寄存器和数据
+        wrtp2865KReg(0xf7, 0x11);  // 向寄存器 0xf7 写入 0x11
+        printf("0x%02X write : 0x%02X\n", 0xf7, 0x11);  // 输出写入操作的寄存器和数据
+    } else if (cnt == 2) {  // 当 cnt 为 2 时，进行第三次配置
+        cnt = 3;  // 更新 cnt 为 3
+        wrtp2865KReg(0xf6, 0x00);  // 向寄存器 0xf6 写入 0x00
+        printf("0x%02X write : 0x%02X\n", 0xf6, 0x00);  // 输出写入操作的寄存器和数据
+        wrtp2865KReg(0xf7, 0x00);  // 向寄存器 0xf7 写入 0x00
+        printf("0x%02X write : 0x%02X\n", 0xf7, 0x00);  // 输出写入操作的寄存器和数据
+    } else if (cnt == 3) {  // 当 cnt 为 3 时，进行第四次配置
+        cnt = 0;  // 更新 cnt 为 0，重新开始
+        wrtp2865KReg(0xf6, 0x00);  // 向寄存器 0xf6 写入 0x00
+        printf("0x%02X write : 0x%02X\n", 0xf6, 0x00);  // 输出写入操作的寄存器和数据
+        wrtp2865KReg(0xf7, 0x11);  // 向寄存器 0xf7 写入 0x11
+        printf("0x%02X write : 0x%02X\n", 0xf7, 0x11);  // 输出写入操作的寄存器和数据
     }
 }
+
 
 
 
@@ -901,62 +935,94 @@ u8 valid_vin1_signal()
     u8 DetVideo;
     u8 LockStatus;
 
+    // 设置TP2865K寄存器，可能是初始化配置或清除某个状态
     wrtp2865KReg(0x40, 0x00);
+
+    // 重复检测视频信号10次
     for (j = 0; j < 10; j++) {
+        // 读取锁定状态寄存器，LockStatus表示当前信号是否锁定
         rdtp2865KReg(0x01, &LockStatus);
+        // 读取检测到的视频信号状态寄存器，DetVideo表示当前视频信号的检测状态
         rdtp2865KReg(0x03, &DetVideo);
 
-//        printf("\n DetVideo====%x, LockStatus====%x\n ", DetVideo, LockStatus);
-        if(DetVideo==0x0b&&tp2865_res==1){
-            db_update("reg",0);
-            db_flush();
-            os_time_dly(2);
-//            cpu_reset();
-        }else if(DetVideo==0x0d&&tp2865_res==0){
-            db_update("reg",1);
-            db_flush();
-            os_time_dly(2);
-//            cpu_reset();
+        // 调试输出：打印DetVideo和LockStatus的值
+        // printf("\n DetVideo====%x, LockStatus====%x\n ", DetVideo, LockStatus);
+        
+        // 如果检测到的视频信号为0x0b，且tp2865_res为1，则进行数据库更新并延时2秒
+        if(DetVideo == 0x0b && tp2865_res == 1 && db_select("sxt") != 1){
+            db_update("reg", 0);  // 更新数据库中的"reg"值为0
+            db_flush();  // 将更新的数据写入数据库
+            os_time_dly(2);  // 延时2秒，可能是等待硬件反应
+            cpu_reset();  // 重置CPU（注释掉的代码）
         }
-        if ((DetVideo & 0x07) != 0x07) {
+        // 如果检测到的视频信号为0x0d，且tp2865_res为0，则进行数据库更新并延时2秒
+        else if(DetVideo == 0x0d && tp2865_res == 0 && db_select("sxt") != 1){
+            db_update("reg", 1);  // 更新数据库中的"reg"值为1
+            db_flush();  // 将更新的数据写入数据库
+            os_time_dly(2);  // 延时2秒，可能是等待硬件反应
+            cpu_reset();  // 重置CPU（注释掉的代码）
+        }
+
+        // 如果DetVideo的低3位不是0x07，表示信号不正常，返回1表示无效信号
+        if ((DetVideo & 0x07) != 0x07 ) {
             return 1;
         }
+
+        // 延时5毫秒，防止快速重复读取
         delay2ms(5);
     }
-    return 0;
 
+    // 如果通过了10次检测，表示信号有效，返回0
+    return 0;
 }
+
 u8 valid_vin2_signal()
 {
     u8 j;
     u8 DetVideo;
     u8 LockStatus;
 
+    // 设置TP2865K寄存器，可能是初始化配置或清除某个状态
     wrtp2865KReg(0x40, 0x01);
+
+    // 重复检测视频信号10次
     for (j = 0; j < 10; j++) {
+        // 读取锁定状态寄存器，LockStatus表示当前信号是否锁定
         rdtp2865KReg(0x01, &LockStatus);
+        // 读取检测到的视频信号状态寄存器，DetVideo表示当前视频信号的检测状态
         rdtp2865KReg(0x03, &DetVideo);
 
-//        printf("\n DetVideo2====%x, LockStatus2====%x\n ", DetVideo, LockStatus);
-        if(DetVideo==0x0b&&tp2865_res==1){
-            db_update("reg",0);
-            db_flush();
-            os_time_dly(2);
-//            cpu_reset();
-        }else if(DetVideo==0x0d&&tp2865_res==0){
-            db_update("reg",1);
-            db_flush();
-            os_time_dly(2);
-//            cpu_reset();
-        }
-        if ((DetVideo & 0x07) != 0x07) {
+        // 调试输出：打印DetVideo和LockStatus的值
+        // printf("\n DetVideo2====%x, LockStatus2====%x\n ", DetVideo, LockStatus);
+
+        // 如果检测到的视频信号为0x0b，且tp2865_res为1，则进行数据库更新并延时2秒
+        // if(DetVideo == 0x0b && tp2865_res == 1 && camera_is_charging() == 1){
+        //     db_update("reg", 0);  // 更新数据库中的"reg"值为0
+        //     db_flush();  // 将更新的数据写入数据库
+        //     os_time_dly(2);  // 延时2秒，可能是等待硬件反应
+        //     cpu_reset();  // 重置CPU（注释掉的代码）
+        // }
+        // // 如果检测到的视频信号为0x0d，且tp2865_res为0，则进行数据库更新并延时2秒
+        // else if(DetVideo == 0x0d && tp2865_res == 0 && camera_is_charging() == 1){
+        //     db_update("reg", 1);  // 更新数据库中的"reg"值为1
+        //     db_flush();  // 将更新的数据写入数据库
+        //     os_time_dly(2);  // 延时2秒，可能是等待硬件反应
+        //     cpu_reset();  // 重置CPU（注释掉的代码）
+        // }
+
+        // 如果DetVideo的低3位不是0x07，表示信号不正常，返回1表示无效信号
+        if ((DetVideo & 0x07) != 0x07 && camera_is_charging() == 0) {
             return 1;
         }
+
+        // 延时5毫秒，防止快速重复读取
         delay2ms(5);
     }
-    return 0;
 
+    // 如果通过了10次检测，表示信号有效，返回0
+    return 0;
 }
+
 s32 tp2865_initialize(u8 isp_dev, u16 *width, u16 *height, u8 *format, u8 *frame_freq)
 {
     puts("\ntp2865_init \n");
@@ -977,30 +1043,30 @@ s32 tp2865_initialize(u8 isp_dev, u16 *width, u16 *height, u8 *format, u8 *frame
 
 void tp2865_init()
 {
-
     u8 v = 0;
-    puts("\ntp2865_init========================== \n");
-    tp2865_res=db_select("reg");
-    if(tp2865_res==1){
-        for (int i = 0; i < sizeof(HDA_720_REG_INIT) / sizeof(tp2865_init_regs_t); i++) {
-            wrtp2865KReg(HDA_720_REG_INIT[i].addr, HDA_720_REG_INIT[i].value);
+    puts("\ntp2865_init========================== \n");  // 输出初始化提示信息
+
+    tp2865_res = db_select("reg");  // 从数据库中读取配置值（1 或 0），决定使用哪一组初始化寄存器
+    if (tp2865_res == 1) {  // 如果tp2865_res为1，使用720P配置
+        for (int i = 0; i < sizeof(HDA_720_REG_INIT) / sizeof(tp2865_init_regs_t); i++) {  // 遍历HDA_720_REG_INIT数组
+            wrtp2865KReg(HDA_720_REG_INIT[i].addr, HDA_720_REG_INIT[i].value);  // 通过I2C写入每个寄存器的值
         }
-    }else {
-        for (int i = 0; i < sizeof(HDA_1080_REG_INIT) / sizeof(tp2865_init_regs_t); i++) {
-            wrtp2865KReg(HDA_1080_REG_INIT[i].addr, HDA_1080_REG_INIT[i].value);
+    } else {  // 如果tp2865_res不为1，使用1080P配置
+        for (int i = 0; i < sizeof(HDA_1080_REG_INIT) / sizeof(tp2865_init_regs_t); i++) {  // 遍历HDA_1080_REG_INIT数组
+            wrtp2865KReg(HDA_1080_REG_INIT[i].addr, HDA_1080_REG_INIT[i].value);  // 通过I2C写入每个寄存器的值
         }
     }
 
-
-//     for (int ii = 0;ii < sizeof(HDA_720_REG_INIT) / sizeof(tp2865_init_regs_t);ii++)
-//     {
-//     v = 0x00;
-//     rdtp2865KReg(HDA_720_REG_INIT[ii].addr,&v);
-//     printf("reg0x%04x =0x%02x->0x%02x\n", HDA_720_REG_INIT[ii].addr, HDA_720_REG_INIT[ii].value, v);
-//     if (HDA_720_REG_INIT[ii].value != v)
-//     printf("Value Ch\n");
+    // 以下代码块已注释掉，可能用于调试验证寄存器值是否正确
+//     for (int ii = 0; ii < sizeof(HDA_720_REG_INIT) / sizeof(tp2865_init_regs_t); ii++) {
+//         v = 0x00;
+//         rdtp2865KReg(HDA_720_REG_INIT[ii].addr, &v);  // 读取寄存器值
+//         printf("reg0x%04x =0x%02x->0x%02x\n", HDA_720_REG_INIT[ii].addr, HDA_720_REG_INIT[ii].value, v);  // 输出寄存器地址和值
+//         if (HDA_720_REG_INIT[ii].value != v)  // 如果寄存器值不匹配，输出提示
+//             printf("Value Ch\n");
 //     }
 }
+
 
 s32 tp2865_power_ctl(u8 isp_dev, u8 is_work)
 {
@@ -1045,46 +1111,48 @@ static const u16 rec_pix_w[] = {1920, 1280};
 static const u16 rec_pix_h[] = {1088, 720};
 
 REGISTER_CAMERA(tp2865K) = {
-    .logo 				= 	"tp2865",
-    .isp_dev 			= 	ISP_DEV_NONE,
-    .in_format 			=   SEN_IN_FORMAT_UYVY,//	SEN_IN_FORMAT_UYVY,
-    .out_format 		= 	ISP_OUT_FORMAT_YUV,
-#if 1//def tp2865_720P
-    .mbus_type          =   SEN_MBUS_BT656,
+    .logo               =   "tp2865",              // 相机的标识符，这里是 "tp2865"
+    .isp_dev            =   ISP_DEV_NONE,           // 选择的ISP设备，这里表示没有使用ISP
+    .in_format          =   SEN_IN_FORMAT_UYVY,    // 输入格式为 UYVY（通常是YCbCr 4:2:2格式）
+    .out_format         =   ISP_OUT_FORMAT_YUV,    // 输出格式为 YUV 格式（标准的颜色空间格式）
+
+#if 1 // 条件编译，选择720P格式
+    .mbus_type          =   SEN_MBUS_BT656,        // 选择 BT656 协议作为数据总线类型，常用于高清视频流
 #else
-    .mbus_type          =   SEN_MBUS_BT1120,
+    .mbus_type          =   SEN_MBUS_BT1120,        // 备用选择 BT1120 协议
 #endif
+
     /* .mbus_config        =   SEN_MBUS_DATA_WIDTH_8B | SEN_MBUS_PCLK_SAMPLE_FALLING | SEN_MBUS_DATA_REVERSE, */
     /* .mbus_config        =   SEN_MBUS_DATA_WIDTH_8B | SEN_MBUS_PCLK_SAMPLE_RISING| SEN_MBUS_DATA_REVERSE, */
     /* .mbus_config        =   SEN_MBUS_DATA_WIDTH_8B | SEN_MBUS_PCLK_SAMPLE_RISING, */
-    .mbus_config        =   SEN_MBUS_DATA_WIDTH_8B | SEN_MBUS_PCLK_SAMPLE_FALLING,
+    .mbus_config        =   SEN_MBUS_DATA_WIDTH_8B | SEN_MBUS_PCLK_SAMPLE_FALLING,  // 配置数据宽度为8位，时钟上升沿采样
 
-    .fps         		= 	25,
+    .fps                =   25,                       // 设置帧率为25帧每秒
 
-#if 0//def tp2865_720P
-    .sen_size 			= 	{1280, 720},
-    .isp_size 			= 	{1280, 720},
+#if 0 // 条件编译，选择720P解析度
+    .sen_size           =   {1280, 720},             // 设置传感器分辨率为1280x720（HD）
+    .isp_size           =   {1280, 720},             // 设置ISP的输出分辨率为1280x720（HD）
 #else
-    .sen_size 			= 	{1920, 1080},
-    .isp_size 			= 	{1920, 1080},
+    .sen_size           =   {1920, 1080},            // 设置传感器分辨率为1920x1080（Full HD）
+    .isp_size           =   {1920, 1080},            // 设置ISP的输出分辨率为1920x1080（Full HD）
 #endif
 
     .ops                =   {
-        .avin_fps           =   avin_fps,
-        .avin_valid_signal  =   avin_valid_signal,
-        .avin_mode_det      =   avin_mode_det,
-        .sensor_check 		= 	tp2865_check,
-        .init 		        = 	tp2865_initialize,
-        .set_size_fps 		=	tp2865_set_output_size,
-        .power_ctrl         =   tp2865_power_ctl,
+        .avin_fps           =   avin_fps,               // 设置模拟输入的视频帧率，`avin_fps`是一个外部函数或变量
+        .avin_valid_signal  =   avin_valid_signal,      // 设置模拟输入信号有效性的判断，`avin_valid_signal`是一个外部函数或变量
+        .avin_mode_det      =   avin_mode_det,          // 设置模拟输入模式的检测，`avin_mode_det`是一个外部函数或变量
+        .sensor_check       =   tp2865_check,           // 设置传感器检查函数，`tp2865_check` 是该传感器的初始化检查函数
+        .init               =   tp2865_initialize,      // 传感器初始化函数，`tp2865_initialize` 用于初始化TP2865传感器
+        .set_size_fps       =   tp2865_set_output_size, // 设置输出的尺寸和帧率，`tp2865_set_output_size` 用于设置输出的分辨率和帧率
+        .power_ctrl         =   tp2865_power_ctl,       // 设置电源控制函数，`tp2865_power_ctl` 用于控制传感器的电源
 
-
-        .sleep 		        =	NULL,
-        .wakeup 		    =	NULL,
-        .write_reg 		    =	wrtp2865KReg,
-        .read_reg 		    =	tp2865_dvp_rd_reg,
+        .sleep              =   NULL,                   // 设置休眠函数，当前未实现
+        .wakeup             =   NULL,                   // 设置唤醒函数，当前未实现
+        .write_reg          =   wrtp2865KReg,           // 设置写寄存器函数，`wrtp2865KReg` 用于写寄存器值到传感器
+        .read_reg           =   tp2865_dvp_rd_reg,      // 设置读寄存器函数，`tp2865_dvp_rd_reg` 用于从传感器读取寄存器值
     }
 };
+
 
 
 

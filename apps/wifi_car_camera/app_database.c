@@ -30,7 +30,7 @@ static const struct db_table app_config_table[] = {
 #ifdef CONFIG_VIDEO4_ENABLE
     {"res",     3,      VIDEO_RES_720P},           // 录像分辨率
 #else
-    // {"res",     3,      VIDEO_RES_1080P},           // 录像分辨率
+    {"res",     3,      VIDEO_RES_1080P},           // 录像分辨率
 #endif
     {"cyc",     4,      3},                         // 循环录像时间，单位分钟
     {"exp",     8,      0},                         // 曝光, 范围-3到+3
@@ -41,7 +41,7 @@ static const struct db_table app_config_table[] = {
     /*
      *  系统模式配置项
      */
-    // {"reg",     2,       0},                         // 0:1080 1:720
+    {"reg",     2,       0},                         // 0:1080 1:720
     {"kvo",     1,      1},                         // 按键音开关
     {"lag",     5,      Chinese_Simplified},        // 语言设置
     {"fre",     8,      50},                        // 灯光频率
@@ -50,7 +50,7 @@ static const struct db_table app_config_table[] = {
     {"tvm",     8,      TVM_PAL},                   // 电视制式
     // {"lan",     32,     0},                         // 轨道偏移
     {"hlw",     1,      0},                         // 前照灯提醒开关
-    {"bkl",     8,      100},                       // 屏背光等级(20-100)
+    {"bkl",     8,      80},                       // 屏背光等级(20-100)
     {"sxt",     4,      1},                         // 信号通道
     {"mir",     4,      0},                         // 镜像参数
     {"con",     32,      110},                         // 对比度

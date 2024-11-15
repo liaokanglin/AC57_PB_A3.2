@@ -361,35 +361,35 @@ u8 product_write_shutdown_screens(u8 idx, u8 *buf, u32 len, u32 file_size)
 
 
 
-u8 product_rtc_default_wr(struct product_rtc_time *time, u8 is_write)
-{
-    static struct sys_time t;
-    void *fd = dev_open("rtc", NULL);
-    if (!fd) {
-        return ERR_DEV_FAULT;
-    }
+// u8 product_rtc_default_wr(struct product_rtc_time *time, u8 is_write)
+// {
+//     static struct sys_time t;
+//     void *fd = dev_open("rtc", NULL);
+//     if (!fd) {
+//         return ERR_DEV_FAULT;
+//     }
 
-    if (is_write) {
-        t.year = time->year;
-        t.month = time->month;
-        t.day = time->day;
-        t.hour = time->hour;
-        t.min = time->min;
-        t.sec = time->sec;
-        dev_ioctl(fd, IOCTL_SET_SYS_TIME, (u32)&t);
-    } else {
-        dev_ioctl(fd, IOCTL_GET_SYS_TIME, (u32)&t);
-        time->year = t.year;
-        time->month = t.month;
-        time->day  = t.day;
-        time->hour = t.hour;
-        time->min  = t.min;
-        time->sec  = t.sec;
-    }
+//     if (is_write) {
+//         t.year = time->year;
+//         t.month = time->month;
+//         t.day = time->day;
+//         t.hour = time->hour;
+//         t.min = time->min;
+//         t.sec = time->sec;
+//         dev_ioctl(fd, IOCTL_SET_SYS_TIME, (u32)&t);
+//     } else {
+//         dev_ioctl(fd, IOCTL_GET_SYS_TIME, (u32)&t);
+//         time->year = t.year;
+//         time->month = t.month;
+//         time->day  = t.day;
+//         time->hour = t.hour;
+//         time->min  = t.min;
+//         time->sec  = t.sec;
+//     }
 
-    dev_close(fd);
-    return ERR_NULL;
-}
+//     dev_close(fd);
+//     return ERR_NULL;
+// }
 
 
 #define OPTION_KEY_LEN (8)

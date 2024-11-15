@@ -49,228 +49,288 @@ static void *cli_hdl = NULL;
 extern u8 airkiss_calcrc_bytes(u8 *p, unsigned int num_of_bytes);
 
 enum WIFI_APP_MSG_CODE {
-    WIFI_MSG_TICK_1_SEC,
-    WIFI_MSG_SMP_CFG_START,
-    WIFI_MSG_SMP_CFG_STOP,
-    WIFI_MSG_SMP_CFG_COMPLETED,
-    WIFI_MSG_SMP_CFG_TIMEOUT,
-    WIFI_MSG_STA_SCAN_COMPLETED,
-    WIFI_MSG_STA_NETWORK_STACK_DHCP_SUCC,
-    WIFI_MSG_STA_DISCONNECTED,
-    WIFI_MSG_AP_DISCONNECTED,
+    WIFI_MSG_TICK_1_SEC,                // 每秒定时器消息
+    WIFI_MSG_SMP_CFG_START,             // WiFi配置开始
+    WIFI_MSG_SMP_CFG_STOP,              // WiFi配置停止
+    WIFI_MSG_SMP_CFG_COMPLETED,         // WiFi配置完成
+    WIFI_MSG_SMP_CFG_TIMEOUT,           // WiFi配置超时
+    WIFI_MSG_STA_SCAN_COMPLETED,        // WiFi站点扫描完成
+    WIFI_MSG_STA_NETWORK_STACK_DHCP_SUCC, // DHCP获取IP成功
+    WIFI_MSG_STA_DISCONNECTED,          // WiFi站点模式断开
+    WIFI_MSG_AP_DISCONNECTED,           // WiFi AP模式断开
 };
+
 
 
 static struct ctp_server_info server_info = {
-    .ctp_vaild = true,
-    .ctp_port = CTP_CTRL_PORT,
-    .cdp_vaild = true,
-    .cdp_port = CDP_CTRL_PORT,
-    .k_alive_type = CTP_ALIVE,
-    /*.k_alive_type = CDP_ALIVE,*/
+    .ctp_vaild = true,                 // 表示 CTP 是否有效（注意拼写应该是 'valid'）
+    .ctp_port = CTP_CTRL_PORT,         // CTP 控制端口的值
+    .cdp_vaild = true,                 // 表示 CDP 是否有效（注意拼写应该是 'valid'）
+    .cdp_port = CDP_CTRL_PORT,         // CDP 控制端口的值
+    .k_alive_type = CTP_ALIVE,         // 保活类型设置为 CTP_ALIVE
+    /*.k_alive_type = CDP_ALIVE,*/     // 备用设置的保活类型为 CDP_ALIVE，当前被注释掉
 };
+
 
 
 static struct airkiss_result {
-    struct smp_cfg_result result;
-    char scan_ssid_found;
+    struct smp_cfg_result result;  // 嵌套结构体，存储配网结果
+    char scan_ssid_found;          // 一个字符变量，表示是否找到扫描到的SSID
 } airkiss_result;
 
+
 static struct voiceprint_result {
-    char rand_str[8];
+    char rand_str[8];  // 一个字符数组，用于存储一个8个字符的随机字符串
 } voiceprint_result;
 
 
-#ifdef CONFIG_STATIC_IPADDR_ENABLE
 
+#ifdef CONFIG_STATIC_IPADDR_ENABLE
 #define VM_STA_IPADDR_INDEX  15
-static u8 use_static_ipaddr_flag;
+
+static u8 use_static_ipaddr_flag;  // 静态 IP 地址标志，控制是否使用静态 IP
+
 
 struct sta_ip_info {
-    u8 ssid[33];
-    u32 ip;
-    u32 gw;
-    u32 netmask;
-    u32 dns;
-    u8 gw_mac[6];
-    u8 local_mac[6];
-    u8 chanel;
+    u8 ssid[33];      // 存储 SSID（最多 32 字符 + 1 字符 '\0'，即字符串长度为 33）
+    u32 ip;           // 存储静态 IP 地址（32 位，通常是一个 IPv4 地址）
+    u32 gw;           // 存储网关地址（32 位 IPv4 地址）
+    u32 netmask;      // 存储子网掩码地址（32 位 IPv4 地址）
+    u32 dns;          // 存储 DNS 地址（32 位 IPv4 地址）
+    u8 gw_mac[6];     // 存储网关的 MAC 地址（6 字节）
+    u8 local_mac[6];  // 存储本地设备的 MAC 地址（6 字节）
+    u8 chanel;        // 存储无线网络频道号（一个字节，通常为整数值）
 };
+
 
 static void wifi_set_sta_ip_info(void)
 {
+    // 定义一个用于存储 STA IP 信息的结构体
     struct sta_ip_info  sta_ip_info;
+    // 从虚拟内存中读取 STA IP 地址信息并存储到 sta_ip_info 结构体中
     db_select_buffer(VM_STA_IPADDR_INDEX, (char *) &sta_ip_info, sizeof(struct sta_ip_info));
 
+    // 初始化一个 lan_setting 结构体并设置无线网络的 IP 地址、子网掩码和网关
     struct lan_setting lan_setting_info = {
+        // 设置无线网络的 IP 地址
+        .WIRELESS_IP_ADDR0  = (u8)(sta_ip_info.ip >> 0),  // 获取 IP 地址的最低字节
+        .WIRELESS_IP_ADDR1  = (u8)(sta_ip_info.ip >> 8),  // 获取 IP 地址的次低字节
+        .WIRELESS_IP_ADDR2  = (u8)(sta_ip_info.ip >> 16), // 获取 IP 地址的次高字节
+        .WIRELESS_IP_ADDR3  = (u8)(sta_ip_info.ip >> 24), // 获取 IP 地址的最高字节
 
-        .WIRELESS_IP_ADDR0  = (u8)(sta_ip_info.ip >> 0),
-        .WIRELESS_IP_ADDR1  = (u8)(sta_ip_info.ip >> 8),
-        .WIRELESS_IP_ADDR2  = (u8)(sta_ip_info.ip >> 16),
-        .WIRELESS_IP_ADDR3  = (u8)(sta_ip_info.ip >> 24),
+        // 设置无线网络的子网掩码
+        .WIRELESS_NETMASK0  = (u8)(sta_ip_info.netmask >> 0),  // 获取子网掩码的最低字节
+        .WIRELESS_NETMASK1  = (u8)(sta_ip_info.netmask >> 8),  // 获取子网掩码的次低字节
+        .WIRELESS_NETMASK2  = (u8)(sta_ip_info.netmask >> 16), // 获取子网掩码的次高字节
+        .WIRELESS_NETMASK3  = (u8)(sta_ip_info.netmask >> 24), // 获取子网掩码的最高字节
 
-        .WIRELESS_NETMASK0  = (u8)(sta_ip_info.netmask >> 0),
-        .WIRELESS_NETMASK1  = (u8)(sta_ip_info.netmask >> 8),
-        .WIRELESS_NETMASK2  = (u8)(sta_ip_info.netmask >> 16),
-        .WIRELESS_NETMASK3  = (u8)(sta_ip_info.netmask >> 24),
-
-        .WIRELESS_GATEWAY0   = (u8)(sta_ip_info.gw >> 0),
-        .WIRELESS_GATEWAY1   = (u8)(sta_ip_info.gw >> 8),
-        .WIRELESS_GATEWAY2   = (u8)(sta_ip_info.gw >> 16),
-        .WIRELESS_GATEWAY3   = (u8)(sta_ip_info.gw >> 24),
+        // 设置无线网络的网关地址
+        .WIRELESS_GATEWAY0   = (u8)(sta_ip_info.gw >> 0),  // 获取网关地址的最低字节
+        .WIRELESS_GATEWAY1   = (u8)(sta_ip_info.gw >> 8),  // 获取网关地址的次低字节
+        .WIRELESS_GATEWAY2   = (u8)(sta_ip_info.gw >> 16), // 获取网关地址的次高字节
+        .WIRELESS_GATEWAY3   = (u8)(sta_ip_info.gw >> 24), // 获取网关地址的最高字节
     };
 
+    // 调用函数设置局域网信息
     net_set_lan_info(&lan_setting_info);
 }
 
+
 static void store_dhcp_ipaddr(void)
 {
+    // 定义一个用于存储 STA IP 信息的结构体，并初始化为 0
     struct sta_ip_info  sta_ip_info = {0};
-    u8 sta_channel;
-    u8 local_mac[6];
-    u8 gw_mac[6];
+    u8 sta_channel; // 定义用于存储当前 STA 渠道的变量
+    u8 local_mac[6]; // 用于存储本地 MAC 地址的数组
+    u8 gw_mac[6]; // 用于存储网关 MAC 地址的数组
 
-    if (use_static_ipaddr_flag) { //记忆IP匹配成功,不需要重新保存
+    // 如果使用的是静态 IP 地址，则不需要保存 DHCP 获取的 IP 地址
+    if (use_static_ipaddr_flag) { // 记忆 IP 匹配成功，不需要重新保存
         return;
     }
 
+    // 获取网络接口信息并存储到 netif_info 结构体中
     struct netif_info netif_info;
     lwip_get_netif_info(1, &netif_info);
 
+    // 获取当前 WiFi 配置信息和当前信道
     struct cfg_info info = {0};
     info.mode = STA_MODE;
-    dev_ioctl(wifi_dev, DEV_GET_CUR_WIFI_INFO, (u32)&info);
-    dev_ioctl(wifi_dev, DEV_GET_WIFI_CHANNEL, (u32)&info);
+    dev_ioctl(wifi_dev, DEV_GET_CUR_WIFI_INFO, (u32)&info); // 获取当前 WiFi 信息
+    dev_ioctl(wifi_dev, DEV_GET_WIFI_CHANNEL, (u32)&info);  // 获取 WiFi 信道
 
+    // 存储当前信道信息
     sta_channel = info.sta_channel;
+    // 获取本地和网关的 MAC 地址
     wifi_get_mac(local_mac);
     wifi_get_bssid(gw_mac);
 
-    strcpy(sta_ip_info.ssid, info.ssid);
-    memcpy(sta_ip_info.gw_mac, gw_mac, 6);
-    memcpy(sta_ip_info.local_mac, local_mac, 6);
+    // 复制 SSID 和 MAC 地址信息
+    strcpy(sta_ip_info.ssid, info.ssid); // 复制 SSID
+    memcpy(sta_ip_info.gw_mac, gw_mac, 6); // 复制网关 MAC 地址
+    memcpy(sta_ip_info.local_mac, local_mac, 6); // 复制本地 MAC 地址
+    // 赋值 IP 地址、子网掩码、网关和 DNS 服务器信息
     sta_ip_info.ip =  netif_info.ip;
     sta_ip_info.netmask =  netif_info.netmask;
     sta_ip_info.gw =  netif_info.gw;
     sta_ip_info.chanel = sta_channel;
-    sta_ip_info.dns = *(u32 *)dns_getserver(0);
+    sta_ip_info.dns = *(u32 *)dns_getserver(0); // 获取 DNS 服务器地址
 
+    // 更新保存 STA IP 信息到虚拟内存
     db_update_buffer(VM_STA_IPADDR_INDEX, (char *) &sta_ip_info, sizeof(struct sta_ip_info));
+    // 打印保存操作完成的提示
     puts("store_dhcp_ipaddr\r\n");
 }
 
+
 static int compare_dhcp_ipaddr(void)
 {
+    // 初始化标志，表示不使用静态 IP 地址
     use_static_ipaddr_flag = 0;
 
-    int ret;
-    u8 local_mac[6];
-    u8 gw_mac[6];
-    u8 sta_channel;
-    struct sta_ip_info  sta_ip_info;
-    struct netif_info netif_info;
+    int ret; // 用于存储函数调用返回值
+    u8 local_mac[6]; // 定义用于存储本地 MAC 地址的数组
+    u8 gw_mac[6]; // 定义用于存储网关 MAC 地址的数组
+    u8 sta_channel; // 存储当前信道
+    struct sta_ip_info  sta_ip_info; // 定义 STA IP 信息的结构体
+    struct netif_info netif_info; // 定义网络接口信息的结构体
 
+    // 从虚拟内存中读取存储的 STA IP 信息
     ret = db_select_buffer(VM_STA_IPADDR_INDEX, (char *) &sta_ip_info, sizeof(struct sta_ip_info));
     if (ret < 0) {
+        // 如果读取失败，打印提示信息并返回 -1
         puts("compare_dhcp_ipaddr NO VM_STA_IPADDR_INDEX\r\n");
         return -1;
     }
 
+    // 获取网络接口信息
     lwip_get_netif_info(1, &netif_info);
 
+    // 获取当前 WiFi 配置信息和当前信道
     struct cfg_info info = {0};
     info.mode = STA_MODE;
-    dev_ioctl(wifi_dev, DEV_GET_CUR_WIFI_INFO, (u32)&info);
-    dev_ioctl(wifi_dev, DEV_GET_WIFI_CHANNEL, (u32)&info);
+    dev_ioctl(wifi_dev, DEV_GET_CUR_WIFI_INFO, (u32)&info); // 获取当前 WiFi 信息
+    dev_ioctl(wifi_dev, DEV_GET_WIFI_CHANNEL, (u32)&info);  // 获取 WiFi 信道
 
+    // 存储当前信道
     sta_channel = info.sta_channel;
 
+    // 获取本地和网关的 MAC 地址
     wifi_get_bssid(gw_mac);
     wifi_get_mac(local_mac);
 
+    // 比较 SSID、本地 MAC 地址、网关 MAC 地址是否与存储的信息匹配
     if (!strcmp(info.ssid, sta_ip_info.ssid)
         && !memcmp(local_mac, sta_ip_info.local_mac, 6)
         && !memcmp(gw_mac, sta_ip_info.gw_mac, 6)
         /*&& sta_ip_info.gw==sta_ip_info.dns//如果路由器没接网线/没联网,每次连接都去重新获取DHCP*/
        ) {
+        // 如果匹配成功，设置标志并打印提示信息
         use_static_ipaddr_flag = 1;
         puts("compare_dhcp_ipaddr Match\r\n");
         return 0;
     }
 
-    printf("compare_dhcp_ipaddr not Match!!! [%s][%s],[0x%x,0x%x][0x%x,0x%x],[0x%x] \r\n", info.ssid, sta_ip_info.ssid, local_mac[0], local_mac[5], sta_ip_info.local_mac[0], sta_ip_info.local_mac[5], sta_ip_info.dns);
+    // 如果不匹配，打印详细的对比信息并返回 -1
+    printf("compare_dhcp_ipaddr not Match!!! [%s][%s],[0x%x,0x%x][0x%x,0x%x],[0x%x] \r\n", 
+           info.ssid, sta_ip_info.ssid, local_mac[0], local_mac[5], 
+           sta_ip_info.local_mac[0], sta_ip_info.local_mac[5], 
+           sta_ip_info.dns);
 
     return -1;
 }
 
+
 void dns_set_server(u32 *dnsserver)
 {
+    // 定义一个用于存储 STA IP 信息的结构体
     struct sta_ip_info  sta_ip_info;
+    // 从虚拟内存中读取存储的 STA IP 信息
     if (db_select_buffer(VM_STA_IPADDR_INDEX, (char *) &sta_ip_info, sizeof(struct sta_ip_info)) < 0) {
+        // 如果读取失败，将 dnsserver 指针指向的值设置为 0
         *dnsserver = 0;
     } else {
+        // 如果读取成功，将 STA IP 信息中的 DNS 服务器地址赋值给 dnsserver 指针
         *dnsserver = sta_ip_info.dns;
     }
 }
+
 
 #endif //CONFIG_STATIC_IPADDR_ENABL
 
 
 int net_dhcp_ready()
 {
+    // 返回 DHCP 网络是否准备就绪的状态
     return (_net_dhcp_ready);
 }
 
 static void wifi_app_timer_func(void *p)
 {
+    // 向 WiFi 应用任务队列发送一个 "1 秒滴答" 消息
     os_taskq_post(WIFI_APP_TASK_NAME, 1, WIFI_MSG_TICK_1_SEC);
 }
 
 static void wifi_taskq_post(int msg)
 {
-    int ret = 0;
-    u8 retry = 0;
+    int ret = 0; // 存储函数调用返回值
+    u8 retry = 0; // 用于记录重试次数
 
     do {
+        // 向 WiFi 应用任务队列发送消息
         ret = os_taskq_post(WIFI_APP_TASK_NAME, 1, msg);
 
-        if (ret == OS_NO_ERR) {
+        if (ret == OS_NO_ERR) { // 如果发送成功，退出循环
             break;
         }
 
+        // 任务队列发送失败，休眠 50 毫秒后重试
         msleep(50);
         retry++;
-    } while (retry < 5);
+    } while (retry < 5); // 最多重试 5 次
 
+    // 如果消息发送仍然失败，打印错误提示
     if (ret != OS_NO_ERR) {
         printf("post msg %d to wifi_app_task fail !!! \n", msg);
     }
 }
 
+
 void wifi_smp_connect(char *ssid, char *pwd, void *rand_str)
 {
+    // 定义 WiFi 配置信息结构体并初始化为 0
     struct cfg_info info = {0};
 
+    // 如果提供了 SSID
     if (ssid) {
+        // 复制随机字符串到全局变量
         strcpy(voiceprint_result.rand_str, rand_str);
+        // 设置 WiFi 连接模式为 STA（客户端）模式
         info.mode = STA_MODE;
+        // 设置 SSID 和密码
         info.ssid = ssid;
         info.pwd = pwd;
+        // 调用设备控制接口设置为 STA 模式
         dev_ioctl(wifi_dev, DEV_STA_MODE, (u32)&info);
+        // 改变保存模式
         dev_ioctl(wifi_dev, DEV_CHANGE_SAVING_MODE, (u32)&info);
     } else {
-
+        // 获取 WiFi SMP 配置结果
         dev_ioctl(wifi_dev, DEV_GET_WIFI_SMP_RESULT, (u32)&info);
 
+        // 如果有有效的 SMP 配置信息
         if (info.smp_cfg.type) {
-            printf("\r\n AIRKISS INFO, SSID = %s, PWD = %s, ssid_crc = 0x%x, ran_val = 0x%x \r\n", info.smp_cfg.ssid, info.smp_cfg.passphrase, info.smp_cfg.ssid_crc, info.smp_cfg.random_val);
-            airkiss_result.result.type = 1 ;
+            // 打印 SMP 配置信息
+            printf("\r\n AIRKISS INFO, SSID = %s, PWD = %s, ssid_crc = 0x%x, ran_val = 0x%x \r\n", 
+                   info.smp_cfg.ssid, info.smp_cfg.passphrase, info.smp_cfg.ssid_crc, info.smp_cfg.random_val);
+            // 保存 AirKiss 结果
+            airkiss_result.result.type = 1;
             airkiss_result.result.ssid_crc = info.smp_cfg.ssid_crc;
             airkiss_result.result.random_val = info.smp_cfg.random_val;
             strcpy(airkiss_result.result.ssid, info.smp_cfg.ssid);
             strcpy(airkiss_result.result.passphrase, info.smp_cfg.passphrase);
 
-
+            // 如果配置类型不匹配或者 SSID 校验和匹配
             if (info.smp_cfg.type != AIRKISS_SMP_CFG
                 || airkiss_result.result.ssid_crc == airkiss_calcrc_bytes((u8 *)airkiss_result.result.ssid, strlen(airkiss_result.result.ssid))) {
                 airkiss_result.scan_ssid_found = 1;
@@ -280,9 +340,11 @@ void wifi_smp_connect(char *ssid, char *pwd, void *rand_str)
                 dev_ioctl(wifi_dev, DEV_STA_MODE, (u32)&info);
                 dev_ioctl(wifi_dev, DEV_CHANGE_SAVING_MODE, (u32)&info);
             } else {
+                // 否则进行网络扫描
                 dev_ioctl(wifi_dev, DEV_NET_SCANF, 0);
             }
         } else {
+            // 无有效配置时设置默认的 STA 模式
             info.mode = STA_MODE;
             info.ssid = info.smp_cfg.ssid;
             info.pwd = info.smp_cfg.passphrase;
@@ -292,41 +354,53 @@ void wifi_smp_connect(char *ssid, char *pwd, void *rand_str)
     }
 }
 
+
 static void airkiss_ssid_check(void)
 {
     u32 i;
     struct cfg_info info = {0};
 
-    if (airkiss_result.result.type == 0 ||  airkiss_result.scan_ssid_found) {
+    // 如果 AirKiss 结果无效或者已找到匹配的 SSID，直接返回
+    if (airkiss_result.result.type == 0 || airkiss_result.scan_ssid_found) {
         return;
     }
 
+    // 获取当前 STA 模式下的 SSID 信息
     dev_ioctl(wifi_dev, DEV_GET_STA_SSID_INFO, (u32)&info);
 
+    // 遍历所有存储的 SSID
     for (i = 0; i < info.sta_ssid_num; i++) {
+        // 检查当前 SSID 是否与 AirKiss 结果的 SSID 部分匹配
         if (!strncmp(airkiss_result.result.ssid, info.sta_ssid_info[i].ssid, strlen(airkiss_result.result.ssid))) {
 CHECK_AIRKISS_SSID_CRC:
+            // 如果 CRC 校验匹配，则表明找到了对应的 AirKiss SSID
             if (airkiss_result.result.ssid_crc == airkiss_calcrc_bytes((u8 *)info.sta_ssid_info[i].ssid, strlen(info.sta_ssid_info[i].ssid))) {
                 printf("find airkiss ssid = [%s]\r\n", info.sta_ssid_info[i].ssid);
+                // 将匹配到的 SSID 复制到 AirKiss 结果中
                 strcpy(airkiss_result.result.ssid, info.sta_ssid_info[i].ssid);
+                // 标记为找到匹配的 SSID
                 airkiss_result.scan_ssid_found = 1;
 
+                // 设置 WiFi 配置为 STA 模式，并连接到找到的 SSID
                 info.mode = STA_MODE;
                 info.ssid = airkiss_result.result.ssid;
                 info.pwd = airkiss_result.result.passphrase;
                 dev_ioctl(wifi_dev, DEV_STA_MODE, (u32)&info);
-
+                // 改变保存模式
                 dev_ioctl(wifi_dev, DEV_CHANGE_SAVING_MODE, (u32)&info);
 
                 return;
             }
         } else {
+            // 未找到匹配的 SSID 注释部分
             /*goto CHECK_AIRKISS_SSID_CRC;*/
         }
     }
 
+    // 未找到匹配的 SSID，打印错误信息
     printf("cannot found airkiss ssid[%s] !!! \n\n", airkiss_result.result.ssid);
 }
+
 
 
 static void airkiss_broadcast(void)
@@ -336,12 +410,14 @@ static void airkiss_broadcast(void)
     int sock;
     struct sockaddr_in dest_addr;
 
+    // 如果 AirKiss 结果类型无效，直接返回
     if (airkiss_result.result.type == 0) {
         return;
     }
 
     puts("airkiss_broadcast random_val \n");
 
+    // 创建 UDP 套接字
     sock = socket(AF_INET, SOCK_DGRAM, 0);
 
     if (sock == -1) {
@@ -349,9 +425,12 @@ static void airkiss_broadcast(void)
         goto EXIT;
     }
 
+    // 初始化目的地址信息
     dest_addr.sin_family = AF_INET;
     dest_addr.sin_addr.s_addr = htonl(INADDR_ANY);
     dest_addr.sin_port = 0;
+
+    // 绑定套接字
     ret = bind(sock, (struct sockaddr *)&dest_addr, sizeof(dest_addr));
 
     if (ret == -1) {
@@ -359,57 +438,72 @@ static void airkiss_broadcast(void)
         goto EXIT;
     }
 
-    ret = setsockopt(sock, SOL_SOCKET, SO_BROADCAST,
-                     (char *)&onOff, sizeof(onOff));
+    // 设置套接字选项为允许广播
+    ret = setsockopt(sock, SOL_SOCKET, SO_BROADCAST, (char *)&onOff, sizeof(onOff));
 
     if (ret == -1) {
         printf("%s %d->Error in setsockopt() SO_BROADCAST\n", __FUNCTION__, __LINE__);
         goto EXIT;
     }
 
+    // 设置广播地址
     inet_pton(AF_INET, "255.255.255.255", &dest_addr.sin_addr.s_addr);
     dest_addr.sin_port = htons(10000);
 
+    // 发送广播消息 8 次
     for (i = 0; i < 8; i++) {
         ret = sendto(sock, (unsigned char *)&airkiss_result.result.random_val, 1, 0, (struct sockaddr *)&dest_addr, sizeof(struct sockaddr));
         if (ret == -1) {
             printf("%s %d->Error in sendto\n", __FUNCTION__, __LINE__);
         }
 
+        // 每次发送后休眠 20 毫秒
         msleep(20);
     }
 
+    // 清空 AirKiss 结果结构体
     memset(&airkiss_result, 0, sizeof(airkiss_result));
 
 EXIT:
-
+    // 关闭套接字
     if (sock != -1) {
         closesocket(sock);
     }
 }
 
 
+
 static unsigned int best_ch, least_cnt = -1;
 
 static void get_best_ch_fn(unsigned int ch, unsigned int cnt)
 {
+    // 检查信道编号是否在限制范围内（禁止使用 13 信道及以上）
     if (ch >= 12) {
         return;
     }
 
-    if (cnt < least_cnt) { //cnt 越小 该信道干扰越小, 并且 禁止13信道
+    // 如果当前信道的计数值比当前记录的最小计数值小
+    // 表示当前信道的干扰较小，将其作为最佳信道
+    if (cnt < least_cnt) {
         least_cnt = cnt;
         best_ch = ch;
     }
 }
 
+
 #if defined CONFIG_NET_CLIENT
 
+// 外部声明用于断开所有视频客户端连接的函数
 extern void video_disconnect_all_cli();
+
+// Wi-Fi IPC 状态回调函数
 static int wifi_ipc_state_cb(void *priv, int on)
 {
     if (on) {
+        // 当连接状态为 "on" 时执行的操作
+        // 目前为空，没有实现特定的操作
     } else {
+        // 当连接状态为 "off" 时，断开所有视频客户端连接
         video_disconnect_all_cli();
     }
 
@@ -419,34 +513,46 @@ static int wifi_ipc_state_cb(void *priv, int on)
 #endif
 
 #if defined CONFIG_NET_SERVER
+
+// 外部声明用于连接和断开 IPC 的函数
 extern void ipc_connect();
 extern void ipc_disconnect();
+
+// Wi-Fi IPC 状态回调函数
 static int wifi_ipc_state_cb(void *priv, int on)
 {
     if (on) {
+        // 当连接状态为 "on" 时，执行 IPC 连接
         ipc_connect();
     } else {
+        // 当连接状态为 "off" 时，执行 IPC 断开
         ipc_disconnect();
     }
 
     return 0;
 }
 
-
 #endif
+
 
 void wifi_enter_smp_cfg_mode(void)
 {
     struct cfg_info info = {0};
-    info.timeout = 100;
+    info.timeout = 100;  // 设置配置超时时间为 100 秒
 
-    /*     extern tutk_platform_uninit(); */
+    /* 注释掉的代码，可能是取消平台初始化的部分 */
+    /* extern tutk_platform_uninit(); */
     /* tutk_platform_uninit(); */
 
-    /*dev_ioctl(wifi_dev, DEV_SET_SMP_AIRKISS_AES_ON_OFF, 1);*/
+    /*dev_ioctl(wifi_dev, DEV_SET_SMP_AIRKISS_AES_ON_OFF, 1);*/ // 注释掉的代码，可能是开启 AirKiss AES 加密
+
+    // 进入 SMP 配置模式
     dev_ioctl(wifi_dev, DEV_SMP_MODE, 0);
+
+    // 设置 SMP 配置的超时设置
     dev_ioctl(wifi_dev, DEV_SET_SMP_CONFIG_TIMEOUT_SEC, (u32)&info);
 }
+
 int get_wifi_is_smp_mode(void)
 {
     struct cfg_info info = {0};

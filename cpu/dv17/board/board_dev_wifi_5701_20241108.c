@@ -283,22 +283,24 @@ LCD_PLATFORM_DATA_BEGIN(lcd_data)
         .lcd_spi_do  = -1,             // LCD SPI 数据输出引脚，-1 表示未使用
     },
 
-    // .lcd_port.mipi_mapping = {  // LCD 使用的 MIPI 接口映射配置
-    //     .x0_lane = MIPI_LANE_EN  | MIPI_LANE_D3,  // MIPI 通道 x0 映射到 D3 信号
-    //     .x1_lane = MIPI_LANE_EN  | MIPI_LANE_D2,  // MIPI 通道 x1 映射到 D2 信号
-    //     .x2_lane = MIPI_LANE_EN  | MIPI_LANE_CLK, // MIPI 通道 x2 映射到时钟信号
-    //     .x3_lane = MIPI_LANE_EN  | MIPI_LANE_D1,  // MIPI 通道 x3 映射到 D1 信号
-    //     .x4_lane = MIPI_LANE_EN  | MIPI_LANE_D0,  // MIPI 通道 x4 映射到 D0 信号
-    // },
+    .lcd_port.mipi_mapping = {  // LCD 使用的 MIPI 接口映射配置
+        .x0_lane = MIPI_LANE_EN| MIPI_LANE_EX |MIPI_LANE_D0,
+        .x1_lane = MIPI_LANE_EN| MIPI_LANE_EX |MIPI_LANE_D1,
+        .x2_lane = MIPI_LANE_EN| MIPI_LANE_EX |MIPI_LANE_CLK,
+        .x3_lane = MIPI_LANE_EN| MIPI_LANE_EX |MIPI_LANE_D2,
+        .x4_lane = MIPI_LANE_EN| MIPI_LANE_EX |MIPI_LANE_D3,
+    },
 
-    // .lcd_port.lvds_mapping = {  // LCD 使用的 LVDS 接口映射配置
-    //     .x0_lane = LVDS_LANE_D0,  // LVDS 通道 x0 映射到 D0 信号
-    //     .x1_lane = LVDS_LANE_D1,  // LVDS 通道 x1 映射到 D1 信号
-    //     .x2_lane = LVDS_LANE_D2,  // LVDS 通道 x2 映射到 D2 信号
-    //     .x3_lane = LVDS_LANE_CLK, // LVDS 通道 x3 映射到时钟信号
-    //     .x4_lane = LVDS_LANE_D3,  // LVDS 通道 x4 映射到 D3 信号
-    //     .swap_dp_dn = false,     // 是否交换数据通道的正负极，false 表示不交换
-    // },
+    .lcd_port.lvds_mapping = {  // LCD 使用的 LVDS 接口映射配置
+        .x0_lane = LVDS_LANE_D0,  // LVDS 通道 x0 映射到 D0 信号
+        .x1_lane = LVDS_LANE_D1,  // LVDS 通道 x1 映射到 D1 信号
+        .x2_lane = LVDS_LANE_D2,  // LVDS 通道 x2 映射到 D2 信号
+        .x3_lane = LVDS_LANE_CLK, // LVDS 通道 x3 映射到时钟信号
+        .x4_lane = LVDS_LANE_D3,  // LVDS 通道 x4 映射到 D3 信号
+        .swap_dp_dn = false,     // 是否交换数据通道的正负极，false 表示不交换
+    },
+LCD_PLATFORM_DATA_ADD()
+    .lcd_name = "lcd_avout",  // LCD 的名称，标识 LCD 型号为 "lcd_avout"
 LCD_PLATFORM_DATA_END()
 
 
@@ -407,7 +409,7 @@ static bool camera1_online_detect()
 
 //     /* return !gpio_read(IO_PORTA_05); */
 
-	return get_video1_state();
+	return get_video1_state();//返回摄像头是否在线
 }
 
 static const struct camera_platform_data camera1_data = {
@@ -1148,6 +1150,41 @@ unsigned char usb_is_charging()
 #endif
 }
 
+unsigned char camera_is_charging()//AHD2上线判断
+{
+
+	static unsigned char init = 0;
+	if (!init){
+		init = 1;
+		gpio_direction_input(IO_PORTH_10);//将引脚配置为输入模式，用于检测外部信号
+		gpio_set_pull_up(IO_PORTH_10, 0);//关闭引脚的上拉电阻
+		gpio_set_pull_down(IO_PORTH_10, 0);//关闭引脚的下拉电阻
+		gpio_set_die(IO_PORTH_10, 1);//设置引脚的数字输入特性，使其能正确读取外部信号
+		delay(10);
+	}
+
+	return (gpio_read(IO_PORTH_10));//no usb charing == false
+}
+
+
+unsigned char avout_is_charging()//avout上线判断
+{
+
+	static unsigned char init = 0;
+	if (!init){
+		init = 1;
+		gpio_direction_input(IO_PORTH_11);//将引脚配置为输入模式，用于检测外部信号
+		gpio_set_pull_up(IO_PORTH_11, 0);//关闭引脚的上拉电阻
+		gpio_set_pull_down(IO_PORTH_11, 0);//关闭引脚的下拉电阻
+		gpio_set_die(IO_PORTH_11, 1);//设置引脚的数字输入特性，使其能正确读取外部信号
+		delay(10);
+	}
+
+	return (gpio_read(IO_PORTH_11));//no usb charing == false
+}
+
+
+
 unsigned int get_usb_wkup_gpio()
 {
 	return (USB_WKUP_IO);
@@ -1499,9 +1536,9 @@ void board_init()
 //		avin_power
     // gpio_direction_output(IO_PORTH_11, 1);
     //printf("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n");
-    gpio_direction_output(IO_PORTG_02, 1);
+    gpio_direction_output(IO_PORTG_02, 1); //按键版灯
 
-    gpio_direction_output(IO_PORTG_15, 0);
+    gpio_direction_output(IO_PORTG_15, 0);//喇叭
 
 #ifdef CONFIG_ETH_ENABLE
     gpio_direction_output(IO_PORTB_05, 0);

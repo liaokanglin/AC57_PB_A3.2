@@ -28,7 +28,7 @@
 #define 	KEY_1 				49
 #define 	KEY_2 				50
 #define 	KEY_3 				51
-#define 	KEY_4 				52
+#define 	KEY_4 				60
 #define 	KEY_5 				53
 #define 	KEY_6 				54
 #define 	KEY_7 				55
@@ -37,7 +37,7 @@
 #define 	KEY_10 				58
 #define 	KEY_11 				59
 
-#define 	KEY_F1 				60
+#define 	KEY_F1 				52
 
 #define SYS_KEY_EVENT 			0x01
 #define SYS_TOUCH_EVENT 		0x02
@@ -46,11 +46,11 @@
 
 
 enum {
-    KEY_EVENT_CLICK,
-    KEY_EVENT_LONG,
-    KEY_EVENT_HOLD,
-    KEY_EVENT_DOWN,
-    KEY_EVENT_UP,
+    KEY_EVENT_CLICK,  // 单击事件
+    KEY_EVENT_LONG,   // 长按事件
+    KEY_EVENT_HOLD,   // 持续按住事件
+    KEY_EVENT_DOWN,   // 按键按下事件
+    KEY_EVENT_UP,     // 按键松开事件
 };
 
 

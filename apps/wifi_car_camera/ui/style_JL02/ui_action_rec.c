@@ -251,10 +251,11 @@ struct car_num_str {
 
 
 enum {
-    PAGE_SHOW = 0,
-    MODE_SW_EXIT,
-    HOME_SW_EXIT,
+    PAGE_SHOW = 0,     // 显示页面
+    MODE_SW_EXIT,      // 模式切换退出
+    HOME_SW_EXIT,      // 主页切换退出
 };
+
 
 // struct car_num text_car_num_table[] = {
 //     {"province", ENC_PIC_CID_0, 0},// [> 京 <]
@@ -1111,20 +1112,23 @@ REGISTER_UI_EVENT_HANDLER(BTN_SET_POT)
  * (begin)提示框显示接口 ********************************************
  */
 enum box_msg {
-    BOX_MSG_POWER_OFF = 1,
-    BOX_MSG_NO_POWER,
-    BOX_MSG_MEM_ERR,
-    BOX_MSG_NO_MEM,
-    BOX_MSG_NEED_FORMAT,
-    BOX_MSG_INSERT_SD,
-    BOX_MSG_SD_WRITE_ERR,
-    BOX_MSG_EXIT_APP,
+    BOX_MSG_POWER_OFF = 1, // 电源关闭提示消息
+    BOX_MSG_NO_POWER,      // 没有电源提示消息
+    BOX_MSG_MEM_ERR,       // 内存错误提示消息
+    BOX_MSG_NO_MEM,        // 没有内存提示消息
+    BOX_MSG_NEED_FORMAT,   // 需要格式化提示消息
+    BOX_MSG_INSERT_SD,     // 提示插入SD卡
+    BOX_MSG_SD_WRITE_ERR,  // SD卡写入错误提示消息
+    //  BOX_MSG_EXIT_APP,      // 退出应用程序提示消息
+    BOX_MSG_RECORDING,     // 正在录制提示消息
+    BOX_MSG_POTO,          // 切换到全屏提示消息
+    BOX_MSG_NO_CAMERA,     // 没有摄像头提示消息
 
-    /* BOX_MSG_DEFAULT_SET, */
-    /* BOX_MSG_FORMATTING, */
-    /* BOX_MSG_10S_SHUTDOWN, */
-    /* BOX_MSG_SD_ERR, */
+    /* BOX_MSG_DEFAULT_SET, */   // 备用消息，注释掉的默认设置提示消息
+    /* BOX_MSG_FORMATTING, */    // 备用消息，注释掉的格式化中提示消息
+    /* BOX_MSG_10S_SHUTDOWN, */  // 备用消息，注释掉的10秒
 };
+
 static u8 msg_show_f = 0;
 static enum box_msg msg_show_id = 0;
 static void __rec_msg_hide(enum box_msg id)
@@ -1133,11 +1137,13 @@ static void __rec_msg_hide(enum box_msg id)
         if (msg_show_f) {
             msg_show_f = 0;
             ui_hide(ENC_LAY_MESSAGEBOX);
+            ui_hide(ENC_LAY_MESSAGEBOX1);
         }
     } else if (id == 0) { /* 没有指定ID，强制隐藏 */
         if (msg_show_f) {
             msg_show_f = 0;
             ui_hide(ENC_LAY_MESSAGEBOX);
+            ui_hide(ENC_LAY_MESSAGEBOX1);
         }
     }
 }
@@ -1147,43 +1153,48 @@ static void __rec_msg_timeout_func(void *priv)
 }
 static void __rec_msg_show(enum box_msg msg, u32 timeout_msec)
 {
-    static int t_id = 0;
+    static int t_id = 0; // 静态变量，用于存储超时任务ID
     if (msg == 0) {
-        ASSERT(0, "__rec_msg_show msg 0!\n");
+        ASSERT(0, "__rec_msg_show msg 0!\n"); // 如果消息为0，触发断言并输出错误信息
         return;
     }
 
-    if (msg == msg_show_id) {
-        if (msg_show_f == 0) {
-            msg_show_f = 1;
-            ui_show(ENC_LAY_MESSAGEBOX);
-            ui_text_show_index_by_id(ENC_TXT_MESSAGEBOX, msg - 1);
-            /* ui_show(ENC_TXT_MESSAGEBOX_1); */
-            if (t_id) {
-                sys_timeout_del(t_id);
-                t_id = 0;
+    if (msg == msg_show_id) { // 如果当前要显示的消息与上次相同
+        if (msg_show_f == 0) { // 如果消息未显示
+            msg_show_f = 1; // 设置消息显示标志为1
+            ui_show(ENC_LAY_MESSAGEBOX); // 显示消息框
+            ui_show(ENC_LAY_MESSAGEBOX1); // 显示消息框
+            ui_text_show_index_by_id(ENC_TXT_MESSAGEBOX, msg - 1); // 显示消息文本
+            ui_text_show_index_by_id(ENC_TXT_MESSAGEBOX1, msg - 1); // 显示消息文本
+            /* ui_show(ENC_TXT_MESSAGEBOX_1); */ // 备用代码，注释掉的额外文本显示
+            if (t_id) { // 如果存在超时任务
+                sys_timeout_del(t_id); // 取消之前的超时任务
+                t_id = 0; // 重置任务ID
             }
-            if (timeout_msec > 0) {
-                t_id = sys_timeout_add((void *)msg, __rec_msg_timeout_func, timeout_msec);
+            if (timeout_msec > 0) { // 如果设置了超时时间
+                t_id = sys_timeout_add((void *)msg, __rec_msg_timeout_func, timeout_msec); // 创建新的超时任务
             }
         }
-    } else {
-        msg_show_id = msg;
-        if (msg_show_f == 0) {
-            msg_show_f = 1;
-            ui_show(ENC_LAY_MESSAGEBOX);
+    } else { // 如果当前要显示的消息与上次不同
+        msg_show_id = msg; // 更新消息ID
+        if (msg_show_f == 0) { // 如果消息未显示
+            msg_show_f = 1; // 设置消息显示标志为1
+            ui_show(ENC_LAY_MESSAGEBOX); // 显示消息框
+            ui_show(ENC_LAY_MESSAGEBOX1); // 显示消息框
         }
-        ui_text_show_index_by_id(ENC_TXT_MESSAGEBOX, msg - 1);
-            //    ui_show(ENC_TXT_MESSAGEBOX_1);//显示提示
-        if (t_id) {
-            sys_timeout_del(t_id);
-            t_id = 0;
+        ui_text_show_index_by_id(ENC_TXT_MESSAGEBOX, msg - 1); // 显示消息文本
+        ui_text_show_index_by_id(ENC_TXT_MESSAGEBOX1, msg - 1); // 显示消息文本
+        // ui_show(ENC_TXT_MESSAGEBOX_1); // 显示提示文本（注释掉的备用代码）
+        if (t_id) { // 如果存在超时任务
+            sys_timeout_del(t_id); // 取消之前的超时任务
+            t_id = 0; // 重置任务ID
         }
-        if (timeout_msec > 0) {
-            t_id = sys_timeout_add((void *)msg, __rec_msg_timeout_func, timeout_msec);
+        if (timeout_msec > 0) { // 如果设置了超时时间
+            t_id = sys_timeout_add((void *)msg, __rec_msg_timeout_func, timeout_msec); // 创建新的超时任务
         }
     }
 }
+
 /*
  * (end)
  */
@@ -1253,7 +1264,7 @@ static void menu_rec_set_res(int sel_item)
 static void menu_rec_set_mic(int sel_item)
 {
     struct intent it; // 定义一个意图结构体变量
-    __this->mic = sel_item; // 将选择的麦克风选项保存到当前对象的 mic 成员
+    // __this->mic = sel_item; // 将选择的麦克风选项保存到当前对象的 mic 成员
     init_intent(&it); // 初始化意图
     it.name = "video_rec"; // 设置意图的目标应用名称为 "video_rec"
     it.action = ACTION_VIDEO_REC_SET_CONFIG; // 设置意图的动作为设置视频录制配置
@@ -1799,7 +1810,7 @@ static int video_mode_onchange(void *ctr, enum element_change_event e, void *arg
             ui_hide(ENC_SET_WIN);
         }
         if (__this->page_exit == HOME_SW_EXIT) {
-//            ui_show(ID_WINDOW_MAIN_PAGE);
+        //    ui_show(ID_WINDOW_MAIN_PAGE);
         }
         __rec_msg_hide(0);//强制隐藏消息框
 
@@ -1950,13 +1961,13 @@ static int rec_layout_up_onchange(void *ctr, enum element_change_event e, void *
 #endif
 
         // 显示视频循环录制时间
-        index = index_of_table8(db_select("cyc"), TABLE(table_video_cycle));
-        if (index != 0) {
-            // ui_pic_show_image_by_id(ENC_PIC_CYCLE, index);
-        }
+        // index = index_of_table8(db_select("cyc"), TABLE(table_video_cycle));
+        // // if (index != 0) {
+        // //     ui_pic_show_image_by_id(ENC_PIC_CYCLE, index);
+        // // }
 
-        // 显示视频间隔拍摄时间
-        index = index_of_table16(db_select("gap"), TABLE(table_video_gap));
+        // // 显示视频间隔拍摄时间
+        // index = index_of_table16(db_select("gap"), TABLE(table_video_gap));
         // if (index) {
         //     // ui_pic_show_image_by_id(ENC_PIC_DELAY, index);
         // }
@@ -1983,6 +1994,16 @@ static int rec_layout_up_onchange(void *ctr, enum element_change_event e, void *
             ui_show(ENC_TIM_REC);     // 显示正在录像的时间
             // ui_show(ENC_ANI_REC_HL);  // 显示录像中的动画效果
             ui_highlight_element_by_id(ENC_PIC_REC);
+        }
+        if(db_select("wfo")){  // 如果数据库查询“wfo”返回为真（即查询成功或有记录）
+            ui_pic_show_image_by_id(PIC_REC_WIFI, 3);  // 根据wifi_app_flag显示WiFi图标对应的状态
+        }else{
+            ui_pic_show_image_by_id(PIC_REC_WIFI, 0);
+        }
+        if(db_select("yta")){
+            ui_show(ENC_BTN_SPIN);
+        } else{
+            ui_hide(ENC_BTN_SPIN);
         }
         //  if(db_select("wfo")){  // 如果数据库查询“wfo”返回为真（即查询成功或有记录）
         //     //ui_pic_show_image_by_id(PIC_REC_WIFI, wifi_app_flag);  // 根据wifi_app_flag显示WiFi图标对应的状态
@@ -2148,9 +2169,9 @@ REGISTER_UI_EVENT_HANDLER(ENC_LT_SIX)
 //     switch (e) {
 //     case ON_CHANGE_INIT:
 //         if (db_select("mic")) {
-//             ui_pic_set_image_index(pic, 1);    /* 禁止录音 */
+//             // ui_pic_set_image_index(pic, 1);    /* 禁止录音 */
 //         } else {
-//             ui_pic_set_image_index(pic, 0);
+//             // ui_pic_set_image_index(pic, 0);
 //         }
 //         return TRUE;
 //     default:
@@ -2532,9 +2553,11 @@ static int pic_sd_rec_onchange(void *ctr, enum element_change_event e, void *arg
         break;
      case ON_CHANGE_FIRST_SHOW:
         if (storage_device_ready() == 0) {
-            ui_pic_set_image_index(pic, 0);
+            ui_pic_show_image_by_id(ENC_PIC_SD, 0);
+            // ui_pic_set_image_index(pic, 0);
         } else {
-            ui_pic_set_image_index(pic, 1);
+            ui_pic_show_image_by_id(ENC_PIC_SD, 1);
+            // ui_pic_set_image_index(pic, 1);
         }
 
         break;
@@ -2669,51 +2692,49 @@ REGISTER_UI_EVENT_HANDLER(ENC_SET_EN1) // 注册UI事件处理器，处理ENC_BT
 
 /***************************** 按下隐藏两边菜单 ************************************/
 static int is_six_shown = 0; // 静态变量，用于跟踪当前按钮的显示状态
-static int rec_seten2_ontouch(void *ctr, struct element_touch_event *e)
-{
 
+static int rec_seten2_ontouch(void *ctr, struct element_touch_event *e) {
     struct intent it; // 定义意图结构
     struct application *app; // 定义应用程序结构
-    UI_ONTOUCH_DEBUG("**rec set ontouch**"); // 输出调试信息，表示进入了触摸处理函数
+    UI_ONTOUCH_DEBUG("**rec set ontouch**"); // 输出调试信息，表示进入触摸处理函数
 
-    switch (e->event) { // 根据触摸事件类型进行处理
+    switch (e->event) {
     case ELM_EVENT_TOUCH_DOWN: // 触摸按下事件
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n"); // 输出调试信息，表示触摸按下
-        // screen_light_set();
-
+        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n"); // 输出调试信息
         break;
 
     case ELM_EVENT_TOUCH_HOLD: // 触摸保持事件
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_HOLD\n"); // 输出调试信息，表示触摸保持
+        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_HOLD\n"); // 输出调试信息
         break;
 
     case ELM_EVENT_TOUCH_MOVE: // 触摸移动事件
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n"); // 输出调试信息，表示触摸移动
+        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n"); // 输出调试信息
         break;
 
     case ELM_EVENT_TOUCH_UP: // 触摸抬起事件
-        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n"); // 输出调试信息，表示触摸抬起
-    if(  is_setting_shown == 0){
-        if (is_six_shown) {
-            ui_hide(ENC_LT_TC);
-            // ui_hide(ENC_LT_SIX2);
-            is_six_shown = 0; // 更新状态为关闭
-            ui_no_highlight_element_by_id(ENC_SET_WIN_2);
+        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n"); // 输出调试信息
+        if (is_setting_shown == 0) {
+            if (is_six_shown) {
+                ui_hide(ENC_LT_TC);
+                is_six_shown = 0; // 更新状态为关闭
+                ui_no_highlight_element_by_id(ENC_SET_WIN_2);
+            } else {
+                ui_show(ENC_LT_TC);
+                is_six_shown = 1; // 更新状态为打开
+            }
         } else {
-            ui_show(ENC_LT_TC);
-            // ui_show(ENC_LT_SIX2);
-            is_six_shown = 1; // 更新状态为打开
-        }
-    }else{
-        return false;
+            return 0; // 返回0表示事件未处理
         }
         break;
+
+    default:
+        break;
     }
-    return 1; // 返回false表示未处理完事件，事件继续传递
+    return 1; // 返回1表示成功处理事件
 }
 
-REGISTER_UI_EVENT_HANDLER(ENC_SET_EN2) // 注册UI事件处理器，处理ENC_BTN_SETTING按钮的触摸事件
-.ontouch = rec_seten2_ontouch, // 设置触摸处理函数为rec_set_ontouch
+REGISTER_UI_EVENT_HANDLER(ENC_SET_EN2) // 注册UI事件处理器
+.ontouch = rec_seten2_ontouch, // 设置触摸处理函数为rec_seten2_ontouch
 };
 
 
@@ -2914,7 +2935,6 @@ static int rec_control_ontouch(void *ctr, struct element_touch_event *e)
 
     return false;  // 返回 false 以指示未处理事件
 }
-
 REGISTER_UI_EVENT_HANDLER(ENC_BTN_REC)
 .ontouch = rec_control_ontouch,  // 注册触摸事件处理程序
 };
@@ -3064,7 +3084,6 @@ static int rec_in_tph_ontouch(void *ctr, struct element_touch_event *e)
         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
         if(shot_flag==0){
             if (if_in_rec == TRUE) {
-                printf("noluxiangpaizhao\n");
               //  printf("\nahd_view_show_status================== %d\n",ahd_view_show_status);
 //            sys_key_event_disable();
 //           video_rec_take_photo();
@@ -3075,7 +3094,6 @@ static int rec_in_tph_ontouch(void *ctr, struct element_touch_event *e)
             ui_show(ENC_PO_PT);
             break;
         }else {
-            printf("luxiangpaizhao\n");
             it.name = "video_rec";
             it.action = ACTION_REC_TAKE_PHOTO;
             start_app_async(&it, NULL, NULL); //不等待直接启动app
@@ -3091,12 +3109,69 @@ REGISTER_UI_EVENT_HANDLER(ENC_BTN_VIDEO)
 .ontouch = rec_in_tph_ontouch,
 };
 
+// static int file_browse_ontouch(void *ctr, struct element_touch_event *e)
+// {
+//     UI_ONTOUCH_DEBUG("**file_browse ontouch**");  // 输出调试信息，标识触摸事件处理
+//     if (is_setting_shown == 1) {  // 如果设置界面已显示，则忽略触摸事件
+//         return 1;
+//     }
+
+//     struct intent it;  // 定义意图结构体，用于启动或控制应用行为
+//     struct application *app;  // 定义指向当前应用的指针
+//     init_intent(&it);  // 初始化意图结构体
+
+//     // 根据触摸事件类型进行不同的处理
+//     switch (e->event) {
+//     case ELM_EVENT_TOUCH_DOWN:  // 触摸按下事件
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");  // 输出调试信息
+//         break;
+//     case ELM_EVENT_TOUCH_HOLD:  // 触摸保持事件
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_HOLD\n");  // 输出调试信息
+//         break;
+//     case ELM_EVENT_TOUCH_MOVE:  // 触摸移动事件
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");  // 输出调试信息
+//         break;
+//     case ELM_EVENT_TOUCH_UP:  // 触摸抬起事件
+//         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");  // 输出调试信息
+
+//         // 获取当前运行的应用程序实例
+//         app = get_current_app();
+//         if (app) {  // 如果当前存在应用程序
+//             printf("Current app: %s\n", app->name);  // 打印出当前的应用程序名称
+//             it.name = app->name;  // 设置意图名称为当前应用名
+//             it.action = ACTION_BACK;  // 设置意图操作为返回
+//             start_app_async(&it, app_action_back_ok, NULL);  // 异步启动返回操作
+//         } else {  // 如果没有当前应用
+//             ui_hide(ui_get_current_window_id());  // 隐藏当前窗口
+//         }
+//         //NET_VIDREC_STA_STOP
+//         // 启动 "video_dec" 应用的主操作
+//         it.name = "video_dec";  // 设置意图名称为 "video_dec"
+//         it.action = ACTION_VIDEO_DEC_MAIN;  // 设置意图操作为主操作
+//         start_app_async(&it, file_browse_ok, NULL);  // 异步启动应用
+//         break;
+//     }
+//     return false;  // 返回false，表示不阻止事件继续传递
+// }
+
+// // 注册触摸事件处理函数到 HOME_BTN_FILE 按钮
+// REGISTER_UI_EVENT_HANDLER(HOME_BTN_FILE)
+// .ontouch = file_browse_ontouch,
+// };
+
+
+int show_tips(int p)
+{
+    __rec_msg_show(BOX_MSG_RECORDING, 2000); // 显示“正在录制”的提示消息，显示持续2000毫秒
+    return 0; // 返回0，表示函数成功完成
+}
+int show_tips_po(int p){
+    __rec_msg_show(BOX_MSG_POTO, 2000); // 显示“切换到全屏”的提示消息，显示持续2000毫秒
+    return 0;
+}
 static int file_browse_ontouch(void *ctr, struct element_touch_event *e)
 {
     UI_ONTOUCH_DEBUG("**file_browse  ontouch**");
-    if(is_setting_shown == 1){
-                return 1;
-    }
     struct intent it;
     struct application *app;
     switch (e->event) {
@@ -3111,27 +3186,39 @@ static int file_browse_ontouch(void *ctr, struct element_touch_event *e)
         break;
     case ELM_EVENT_TOUCH_UP:
         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-           //ui_set_call(show_tips, 0);
-        app = get_current_app();
-        if (app) {
-            init_intent(&it);
-            it.name = app->name;
-            it.action = ACTION_BACK;
-            start_app_async(&it, app_action_back_ok, NULL);
-        } else {
-            ui_hide(ui_get_current_window_id());
-        }
+       if (if_in_rec == TRUE) {
+          ui_set_call(show_tips, 0);
+           puts("It is in rec,can't switch mode.\n");
+           break;
+       }
         init_intent(&it);
+        app = get_current_app();
+        if(app->name == "video_system") {
+            it.name = "video_rec";
+            it.action = ACTION_REC_CAP_TAKE_PHOTO;
+            start_app_async(&it, NULL, NULL);
+        }
+        if (app) {
+            __this->page_exit = MODE_SW_EXIT;
+            it.name = "video_rec";
+            it.action = ACTION_BACK;
+            start_app_async(&it, NULL, NULL); //不等待直接启动app
+
             it.name = "video_dec";
             it.action = ACTION_VIDEO_DEC_MAIN;
-        start_app_async(&it, file_browse_ok, NULL);
+            start_app_async(&it, NULL, NULL);
+        }
         break;
     }
     return false;
 }
-REGISTER_UI_EVENT_HANDLER(HOME_BTN_FILE)
+REGISTER_UI_EVENT_HANDLER(ENC_BTN_FILE)
 .ontouch = file_browse_ontouch,
 };
+
+
+
+
 
 
 extern  void get_ahd_yuv_init(const char *camera_name,void (*cb)(u8 *data));
@@ -3452,7 +3539,9 @@ static int toggle_mic_ontouch(void *ctr, struct element_touch_event *e)
             // ui_show(ENC_BTN_SPIN);
             ui_highlight_element_by_id(ENC_BTN_MU);
             ui_no_highlight_element_by_id(ENC_BTN_MU_2);
+            menu_rec_set_mic(1);
             db_update("mic", 1);
+            db_flush();
 
     }
     return 1; // 返回1表示事件处理完成
@@ -3486,7 +3575,9 @@ static int toggle_mic1_ontouch(void *ctr, struct element_touch_event *e)
             // ui_show(ENC_BTN_SPIN);
             ui_highlight_element_by_id(ENC_BTN_MU_2);
             ui_no_highlight_element_by_id(ENC_BTN_MU);
+            menu_rec_set_mic(0);
             db_update("mic", 0);
+            db_flush();
 
     }
     return 1; // 返回1表示事件处理完成
@@ -3634,6 +3725,7 @@ static int toggle_SY1_ontouch(void *ctr, struct element_touch_event *e)
             ui_highlight_element_by_id(ENC_BTN_SY1);
             ui_no_highlight_element_by_id(ENC_BTN_SY);
             db_update("dat", 0);
+            db_flush();
 
     }
     return 1; // 返回1表示事件处理完成
@@ -3659,7 +3751,11 @@ static int channel_1_ontouch(void *ctr, struct element_touch_event *e)
     switch (e->event) {
     case ELM_EVENT_TOUCH_UP:
         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-
+        if (if_in_rec == TRUE) {
+          ui_set_call(show_tips, 0);
+           puts("It is in rec,can't switch mode.\n");
+           break;
+       }
         // 更新UI显示
         ui_highlight_element_by_id(ENC_BTN_CHANNEL_1); // 选中通道1的按钮
         ui_no_highlight_element_by_id(ENC_BTN_CHANNEL_2); // 选中通道1的按钮
@@ -3686,7 +3782,11 @@ static int channel_2_ontouch(void *ctr, struct element_touch_event *e)
     switch (e->event) {
     case ELM_EVENT_TOUCH_UP:
         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-
+        if (if_in_rec == TRUE) {
+          ui_set_call(show_tips, 0);
+           puts("It is in rec,can't switch mode.\n");
+           break;
+       }
         // 更新UI显示
         ui_no_highlight_element_by_id(ENC_BTN_CHANNEL_1); // 选中通道1的按钮
         ui_highlight_element_by_id(ENC_BTN_CHANNEL_2); // 选中通道1的按钮
@@ -3711,7 +3811,11 @@ static int channel_3_ontouch(void *ctr, struct element_touch_event *e)
     switch (e->event) {
     case ELM_EVENT_TOUCH_UP:
         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-
+        if (if_in_rec == TRUE) {
+          ui_set_call(show_tips, 0);
+           puts("It is in rec,can't switch mode.\n");
+           break;
+       }
         // 更新UI显示
         ui_no_highlight_element_by_id(ENC_BTN_CHANNEL_1); // 选中通道1的按钮
         ui_no_highlight_element_by_id(ENC_BTN_CHANNEL_2); // 选中通道1的按钮
@@ -3737,7 +3841,11 @@ static int channel_4_ontouch(void *ctr, struct element_touch_event *e)
     switch (e->event) {
     case ELM_EVENT_TOUCH_UP:
         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
-
+        if (if_in_rec == TRUE) {
+          ui_set_call(show_tips, 0);
+           puts("It is in rec,can't switch mode.\n");
+           break;
+       }
         // 更新UI显示
         ui_no_highlight_element_by_id(ENC_BTN_CHANNEL_1); // 选中通道1的按钮
         ui_no_highlight_element_by_id(ENC_BTN_CHANNEL_2); // 选中通道1的按钮
@@ -4962,8 +5070,52 @@ REGISTER_UI_EVENT_HANDLER(ENC_LIGHT)
 // REGISTER_UI_EVENT_HANDLER(ENC_SET_PIC_EXP)
 // .ontouch = menu_exp_ontouch,
 // };
+// extern sys_pwm_freq_ctrl(u8 ch, u64 freq);
+// extern sys_pwm_ctrl(u8 ch, u8 duty);
 
 
+// #define PWM_FREQ_STEP 50   // 频率步长 100Hz
+// #define PWM_DUTY_STEP 5     // 占空比步长 5%
+
+// // PWM初始化值
+// u64 current_freq = 50;  // 默认频率1kHz
+// u8 current_duty = 50;     // 默认占空比50%
+
+// /* 调整频率 */
+// void adjust_pwm_freq(u8 direction)
+// {
+//     if (direction == 0) {  // 增加频率
+//         current_freq += PWM_FREQ_STEP;
+//     } else if (direction == 1) {  // 减小频率
+//         if (current_freq > PWM_FREQ_STEP) {
+//             current_freq -= PWM_FREQ_STEP;
+//         }
+//     }
+
+//     // 更新频率
+//     sys_pwm_freq_ctrl(7, current_freq);  // 假设0为PWM通道
+//     printf("Updated Frequency: %llu Hz\n", current_freq);
+//     printf("NOWUpdated Duty Cycle: %d%%\n", current_duty);
+// }
+
+// /* 调整占空比 */
+// void adjust_pwm_duty(u8 direction)
+// {
+//     if (direction == 0) {  // 增加占空比
+//         if (current_duty < 100) {
+//             current_duty += PWM_DUTY_STEP;
+//         }
+//     } else if (direction == 1) {  // 减小占空比
+//         if (current_duty > PWM_DUTY_STEP) {
+//             current_duty -= PWM_DUTY_STEP;
+//         }
+//     }
+
+//     // 更新占空比
+//     sys_pwm_ctrl(7, current_duty);  // 假设0为PWM通道
+//     printf("Updated Duty Cycle: %d%%\n", current_duty);
+//     printf("NOWUpdated Frequency: %llu Hz\n", current_freq);
+// }
 
 
 
@@ -5002,6 +5154,8 @@ extern int spec_uart_test_main(void);
 extern void key_voice_start(int id);
 extern spec_uart_send(char *buf, u32 len);
 static unsigned char buf[1];
+
+extern switch_lcd();
 static int enc_onkey(void *ctr, struct element_key_event *e)//PB3.2按键版事件
 {
     struct intent it;
@@ -5025,6 +5179,36 @@ static int enc_onkey(void *ctr, struct element_key_event *e)//PB3.2按键版事�
             ui_pic_show_image_by_id(ENC_BL_1, 0);
             is_led1_selected = true;
         }
+        return true;
+    }
+    if (e->event == KEY_EVENT_HOLD && e->value == KEY_2) {
+        buf[0] = 0x01;  // 将要发送的数据放入缓冲区
+        spec_uart_send(buf, sizeof(buf));  // 发送缓冲区
+        return true;
+    }
+    if (e->event == KEY_EVENT_HOLD && e->value == KEY_3) {
+        buf[0] = 0x40;  // 将要发送的数据放入缓冲区
+        spec_uart_send(buf, sizeof(buf));  // 发送缓冲区
+        return true;
+    }
+    if (e->event == KEY_EVENT_HOLD && e->value == KEY_4) {
+        buf[0] = 0x10;  // 将要发送的数据放入缓冲区
+        spec_uart_send(buf, sizeof(buf));  // 发送缓冲区
+        return true;
+    }
+    if (e->event == KEY_EVENT_HOLD && e->value == KEY_11) {
+        buf[0] = 0x80;  // 将要发送的数据放入缓冲区
+        spec_uart_send(buf, sizeof(buf));  // 发送缓冲区
+        return true;
+    }
+    if (e->event == KEY_EVENT_HOLD && e->value == KEY_5) {
+        buf[0] = 0x02;  // 将要发送的数据放入缓冲区
+        spec_uart_send(buf, sizeof(buf));  // 发送缓冲区
+        return true;
+    }
+    if (e->event == KEY_EVENT_HOLD && e->value == KEY_OK) {
+        buf[0] = 0x20;  // 将要发送的数据放入缓冲区
+        spec_uart_send(buf, sizeof(buf));  // 发送缓冲区
         return true;
     }
 
@@ -5062,6 +5246,7 @@ static int enc_onkey(void *ctr, struct element_key_event *e)//PB3.2按键版事�
         case KEY_OK: // OK键处理
             buf[0] = 0x20;  // 将要发送的数据放入缓冲区
             spec_uart_send(buf, sizeof(buf));  // 发送缓冲区
+            // adjust_pwm_duty(1); // 减小占空比
             break;
         case KEY_1: // 拍照键处理
             // __this->key_disable = 1; // 禁用按键
@@ -5074,19 +5259,24 @@ static int enc_onkey(void *ctr, struct element_key_event *e)//PB3.2按键版事�
             // shot_flag=1;
             // shot_flag=0;
             break;
-        case KEY_2: // 右键处理
+        case KEY_2:
             buf[0] = 0x01;  // 将要发送的数据放入缓冲区
             spec_uart_send(buf, sizeof(buf));  // 发送缓冲区
         break;
-        case KEY_3: // 右键处理
+        case KEY_3:
             buf[0] = 0x40;  // 将要发送的数据放入缓冲区
             spec_uart_send(buf, sizeof(buf));  // 发送缓冲区
+            // adjust_pwm_freq(0); // 增加频率
         break;
-        case KEY_4: // 右键处理
-            buf[0] = 0x10;  // 将要发送的数据放入缓冲区
-            spec_uart_send(buf, sizeof(buf));  // 发送缓冲区
+        case KEY_4:
+            printf("switch lcd\n");
+            switch_lcd();/*双屏切换*/
+            printf("switch lcd2\n");
+            // buf[0] = 0x10;  // 将要发送的数据放入缓冲区
+            // spec_uart_send(buf, sizeof(buf));  // 发送缓冲区
+//            adjust_pwm_duty(0); // 增加频率
         break;
-        case KEY_5: // 右键处理
+        case KEY_5:
             buf[0] = 0x02;  // 将要发送的数据放入缓冲区
             spec_uart_send(buf, sizeof(buf));  // 发送缓冲区
         break;
@@ -5188,6 +5378,7 @@ static int enc_onkey(void *ctr, struct element_key_event *e)//PB3.2按键版事�
         case KEY_11:
             buf[0] = 0x80;  // 将要发送的数据放入缓冲区
             spec_uart_send(buf, sizeof(buf));  // 发送缓冲区
+            // adjust_pwm_freq(1);//减小频率
         break;
         case KEY_8:  // 窗口切换
             // __this->key_disable = 1;
@@ -5195,6 +5386,11 @@ static int enc_onkey(void *ctr, struct element_key_event *e)//PB3.2按键版事�
             // it.name = "video_rec";
             // it.action = ACTION_VIDEO_REC_CONTROL;
             // start_app_async(&it, rec_control_ok, NULL);
+            if (if_in_rec == TRUE) {
+            ui_set_call(show_tips, 0);
+            puts("It is in rec,can't switch mode.\n");
+            break;
+            }
             switch_camera_disp();//窗口切换函数
             break;
 
@@ -5770,7 +5966,7 @@ static void sys_menu_tim_show()
     // 如果无法打开 RTC 设备（fd 为空），则初始化时间为默认值
     if (!fd) {
         // 初始化时间为默认值：2000-01-01 00:00:00
-        t.year = 2000;
+        t.year = 2024;
         t.month = 1;
         t.day = 1;
         t.hour = 0;
@@ -6704,24 +6900,34 @@ static int set_aspect_ratio_16_9_ontouch(void *ctr, struct element_touch_event *
         break;
     case ELM_EVENT_TOUCH_UP:
         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP - 16:9\n");
+        if (if_in_rec == TRUE) {
+          ui_set_call(show_tips, 0);
+           puts("It is in rec,can't switch mode.\n");
+           break;
+       }
         // 先停止当前显示的窗口
         video_disp_stop(1);  // 停止显示窗口 1（假设在窗口 1 上显示）
         video_disp_stop(2);
         video_disp_stop(3);
         // 设置为 16:9 比例
         // video_set_disp_window_with_aspect_ratio(16.0f / 9.0f);  // 调用裁剪函数，设置16:9
+
         set_display_window(0); // 设置显示窗口
         set_display_crop(0);  // 设置裁剪 16:9
+
         ui_highlight_element_by_id(BTN_SET_16_9);  // 高亮新选择的元素
         ui_no_highlight_element_by_id(BTN_SET_4_3);
         ui_no_highlight_element_by_id(BTN_SET_1_1);
+        ui_hide(ENC_SET_WIN0);  // 隐藏当前布局
+        is_setting_shown = 0;
+        ui_no_highlight_element_by_id(ENC_SET_WIN_2);
         db_update("aro", 0); // 更新数据库记录当前图像比例索引
         db_flush();
         break;
     default:
-        return false;
+        break;
     }
-    return false;
+    return 1;
 }
 
 /**
@@ -6743,24 +6949,34 @@ static int set_aspect_ratio_4_3_ontouch(void *ctr, struct element_touch_event *e
         break;
     case ELM_EVENT_TOUCH_UP:
         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP - 4:3\n");
+        if (if_in_rec == TRUE) {
+          ui_set_call(show_tips, 0);
+           puts("It is in rec,can't switch mode.\n");
+           break;
+       }
         // 先停止当前显示的窗口
         video_disp_stop(1);  // 停止显示窗口 1（假设在窗口 1 上显示）
         video_disp_stop(2);
         video_disp_stop(3);
         // 设置为 4:3 比例
         // video_set_disp_window_with_aspect_ratio(4.0f / 3.0f);  // 调用裁剪函数，设置4:3
+
         set_display_window(1); // 设置显示窗口
         set_display_crop(1);  // 设置裁剪 4:3
+
         ui_highlight_element_by_id(BTN_SET_4_3);  // 高亮新选择的元素
         ui_no_highlight_element_by_id(BTN_SET_16_9);
         ui_no_highlight_element_by_id(BTN_SET_1_1);
+        ui_hide(ENC_SET_WIN0);  // 隐藏当前布局
+        is_setting_shown = 0;
+        ui_no_highlight_element_by_id(ENC_SET_WIN_2);
         db_update("aro", 1); // 更新数据库记录当前图像比例索引
         db_flush();
         break;
     default:
-        return false;
+        break;
     }
-    return false;
+    return 1;
 }
 
 /**
@@ -6782,29 +6998,36 @@ static int set_aspect_ratio_1_1_ontouch(void *ctr, struct element_touch_event *e
         break;
     case ELM_EVENT_TOUCH_UP:
         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP - 1:1\n");
+        if (if_in_rec == TRUE) {
+          ui_set_call(show_tips, 0);
+           puts("It is in rec,can't switch mode.\n");
+           break;
+       }
         // 先停止当前显示的窗口
         video_disp_stop(1);  // 停止显示窗口 1（假设在窗口 1 上显示）
         video_disp_stop(2);
         video_disp_stop(3);
         // 设置为 1:1 比例
         // video_set_disp_window_with_aspect_ratio(1.0f);  // 调用裁剪函数，设置1:1
+
         set_display_window(2); // 设置显示窗口
         set_display_crop(2);  // 设置裁剪 1:1
+
         ui_highlight_element_by_id(BTN_SET_1_1);  // 高亮新选择的元素
         ui_no_highlight_element_by_id(BTN_SET_16_9);
         ui_no_highlight_element_by_id(BTN_SET_4_3);
+        ui_hide(ENC_SET_WIN0);  // 隐藏当前布局
+        is_setting_shown = 0;
+        ui_no_highlight_element_by_id(ENC_SET_WIN_2);
         db_update("aro", 2); // 更新数据库记录当前图像比例索引
         db_flush();
         break;
     default:
-        return false;
+        break;
     }
-    return false;
+    return 1;
 }
 
-/**
- * @brief 注册 1:1 按钮触摸事件
- */
 REGISTER_UI_EVENT_HANDLER(BTN_SET_1_1)
 .ontouch =  set_aspect_ratio_1_1_ontouch,
 };
@@ -6830,6 +7053,7 @@ static int btn_down_ontouch(void *ctr, struct element_touch_event *e)
     UI_ONTOUCH_DEBUG("**Down Button Ontouch**");
 
     switch (e->event) {
+
     case ELM_EVENT_TOUCH_UP:
         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
         spec_uart_send("\x20", 1);  // 发送下按钮命令
@@ -6843,6 +7067,7 @@ static int btn_left_ontouch(void *ctr, struct element_touch_event *e)
     UI_ONTOUCH_DEBUG("**Left Button Ontouch**");
 
     switch (e->event) {
+
     case ELM_EVENT_TOUCH_UP:
         UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
         spec_uart_send("\x80", 1);  // 发送左按钮命令
@@ -6881,6 +7106,72 @@ REGISTER_UI_EVENT_HANDLER(ENC_BTN_RIGHT)
 };
 
 
+
+
+
+
+
+
+
+/***************************** 格式化SD卡 ************************************/
+static int toggle_NO_ontouch(void *ctr, struct element_touch_event *e)
+{
+    struct ui_pic *pic = (struct ui_pic *)ctr; // 获取图标控件的指针
+
+    UI_ONTOUCH_DEBUG("**toggle gimbal ontouch**");
+
+    switch (e->event) {
+    case ELM_EVENT_TOUCH_DOWN:
+        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
+        break;
+    case ELM_EVENT_TOUCH_HOLD:
+        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_HOLD\n");
+        break;
+    case ELM_EVENT_TOUCH_MOVE:
+        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
+        break;
+    case ELM_EVENT_TOUCH_UP:
+        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+        if (if_in_rec == TRUE) {
+          ui_set_call(show_tips, 0);
+           puts("It is in rec,can't switch mode.\n");
+           break;
+       }
+            ui_show(SYS_SD_NO); // 显示格式化界面
+            // ui_highlight_element_by_id(ENC_BTN_NO); // 设置图标为开启按钮
+            // menu_sys_format_set(1); // 如果存储设备准备就绪，则执行格式化操作
+            // ui_text_show_index_by_id(SYS_TXT_WARNING_BODY, 3); // 显示“格式化中...”的文本
+            // printf("SDSDSDSDSDSDSDDDDDDDDDDDDDDDDDDDDDDDDDDD\n");
+    }
+    return 0; // 返回1表示事件处理完成
+}
+REGISTER_UI_EVENT_HANDLER(ENC_BTN_NO)
+.ontouch = toggle_NO_ontouch,
+};
+
+static int toggle_OFF_ontouch(void *ctr, struct element_touch_event *e)
+{
+    struct ui_pic *pic = (struct ui_pic *)ctr; // 获取图标控件的指针
+
+    switch (e->event) {
+    case ELM_EVENT_TOUCH_DOWN:
+        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_DOWN\n");
+        break;
+    case ELM_EVENT_TOUCH_HOLD:
+        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_HOLD\n");
+        break;
+    case ELM_EVENT_TOUCH_MOVE:
+        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_MOVE\n");
+        break;
+    case ELM_EVENT_TOUCH_UP:
+        UI_ONTOUCH_DEBUG("ELM_EVENT_TOUCH_UP\n");
+        ui_hide(SYS_SD_NO); // 显示格式化界面
+    }
+    return 0; // 返回1表示事件处理完成
+}
+REGISTER_UI_EVENT_HANDLER(ENC_SD_OFF)
+.ontouch = toggle_OFF_ontouch,
+};
 
 
 
